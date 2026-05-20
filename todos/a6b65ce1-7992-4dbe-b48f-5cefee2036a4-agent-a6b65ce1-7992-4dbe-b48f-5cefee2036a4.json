@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate API endpoint — check if pipeline_events output data is being returned",
+    "status": "completed",
+    "activeForm": "Investigating API endpoint data gap"
+  },
+  {
+    "content": "Update /api/pipeline/:runId/details to return per-phase output from pipeline_events",
+    "status": "completed",
+    "activeForm": "Updating API endpoint with phase output data"
+  },
+  {
+    "content": "Add expand/collapse state + click handler to PhaseCard.tsx",
+    "status": "completed",
+    "activeForm": "Adding expand/collapse to PhaseCard"
+  },
+  {
+    "content": "Build phase-specific detail renderers for expanded content",
+    "status": "completed",
+    "activeForm": "Building phase-specific detail components"
+  },
+  {
+    "content": "Add expand/collapse CSS animations to Pipeline.css",
+    "status": "completed",
+    "activeForm": "Adding CSS expand/collapse animations"
+  },
+  {
+    "content": "Update Run.tsx to pass phase output data + wire plan/scaffold/code fallbacks",
+    "status": "completed",
+    "activeForm": "Wiring phase output data through Run.tsx"
+  },
+  {
+    "content": "Build frontend, push, and verify",
+    "status": "in_progress",
+    "activeForm": "Building, pushing, and verifying deployment"
+  }
+]

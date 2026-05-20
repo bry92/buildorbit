@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate how scaffold manifest is passed to CODE phase",
+    "status": "completed",
+    "activeForm": "Investigating scaffold→CODE handoff"
+  },
+  {
+    "content": "Identify root cause of CODE ignoring manifest",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Implement fix to enforce manifest as hard constraint",
+    "status": "completed",
+    "activeForm": "Implementing manifest enforcement"
+  },
+  {
+    "content": "Verify fix with test pipeline run",
+    "status": "in_progress",
+    "activeForm": "Verifying the fix"
+  },
+  {
+    "content": "Push to remote and notify owner",
+    "status": "pending",
+    "activeForm": "Pushing and notifying"
+  }
+]

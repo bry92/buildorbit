@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Find current SCAFFOLD phase code (grep for hardcoded CRUD template)",
+    "status": "completed",
+    "activeForm": "Finding current SCAFFOLD phase code"
+  },
+  {
+    "content": "Replace SCAFFOLD LLM call with deterministic scaffold function",
+    "status": "completed",
+    "activeForm": "Replacing SCAFFOLD LLM call with deterministic function"
+  },
+  {
+    "content": "Verify PLAN output feeds structured fields into scaffold",
+    "status": "completed",
+    "activeForm": "Verifying PLAN output feeds structured fields"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing to remote"
+  },
+  {
+    "content": "Complete task and send notifications",
+    "status": "pending",
+    "activeForm": "Completing task and sending notifications"
+  }
+]

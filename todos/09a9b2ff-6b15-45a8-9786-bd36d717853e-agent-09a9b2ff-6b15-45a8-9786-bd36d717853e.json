@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create migration 016 to make run_events.run_id nullable",
+    "status": "completed",
+    "activeForm": "Creating migration 016"
+  },
+  {
+    "content": "Create backend/src/email/provider-events.js module",
+    "status": "completed",
+    "activeForm": "Creating provider-events module"
+  },
+  {
+    "content": "Hook sendMagicLinkEmail in auth.js to emit provider events",
+    "status": "completed",
+    "activeForm": "Adding provider event hooks to auth.js"
+  },
+  {
+    "content": "Hook server.js startup to call probeProviderOnStartup",
+    "status": "completed",
+    "activeForm": "Adding startup probe to server.js"
+  },
+  {
+    "content": "Update server.js call sites to pass pool to sendMagicLinkEmail",
+    "status": "completed",
+    "activeForm": "Updating sendMagicLinkEmail call sites"
+  },
+  {
+    "content": "Push to remote and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

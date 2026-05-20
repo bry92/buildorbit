@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate the root cause — read builder-agent.js, pipeline.js, stage-contracts.js",
+    "status": "completed",
+    "activeForm": "Investigating root cause in key files"
+  },
+  {
+    "content": "State hypothesis with evidence before writing any code",
+    "status": "completed",
+    "activeForm": "Stating hypothesis with evidence"
+  },
+  {
+    "content": "Fix 1: Add enforcement to _executeCode() wrapper in builder-agent.js",
+    "status": "completed",
+    "activeForm": "Adding enforcement to _executeCode wrapper"
+  },
+  {
+    "content": "Fix 2: Add enforcement to orchestrator before validation",
+    "status": "completed",
+    "activeForm": "Adding enforcement to orchestrator"
+  },
+  {
+    "content": "Fix 3: Make validateCodeAgainstScaffold zero-tolerance",
+    "status": "completed",
+    "activeForm": "Making validator zero-tolerance"
+  },
+  {
+    "content": "Verify syntax and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying syntax and deploying"
+  },
+  {
+    "content": "Confirm fix via logs — no contract violations",
+    "status": "pending",
+    "activeForm": "Confirming fix via production logs"
+  }
+]

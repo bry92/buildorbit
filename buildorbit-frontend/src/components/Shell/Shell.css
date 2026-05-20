@@ -1,0 +1,40 @@
+/* Shell — layout wrapper. Sidebar left, content right. */
+.bo-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(14, 10, 30, 0.8) 0%, transparent 80%),
+    #060a14;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Main content area — shifts right for sidebar */
+.bo-main {
+  min-height: 100vh;
+  margin-left: var(--sb-w);
+  transition: margin-left 0.2s ease-out;
+}
+
+/* Collapsed sidebar — reduce margin */
+.bo-shell--sb-collapsed .bo-main {
+  margin-left: var(--sb-wc);
+}
+
+/* Tablet: sidebar auto-collapses to icon-only */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .bo-main {
+    margin-left: var(--sb-wc);
+  }
+}
+
+/* Mobile: no margin, full width — sidebar is off-canvas overlay */
+@media (max-width: 768px) {
+  .bo-main {
+    margin-left: 0;
+  }
+  .bo-shell--sb-collapsed .bo-main {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Read key files (server.js credit gate, migrate.js, dashboard.html, routes/billing.js)",
+    "status": "completed",
+    "activeForm": "Reading key files"
+  },
+  {
+    "content": "Add migration for is_admin column",
+    "status": "completed",
+    "activeForm": "Adding migration for is_admin column"
+  },
+  {
+    "content": "Update credit gate in server.js to bypass for admin",
+    "status": "completed",
+    "activeForm": "Updating credit gate in server.js"
+  },
+  {
+    "content": "Update billing status endpoint to return is_admin flag",
+    "status": "completed",
+    "activeForm": "Updating billing status endpoint"
+  },
+  {
+    "content": "Update frontend dashboard.html to show Unlimited for admins",
+    "status": "completed",
+    "activeForm": "Updating frontend to show Unlimited"
+  },
+  {
+    "content": "Find owner user ID and mark as admin in DB",
+    "status": "completed",
+    "activeForm": "Finding owner user ID and marking as admin"
+  },
+  {
+    "content": "Deploy and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

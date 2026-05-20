@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Add @anthropic-ai/sdk to package.json",
+    "status": "completed",
+    "activeForm": "Adding Anthropic SDK to package.json"
+  },
+  {
+    "content": "Add Anthropic client + routing logic to builder-agent.js",
+    "status": "completed",
+    "activeForm": "Adding Claude routing to builder-agent.js"
+  },
+  {
+    "content": "Modify Phase 5 continuation to also use Claude routing",
+    "status": "completed",
+    "activeForm": "Updating Phase 5 continuation with Claude routing"
+  },
+  {
+    "content": "Set ANTHROPIC_API_KEY env var on instance",
+    "status": "completed",
+    "activeForm": "Setting ANTHROPIC_API_KEY env var on instance"
+  },
+  {
+    "content": "Push changes and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

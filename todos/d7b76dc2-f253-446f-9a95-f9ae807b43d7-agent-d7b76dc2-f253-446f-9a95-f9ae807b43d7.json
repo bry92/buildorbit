@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate current state of pipeline files and intent-gate.js",
+    "status": "completed",
+    "activeForm": "Investigating current codebase state"
+  },
+  {
+    "content": "Identify what's missing in pipeline-orchestrator.js integration",
+    "status": "completed",
+    "activeForm": "Analyzing pipeline-orchestrator.js"
+  },
+  {
+    "content": "Wire Intent Gate into pipeline-orchestrator.js as hard precondition",
+    "status": "completed",
+    "activeForm": "Wiring Intent Gate into orchestrator"
+  },
+  {
+    "content": "Wire constraint contract into planner-agent.js",
+    "status": "completed",
+    "activeForm": "Wiring constraints into planner"
+  },
+  {
+    "content": "Wire constraint validation into builder-agent.js",
+    "status": "completed",
+    "activeForm": "Wiring validation into builder"
+  },
+  {
+    "content": "Wire constraint compliance check into qa-agent.js",
+    "status": "completed",
+    "activeForm": "Wiring compliance into QA"
+  },
+  {
+    "content": "Verify fix with syntax checks and functional tests",
+    "status": "completed",
+    "activeForm": "Verifying fix with tests"
+  },
+  {
+    "content": "Push changes and notify owner",
+    "status": "in_progress",
+    "activeForm": "Pushing changes and notifying owner"
+  }
+]

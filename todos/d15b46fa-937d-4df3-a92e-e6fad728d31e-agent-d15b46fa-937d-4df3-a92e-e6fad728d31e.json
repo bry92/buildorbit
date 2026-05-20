@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Read migrations and existing code to understand structure",
+    "status": "completed",
+    "activeForm": "Reading migrations and existing code"
+  },
+  {
+    "content": "Create migration 017: trace_nodes table + non_explainable flag on pipeline_runs",
+    "status": "completed",
+    "activeForm": "Creating migration 017"
+  },
+  {
+    "content": "Create lib/run-trace.js: RunTrace class with decision node emission per phase",
+    "status": "completed",
+    "activeForm": "Creating RunTrace class"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js: emit trace nodes at each phase decision point + integrity check",
+    "status": "completed",
+    "activeForm": "Updating pipeline orchestrator"
+  },
+  {
+    "content": "Add GET /api/runs/:id/trace endpoint to server.js",
+    "status": "completed",
+    "activeForm": "Adding trace API endpoint"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit case studies: what early users are building with Orbit. Honest, real, no fake testimonials.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 48px; }
+
+        .honest-banner { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.18); border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #f59e0b; margin-bottom: 40px; line-height: 1.6; }
+
+        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+        .demo-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 20px; }
+        .demo-card .demo-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+        .demo-card h3 { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+        .demo-card p { font-size: 13px; color: var(--text-muted); margin: 0 0 12px; line-height: 1.55; }
+        .demo-meta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .demo-stat { font-size: 11px; font-family: 'Space Mono', monospace; color: var(--text-muted); }
+
+        .demo-badge { display: inline-block; font-size: 10px; font-family: 'Space Mono', monospace; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .badge-success { background: rgba(16,185,129,0.1); color: #10b981; }
+        .badge-partial { background: rgba(245,158,11,0.1); color: #f59e0b; }
+
+        .cta-box { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.15); border-radius: 10px; padding: 24px; text-align: center; }
+        .cta-box p { font-size: 15px; color: var(--text); font-weight: 600; margin: 0 0 16px; }
+        .cta-box a { display: inline-block; font-size: 13px; font-weight: 600; color: #0f1117; background: var(--accent); padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+
+        @media (max-width: 600px) { .page-nav-right { display: none; } .demo-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/about" class="page-nav-link">About</a>
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Resources</div>
+        <h1 class="page-h1">Case Studies</h1>
+        <p class="page-lead">We're pre-revenue. No Fortune 500 logos. No invented testimonials. Here's what's real: what early users are actually building.</p>
+
+        <div class="honest-banner">We're early. Case studies will be real stories from real users as they come in. If you're using BuildOrbit for something interesting and want to be featured, <a href="mailto:hello@buildorbit.polsia.app" style="color:inherit;text-decoration:underline">reach out</a>.</div>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <div class="demo-label">Demo run</div>
+                <h3>Internal tool for a solo dev agency</h3>
+                <p>A freelance developer used BuildOrbit to scaffold a client portal: authentication, dashboard, project list, invoice tracker. Repo-aware build — agent read the existing repo structure and matched conventions.</p>
+                <div class="demo-meta">
+                    <span class="demo-badge badge-success">completed</span>
+                    <span class="demo-stat">3 phases · 6/6 completed</span>
+                </div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-label">Demo run</div>
+                <h3>Landing page for an indie project</h3>
+                <p>Static surface classification — single-page marketing site with animations and a pricing section. Built without a backend, no database needed. Fast deploy, full audit trail.</p>
+                <div class="demo-meta">
+                    <span class="demo-badge badge-success">completed</span>
+                    <span class="demo-stat">4 phases · 6/6 completed</span>
+                </div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-label">Demo run</div>
+                <h3>Data dashboard with real-time charts</h3>
+                <p>Light app classification — React dashboard with chart components, mock data, and filter controls. Agent chose recharts for charting. VERIFY surfaced an accessibility issue in the chart library — caught before deploy.</p>
+                <div class="demo-meta">
+                    <span class="demo-badge badge-partial">partial success</span>
+                    <span class="demo-stat">6 phases · 1 advisory finding</span>
+                </div>
+            </div>
+            <div class="demo-card">
+                <div class="demo-label">Demo run</div>
+                <h3>Compliance audit export</h3>
+                <p>A legal tech startup used the run export to generate a compliance document — agent reasoning, VERIFY phase audit report, and file tree as a structured PDF for internal review. The pipeline produced the document the audit required.</p>
+                <div class="demo-meta">
+                    <span class="demo-badge badge-success">completed</span>
+                    <span class="demo-stat">5 phases · audit exported</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <p>Build something worth writing about.</p>
+            <a href="/signup">Start a build →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

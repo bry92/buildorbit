@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate deploy event persistence gap",
+    "status": "completed",
+    "activeForm": "Investigating deploy event persistence gap"
+  },
+  {
+    "content": "Fix deploy events to persist to pipeline_events",
+    "status": "completed",
+    "activeForm": "Fixing deploy event persistence"
+  },
+  {
+    "content": "Verify SSE replay includes deploy events",
+    "status": "completed",
+    "activeForm": "Verifying SSE replay includes deploy events"
+  },
+  {
+    "content": "Deploy and verify fix",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying fix"
+  }
+]

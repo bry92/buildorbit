@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create lib/node-app-runner.js — process manager for Node.js apps",
+    "status": "completed",
+    "activeForm": "Creating node-app-runner.js"
+  },
+  {
+    "content": "Extend deploy-engine.js — add deployNodeApp() for PRODUCT_SYSTEM",
+    "status": "completed",
+    "activeForm": "Extending deploy-engine.js"
+  },
+  {
+    "content": "Update lib/scaffold-schemas.js — full_product uses better-sqlite3",
+    "status": "completed",
+    "activeForm": "Updating scaffold schemas"
+  },
+  {
+    "content": "Remove full_product scope lock in agents/intent-gate.js",
+    "status": "completed",
+    "activeForm": "Removing scope lock"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js — deploy full_product builds",
+    "status": "completed",
+    "activeForm": "Updating pipeline orchestrator"
+  },
+  {
+    "content": "Update server.js — add nodeAppRunner + /app/:runId proxy route",
+    "status": "completed",
+    "activeForm": "Updating server.js"
+  },
+  {
+    "content": "Add migration 024 — node_app_dir column on pipeline_deployments",
+    "status": "completed",
+    "activeForm": "Adding migration"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

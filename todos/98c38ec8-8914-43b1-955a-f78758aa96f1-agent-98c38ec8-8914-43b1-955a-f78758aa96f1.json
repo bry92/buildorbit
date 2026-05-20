@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Read key files: nuclear-agent.js, a2a-nuclear.js, a2a.js",
+    "status": "completed",
+    "activeForm": "Reading key files"
+  },
+  {
+    "content": "Understand orchestrator.enqueue and how pipeline executes synchronously",
+    "status": "completed",
+    "activeForm": "Understanding pipeline execution"
+  },
+  {
+    "content": "Expand NuclearAgent: new tools + system prompt + inline execution",
+    "status": "completed",
+    "activeForm": "Adding new tools to NuclearAgent"
+  },
+  {
+    "content": "Update a2a-nuclear.js route to support SSE streaming for inline pipeline execution",
+    "status": "completed",
+    "activeForm": "Updating nuclear route for SSE streaming"
+  },
+  {
+    "content": "Pass stateMachine to nuclear router in server.js",
+    "status": "completed",
+    "activeForm": "Wiring stateMachine dep"
+  },
+  {
+    "content": "Update ChatWidget.tsx to handle SSE streaming with progressive phase updates",
+    "status": "in_progress",
+    "activeForm": "Updating ChatWidget for SSE streaming"
+  },
+  {
+    "content": "Self-check, build frontend, push, verify deploy",
+    "status": "pending",
+    "activeForm": "Running self-check and deploying"
+  }
+]

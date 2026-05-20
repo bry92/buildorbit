@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Read orchestrator + run creation flow to understand wiring",
+    "status": "completed",
+    "activeForm": "Reading orchestrator + run creation flow"
+  },
+  {
+    "content": "Add repo-aware intent classes + detection patterns to intent-gate.js",
+    "status": "completed",
+    "activeForm": "Adding repo-aware intent detection"
+  },
+  {
+    "content": "Extend constraints object with repo_aware, repo_files, repo_context",
+    "status": "completed",
+    "activeForm": "Extending constraints object"
+  },
+  {
+    "content": "Wire repo detection through orchestrator (GitHub connection check)",
+    "status": "completed",
+    "activeForm": "Wiring repo detection through orchestrator"
+  },
+  {
+    "content": "Update Plan phase to call Serena MCP tools when repo_aware",
+    "status": "completed",
+    "activeForm": "Updating Plan phase for Serena integration"
+  },
+  {
+    "content": "Handle no-repo-connected + repo-prompt halting",
+    "status": "completed",
+    "activeForm": "Handling missing repo connection"
+  },
+  {
+    "content": "Update CLAUDE.md and push",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md and pushing"
+  }
+]

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildOrbit — Audit Trail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d0805; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; font-family: 'Courier New', monospace; }
+  canvas { display: block; max-width: 100%; max-height: 80vh; }
+  .brand { color: #f97316; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-top: 16px; opacity: 0.7; }
+  .progress-bar { width: 640px; max-width: 90vw; height: 3px; background: #1a1208; margin-top: 16px; border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #f97316; width: 0%; transition: width 0.1s; box-shadow: 0 0 8px #f9731666; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1280" height="720"></canvas>
+<div class="brand">BuildOrbit — Audit Trail</div>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const W = 1280, H = 720;
+const progress = document.getElementById('progress');
+
+const DURATION = 20;
+const TOTAL_FRAMES = DURATION * 60;
+const EVENTS = [
+  { time: '14:23:01.000', phase: 'Intent Gate', action: 'CLASSIFY', status: 'APPROVED', detail: 'task: "build login page" → repo-aware build', color: '#f97316' },
+  { time: '14:23:01.234', phase: 'Intent Gate', action: 'CONNECT', status: 'OK', detail: 'github.com/bry92/buildorbit connected', color: '#f97316' },
+  { time: '14:23:02.891', phase: 'Plan', action: 'GENERATE', status: 'OK', detail: '3 steps: scaffold, code, verify', color: '#ea580c' },
+  { time: '14:23:03.102', phase: 'Plan', action: 'APPROVE', status: 'OK', detail: 'plan approved by intent-gate', color: '#ea580c' },
+  { time: '14:23:04.445', phase: 'Scaffold', action: 'SKIP', status: 'INFO', detail: 'repo-aware build: scaffold bypassed', color: '#c2410c' },
+  { time: '14:23:04.667', phase: 'Code', action: 'EXECUTE', status: 'RUNNING', detail: 'targeting: src/pages/Login.tsx, auth.ts', color: '#c2410c' },
+  { time: '14:23:05.312', phase: 'Code', action: 'WRITE', status: 'OK', detail: 'src/pages/Login.tsx — 48 lines', color: '#c2410c' },
+  { time: '14:23:05.891', phase: 'Code', action: 'WRITE', status: 'OK', detail: 'src/lib/auth.ts — 32 lines', color: '#c2410c' },
+  { time: '14:23:06.334', phase: 'Code', action: 'COMMIT', status: 'OK', detail: 'src/lib/auth.ts: "feat: add login page"', color: '#c2410c' },
+  { time: '14:23:07.112', phase: 'Code', action: 'COMMIT', status: 'OK', detail: 'src/pages/Login.tsx: "feat: add login UI"', color: '#c2410c' },
+  { time: '14:23:08.445', phase: 'Save', action: 'PUSH', status: 'OK', detail: 'github.com/bry92/buildorbit:main', color: '#9a3412' },
+  { time: '14:23:09.001', phase: 'Save', action: 'PR', status: 'OK', detail: 'PR #47: "feat: login page"', color: '#9a3412' },
+  { time: '14:23:10.233', phase: 'Verify', action: 'CHECK', status: 'OK', detail: 'file_integrity: ✓ 2/2 paths exist', color: '#7c2d12' },
+  { time: '14:23:10.445', phase: 'Verify', action: 'CHECK', status: 'OK', detail: 'no_destructive: ✓ 0 deletions', color: '#7c2d12' },
+  { time: '14:23:10.612', phase: 'Verify', action: 'CHECK', status: 'OK', detail: 'dependencies: ✓ package.json valid', color: '#7c2d12' },
+  { time: '14:23:11.001', phase: 'Verify', action: 'CHECK', status: 'OK', detail: 'syntax: ✓ AST parse OK', color: '#7c2d12' },
+  { time: '14:23:11.234', phase: 'Verify', action: 'CHECK', status: 'OK', detail: 'scope: ✓ 2 files, all aligned', color: '#7c2d12' },
+  { time: '14:23:12.001', phase: 'Verify', action: 'COMPLETE', status: 'OK', detail: '0 critical, 0 advisory findings', color: '#7c2d12' },
+  { time: '14:23:12.445', phase: 'ORBIT', action: 'FINALIZE', status: 'OK', detail: 'run: success | 11 events logged', color: '#f97316' }
+];
+
+let visibleCount = 0;
+let frameCount = 0;
+let scrollY = 0;
+
+function drawBackground() {
+  ctx.fillStyle = '#0d0805';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(249, 115, 22, 0.025)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < W; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+}
+
+function drawTimelineBar() {
+  // Left timeline
+  const tlX = 40;
+
+  ctx.strokeStyle = 'rgba(249, 115, 22, 0.2)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(tlX, 120);
+  ctx.lineTo(tlX, H - 80);
+  ctx.stroke();
+
+  // Phase markers on timeline
+  const phases = ['Intent Gate', 'Plan', 'Scaffold', 'Code', 'Save', 'Verify'];
+  const progress = frameCount / TOTAL_FRAMES;
+  const currentPhase = Math.floor(progress * phases.length);
+
+  phases.forEach((phase, i) => {
+    const ty = 120 + (i / phases.length) * (H - 200);
+    const isDone = i < currentPhase;
+    const isActive = i === currentPhase;
+
+    ctx.beginPath();
+    ctx.arc(tlX, ty, isActive ? 8 : 5, 0, Math.PI * 2);
+    ctx.fillStyle = isDone ? '#f97316' : isActive ? '#f97316' : 'rgba(249, 115, 22, 0.3)';
+    ctx.fill();
+
+    ctx.fillStyle = isDone || isActive ? '#f97316' : 'rgba(249, 115, 22, 0.4)';
+    ctx.font = isActive ? 'bold 10px Courier New' : '10px Courier New';
+    ctx.textAlign = 'left';
+    ctx.fillText(phase, tlX + 16, ty + 4);
+  });
+}
+
+function drawEventLog() {
+  const logX = 80;
+  const logW = W - 160;
+  const logY = 130;
+  const entryH = 28;
+  const maxVisible = 18;
+
+  // How many events to show based on frame count
+  const newEventEvery = Math.floor(TOTAL_FRAMES / EVENTS.length);
+  visibleCount = Math.min(EVENTS.length, Math.floor(frameCount / newEventEvery) + 1);
+
+  // Scroll offset
+  if (visibleCount > maxVisible) {
+    scrollY = Math.min(scrollY + 0.5, (visibleCount - maxVisible) * entryH);
+  }
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(logX, logY, logW, maxVisible * entryH);
+  ctx.clip();
+
+  for (let i = 0; i < visibleCount && i < EVENTS.length; i++) {
+    const event = EVENTS[i];
+    const y = logY - scrollY + i * entryH;
+
+    if (y < logY - entryH || y > logY + maxVisible * entryH) continue;
+
+    const isNew = i === visibleCount - 1;
+
+    // Timestamp
+    ctx.fillStyle = isNew ? '#f97316' : 'rgba(249, 115, 22, 0.35)';
+    ctx.font = isNew ? 'bold 10px Courier New' : '10px Courier New';
+    ctx.textAlign = 'left';
+    ctx.fillText(event.time, logX + 8, y + 18);
+
+    // Phase badge
+    const badgeW = 80;
+    ctx.fillStyle = event.color + '33';
+    ctx.strokeStyle = event.color + '66';
+    ctx.lineWidth = 1;
+    roundRect(logX + 110, y + 4, badgeW, 18, 3);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = event.color;
+    ctx.font = '9px Courier New';
+    ctx.fillText(event.phase, logX + 116, y + 16);
+
+    // Action
+    ctx.fillStyle = isNew ? '#fff' : 'rgba(255,255,255,0.7)';
+    ctx.font = isNew ? 'bold 10px Courier New' : '10px Courier New';
+    ctx.fillText(event.action, logX + 200, y + 18);
+
+    // Status badge
+    const statusColor = event.status === 'OK' || event.status === 'APPROVED' || event.status === 'COMPLETE' ? '#f97316'
+      : event.status === 'RUNNING' ? '#fbbf24'
+      : event.status === 'INFO' ? '#a3a3a3'
+      : '#f97316';
+
+    ctx.fillStyle = statusColor + '22';
+    ctx.strokeStyle = statusColor + '66';
+    roundRect(logX + 280, y + 4, 70, 18, 3);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = statusColor;
+    ctx.font = '9px Courier New';
+    ctx.fillText(event.status, logX + 288, y + 16);
+
+    // Detail
+    ctx.fillStyle = isNew ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.45)';
+    ctx.font = isNew ? '10px Courier New' : '9px Courier New';
+    ctx.fillText(event.detail, logX + 360, y + 18);
+
+    // Highlight for new events
+    if (isNew) {
+      ctx.fillStyle = 'rgba(249, 115, 22, 0.08)';
+      ctx.fillRect(logX, y, logW, entryH);
+    }
+  }
+
+  ctx.restore();
+
+  // Log container border
+  ctx.strokeStyle = 'rgba(249, 115, 22, 0.15)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(logX, logY, logW, maxVisible * entryH);
+}
+
+function drawHeader() {
+  // Title
+  ctx.fillStyle = '#f97316';
+  ctx.font = 'bold 32px Courier New';
+  ctx.textAlign = 'left';
+  ctx.fillText('BuildOrbit', 40, 50);
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '16px Courier New';
+  ctx.fillText('Complete Audit Trail', 40, 75);
+
+  // Stats
+  const secs = Math.floor((frameCount / 60) % DURATION);
+  ctx.fillStyle = 'rgba(249, 115, 22, 0.6)';
+  ctx.font = '14px Courier New';
+  ctx.textAlign = 'right';
+  ctx.fillText(`${secs}s / ${DURATION}s`, W - 40, 50);
+  ctx.fillText('● AUDIT LOG', W - 40, 72);
+
+  // Events count
+  ctx.fillStyle = 'rgba(249, 115, 22, 0.5)';
+  ctx.font = '11px Courier New';
+  ctx.fillText(`${visibleCount} / ${EVENTS.length} events`, W - 40, 92);
+}
+
+function drawSummaryPanel() {
+  const panelX = 40, panelY = H - 70, panelW = W - 80, panelH = 50;
+  ctx.fillStyle = 'rgba(249, 115, 22, 0.05)';
+  ctx.strokeStyle = 'rgba(249, 115, 22, 0.15)';
+  ctx.lineWidth = 1;
+  roundRect(panelX, panelY, panelW, panelH, 6);
+  ctx.fill();
+  ctx.stroke();
+
+  const stats = [
+    { label: 'PHASES', value: '6/6' },
+    { label: 'FILES WRITTEN', value: '2' },
+    { label: 'COMMITS', value: '2' },
+    { label: 'PULL REQUEST', value: '#47' },
+    { label: 'VERIFICATION', value: 'PASS' },
+    { label: 'RUN STATUS', value: 'SUCCESS' }
+  ];
+
+  const colW = panelW / stats.length;
+  stats.forEach((stat, i) => {
+    const sx = panelX + i * colW + 20;
+    ctx.fillStyle = 'rgba(249, 115, 22, 0.5)';
+    ctx.font = '9px Courier New';
+    ctx.textAlign = 'left';
+    ctx.fillText(stat.label, sx, panelY + 18);
+    ctx.fillStyle = '#f97316';
+    ctx.font = 'bold 14px Courier New';
+    ctx.fillText(stat.value, sx, panelY + 36);
+  });
+}
+
+function drawEventCountBadge() {
+  // Badge showing total event count
+  const cx = W - 70, cy = 130;
+  ctx.save();
+  ctx.shadowColor = '#f97316';
+  ctx.shadowBlur = 20;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(249, 115, 22, 0.15)';
+  ctx.fill();
+  ctx.restore();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, 20, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(249, 115, 22, 0.2)';
+  ctx.strokeStyle = '#f97316';
+  ctx.lineWidth = 2;
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#f97316';
+  ctx.font = 'bold 10px Courier New';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('LOG', cx, cy - 8);
+  ctx.fillText(visibleCount, cx, cy + 8);
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function animate() {
+  frameCount++;
+
+  drawBackground();
+  drawHeader();
+  drawTimelineBar();
+  drawEventLog();
+  drawEventCountBadge();
+  drawSummaryPanel();
+
+  progress.style.width = (frameCount / TOTAL_FRAMES * 100) + '%';
+
+  if (frameCount >= TOTAL_FRAMES) frameCount = 0;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</body>
+</html>

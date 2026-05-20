@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Add writePreview() method to deploy-engine.js",
+    "status": "completed",
+    "activeForm": "Adding writePreview() to deploy-engine.js"
+  },
+  {
+    "content": "Call writePreview() from pipeline-orchestrator.js after CODE stage",
+    "status": "completed",
+    "activeForm": "Wiring writePreview() into orchestrator"
+  },
+  {
+    "content": "Add /preview/:runId static route to server.js",
+    "status": "completed",
+    "activeForm": "Adding /preview route to server.js"
+  },
+  {
+    "content": "Handle preview_ready SSE event in emitStateEvent()",
+    "status": "completed",
+    "activeForm": "Adding preview_ready to SSE handler"
+  },
+  {
+    "content": "Update run.html to show iframe on preview_ready and switch on deploy_complete",
+    "status": "completed",
+    "activeForm": "Updating run.html frontend"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying"
+  }
+]

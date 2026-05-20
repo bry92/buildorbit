@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create lib/soft-expansion.js (probability model, entropy, soft expansion contract)",
+    "status": "completed",
+    "activeForm": "Creating lib/soft-expansion.js"
+  },
+  {
+    "content": "Create migrations/010_phase4_soft_expansion.js",
+    "status": "completed",
+    "activeForm": "Creating migration 010"
+  },
+  {
+    "content": "Modify agents/intent-gate.js (multi-candidate output, integrate soft-expansion)",
+    "status": "completed",
+    "activeForm": "Modifying intent-gate.js"
+  },
+  {
+    "content": "Modify agents/planner-agent.js (expansion justification requirement)",
+    "status": "completed",
+    "activeForm": "Modifying planner-agent.js"
+  },
+  {
+    "content": "Modify agents/builder-agent.js (soft_expansion allowlist validation)",
+    "status": "completed",
+    "activeForm": "Modifying builder-agent.js"
+  },
+  {
+    "content": "Modify agents/qa-agent.js (expansion audit checks in VERIFY)",
+    "status": "completed",
+    "activeForm": "Modifying qa-agent.js"
+  },
+  {
+    "content": "Modify pipeline-orchestrator.js (soft_expansion handling, new events, rejection)",
+    "status": "completed",
+    "activeForm": "Modifying pipeline-orchestrator.js"
+  },
+  {
+    "content": "Syntax check all modified files, then push to remote",
+    "status": "in_progress",
+    "activeForm": "Syntax checking and pushing to remote"
+  }
+]

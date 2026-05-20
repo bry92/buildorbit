@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate root cause of STATIC_SURFACE → INTERACTIVE_LIGHT_APP misclassification",
+    "status": "completed",
+    "activeForm": "Investigating root cause of misclassification"
+  },
+  {
+    "content": "Fix the Intent Gate classification logic",
+    "status": "completed",
+    "activeForm": "Fixing Intent Gate classification logic"
+  },
+  {
+    "content": "Update tests to cover the 13 misclassified prompts",
+    "status": "completed",
+    "activeForm": "Updating tests for misclassified prompts"
+  },
+  {
+    "content": "Verify fix against known misclassified prompts",
+    "status": "in_progress",
+    "activeForm": "Verifying fix against known prompts"
+  }
+]

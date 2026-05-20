@@ -1,0 +1,1352 @@
+2026-05-11T03:43:34.591Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json'
+2026-05-11T03:43:34.592Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014592
+2026-05-11T03:43:34.592Z [DEBUG] Setting permissions for new file: 600
+2026-05-11T03:43:34.593Z [DEBUG] Temp file written successfully, size: 50 bytes
+2026-05-11T03:43:34.593Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014592 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.593Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.593Z [DEBUG] [init] configureGlobalMTLS starting
+2026-05-11T03:43:34.593Z [DEBUG] [init] configureGlobalMTLS complete
+2026-05-11T03:43:34.593Z [DEBUG] [init] configureGlobalAgents starting
+2026-05-11T03:43:34.593Z [DEBUG] [init] configureGlobalAgents complete
+2026-05-11T03:43:34.595Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014595
+2026-05-11T03:43:34.596Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.596Z [DEBUG] Temp file written successfully, size: 130 bytes
+2026-05-11T03:43:34.596Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.596Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014595 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.596Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.599Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014599
+2026-05-11T03:43:34.599Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.599Z [DEBUG] Temp file written successfully, size: 167 bytes
+2026-05-11T03:43:34.599Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.599Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014599 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.599Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.600Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014600
+2026-05-11T03:43:34.600Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.600Z [DEBUG] Temp file written successfully, size: 202 bytes
+2026-05-11T03:43:34.600Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.600Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014600 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.600Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.600Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014600
+2026-05-11T03:43:34.601Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.601Z [DEBUG] Temp file written successfully, size: 238 bytes
+2026-05-11T03:43:34.601Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.601Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014600 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.601Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.601Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014601
+2026-05-11T03:43:34.601Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.602Z [DEBUG] Temp file written successfully, size: 275 bytes
+2026-05-11T03:43:34.602Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.602Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014601 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.602Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.614Z [DEBUG] Applying permission update: Adding 70 deny rule(s) to destination 'projectSettings': ["Bash(pkill *)","Bash(pkill)","Bash(kill *)","Bash(killall *)","Bash(killall)","Bash(xkill *)","Bash(xkill)","Bash(shutdown *)","Bash(shutdown)","Bash(reboot *)","Bash(reboot)","Bash(halt *)","Bash(halt)","Bash(poweroff *)","Bash(poweroff)","Bash(systemctl stop *)","Bash(systemctl restart *)","Bash(service * stop)","Bash(service * stop *)","Bash(service * restart)","Bash(service * restart *)","Bash(rm -rf /*)","Bash(rm -rf ~/*)","Bash(rm -rf /)","Bash(dd *)","Bash(mkfs *)","Bash(mkfs.*)","Bash(fdisk *)","Bash(sudo *)","Bash(sudo)","Bash(su *)","Bash(su)","Bash(* /opt/render/project*)","Bash(* /etc/*)","Bash(* /var/*)","Read(//opt/render/project*)","Read(//opt/render/project/**)","Write(//opt/render/project*)","Write(//opt/render/project/**)","Edit(//opt/render/project*)","Edit(//opt/render/project/**)","Read(//etc/**)","Write(//etc/**)","Read(//var/**)","Write(//var/**)","Read(//proc/**)","Read(//sys/**)","Write(//sys/**)","Read(//run/**)","Write(//run/**)","Read(//root/.ssh/**)","Read(//root/.npmrc)","Read(//root/.netrc)","Bash(git push *)","Bash(git push)","Bash(git pull *)","Bash(git pull)","Bash(git fetch *)","Bash(git fetch)","Bash(git clone *)","Bash(git remote add *)","Bash(git remote set-url *)","Bash(*cat *.git/config*)","Bash(*/.git/config*)","Read(*/.git/config)","Bash(git remote -v)","Bash(git remote -v *)","Bash(git remote get-url *)","Bash(curl *api.github.com*)","Bash(wget *api.github.com*)"]
+2026-05-11T03:43:34.614Z [DEBUG] [STARTUP] Loading MCP configs...
+2026-05-11T03:43:34.647Z [DEBUG] [ToolSearch:optimistic] mode=tst-auto, ENABLE_TOOL_SEARCH=undefined, result=true
+2026-05-11T03:43:34.648Z [DEBUG] [STARTUP] Running setup()...
+2026-05-11T03:43:34.648Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-05-11T03:43:34.650Z [DEBUG] [claudeai-mcp] Checking gate (cached)...
+2026-05-11T03:43:34.650Z [DEBUG] [claudeai-mcp] Gate returned: false
+2026-05-11T03:43:34.650Z [DEBUG] [claudeai-mcp] Disabled via gate
+2026-05-11T03:43:34.651Z [DEBUG] Loading skills from: managed=/etc/claude-code/.claude/skills, user=/opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/skills, project=[/opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/skills]
+2026-05-11T03:43:34.666Z [DEBUG] Error log sink initialized
+2026-05-11T03:43:34.667Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-05-11T03:43:34.667Z [DEBUG] Total plugin skills loaded: 0
+2026-05-11T03:43:34.667Z [DEBUG] Total plugin commands loaded: 0
+2026-05-11T03:43:34.678Z [DEBUG] [STARTUP] setup() completed in 30ms
+2026-05-11T03:43:34.678Z [DEBUG] [STARTUP] Loading commands and agents...
+2026-05-11T03:43:34.680Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-05-11T03:43:34.681Z [DEBUG] Total plugin agents loaded: 0
+2026-05-11T03:43:34.681Z [DEBUG] Loaded 8 unique skills (managed: 0, user: 0, project: 8, additional: 0, legacy commands: 0)
+2026-05-11T03:43:34.681Z [DEBUG] getSkills returning: 8 skill dir commands, 0 plugin skills, 2 bundled skills
+2026-05-11T03:43:34.682Z [DEBUG] [STARTUP] Commands and agents loaded in 4ms
+2026-05-11T03:43:34.683Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-05-11T03:43:34.683Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-05-11T03:43:34.683Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-05-11T03:43:34.683Z [DEBUG] Total LSP servers loaded: 0
+2026-05-11T03:43:34.687Z [DEBUG] [STARTUP] MCP configs loaded in 73ms
+2026-05-11T03:43:34.694Z [DEBUG] MCP server "tasks": Starting connection with timeout of 30000ms
+2026-05-11T03:43:34.700Z [DEBUG] MCP server "reports": Starting connection with timeout of 30000ms
+2026-05-11T03:43:34.704Z [DEBUG] MCP server "polsia_infra": Starting connection with timeout of 30000ms
+2026-05-11T03:43:34.708Z [DEBUG] MCP server "sapiom": Initializing HTTP transport to https://api.sapiom.ai/v1/mcp
+2026-05-11T03:43:34.708Z [DEBUG] MCP server "sapiom": Node version: v20.20.2, Platform: linux
+2026-05-11T03:43:34.708Z [DEBUG] MCP server "sapiom": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2026-05-11T03:43:34.708Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-05-11T03:43:34.708Z [DEBUG] LSP manager initialized with 0 servers
+2026-05-11T03:43:34.708Z [DEBUG] LSP server manager initialized successfully
+2026-05-11T03:43:34.709Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-05-11T03:43:34.709Z [DEBUG] MCP server "sapiom": Proxy options: default
+2026-05-11T03:43:34.709Z [DEBUG] MCP server "sapiom": HTTP transport options: {"url":"https://api.sapiom.ai/v1/mcp","headers":{"User-Agent":"claude-code/2.1.33","Authorization":"[REDACTED]","X-Sapiom-Scopes":"search,browser"},"hasAuthProvider":true,"timeoutMs":60000}
+2026-05-11T03:43:34.709Z [DEBUG] MCP server "sapiom": HTTP transport created successfully
+2026-05-11T03:43:34.710Z [DEBUG] MCP server "sapiom": Client created, setting up request handler
+2026-05-11T03:43:34.710Z [DEBUG] MCP server "sapiom": Starting connection with timeout of 30000ms
+2026-05-11T03:43:34.710Z [DEBUG] MCP server "sapiom": Testing basic HTTP connectivity to https://api.sapiom.ai/v1/mcp
+2026-05-11T03:43:34.710Z [DEBUG] MCP server "sapiom": Parsed URL: host=api.sapiom.ai, port=default, protocol=https:
+2026-05-11T03:43:34.711Z [DEBUG] MCP server "sapiom": No token data found
+2026-05-11T03:43:34.794Z [DEBUG] MCP server "sapiom": No token data found
+2026-05-11T03:43:34.840Z [DEBUG] MCP server "sapiom": No token data found
+2026-05-11T03:43:34.841Z [DEBUG] MCP server "sapiom": Successfully connected to http server in 133ms
+2026-05-11T03:43:34.841Z [DEBUG] MCP server "sapiom": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"sapiom-remote","version":"1.0.0"}}
+2026-05-11T03:43:34.842Z [DEBUG] MCP server "sapiom": No token data found
+2026-05-11T03:43:34.881Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014881
+2026-05-11T03:43:34.882Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.882Z [DEBUG] Temp file written successfully, size: 346 bytes
+2026-05-11T03:43:34.882Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.882Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014881 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.882Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.887Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014887
+2026-05-11T03:43:34.887Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.887Z [DEBUG] Temp file written successfully, size: 374 bytes
+2026-05-11T03:43:34.887Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.887Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014887 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.887Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.888Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014888
+2026-05-11T03:43:34.888Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.888Z [DEBUG] Temp file written successfully, size: 426 bytes
+2026-05-11T03:43:34.888Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.888Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014888 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.888Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.892Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014892
+2026-05-11T03:43:34.892Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.892Z [DEBUG] Temp file written successfully, size: 612 bytes
+2026-05-11T03:43:34.892Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.892Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014892 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.892Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.892Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014892
+2026-05-11T03:43:34.892Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.893Z [DEBUG] Temp file written successfully, size: 655 bytes
+2026-05-11T03:43:34.893Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.893Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014892 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.893Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.895Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014895
+2026-05-11T03:43:34.895Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.895Z [DEBUG] Temp file written successfully, size: 694 bytes
+2026-05-11T03:43:34.895Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.895Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014895 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.895Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.896Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014896
+2026-05-11T03:43:34.896Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.896Z [DEBUG] Temp file written successfully, size: 733 bytes
+2026-05-11T03:43:34.896Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.896Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014896 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.896Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.897Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014897
+2026-05-11T03:43:34.897Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.897Z [DEBUG] Temp file written successfully, size: 771 bytes
+2026-05-11T03:43:34.897Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.897Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014897 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.897Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.897Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014897
+2026-05-11T03:43:34.897Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.897Z [DEBUG] Temp file written successfully, size: 803 bytes
+2026-05-11T03:43:34.897Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.897Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014897 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.897Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.898Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014898
+2026-05-11T03:43:34.898Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.898Z [DEBUG] Temp file written successfully, size: 833 bytes
+2026-05-11T03:43:34.898Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.898Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014898 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.898Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.903Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014903
+2026-05-11T03:43:34.903Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.903Z [DEBUG] Temp file written successfully, size: 866 bytes
+2026-05-11T03:43:34.903Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.903Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014903 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.903Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.903Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014903
+2026-05-11T03:43:34.903Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.904Z [DEBUG] Temp file written successfully, size: 918 bytes
+2026-05-11T03:43:34.904Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.904Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014903 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.904Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.904Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014904
+2026-05-11T03:43:34.904Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.904Z [DEBUG] Temp file written successfully, size: 948 bytes
+2026-05-11T03:43:34.904Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.904Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014904 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.904Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.905Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-05-11T03:43:34.906Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014906
+2026-05-11T03:43:34.906Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.906Z [DEBUG] Temp file written successfully, size: 1015 bytes
+2026-05-11T03:43:34.906Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.906Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014906 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.906Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.910Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.11a; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:34.912Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:34.912Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:34.912Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014912
+2026-05-11T03:43:34.912Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.912Z [DEBUG] Temp file written successfully, size: 1062 bytes
+2026-05-11T03:43:34.912Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.912Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014912 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.912Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.915Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014915
+2026-05-11T03:43:34.915Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.915Z [DEBUG] Temp file written successfully, size: 1100 bytes
+2026-05-11T03:43:34.915Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.915Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014915 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.915Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.915Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014915
+2026-05-11T03:43:34.915Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.915Z [DEBUG] Temp file written successfully, size: 1138 bytes
+2026-05-11T03:43:34.915Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.915Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014915 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.915Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.916Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014916
+2026-05-11T03:43:34.916Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:34.916Z [DEBUG] Temp file written successfully, size: 1166 bytes
+2026-05-11T03:43:34.916Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:34.916Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471014916 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:34.916Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:34.917Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:35.192Z [ERROR] MCP server "reports" Server stderr: [Reports MCP] Initialized for company 75550
+[Reports MCP] Server running on stdio
+2026-05-11T03:43:35.193Z [DEBUG] MCP server "reports": Successfully connected to undefined server in 494ms
+2026-05-11T03:43:35.193Z [DEBUG] MCP server "reports": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"reports","version":"1.0.0"}}
+2026-05-11T03:43:35.310Z [ERROR] MCP server "tasks" Server stderr: 2026-05-11T03:43:35.296Z [INFO] [Tasks MCP] Initialized for company 75550, agent 30, user 75959
+2026-05-11T03:43:35.302Z [INFO] [Tasks MCP] Server running on stdio
+2026-05-11T03:43:35.310Z [DEBUG] MCP server "tasks": Successfully connected to undefined server in 621ms
+2026-05-11T03:43:35.310Z [DEBUG] MCP server "tasks": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"task-management","version":"1.0.0"}}
+2026-05-11T03:43:35.808Z [ERROR] MCP server "polsia_infra" Server stderr: 2026-05-11T03:43:35.219Z [INFO] [polsia-mcp-infra] mcp tracing init complete {"service":"polsia-mcp-infra","tracer_present":true,"resolved_version":"0.3113.0","dd_trace_disabled":"unset","is_pull_request":"false","dd_env":"unset","dd_service":"unset","dd_version_env":"unset","dd_agent_host":"polsia-datadog-agent","dd_agent_port":"8126","node_env":"production"}
+2026-05-11T03:43:35.730Z [INFO] [Polsia Infra MCP] Initialized for company 75550
+2026-05-11T03:43:35.765Z [INFO] [Polsia Infra MCP] Server running on stdio
+[tracing] DD agent at polsia-datadog-agent:8126 unreachable — spans will be dropped after the SDK's internal buffer fills. Set DD_TRACE_DISABLED=true to silence, or run docker-compose.dd-agent.yml + DD_TRACE_AGENT_HOSTNAME=127.0.0.1 to test locally.
+2026-05-11T03:43:35.808Z [DEBUG] MCP server "polsia_infra": Successfully connected to undefined server in 1105ms
+2026-05-11T03:43:35.809Z [DEBUG] MCP server "polsia_infra": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"polsia-infra","version":"1.0.0"}}
+2026-05-11T03:43:35.832Z [DEBUG] MCP server "polsia_support": Starting connection with timeout of 30000ms
+2026-05-11T03:43:35.839Z [DEBUG] MCP server "stripe": Starting connection with timeout of 30000ms
+2026-05-11T03:43:35.843Z [DEBUG] MCP server "memory": Starting connection with timeout of 30000ms
+2026-05-11T03:43:36.314Z [ERROR] MCP server "stripe" Server stderr: [Stripe MCP] Initialized for company 75550
+[Stripe MCP] Server running on stdio
+2026-05-11T03:43:36.314Z [DEBUG] MCP server "stripe": Successfully connected to undefined server in 476ms
+2026-05-11T03:43:36.314Z [DEBUG] MCP server "stripe": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"stripe","version":"1.0.0"}}
+2026-05-11T03:43:36.358Z [ERROR] MCP server "polsia_support" Server stderr: [POLSIA Support MCP] Initialized for company 75550, agent: Engineering
+[POLSIA Support MCP] Server running on stdio
+2026-05-11T03:43:36.358Z [DEBUG] MCP server "polsia_support": Successfully connected to undefined server in 527ms
+2026-05-11T03:43:36.358Z [DEBUG] MCP server "polsia_support": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"polsia_support","version":"1.0.0"}}
+2026-05-11T03:43:36.710Z [ERROR] MCP server "memory" Server stderr: [Memory MCP] Initialized for company 75550, agent type: engineering
+[Memory MCP] Server running on stdio
+2026-05-11T03:43:36.710Z [DEBUG] MCP server "memory": Successfully connected to undefined server in 868ms
+2026-05-11T03:43:36.710Z [DEBUG] MCP server "memory": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"memory","version":"2.0.0"}}
+2026-05-11T03:43:36.713Z [DEBUG] MCP server "context_graph": Starting connection with timeout of 30000ms
+2026-05-11T03:43:36.719Z [DEBUG] MCP server "dashboard": Starting connection with timeout of 30000ms
+2026-05-11T03:43:36.723Z [DEBUG] MCP server "postmark": Starting connection with timeout of 30000ms
+2026-05-11T03:43:36.838Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:37.408Z [ERROR] MCP server "dashboard" Server stderr: 2026-05-11T03:43:37.390Z [INFO] [Dashboard Actions MCP] Initialized for company 75550, agent: Engineering (proxy mode)
+2026-05-11T03:43:37.397Z [INFO] [Dashboard Actions MCP] Server running on stdio (proxy mode)
+[tracing] DD agent at polsia-datadog-agent:8126 unreachable — spans will be dropped after the SDK's internal buffer fills. Set DD_TRACE_DISABLED=true to silence, or run docker-compose.dd-agent.yml + DD_TRACE_AGENT_HOSTNAME=127.0.0.1 to test locally.
+2026-05-11T03:43:37.408Z [DEBUG] MCP server "dashboard": Successfully connected to undefined server in 690ms
+2026-05-11T03:43:37.408Z [DEBUG] MCP server "dashboard": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"dashboard-actions","version":"2.0.0"}}
+2026-05-11T03:43:37.490Z [ERROR] MCP server "context_graph" Server stderr: [Context Graph MCP] Initialized (company:set, user:set)
+[Context Graph MCP] Server started
+2026-05-11T03:43:37.490Z [DEBUG] MCP server "context_graph": Successfully connected to undefined server in 777ms
+2026-05-11T03:43:37.490Z [DEBUG] MCP server "context_graph": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"context-graph","version":"1.0.0"}}
+2026-05-11T03:43:37.982Z [ERROR] MCP server "postmark" Server stderr: [Stripe Service] ⚠️  STRIPE_SECRET_KEY not configured - donation features will be disabled
+[Postmark MCP] Initialized for company 75550 (PROD mode)
+[Postmark MCP] Server running on stdio
+2026-05-11T03:43:37.982Z [DEBUG] MCP server "postmark": Successfully connected to undefined server in 1260ms
+2026-05-11T03:43:37.982Z [DEBUG] MCP server "postmark": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"postmark","version":"1.0.0"}}
+2026-05-11T03:43:37.987Z [DEBUG] MCP server "capabilities": Starting connection with timeout of 30000ms
+2026-05-11T03:43:38.413Z [ERROR] MCP server "capabilities" Server stderr: [Capabilities MCP] Initialized for company 75550
+[Capabilities MCP] Server running on stdio
+2026-05-11T03:43:38.413Z [DEBUG] MCP server "capabilities": Successfully connected to undefined server in 427ms
+2026-05-11T03:43:38.413Z [DEBUG] MCP server "capabilities": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"capabilities","version":"1.0.0"}}
+2026-05-11T03:43:38.452Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-05-11T03:43:38.452Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-05-11T03:43:38.454Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018454
+2026-05-11T03:43:38.454Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.454Z [DEBUG] Temp file written successfully, size: 1191 bytes
+2026-05-11T03:43:38.454Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.454Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018454 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.454Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.492Z [DEBUG] Watching for changes in setting files /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/settings.json, /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/settings.local.json...
+2026-05-11T03:43:38.666Z [DEBUG] [Perfetto] initializePerfettoTracing called, env value: undefined
+2026-05-11T03:43:38.670Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018670
+2026-05-11T03:43:38.670Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.670Z [DEBUG] Temp file written successfully, size: 1227 bytes
+2026-05-11T03:43:38.670Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.670Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018670 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.670Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.671Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018671
+2026-05-11T03:43:38.671Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.671Z [DEBUG] Temp file written successfully, size: 1262 bytes
+2026-05-11T03:43:38.671Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.671Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018671 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.671Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.673Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471018673
+2026-05-11T03:43:38.673Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-05-11T03:43:38.673Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471018673 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:43:38.673Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:43:38.675Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018675
+2026-05-11T03:43:38.675Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.675Z [DEBUG] Temp file written successfully, size: 1308 bytes
+2026-05-11T03:43:38.675Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.675Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018675 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.675Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.696Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/polsia/node_modules/@anthropic-ai/claude-agent-sdk/vendor/ripgrep/x64-linux/rg)
+2026-05-11T03:43:38.701Z [DEBUG] Watching for changes in skill/command directories: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/skills...
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.708Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.708Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.709Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.709Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.710Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.710Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.711Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.711Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.712Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.713Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.714Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.715Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.716Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:38.878Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-05-11T03:43:38.878Z [DEBUG] Found 0 hook matchers in settings
+2026-05-11T03:43:38.878Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-05-11T03:43:38.881Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018881
+2026-05-11T03:43:38.881Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.881Z [DEBUG] Temp file written successfully, size: 1352 bytes
+2026-05-11T03:43:38.881Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.881Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018881 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.881Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.926Z [DEBUG] Total plugin output styles loaded: 0
+2026-05-11T03:43:38.935Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018935
+2026-05-11T03:43:38.935Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.935Z [DEBUG] Temp file written successfully, size: 1388 bytes
+2026-05-11T03:43:38.935Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.935Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018935 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.935Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.936Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018936
+2026-05-11T03:43:38.936Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.936Z [DEBUG] Temp file written successfully, size: 1465 bytes
+2026-05-11T03:43:38.936Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.936Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018936 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.936Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.955Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018955
+2026-05-11T03:43:38.955Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.955Z [DEBUG] Temp file written successfully, size: 1496 bytes
+2026-05-11T03:43:38.955Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.955Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018955 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.956Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.964Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:38.964Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:38.964Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:38.964Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:38.965Z [DEBUG] Sending 8 skills via attachment (initial, 8 total sent)
+2026-05-11T03:43:38.966Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-05-11T03:43:38.966Z [DEBUG] Found 0 hook matchers in settings
+2026-05-11T03:43:38.966Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-05-11T03:43:38.969Z [DEBUG] autocompact: tokens=6489 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:38.970Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018970
+2026-05-11T03:43:38.970Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.970Z [DEBUG] Temp file written successfully, size: 1534 bytes
+2026-05-11T03:43:38.970Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.970Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018970 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.970Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.971Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018971
+2026-05-11T03:43:38.971Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:38.971Z [DEBUG] Temp file written successfully, size: 1579 bytes
+2026-05-11T03:43:38.971Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:38.971Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471018971 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:38.971Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:38.974Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:38.974Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:38.974Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:39.346Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:39.359Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019359
+2026-05-11T03:43:39.359Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:39.359Z [DEBUG] Temp file written successfully, size: 1611 bytes
+2026-05-11T03:43:39.359Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:39.359Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019359 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:39.359Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:39.360Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019360
+2026-05-11T03:43:39.360Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:39.360Z [DEBUG] Temp file written successfully, size: 1657 bytes
+2026-05-11T03:43:39.360Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:39.360Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019360 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:39.360Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:39.361Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019361
+2026-05-11T03:43:39.361Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:39.361Z [DEBUG] Temp file written successfully, size: 1699 bytes
+2026-05-11T03:43:39.361Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:39.361Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019361 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:39.361Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:39.361Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019361
+2026-05-11T03:43:39.361Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:39.361Z [DEBUG] Temp file written successfully, size: 1735 bytes
+2026-05-11T03:43:39.361Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:39.361Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471019361 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:39.361Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:39.362Z [DEBUG] Dynamic tool loading: 0/108 deferred tools included
+2026-05-11T03:43:39.363Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:39.367Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:39.367Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:39.367Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:39.555Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: analyzeMcp]
+2026-05-11T03:43:39.558Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:39.558Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:39.558Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:42.059Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:44.019Z [DEBUG] executePreToolHooks called for tool: ToolSearch
+2026-05-11T03:43:44.019Z [DEBUG] Getting matching hook commands for PreToolUse with query: ToolSearch
+2026-05-11T03:43:44.019Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:44.019Z [DEBUG] Matched 4 unique hooks for query "ToolSearch" (4 before deduplication)
+2026-05-11T03:43:44.024Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.024Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.024Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.029Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.030Z [DEBUG] Hook approved tool use for ToolSearch, bypassing permission check
+2026-05-11T03:43:44.030Z [DEBUG] ToolSearchTool: cache invalidated - deferred tools changed
+2026-05-11T03:43:44.033Z [DEBUG] ToolSearchTool: keyword search for "memory search", found 2 matches
+2026-05-11T03:43:44.035Z [DEBUG] Getting matching hook commands for PostToolUse with query: ToolSearch
+2026-05-11T03:43:44.035Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:44.035Z [DEBUG] Matched 2 unique hooks for query "ToolSearch" (2 before deduplication)
+2026-05-11T03:43:44.050Z [DEBUG] executePreToolHooks called for tool: Skill
+2026-05-11T03:43:44.050Z [DEBUG] Getting matching hook commands for PreToolUse with query: Skill
+2026-05-11T03:43:44.051Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:44.051Z [DEBUG] Matched 4 unique hooks for query "Skill" (4 before deduplication)
+2026-05-11T03:43:44.052Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.052Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.053Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.054Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:44.054Z [DEBUG] Hook approved tool use for Skill, bypassing permission check
+2026-05-11T03:43:44.057Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471024057
+2026-05-11T03:43:44.057Z [DEBUG] Preserving file permissions: 100600
+2026-05-11T03:43:44.057Z [DEBUG] Temp file written successfully, size: 1846 bytes
+2026-05-11T03:43:44.057Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:43:44.057Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json.tmp.513.1778471024057 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json
+2026-05-11T03:43:44.057Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude.json written atomically
+2026-05-11T03:43:44.058Z [DEBUG] Metadata string for frontend-design:
+2026-05-11T03:43:44.058Z [DEBUG] "  <command-message>frontend-design</command-message>\n<command-name>/frontend-design</command-name>"
+2026-05-11T03:43:44.058Z [DEBUG] command-message tags in metadata: 1
+2026-05-11T03:43:44.058Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:44.058Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:44.058Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:44.058Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:44.059Z [DEBUG] processPromptSlashCommand creating 3 messages for frontend-design
+2026-05-11T03:43:44.059Z [DEBUG] "  Message 1: <command-message>frontend-design</command-message>\n<command-name>/frontend-design</command-name>"
+2026-05-11T03:43:44.059Z [DEBUG] Message 2 [META]: [{"type":"text","text":"Base directory for this skill: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/skills/frontend-design\n\n# Frontend Design Skill\n\nUse this when
+2026-05-11T03:43:44.059Z [DEBUG] Message 3: [ATTACHMENT]
+2026-05-11T03:43:44.059Z [DEBUG] SkillTool returning 2 newMessages for skill frontend-design
+2026-05-11T03:43:44.059Z [DEBUG] newMessage 1: [{"type":"text","text":"Base directory for this skill: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/.claude/skills/frontend-d...
+2026-05-11T03:43:44.060Z [DEBUG] Getting matching hook commands for PostToolUse with query: Skill
+2026-05-11T03:43:44.060Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:44.060Z [DEBUG] Matched 2 unique hooks for query "Skill" (2 before deduplication)
+2026-05-11T03:43:44.063Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:44.063Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:44.063Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:44.063Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:44.063Z [DEBUG] autocompact: tokens=34864 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:44.064Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:44.064Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:43:44.069Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:43:44.070Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:44.073Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:44.073Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:44.073Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:46.744Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:47.622Z [DEBUG] executePreToolHooks called for tool: mcp__memory__search_memory
+2026-05-11T03:43:47.623Z [DEBUG] Getting matching hook commands for PreToolUse with query: mcp__memory__search_memory
+2026-05-11T03:43:47.623Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:47.623Z [DEBUG] Matched 4 unique hooks for query "mcp__memory__search_memory" (4 before deduplication)
+2026-05-11T03:43:47.630Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:47.630Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:47.630Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:47.630Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:47.631Z [DEBUG] Hook approved tool use for mcp__memory__search_memory, bypassing permission check
+2026-05-11T03:43:47.632Z [DEBUG] MCP server "memory": Calling MCP tool: search_memory
+2026-05-11T03:43:47.850Z [DEBUG] MCP server "memory": Tool 'search_memory' completed successfully in 217ms
+2026-05-11T03:43:47.856Z [DEBUG] Getting matching hook commands for PostToolUse with query: mcp__memory__search_memory
+2026-05-11T03:43:47.856Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:47.856Z [DEBUG] Matched 2 unique hooks for query "mcp__memory__search_memory" (2 before deduplication)
+2026-05-11T03:43:48.723Z [DEBUG] executePreToolHooks called for tool: Read
+2026-05-11T03:43:48.723Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-05-11T03:43:48.723Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:48.723Z [DEBUG] Matched 4 unique hooks for query "Read" (4 before deduplication)
+2026-05-11T03:43:48.725Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:48.725Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:48.726Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:48.726Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:48.726Z [DEBUG] Hook approved tool use for Read, bypassing permission check
+2026-05-11T03:43:48.729Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-05-11T03:43:48.729Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:48.729Z [DEBUG] Matched 3 unique hooks for query "Read" (3 before deduplication)
+2026-05-11T03:43:48.750Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:48.750Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:48.750Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:48.750Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:48.751Z [DEBUG] autocompact: tokens=41348 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:48.752Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:48.752Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:43:48.760Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:43:48.762Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:48.766Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:48.766Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:48.766Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:51.016Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:52.967Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-05-11T03:43:52.967Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-05-11T03:43:52.967Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:52.967Z [DEBUG] Matched 4 unique hooks for query "Bash" (4 before deduplication)
+2026-05-11T03:43:52.972Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:52.972Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:52.972Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:52.973Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:52.973Z [DEBUG] Hook approved tool use for Bash, bypassing permission check
+2026-05-11T03:43:52.984Z [DEBUG] Creating shell snapshot for bash (/bin/bash)
+2026-05-11T03:43:52.984Z [DEBUG] Looking for shell config file: /opt/render/.bashrc
+2026-05-11T03:43:52.984Z [DEBUG] Shell config file not found: /opt/render/.bashrc, creating snapshot with Claude Code defaults only
+2026-05-11T03:43:52.984Z [DEBUG] Snapshots directory: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/shell-snapshots
+2026-05-11T03:43:52.985Z [DEBUG] Creating snapshot at: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/shell-snapshots/snapshot-bash-1778471032984-1ez30x.sh
+2026-05-11T03:43:52.985Z [DEBUG] Shell binary exists: true
+2026-05-11T03:43:52.985Z [DEBUG] Execution timeout: 10000ms
+2026-05-11T03:43:52.991Z [DEBUG] Shell snapshot created successfully (591 bytes)
+2026-05-11T03:43:52.992Z [DEBUG] No session environment scripts found
+2026-05-11T03:43:53.029Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-05-11T03:43:53.030Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.15d; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:53.030Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:53.030Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:53.030Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-05-11T03:43:53.030Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:53.031Z [DEBUG] Matched 2 unique hooks for query "Bash" (2 before deduplication)
+2026-05-11T03:43:53.031Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:53.035Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:53.035Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:53.035Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:53.035Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:53.036Z [DEBUG] autocompact: tokens=41591 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:53.036Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:53.036Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:43:53.041Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:43:53.041Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:53.044Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:53.044Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:53.044Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:54.742Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:55.533Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:55.755Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-05-11T03:43:55.755Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-05-11T03:43:55.755Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:55.755Z [DEBUG] Matched 4 unique hooks for query "Bash" (4 before deduplication)
+2026-05-11T03:43:55.759Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:55.759Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:55.760Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:55.760Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:55.761Z [DEBUG] Hook approved tool use for Bash, bypassing permission check
+2026-05-11T03:43:55.792Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-05-11T03:43:55.793Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.15d; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:55.793Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:55.793Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:55.793Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-05-11T03:43:55.793Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:55.793Z [DEBUG] Matched 2 unique hooks for query "Bash" (2 before deduplication)
+2026-05-11T03:43:55.793Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:55.797Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:55.797Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:55.797Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:55.797Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:55.798Z [DEBUG] autocompact: tokens=41770 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:55.798Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:55.798Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:43:55.802Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:43:55.802Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:55.804Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:55.804Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:55.805Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:57.622Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:58.354Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:43:58.548Z [DEBUG] executePreToolHooks called for tool: Read
+2026-05-11T03:43:58.549Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-05-11T03:43:58.549Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:43:58.549Z [DEBUG] Matched 4 unique hooks for query "Read" (4 before deduplication)
+2026-05-11T03:43:58.551Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:58.551Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:58.552Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:58.553Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:43:58.553Z [DEBUG] Hook approved tool use for Read, bypassing permission check
+2026-05-11T03:43:58.553Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:58.553Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:58.554Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:43:58.956Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-05-11T03:43:58.956Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:43:58.956Z [DEBUG] Matched 3 unique hooks for query "Read" (3 before deduplication)
+2026-05-11T03:43:58.963Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:43:58.963Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:43:58.963Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:43:58.963Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:43:58.964Z [DEBUG] autocompact: tokens=51959 threshold=167000 effectiveWindow=180000
+2026-05-11T03:43:58.964Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:43:58.964Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:43:58.967Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:43:58.968Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:43:58.972Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:43:58.972Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:43:58.972Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:02.353Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:04.078Z [DEBUG] executePreToolHooks called for tool: Read
+2026-05-11T03:44:04.079Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-05-11T03:44:04.079Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:04.079Z [DEBUG] Matched 4 unique hooks for query "Read" (4 before deduplication)
+2026-05-11T03:44:04.080Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.080Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.081Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.081Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.081Z [DEBUG] Hook approved tool use for Read, bypassing permission check
+2026-05-11T03:44:04.082Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:04.082Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:04.082Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:04.332Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-05-11T03:44:04.332Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:04.332Z [DEBUG] Matched 3 unique hooks for query "Read" (3 before deduplication)
+2026-05-11T03:44:04.795Z [DEBUG] executePreToolHooks called for tool: Read
+2026-05-11T03:44:04.795Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-05-11T03:44:04.795Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:04.795Z [DEBUG] Matched 4 unique hooks for query "Read" (4 before deduplication)
+2026-05-11T03:44:04.796Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.796Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.797Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.797Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:04.797Z [DEBUG] Hook approved tool use for Read, bypassing permission check
+2026-05-11T03:44:04.800Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-05-11T03:44:04.800Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:04.800Z [DEBUG] Matched 3 unique hooks for query "Read" (3 before deduplication)
+2026-05-11T03:44:04.825Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:04.825Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:04.825Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:04.825Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:04.826Z [DEBUG] autocompact: tokens=71406 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:04.826Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:04.827Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:04.829Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:04.830Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:04.833Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:04.833Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:04.834Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:10.653Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:16.773Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-05-11T03:44:16.773Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-05-11T03:44:16.773Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:16.773Z [DEBUG] Matched 4 unique hooks for query "Bash" (4 before deduplication)
+2026-05-11T03:44:16.776Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:16.776Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:16.776Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:16.778Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:16.778Z [DEBUG] Hook approved tool use for Bash, bypassing permission check
+2026-05-11T03:44:16.822Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-05-11T03:44:16.822Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.8fa; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:16.823Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:16.823Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:16.823Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-05-11T03:44:16.823Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:16.824Z [DEBUG] Matched 2 unique hooks for query "Bash" (2 before deduplication)
+2026-05-11T03:44:16.824Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:16.828Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:16.828Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:16.828Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:16.828Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:16.829Z [DEBUG] autocompact: tokens=84883 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:16.829Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:16.829Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:16.835Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:16.836Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:16.839Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:16.839Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:16.839Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:18.465Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:19.132Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:27.386Z [DEBUG] executePreToolHooks called for tool: TodoWrite
+2026-05-11T03:44:27.386Z [DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+2026-05-11T03:44:27.386Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:27.386Z [DEBUG] Matched 4 unique hooks for query "TodoWrite" (4 before deduplication)
+2026-05-11T03:44:27.388Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:27.388Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:27.388Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:27.389Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:27.389Z [DEBUG] Hook approved tool use for TodoWrite, bypassing permission check
+2026-05-11T03:44:27.390Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471067390
+2026-05-11T03:44:27.390Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:44:27.390Z [DEBUG] Temp file written successfully, size: 714 bytes
+2026-05-11T03:44:27.390Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:44:27.390Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471067390 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:44:27.390Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:44:27.390Z [DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+2026-05-11T03:44:27.390Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:27.390Z [DEBUG] Matched 2 unique hooks for query "TodoWrite" (2 before deduplication)
+2026-05-11T03:44:27.402Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:27.402Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:27.402Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:27.402Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:27.402Z [DEBUG] autocompact: tokens=85422 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:27.403Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:27.403Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:27.406Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:27.407Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:27.409Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:27.409Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:27.410Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:29.647Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:46.832Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-05-11T03:44:46.832Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-05-11T03:44:46.832Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:46.832Z [DEBUG] Matched 4 unique hooks for query "Edit" (4 before deduplication)
+2026-05-11T03:44:46.838Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:46.838Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:46.838Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:46.841Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:46.842Z [DEBUG] Hook approved tool use for Edit, bypassing permission check
+2026-05-11T03:44:46.849Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html.tmp.513.1778471086849
+2026-05-11T03:44:46.849Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:44:46.850Z [DEBUG] Temp file written successfully, size: 36528 bytes
+2026-05-11T03:44:46.850Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:44:46.850Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html.tmp.513.1778471086849 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html
+2026-05-11T03:44:46.850Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html written atomically
+2026-05-11T03:44:46.852Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-05-11T03:44:46.852Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:46.852Z [DEBUG] Matched 3 unique hooks for query "Edit" (3 before deduplication)
+2026-05-11T03:44:46.858Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:46.858Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:46.858Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:46.858Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:46.860Z [DEBUG] autocompact: tokens=86502 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:46.860Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:46.860Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:46.864Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:46.865Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:46.867Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:46.867Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:46.868Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:49.957Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:52.871Z [DEBUG] executePreToolHooks called for tool: TodoWrite
+2026-05-11T03:44:52.871Z [DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+2026-05-11T03:44:52.871Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:52.871Z [DEBUG] Matched 4 unique hooks for query "TodoWrite" (4 before deduplication)
+2026-05-11T03:44:52.878Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:52.878Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:52.878Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:52.879Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:52.879Z [DEBUG] Hook approved tool use for TodoWrite, bypassing permission check
+2026-05-11T03:44:52.880Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471092880
+2026-05-11T03:44:52.880Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:44:52.880Z [DEBUG] Temp file written successfully, size: 872 bytes
+2026-05-11T03:44:52.880Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:44:52.880Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471092880 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:44:52.880Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:44:52.880Z [DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+2026-05-11T03:44:52.880Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:52.880Z [DEBUG] Matched 2 unique hooks for query "TodoWrite" (2 before deduplication)
+2026-05-11T03:44:52.883Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:52.883Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:52.883Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:52.883Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:52.884Z [DEBUG] autocompact: tokens=86835 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:52.884Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:52.884Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:52.893Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:52.894Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:52.896Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:52.897Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:52.897Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:44:55.159Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:44:59.787Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-05-11T03:44:59.787Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-05-11T03:44:59.787Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:44:59.787Z [DEBUG] Matched 4 unique hooks for query "Edit" (4 before deduplication)
+2026-05-11T03:44:59.789Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:59.789Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:59.793Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:59.793Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:44:59.794Z [DEBUG] Hook approved tool use for Edit, bypassing permission check
+2026-05-11T03:44:59.798Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html.tmp.513.1778471099798
+2026-05-11T03:44:59.798Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:44:59.798Z [DEBUG] Temp file written successfully, size: 36463 bytes
+2026-05-11T03:44:59.798Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:44:59.798Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html.tmp.513.1778471099798 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html
+2026-05-11T03:44:59.798Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/index.html written atomically
+2026-05-11T03:44:59.800Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-05-11T03:44:59.800Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:44:59.800Z [DEBUG] Matched 3 unique hooks for query "Edit" (3 before deduplication)
+2026-05-11T03:44:59.816Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:44:59.816Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:44:59.816Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:44:59.816Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:44:59.818Z [DEBUG] autocompact: tokens=87283 threshold=167000 effectiveWindow=180000
+2026-05-11T03:44:59.819Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:44:59.819Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:44:59.824Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:44:59.827Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:44:59.830Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:44:59.830Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:44:59.831Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:02.267Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:04.882Z [DEBUG] executePreToolHooks called for tool: TodoWrite
+2026-05-11T03:45:04.882Z [DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+2026-05-11T03:45:04.882Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:04.882Z [DEBUG] Matched 4 unique hooks for query "TodoWrite" (4 before deduplication)
+2026-05-11T03:45:04.884Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:04.884Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:04.884Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:04.885Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:04.885Z [DEBUG] Hook approved tool use for TodoWrite, bypassing permission check
+2026-05-11T03:45:04.885Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471104885
+2026-05-11T03:45:04.885Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:45:04.885Z [DEBUG] Temp file written successfully, size: 874 bytes
+2026-05-11T03:45:04.885Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:45:04.885Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471104885 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:45:04.885Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:45:04.886Z [DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+2026-05-11T03:45:04.886Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:04.886Z [DEBUG] Matched 2 unique hooks for query "TodoWrite" (2 before deduplication)
+2026-05-11T03:45:04.912Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:04.912Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:04.912Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:04.912Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:04.913Z [DEBUG] autocompact: tokens=87644 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:04.913Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:04.913Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:04.916Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:04.917Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:04.919Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:04.919Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:04.919Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:07.566Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:24.257Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-05-11T03:45:24.258Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-05-11T03:45:24.258Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:24.258Z [DEBUG] Matched 4 unique hooks for query "Edit" (4 before deduplication)
+2026-05-11T03:45:24.268Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:24.268Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:24.269Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:24.269Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:24.270Z [DEBUG] Hook approved tool use for Edit, bypassing permission check
+2026-05-11T03:45:24.282Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/css/orbital-theme.css.tmp.513.1778471124282
+2026-05-11T03:45:24.282Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:45:24.283Z [DEBUG] Temp file written successfully, size: 54110 bytes
+2026-05-11T03:45:24.283Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:45:24.283Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/css/orbital-theme.css.tmp.513.1778471124282 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/css/orbital-theme.css
+2026-05-11T03:45:24.283Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/public/css/orbital-theme.css written atomically
+2026-05-11T03:45:24.285Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-05-11T03:45:24.285Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:24.285Z [DEBUG] Matched 3 unique hooks for query "Edit" (3 before deduplication)
+2026-05-11T03:45:24.292Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:24.292Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:24.293Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:24.293Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:24.295Z [DEBUG] autocompact: tokens=89190 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:24.295Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:24.295Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:24.299Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:24.301Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:24.303Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:24.303Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:24.304Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:26.765Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:30.289Z [DEBUG] executePreToolHooks called for tool: TodoWrite
+2026-05-11T03:45:30.289Z [DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+2026-05-11T03:45:30.289Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:30.289Z [DEBUG] Matched 4 unique hooks for query "TodoWrite" (4 before deduplication)
+2026-05-11T03:45:30.291Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:30.291Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:30.291Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:30.291Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:30.291Z [DEBUG] Hook approved tool use for TodoWrite, bypassing permission check
+2026-05-11T03:45:30.291Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471130291
+2026-05-11T03:45:30.291Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:45:30.291Z [DEBUG] Temp file written successfully, size: 876 bytes
+2026-05-11T03:45:30.291Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:45:30.291Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471130291 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:45:30.291Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:45:30.292Z [DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+2026-05-11T03:45:30.292Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:30.292Z [DEBUG] Matched 2 unique hooks for query "TodoWrite" (2 before deduplication)
+2026-05-11T03:45:30.321Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:30.321Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:30.321Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:30.321Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:30.322Z [DEBUG] autocompact: tokens=89536 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:30.322Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:30.322Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:30.326Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:30.327Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:30.329Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:30.329Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:30.330Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:35.299Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:47.283Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-05-11T03:45:47.283Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-05-11T03:45:47.283Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:47.283Z [DEBUG] Matched 4 unique hooks for query "Edit" (4 before deduplication)
+2026-05-11T03:45:47.294Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:47.294Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:47.294Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:47.295Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:47.295Z [DEBUG] Hook approved tool use for Edit, bypassing permission check
+2026-05-11T03:45:47.296Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/CLAUDE.md.tmp.513.1778471147296
+2026-05-11T03:45:47.296Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:45:47.296Z [DEBUG] Temp file written successfully, size: 6017 bytes
+2026-05-11T03:45:47.296Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:45:47.296Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/CLAUDE.md.tmp.513.1778471147296 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/CLAUDE.md
+2026-05-11T03:45:47.296Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/CLAUDE.md written atomically
+2026-05-11T03:45:47.298Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-05-11T03:45:47.298Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:47.298Z [DEBUG] Matched 3 unique hooks for query "Edit" (3 before deduplication)
+2026-05-11T03:45:47.558Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:47.558Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:47.558Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:47.558Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:47.561Z [DEBUG] autocompact: tokens=90139 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:47.561Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:47.561Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:47.565Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:47.567Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:47.569Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:47.569Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:47.570Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:49.867Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:52.057Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-05-11T03:45:52.057Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-05-11T03:45:52.057Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:52.057Z [DEBUG] Matched 4 unique hooks for query "Bash" (4 before deduplication)
+2026-05-11T03:45:52.059Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:52.060Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:52.060Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:52.060Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:52.061Z [DEBUG] Hook approved tool use for Bash, bypassing permission check
+2026-05-11T03:45:52.107Z [DEBUG] Tool search disabled for model 'claude-haiku-4-5-20251001': model does not support tool_reference blocks. This feature is only available on Claude Sonnet 4+, Opus 4+, and newer models.
+2026-05-11T03:45:52.107Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.d46; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:52.108Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:52.108Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:52.108Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-05-11T03:45:52.108Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:52.108Z [DEBUG] Matched 2 unique hooks for query "Bash" (2 before deduplication)
+2026-05-11T03:45:52.108Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:52.111Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:52.111Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:52.111Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:52.111Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:52.114Z [DEBUG] autocompact: tokens=90385 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:52.114Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:52.114Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:52.117Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:52.118Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:52.120Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:52.120Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:52.122Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:45:53.748Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:54.878Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:45:57.882Z [DEBUG] executePreToolHooks called for tool: TodoWrite
+2026-05-11T03:45:57.883Z [DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+2026-05-11T03:45:57.883Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:45:57.883Z [DEBUG] Matched 4 unique hooks for query "TodoWrite" (4 before deduplication)
+2026-05-11T03:45:57.885Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:57.885Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:57.885Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:57.885Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:45:57.886Z [DEBUG] Hook approved tool use for TodoWrite, bypassing permission check
+2026-05-11T03:45:57.886Z [DEBUG] Writing to temp file: /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471157886
+2026-05-11T03:45:57.886Z [DEBUG] Preserving file permissions: 100644
+2026-05-11T03:45:57.886Z [DEBUG] Temp file written successfully, size: 878 bytes
+2026-05-11T03:45:57.886Z [DEBUG] Applied original permissions to temp file
+2026-05-11T03:45:57.886Z [DEBUG] Renaming /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json.tmp.513.1778471157886 to /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json
+2026-05-11T03:45:57.886Z [DEBUG] File /opt/polsia/workspaces/company-75550/agent-30/exec-2434238/buildorbit/todos/a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4-agent-a90fd7cd-77bc-4c57-ae57-6c6ee4bf8af4.json written atomically
+2026-05-11T03:45:57.887Z [DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+2026-05-11T03:45:57.887Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:45:57.887Z [DEBUG] Matched 2 unique hooks for query "TodoWrite" (2 before deduplication)
+2026-05-11T03:45:57.908Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:45:57.908Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:45:57.908Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:45:57.908Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:45:57.911Z [DEBUG] autocompact: tokens=90716 threshold=167000 effectiveWindow=180000
+2026-05-11T03:45:57.912Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:45:57.912Z [DEBUG] Dynamic tool loading: found 2 discovered tools in message history
+2026-05-11T03:45:57.917Z [DEBUG] Dynamic tool loading: 2/108 deferred tools included
+2026-05-11T03:45:57.920Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:45:57.924Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:45:57.924Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:45:57.925Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:46:01.718Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:46:02.243Z [DEBUG] executePreToolHooks called for tool: ToolSearch
+2026-05-11T03:46:02.243Z [DEBUG] Getting matching hook commands for PreToolUse with query: ToolSearch
+2026-05-11T03:46:02.243Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:46:02.243Z [DEBUG] Matched 4 unique hooks for query "ToolSearch" (4 before deduplication)
+2026-05-11T03:46:02.252Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:02.253Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:02.253Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:02.253Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:02.253Z [DEBUG] Hook approved tool use for ToolSearch, bypassing permission check
+2026-05-11T03:46:02.255Z [DEBUG] ToolSearchTool: keyword search for "push_to_remote deploy instance", found 3 matches
+2026-05-11T03:46:02.256Z [DEBUG] Getting matching hook commands for PostToolUse with query: ToolSearch
+2026-05-11T03:46:02.256Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:46:02.256Z [DEBUG] Matched 2 unique hooks for query "ToolSearch" (2 before deduplication)
+2026-05-11T03:46:02.302Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:46:02.302Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:46:02.302Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:46:02.302Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:46:02.304Z [DEBUG] autocompact: tokens=90796 threshold=167000 effectiveWindow=180000
+2026-05-11T03:46:02.304Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:46:02.304Z [DEBUG] Dynamic tool loading: found 5 discovered tools in message history
+2026-05-11T03:46:02.307Z [DEBUG] Dynamic tool loading: 5/108 deferred tools included
+2026-05-11T03:46:02.309Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:46:02.311Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:46:02.311Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:46:02.311Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:46:05.025Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:46:05.191Z [DEBUG] executePreToolHooks called for tool: ToolSearch
+2026-05-11T03:46:05.191Z [DEBUG] Getting matching hook commands for PreToolUse with query: ToolSearch
+2026-05-11T03:46:05.191Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:46:05.191Z [DEBUG] Matched 4 unique hooks for query "ToolSearch" (4 before deduplication)
+2026-05-11T03:46:05.198Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:05.198Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:05.198Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:05.198Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:05.199Z [DEBUG] Hook approved tool use for ToolSearch, bypassing permission check
+2026-05-11T03:46:05.200Z [DEBUG] ToolSearchTool: keyword search for "push_to_remote", found 0 matches
+2026-05-11T03:46:05.201Z [DEBUG] Getting matching hook commands for PostToolUse with query: ToolSearch
+2026-05-11T03:46:05.201Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:46:05.201Z [DEBUG] Matched 2 unique hooks for query "ToolSearch" (2 before deduplication)
+2026-05-11T03:46:05.231Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:46:05.231Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:46:05.231Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:46:05.231Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:46:05.233Z [DEBUG] autocompact: tokens=91475 threshold=167000 effectiveWindow=180000
+2026-05-11T03:46:05.233Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:46:05.233Z [DEBUG] Dynamic tool loading: found 5 discovered tools in message history
+2026-05-11T03:46:05.237Z [DEBUG] Dynamic tool loading: 5/108 deferred tools included
+2026-05-11T03:46:05.238Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:46:05.240Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:46:05.240Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:46:05.240Z [DEBUG] [API:auth] OAuth token check complete
+2026-05-11T03:46:08.988Z [DEBUG] Stream started - received first chunk
+2026-05-11T03:46:09.292Z [DEBUG] executePreToolHooks called for tool: ToolSearch
+2026-05-11T03:46:09.292Z [DEBUG] Getting matching hook commands for PreToolUse with query: ToolSearch
+2026-05-11T03:46:09.292Z [DEBUG] Found 2 hook matchers in settings
+2026-05-11T03:46:09.292Z [DEBUG] Matched 4 unique hooks for query "ToolSearch" (4 before deduplication)
+2026-05-11T03:46:09.304Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:09.304Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:09.304Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:09.304Z [DEBUG] Hook result has permissionBehavior=allow
+2026-05-11T03:46:09.305Z [DEBUG] Hook approved tool use for ToolSearch, bypassing permission check
+2026-05-11T03:46:09.305Z [DEBUG] ToolSearchTool: selected "mcp__polsia_infra__push_to_remote"
+2026-05-11T03:46:09.306Z [DEBUG] Getting matching hook commands for PostToolUse with query: ToolSearch
+2026-05-11T03:46:09.306Z [DEBUG] Found 7 hook matchers in settings
+2026-05-11T03:46:09.306Z [DEBUG] Matched 2 unique hooks for query "ToolSearch" (2 before deduplication)
+2026-05-11T03:46:09.316Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-05-11T03:46:09.316Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-05-11T03:46:09.316Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-05-11T03:46:09.316Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-05-11T03:46:09.318Z [DEBUG] autocompact: tokens=91572 threshold=167000 effectiveWindow=180000
+2026-05-11T03:46:09.318Z [DEBUG] Auto tool search enabled: 25584 tokens (threshold: 20000, 10% of context) [source: query]
+2026-05-11T03:46:09.318Z [DEBUG] Dynamic tool loading: found 6 discovered tools in message history
+2026-05-11T03:46:09.321Z [DEBUG] Dynamic tool loading: 6/108 deferred tools included
+2026-05-11T03:46:09.322Z [DEBUG] attribution header x-anthropic-billing-header: cc_version=2.1.33.fda; cc_entrypoint=sdk-ts;
+2026-05-11T03:46:09.324Z [DEBUG] [API:request] Creating client, ANTHROPIC_CUSTOM_HEADERS present: true, has Authorization header: false
+2026-05-11T03:46:09.324Z [DEBUG] [API:auth] OAuth token check starting
+2026-05-11T03:46:09.325Z [DEBUG] [API:auth] OAuth token check complete

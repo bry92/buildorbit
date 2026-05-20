@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Read current builder-agent.js to understand PLAN/SCAFFOLD/CODE prompts",
+    "status": "completed",
+    "activeForm": "Reading builder-agent.js"
+  },
+  {
+    "content": "Upgrade light_app and soft_expansion scaffolds to React CDN (app.jsx)",
+    "status": "completed",
+    "activeForm": "Upgrading scaffolds to React CDN"
+  },
+  {
+    "content": "Update CODE phase rules for light_app/soft_expansion React builds",
+    "status": "completed",
+    "activeForm": "Updating CODE phase rules"
+  },
+  {
+    "content": "Update PLAN phase to specify React + Tailwind stack",
+    "status": "completed",
+    "activeForm": "Updating PLAN phase"
+  },
+  {
+    "content": "Push to remote and notify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and notifying"
+  }
+]

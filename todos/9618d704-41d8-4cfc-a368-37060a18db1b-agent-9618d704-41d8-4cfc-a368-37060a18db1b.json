@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate all 6 vulnerable endpoints in server.js",
+    "status": "completed",
+    "activeForm": "Investigating vulnerable endpoints in server.js"
+  },
+  {
+    "content": "Identify requireAuth middleware pattern",
+    "status": "completed",
+    "activeForm": "Identifying requireAuth middleware pattern"
+  },
+  {
+    "content": "Fix: Add requireAuth to all 6 unauthenticated endpoints",
+    "status": "completed",
+    "activeForm": "Adding requireAuth middleware to endpoints"
+  },
+  {
+    "content": "Fix: Eliminate null-userId WHERE clause drop in SQL queries",
+    "status": "completed",
+    "activeForm": "Fixing null-userId SQL pattern"
+  },
+  {
+    "content": "Audit server.js for other null-userId SQL patterns",
+    "status": "completed",
+    "activeForm": "Auditing for additional null-userId SQL patterns"
+  },
+  {
+    "content": "Push, verify deploy, update CLAUDE.md",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

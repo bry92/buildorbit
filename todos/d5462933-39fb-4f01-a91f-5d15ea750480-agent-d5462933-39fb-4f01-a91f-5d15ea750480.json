@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create migration 019 adding deleted_at to pipeline_runs",
+    "status": "completed",
+    "activeForm": "Creating migration 019"
+  },
+  {
+    "content": "Update pipeline.js getRecentRuns to filter deleted rows",
+    "status": "completed",
+    "activeForm": "Updating pipeline.js getRecentRuns"
+  },
+  {
+    "content": "Add DELETE /api/pipeline/:runId endpoint to server.js",
+    "status": "completed",
+    "activeForm": "Adding DELETE endpoint to server.js"
+  },
+  {
+    "content": "Add delete UI to dashboard.html (button, modal, animation)",
+    "status": "completed",
+    "activeForm": "Adding delete UI to dashboard.html"
+  },
+  {
+    "content": "Deploy and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

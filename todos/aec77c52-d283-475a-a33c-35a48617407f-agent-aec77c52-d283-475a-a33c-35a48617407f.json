@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Diagnose: confirm root cause (POSTMARK_SERVER_TOKEN missing)",
+    "status": "completed",
+    "activeForm": "Diagnosing email delivery issue"
+  },
+  {
+    "content": "Phase 2: Add full diagnostic logging to sendMagicLinkEmail",
+    "status": "completed",
+    "activeForm": "Adding diagnostic logging to email send function"
+  },
+  {
+    "content": "Phase 3: Enforce external acknowledgment in server.js routes",
+    "status": "completed",
+    "activeForm": "Enforcing Postmark acknowledgment in server.js"
+  },
+  {
+    "content": "Phase 4: Report missing POSTMARK_SERVER_TOKEN to Polsia platform team",
+    "status": "in_progress",
+    "activeForm": "Reporting missing Postmark env var to platform team"
+  },
+  {
+    "content": "Commit, push, and verify with Render logs",
+    "status": "pending",
+    "activeForm": "Deploying and verifying fix"
+  }
+]

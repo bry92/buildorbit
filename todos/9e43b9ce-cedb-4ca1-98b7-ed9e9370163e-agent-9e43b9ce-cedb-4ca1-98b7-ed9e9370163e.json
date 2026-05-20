@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create migration 039 to add user_id column to memory_items",
+    "status": "completed",
+    "activeForm": "Creating migration 039 for memory_items user_id"
+  },
+  {
+    "content": "Create orbit-memory.js service (embeddings write/read with pgvector)",
+    "status": "completed",
+    "activeForm": "Creating orbit-memory.js service"
+  },
+  {
+    "content": "Update orbit-agent.js to wire semantic memory (read before response, write after run)",
+    "status": "completed",
+    "activeForm": "Updating orbit-agent.js with semantic memory"
+  },
+  {
+    "content": "Update OpenAI initialization to use Polsia proxy correctly",
+    "status": "completed",
+    "activeForm": "Updating OpenAI proxy initialization"
+  },
+  {
+    "content": "Self-check + push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "pending",
+    "activeForm": "Updating CLAUDE.md"
+  }
+]

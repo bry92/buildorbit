@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Read key files (auth.js, billing.js, pipeline-orchestrator.js, server.js)",
+    "status": "completed",
+    "activeForm": "Reading key files"
+  },
+  {
+    "content": "Create shared email utility with HTML templates",
+    "status": "completed",
+    "activeForm": "Creating email utility"
+  },
+  {
+    "content": "Add welcome email on signup + forgot password routes",
+    "status": "completed",
+    "activeForm": "Adding welcome email and password reset"
+  },
+  {
+    "content": "Add subscription confirmation email in billing.js",
+    "status": "completed",
+    "activeForm": "Adding subscription confirmation"
+  },
+  {
+    "content": "Add pipeline complete notification + credit decrement + credit warning",
+    "status": "completed",
+    "activeForm": "Adding pipeline complete notification"
+  },
+  {
+    "content": "Verify syntax and push to remote",
+    "status": "in_progress",
+    "activeForm": "Verifying and deploying"
+  }
+]

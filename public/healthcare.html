@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit for healthcare: traceable AI code execution, verifiable output, and audit trails for HIPAA-adjacent development environments.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 820px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 40px; max-width: 620px; }
+        .hipaa-note { background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.18); border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #a855f7; margin-bottom: 40px; line-height: 1.55; }
+        .benefit-list { display: flex; flex-direction: column; gap: 1px; }
+        .benefit-row { display: grid; grid-template-columns: 28px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .benefit-row:last-child { border-bottom: none; }
+        .benefit-icon { font-size: 18px; }
+        .benefit-text h3 { font-size: 14px; font-weight: 700; margin: 0 0 4px; }
+        .benefit-text p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+        .contact-row { display: flex; align-items: center; gap: 12px; margin-top: 40px; padding: 20px; background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.12); border-radius: 8px; }
+        .contact-row p { font-size: 14px; color: var(--text-muted); margin: 0; flex: 1; }
+        .contact-row a { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        @media (max-width: 600px) { .page-nav-right { display: none; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Solutions</div>
+        <h1 class="page-h1">Healthcare</h1>
+        <p class="page-lead">Traceable execution. Verifiable output. Full audit trails. BuildOrbit is designed for healthcare teams that need AI-assisted development without sacrificing compliance.</p>
+
+        <div class="hipaa-note"><strong>Honest note on HIPAA:</strong> BuildOrbit is not currently HIPAA certified. We store account data and build logs in a hosted Postgres database. If you have specific HIPAA requirements, let's have a real conversation before you build on this.</div>
+
+        <div class="benefit-list">
+            <div class="benefit-row">
+                <div class="benefit-icon">🔒</div>
+                <div class="benefit-text">
+                    <h3>Data isolation per user</h3>
+                    <p>Build logs, reasoning transcripts, and generated files are stored per-user with strict isolation. Semantic memory is scoped to individual accounts. Data doesn't bleed across users or organizations.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">📋</div>
+                <div class="benefit-text">
+                    <h3>Complete audit trail</h3>
+                    <p>Every build generates a full event log. Who ran it, what was decided, what code was generated, what was deployed, when — all logged as immutable event records. Exportable for compliance review.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">👁️</div>
+                <div class="benefit-text">
+                    <h3>Human-in-the-loop at every phase</h3>
+                    <p>Plan approval. Scaffold inspection. Deployment gate. No phase executes autonomously without human visibility. You can stop a build at any phase before the next one starts.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">📜</div>
+                <div class="benefit-text">
+                    <h3>Agent reasoning is a first-class output</h3>
+                    <p>The agent's reasoning isn't buried — it's the primary artifact of every build. Read the full decision chain for any run. Every decision is logged, timestamped, and tied to a specific phase.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">🔍</div>
+                <div class="benefit-text">
+                    <h3>Independent verification</h3>
+                    <p>VERIFY phase produces structured audit reports with severity-tagged findings. Critical issues are surfaced separately. You know exactly what's been checked and what was found.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">🚫</div>
+                <div class="benefit-text">
+                    <h3>No catastrophic overwrites</h3>
+                    <p>BuildOrbit will not destroy existing working code without explicit consent. Catastrophic rewrites are blocked by the system. This applies to both the generated code and any repo context you attach.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <p>Interested in healthcare or HIPAA-adjacent use cases? We want to hear what you're building and whether the current architecture fits.</p>
+            <a href="mailto:healthcare@buildorbit.polsia.app">healthcare@buildorbit.polsia.app →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

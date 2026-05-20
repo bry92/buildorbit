@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Explore existing code (github-fetch.js, pipeline phases, intent gate)",
+    "status": "completed",
+    "activeForm": "Exploring existing codebase"
+  },
+  {
+    "content": "Build src/services/repo-scanner.js module with tech stack detection",
+    "status": "completed",
+    "activeForm": "Building repo scanner module"
+  },
+  {
+    "content": "Wire repo scanner into server.js pipeline creation endpoint",
+    "status": "completed",
+    "activeForm": "Wiring repo scanner into server.js"
+  },
+  {
+    "content": "Wire repo profile through orchestrator and intent gate",
+    "status": "completed",
+    "activeForm": "Wiring repo profile through orchestrator and intent gate"
+  },
+  {
+    "content": "Wire repo profile into builder agent scaffold phase",
+    "status": "completed",
+    "activeForm": "Wiring repo profile into builder agent"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing to remote"
+  },
+  {
+    "content": "Update CLAUDE.md and complete task",
+    "status": "pending",
+    "activeForm": "Updating CLAUDE.md and completing task"
+  }
+]

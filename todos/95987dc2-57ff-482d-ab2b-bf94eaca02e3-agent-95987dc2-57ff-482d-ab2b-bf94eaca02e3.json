@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Investigate root cause of CDN scaffold generation",
+    "status": "completed",
+    "activeForm": "Investigating root cause of CDN scaffold generation"
+  },
+  {
+    "content": "Update scaffold-schemas.js: change full_product/light_app from react-cdn to vite-react",
+    "status": "completed",
+    "activeForm": "Updating scaffold schemas from CDN to Vite"
+  },
+  {
+    "content": "Update intent-gate.js: add jsx to light_app allowed_artifacts",
+    "status": "completed",
+    "activeForm": "Updating intent gate allowed artifacts"
+  },
+  {
+    "content": "Update src/agents/builder-agent.js scaffold: generate Vite project structure",
+    "status": "completed",
+    "activeForm": "Updating builder agent scaffold for Vite structure"
+  },
+  {
+    "content": "Update src/agents/builder-agent.js CODE phase: generate import-based React",
+    "status": "completed",
+    "activeForm": "Updating builder agent CODE phase for import-based React"
+  },
+  {
+    "content": "Update builder-agent.js stub generator for Vite React stubs",
+    "status": "completed",
+    "activeForm": "Updating builder agent stub generator for Vite"
+  },
+  {
+    "content": "Update src/agents/qa-agent.js: flip CDN check to reject CDN, validate Vite structure",
+    "status": "completed",
+    "activeForm": "Updating QA agent verify checks for Vite validation"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md with recent changes"
+  },
+  {
+    "content": "Validate with node --check and deploy",
+    "status": "in_progress",
+    "activeForm": "Validating with node --check and deploying"
+  }
+]

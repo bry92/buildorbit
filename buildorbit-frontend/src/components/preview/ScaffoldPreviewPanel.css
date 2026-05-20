@@ -1,0 +1,305 @@
+/**
+ * ScaffoldPreviewPanel — build initializing / scaffold blueprint panel.
+ * Glass-morphism style matching BuildOrbit aesthetic.
+ */
+
+.sp-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s var(--transition);
+}
+.sp-panel--live {
+  border-color: var(--glass-border-medium);
+  animation: sp-pulse 3s ease-in-out infinite;
+}
+@keyframes sp-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+  50%       { box-shadow: 0 0 16px rgba(56, 189, 248, 0.08); }
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.sp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  background: rgba(13, 20, 36, 0.5);
+}
+.sp-header-icon {
+  font-size: 16px;
+}
+.sp-header-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  flex: 1;
+}
+.sp-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+}
+.sp-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: sp-blink 1.2s ease-in-out infinite;
+}
+@keyframes sp-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Phase progress bar ──────────────────────────────────── */
+.sp-phases {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  background: rgba(10, 17, 30, 0.4);
+  overflow-x: auto;
+}
+.sp-phase-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  position: relative;
+}
+.sp-phase-dot:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: calc(50% + 6px);
+  width: calc(100% - 12px);
+  height: 1px;
+  background: var(--glass-border-subtle);
+}
+.sp-phase-dot--done:not(:last-child)::after {
+  background: rgba(56, 189, 248, 0.4);
+}
+.sp-phase-dot-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border-subtle);
+  transition: all 0.2s;
+}
+.sp-phase-dot--done .sp-phase-dot-inner {
+  background: rgba(56, 189, 248, 0.3);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+.sp-phase-dot--active .sp-phase-dot-inner {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  animation: sp-active-pulse 1.5s ease-in-out infinite;
+}
+@keyframes sp-active-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(56, 189, 248, 0.4); }
+  50%       { box-shadow: 0 0 12px rgba(56, 189, 248, 0.7); }
+}
+.sp-phase-label {
+  font-size: 9px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  white-space: nowrap;
+}
+.sp-phase-dot--done .sp-phase-label,
+.sp-phase-dot--active .sp-phase-label {
+  color: var(--text-muted);
+}
+.sp-phase-dot--active .sp-phase-label {
+  color: var(--accent);
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.sp-section {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+.sp-section:last-child {
+  border-bottom: none;
+}
+.sp-section-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 6px;
+}
+
+/* ── Repo context tags ───────────────────────────────────── */
+.sp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.sp-tag {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+.sp-tag--lang {
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.05);
+}
+.sp-tag--dim {
+  color: var(--text-dim);
+}
+
+/* ── Stack ───────────────────────────────────────────────── */
+.sp-stack {
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-muted);
+}
+.sp-entry {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  margin-top: 4px;
+}
+
+/* ── Summary ─────────────────────────────────────────────── */
+.sp-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-height: 80px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* ── File tree ───────────────────────────────────────────── */
+.sp-file-tree {
+  max-height: 280px;
+  overflow-y: auto;
+}
+.sp-dir-group {
+  margin-bottom: 4px;
+}
+.sp-dir-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-dim);
+  padding: 3px 0;
+  font-weight: 600;
+}
+.sp-dir-icon {
+  font-size: 12px;
+}
+.sp-file-entry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-muted);
+}
+.sp-file-entry--indent {
+  padding-left: 16px;
+}
+.sp-file-icon {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.sp-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Initializing state (no scaffold yet) ────────────────── */
+.sp-initializing {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.sp-init-icon {
+  font-size: 32px;
+  animation: sp-float 2s ease-in-out infinite;
+}
+@keyframes sp-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+.sp-init-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.sp-init-subtitle {
+  font-size: 12px;
+  color: var(--text-dim);
+  max-width: 240px;
+  line-height: 1.5;
+}
+.sp-init-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 220px;
+  margin-top: 8px;
+}
+.sp-init-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+}
+.sp-init-step--done {
+  color: rgba(56, 189, 248, 0.6);
+}
+.sp-init-step--active {
+  color: var(--accent);
+}
+.sp-init-step-indicator {
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+.sp-init-step--active .sp-init-step-indicator {
+  animation: sp-spin 1.5s linear infinite;
+  display: inline-block;
+}
+@keyframes sp-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

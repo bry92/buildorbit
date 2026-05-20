@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Read intent-gate.js and pipeline-orchestrator.js to understand exact integration points",
+    "status": "completed",
+    "activeForm": "Reading key files"
+  },
+  {
+    "content": "Create lib/interaction-surface-extractor.js (ISE core module)",
+    "status": "completed",
+    "activeForm": "Creating ISE module"
+  },
+  {
+    "content": "Integrate ISE into agents/intent-gate.js (enrich CCO with surfaces/transitions/verbs)",
+    "status": "completed",
+    "activeForm": "Integrating ISE into Intent Gate"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js to emit ISE event and pass surfaces to Scaffold",
+    "status": "completed",
+    "activeForm": "Updating orchestrator"
+  },
+  {
+    "content": "Update builder-agent.js Scaffold to consume surfaces as build targets",
+    "status": "completed",
+    "activeForm": "Updating Scaffold in builder-agent"
+  },
+  {
+    "content": "Update stress-test.js to validate surface extraction",
+    "status": "completed",
+    "activeForm": "Updating stress harness"
+  },
+  {
+    "content": "Write unit tests for ISE",
+    "status": "completed",
+    "activeForm": "Writing unit tests"
+  },
+  {
+    "content": "Run tests and verify everything passes",
+    "status": "completed",
+    "activeForm": "Running tests"
+  },
+  {
+    "content": "Create PR",
+    "status": "in_progress",
+    "activeForm": "Creating PR"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate stale artifact bug — read affected files",
+    "status": "completed",
+    "activeForm": "Investigating stale artifact bug"
+  },
+  {
+    "content": "State root cause hypothesis with evidence",
+    "status": "completed",
+    "activeForm": "Stating root cause hypothesis"
+  },
+  {
+    "content": "Implement fix for artifact staleness",
+    "status": "completed",
+    "activeForm": "Implementing artifact staleness fix"
+  },
+  {
+    "content": "Verify fix — syntax check and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying the fix"
+  },
+  {
+    "content": "Notify owner of completion",
+    "status": "pending",
+    "activeForm": "Notifying owner"
+  }
+]

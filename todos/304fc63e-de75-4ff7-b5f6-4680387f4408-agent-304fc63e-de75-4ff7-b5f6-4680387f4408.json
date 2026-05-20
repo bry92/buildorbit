@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Write migration 013: magic_links hardening columns + sessions + security_events tables",
+    "status": "completed",
+    "activeForm": "Writing migration 013"
+  },
+  {
+    "content": "Update auth.js: hashToken, session management helpers, logSecurityEvent, update requireAuth",
+    "status": "completed",
+    "activeForm": "Updating auth.js"
+  },
+  {
+    "content": "Update server.js: hashed token storage, atomic verify, sibling invalidation, session creation, security logging, revoke endpoints",
+    "status": "completed",
+    "activeForm": "Updating server.js"
+  },
+  {
+    "content": "Update verify-error.html: better used/expired UX with actionable CTAs",
+    "status": "completed",
+    "activeForm": "Updating verify-error.html"
+  },
+  {
+    "content": "Push to remote and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

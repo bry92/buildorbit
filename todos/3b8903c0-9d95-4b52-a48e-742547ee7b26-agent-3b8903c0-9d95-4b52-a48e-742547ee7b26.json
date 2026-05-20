@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate the bug: wrong prompt injection and codebase overwrite",
+    "status": "completed",
+    "activeForm": "Investigating the bug"
+  },
+  {
+    "content": "Fix prompt injection in 'build from repo' flow",
+    "status": "completed",
+    "activeForm": "Fixing prompt injection"
+  },
+  {
+    "content": "Add guard against overwriting repos with fewer files",
+    "status": "completed",
+    "activeForm": "Adding file count guard"
+  },
+  {
+    "content": "Verify fix and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and deploying"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate current scaffold generation code and previous fix attempts",
+    "status": "completed",
+    "activeForm": "Investigating scaffold generation code and previous fixes"
+  },
+  {
+    "content": "Create scaffold schema registry (lib/scaffold-schemas.js)",
+    "status": "completed",
+    "activeForm": "Creating scaffold schema registry"
+  },
+  {
+    "content": "Modify builder-agent.js to route schema by intent_class",
+    "status": "completed",
+    "activeForm": "Modifying builder-agent.js for schema routing"
+  },
+  {
+    "content": "Update stage-contracts.js validation to be schema-aware",
+    "status": "completed",
+    "activeForm": "Updating stage-contracts validation"
+  },
+  {
+    "content": "Update QA agent to validate scaffold metadata against schema",
+    "status": "completed",
+    "activeForm": "Updating QA agent validation"
+  },
+  {
+    "content": "Verify fix and push via PR",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and pushing PR"
+  }
+]

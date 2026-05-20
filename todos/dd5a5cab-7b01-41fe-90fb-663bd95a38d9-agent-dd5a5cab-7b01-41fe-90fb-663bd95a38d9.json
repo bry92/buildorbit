@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Read pipeline-orchestrator.js to locate patch targets",
+    "status": "completed",
+    "activeForm": "Reading pipeline-orchestrator.js"
+  },
+  {
+    "content": "Apply PATCH 1 — Fix self-heal trigger logic",
+    "status": "completed",
+    "activeForm": "Applying PATCH 1"
+  },
+  {
+    "content": "Apply PATCH 2 — Fix _runSelfHeal execution completeness",
+    "status": "completed",
+    "activeForm": "Applying PATCH 2"
+  },
+  {
+    "content": "Apply PATCH 3 — Align VERIFY success semantics",
+    "status": "completed",
+    "activeForm": "Applying PATCH 3"
+  },
+  {
+    "content": "Apply PATCH 4 — Increase retry ceiling",
+    "status": "completed",
+    "activeForm": "Applying PATCH 4"
+  },
+  {
+    "content": "Apply PATCH 5 — Fix premature stage completion",
+    "status": "completed",
+    "activeForm": "Applying PATCH 5"
+  },
+  {
+    "content": "Push and deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing and deploying"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Read CLAUDE.md and understand codebase structure",
+    "status": "completed",
+    "activeForm": "Reading CLAUDE.md"
+  },
+  {
+    "content": "Build admin route (db/admin.js + routes/admin.js)",
+    "status": "completed",
+    "activeForm": "Building admin route backend"
+  },
+  {
+    "content": "Build admin frontend (React page + CSS)",
+    "status": "completed",
+    "activeForm": "Building admin frontend"
+  },
+  {
+    "content": "Wire server.js (mount admin router) + update App.tsx + Sidebar.tsx",
+    "status": "completed",
+    "activeForm": "Wiring routes and nav"
+  },
+  {
+    "content": "Push and deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing and deploying"
+  },
+  {
+    "content": "Verify deployment and complete task",
+    "status": "pending",
+    "activeForm": "Verifying deployment"
+  }
+]

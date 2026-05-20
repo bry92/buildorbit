@@ -1,0 +1,48 @@
+/* BuildOrbit Design Tokens — Dark Cosmic Theme */
+:root {
+  /* Core backgrounds */
+  --bg: #060a14;
+  --surface: #0d1424;
+  --surface-elevated: #111827;
+
+  /* Text hierarchy */
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #475569;
+
+  /* Accent — sky blue */
+  --accent: rgba(56, 189, 248, 0.9);
+  --accent-hover: rgba(14, 165, 233, 1);
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --accent-glow: rgba(56, 189, 248, 0.3);
+
+  /* Semantic */
+  --success: #34d399;
+  --error: #f87171;
+  --warning: #fbbf24;
+
+  /* Glass system */
+  --glass-bg: rgba(13, 20, 36, 0.7);
+  --glass-border: rgba(56, 189, 248, 0.25);
+  --glass-blur: 12px;
+  --glass-border-subtle: rgba(56, 189, 248, 0.08);
+  --glass-border-medium: rgba(56, 189, 248, 0.12);
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius: 16px;
+
+  /* Agent colors */
+  --planner: rgba(14, 165, 233, 0.7);
+  --builder: #10b981;
+  --qa: #f59e0b;
+  --ops: #8b5cf6;
+
+  /* Transitions */
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s;
+  --transition-med: 0.25s;
+}

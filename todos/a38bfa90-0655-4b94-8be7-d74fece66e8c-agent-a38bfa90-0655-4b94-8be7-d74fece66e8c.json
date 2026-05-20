@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Fix transactional.js — remove Postmark, fix Polsia proxy call",
+    "status": "completed",
+    "activeForm": "Fixing transactional.js"
+  },
+  {
+    "content": "Fix provider-events.js — update startup probe for polsia-only",
+    "status": "completed",
+    "activeForm": "Fixing provider-events.js"
+  },
+  {
+    "content": "Remove postmark from package.json and run npm install",
+    "status": "in_progress",
+    "activeForm": "Removing postmark dependency"
+  },
+  {
+    "content": "Verify — re-run searches to confirm 0 hits",
+    "status": "pending",
+    "activeForm": "Verifying cleanup"
+  },
+  {
+    "content": "Complete task and notify owner",
+    "status": "pending",
+    "activeForm": "Completing task"
+  }
+]

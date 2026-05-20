@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Fix body parser limits (10mb) and field-level validation middleware",
+    "status": "completed",
+    "activeForm": "Fixing body parser limits and field-level validation"
+  },
+  {
+    "content": "Freeze req.user object in auth middleware (privilege escalation fix)",
+    "status": "completed",
+    "activeForm": "Freezing req.user in auth middleware"
+  },
+  {
+    "content": "Add graceful shutdown with SIGTERM/SIGINT + pool drain",
+    "status": "completed",
+    "activeForm": "Adding graceful shutdown handlers"
+  },
+  {
+    "content": "Add transactional FOR UPDATE to deploy status update",
+    "status": "completed",
+    "activeForm": "Adding transactional deploy status update"
+  },
+  {
+    "content": "Add CSRF protection for cookie-authenticated state-changing endpoints",
+    "status": "completed",
+    "activeForm": "Adding CSRF protection"
+  },
+  {
+    "content": "Push to remote and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and verifying deployment"
+  }
+]

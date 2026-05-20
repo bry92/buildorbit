@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate phase execution order (SCAFFOLD before PLAN?)",
+    "status": "completed",
+    "activeForm": "Investigating phase execution order"
+  },
+  {
+    "content": "Identify root cause of PLAN→SCAFFOLD handoff failure",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Fix the actual handoff so CODE uses PLAN output",
+    "status": "completed",
+    "activeForm": "Fixing PLAN→CODE handoff"
+  },
+  {
+    "content": "Fix malformed /api/ source pattern in generated configs",
+    "status": "in_progress",
+    "activeForm": "Fixing malformed source pattern"
+  },
+  {
+    "content": "Deploy and verify fix works end-to-end",
+    "status": "pending",
+    "activeForm": "Deploying and verifying fix"
+  }
+]

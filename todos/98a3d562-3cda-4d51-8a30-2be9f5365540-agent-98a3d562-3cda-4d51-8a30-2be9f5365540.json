@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Add global unhandledRejection + uncaughtException safety net to server.js",
+    "status": "completed",
+    "activeForm": "Adding global process error handlers to server.js"
+  },
+  {
+    "content": "Wrap event bus STAGE_COMPLETED listener in try-catch in pipeline-orchestrator.js",
+    "status": "completed",
+    "activeForm": "Wrapping event bus listener in try-catch"
+  },
+  {
+    "content": "Document in-memory rate limiter limitation in src/routes/a2a.js and src/lib/auth-rate-limiter.js",
+    "status": "completed",
+    "activeForm": "Documenting rate limiter limitation"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing"
+  }
+]

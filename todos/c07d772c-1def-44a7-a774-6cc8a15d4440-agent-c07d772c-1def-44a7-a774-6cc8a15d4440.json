@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate root cause",
+    "status": "completed",
+    "activeForm": "Investigating root cause"
+  },
+  {
+    "content": "Emit verify_report from orchestrator after verify completes",
+    "status": "completed",
+    "activeForm": "Emitting verify_report from orchestrator"
+  },
+  {
+    "content": "Replay verify_report and add logging in server.js",
+    "status": "completed",
+    "activeForm": "Replaying verify_report during SSE replay"
+  },
+  {
+    "content": "Store verify_report data on frontend and use as primary banner source",
+    "status": "completed",
+    "activeForm": "Storing verify_report data on frontend"
+  },
+  {
+    "content": "Deploy and verify the fix is working",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying fix"
+  },
+  {
+    "content": "Send completion notifications",
+    "status": "pending",
+    "activeForm": "Sending completion notifications"
+  }
+]

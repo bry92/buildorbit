@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Add _buildInteractionContract() to builder-agent.js",
+    "status": "completed",
+    "activeForm": "Adding _buildInteractionContract() to builder-agent.js"
+  },
+  {
+    "content": "Call it in _executeScaffold and attach to scaffoldOutput",
+    "status": "completed",
+    "activeForm": "Wiring _buildInteractionContract into _executeScaffold"
+  },
+  {
+    "content": "Inject contract into _buildScaffoldContractBlock for CODE prompt",
+    "status": "completed",
+    "activeForm": "Injecting interaction contract into CODE phase prompt"
+  },
+  {
+    "content": "Update stage-contracts.js schema for scaffold output",
+    "status": "completed",
+    "activeForm": "Updating stage-contracts.js"
+  },
+  {
+    "content": "Add Interaction contract fulfilled check in qa-agent.js VERIFY",
+    "status": "completed",
+    "activeForm": "Adding VERIFY check to qa-agent.js"
+  },
+  {
+    "content": "Deploy and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

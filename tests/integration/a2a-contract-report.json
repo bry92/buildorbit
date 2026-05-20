@@ -1,0 +1,125 @@
+{
+  "run_at": "2026-04-17T20:26:01.375Z",
+  "total": 29,
+  "passed": 29,
+  "failed": 0,
+  "pass_rate": "100.0%",
+  "results": [
+    {
+      "name": "Missing intent_class → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing task_type → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing constraints → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing allowed_artifacts → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing prohibited_layers → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing complexity_budget → rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing expansion_lock → rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid intent_class enum → rejected",
+      "pass": true
+    },
+    {
+      "name": "constraints.db = null → rejected",
+      "pass": true
+    },
+    {
+      "name": "constraints.auth = number → rejected",
+      "pass": true
+    },
+    {
+      "name": "constraints.api = object → rejected",
+      "pass": true
+    },
+    {
+      "name": "Empty allowed_artifacts → rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid complexity_budget → rejected",
+      "pass": true
+    },
+    {
+      "name": "expansion_lock = string → rejected",
+      "pass": true
+    },
+    {
+      "name": "constraints = array → rejected",
+      "pass": true
+    },
+    {
+      "name": "Hash is deterministic (same contract → same hash)",
+      "pass": true
+    },
+    {
+      "name": "Different contracts → different hashes",
+      "pass": true
+    },
+    {
+      "name": "verifyCCOHash passes for unchanged contract",
+      "pass": true
+    },
+    {
+      "name": "verifyCCOHash detects intent_class mutation",
+      "pass": true
+    },
+    {
+      "name": "Metadata fields (_entropy, _ise) excluded from hash",
+      "pass": true
+    },
+    {
+      "name": "verifyCCOHash fails with null expectedHash",
+      "pass": true
+    },
+    {
+      "name": "verifyCCOHash fails with null contract",
+      "pass": true
+    },
+    {
+      "name": "Valid static_surface CCO → passes",
+      "pass": true
+    },
+    {
+      "name": "Valid light_app CCO with db:maybe, api:minimal → passes",
+      "pass": true
+    },
+    {
+      "name": "Valid full_product CCO → passes",
+      "pass": true
+    },
+    {
+      "name": "Valid soft_expansion CCO → passes",
+      "pass": true
+    },
+    {
+      "name": "[Credit 2] well_formed CCO → passes validation",
+      "pass": true
+    },
+    {
+      "name": "[Credit 2] malformed_intent (missing intent_class) → rejected",
+      "pass": true
+    },
+    {
+      "name": "[Credit 2] partial_context (missing constraints, prohibited_layers) → rejected",
+      "pass": true
+    }
+  ]
+}

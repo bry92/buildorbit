@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Read server.js pipeline intake section (lines 1265-1400)",
+    "status": "completed",
+    "activeForm": "Reading pipeline intake code"
+  },
+  {
+    "content": "Read github-fetch.js to understand repo analysis capabilities",
+    "status": "completed",
+    "activeForm": "Reading github-fetch.js"
+  },
+  {
+    "content": "Add GET /api/github/analyze-repo endpoint to return inferred context",
+    "status": "completed",
+    "activeForm": "Adding repo analysis endpoint"
+  },
+  {
+    "content": "Add repo selector + auto-infer UI to new-task.html",
+    "status": "completed",
+    "activeForm": "Adding repo selector UI"
+  },
+  {
+    "content": "Update new-task.html to use inferred context in pipeline payload",
+    "status": "completed",
+    "activeForm": "Updating pipeline submission"
+  },
+  {
+    "content": "Run pre-push self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-checks and pushing"
+  },
+  {
+    "content": "Update CLAUDE.md recent changes",
+    "status": "pending",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Complete task and send notifications",
+    "status": "pending",
+    "activeForm": "Completing task and notifying"
+  }
+]

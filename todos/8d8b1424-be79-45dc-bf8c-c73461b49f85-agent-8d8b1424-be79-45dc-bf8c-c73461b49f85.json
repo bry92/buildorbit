@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate all 5 security vulnerabilities in the codebase",
+    "status": "completed",
+    "activeForm": "Investigating all 5 security vulnerabilities"
+  },
+  {
+    "content": "Fix Findings 1+4: Remove JWT_SECRET fallback/derivation across auth.js, src/lib/auth.js, github files, server.js",
+    "status": "completed",
+    "activeForm": "Fixing JWT_SECRET fallback logic across all files"
+  },
+  {
+    "content": "Fix Finding 2: Move unique routes/ files to src/routes/, delete legacy routes/ directory",
+    "status": "completed",
+    "activeForm": "Consolidating duplicate routes"
+  },
+  {
+    "content": "Fix Finding 3: Remove mock layer hardcoded credentials, normalize NODE_ENV check",
+    "status": "completed",
+    "activeForm": "Removing mock layer credentials"
+  },
+  {
+    "content": "Fix Finding 5: Fix SQL injection in test file, audit production code",
+    "status": "completed",
+    "activeForm": "Fixing SQL injection patterns"
+  },
+  {
+    "content": "Add startup env validation, delete dead root auth.js, update CLAUDE.md",
+    "status": "completed",
+    "activeForm": "Adding startup validation and cleanup"
+  },
+  {
+    "content": "Push, verify deploy, complete task",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

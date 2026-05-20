@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter — BuildOrbit</title>
+  <link rel="stylesheet" href="/css/buildorbit.css?v=20260502a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260502a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260508b">
+</head>
+<body class="page-auth">
+
+<div class="terminal-wrap">
+
+  <div class="bar">
+    <a href="/" class="logo">
+      <div class="logo-dot"></div>
+      BuildOrbit
+    </a>
+    <span class="version-tag">v0.1.0</span>
+  </div>
+
+  <!-- Login form (default) -->
+  <div id="loginState">
+    <!-- Honeypot: hidden from real users -->
+    <div aria-hidden="true">
+      <label for="_hp">Website</label>
+      <input type="text" id="_hp" name="_hp" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-label">
+        <span class="accent">$</span> buildorbit --enter
+      </div>
+      <div class="input-container">
+        <span class="prompt-prefix">email&nbsp;</span>
+        <input
+          type="email"
+          id="loginEmail"
+          name="email"
+          class="input-field"
+          placeholder="you@domain.com"
+          autocomplete="email"
+          spellcheck="false"
+          required
+          autofocus
+        >
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="input-container">
+        <span class="prompt-prefix">pass&nbsp;&nbsp;</span>
+        <input
+          type="password"
+          id="loginPassword"
+          name="password"
+          class="input-field"
+          placeholder="your password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="error-box" id="loginError"></div>
+
+    <button type="button" class="enter-btn" id="loginBtn" onclick="handleLogin()">
+      <span id="loginBtnText">Enter</span>
+      <span id="loginBtnSpinner" class="spinner" style="display:none;"></span>
+      <span class="enter-hint" id="loginBtnHint">&#8984; + Enter</span>
+    </button>
+
+    <div class="mode-toggle">
+      New here? <a onclick="showSignup()">Sign up</a>
+    </div>
+
+    <div class="magic-link-fallback">
+      <a onclick="showMagicLink()">Sign in with email link instead</a>
+    </div>
+  </div>
+
+  <!-- Signup form -->
+  <div id="signupState" style="display:none;">
+    <div class="prompt-block">
+      <div class="prompt-label">
+        <span class="accent">$</span> buildorbit --signup
+      </div>
+      <div class="input-container">
+        <span class="prompt-prefix">email&nbsp;</span>
+        <input
+          type="email"
+          id="signupEmail"
+          name="email"
+          class="input-field"
+          placeholder="you@domain.com"
+          autocomplete="email"
+          spellcheck="false"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="input-container">
+        <span class="prompt-prefix">pass&nbsp;&nbsp;</span>
+        <input
+          type="password"
+          id="signupPassword"
+          name="password"
+          class="input-field"
+          placeholder="min 8 characters"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+      <div class="field-hint">min 8 characters</div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="input-container">
+        <span class="prompt-prefix">confirm</span>
+        <input
+          type="password"
+          id="signupConfirm"
+          name="confirm"
+          class="input-field"
+          placeholder="confirm password"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="error-box" id="signupError"></div>
+
+    <button type="button" class="enter-btn" id="signupBtn" onclick="handleSignup()">
+      <span id="signupBtnText">Create Account</span>
+      <span id="signupBtnSpinner" class="spinner" style="display:none;"></span>
+      <span class="enter-hint" id="signupBtnHint">&#8984; + Enter</span>
+    </button>
+
+    <div class="mode-toggle">
+      Already have an account? <a onclick="showLogin()">Sign in</a>
+    </div>
+  </div>
+
+  <!-- Magic link form (secondary) -->
+  <div id="magicLinkState" style="display:none;">
+    <div class="prompt-block">
+      <div class="prompt-label">
+        <span class="accent">$</span> buildorbit --magic-link
+      </div>
+      <div class="input-container">
+        <span class="prompt-prefix">email&nbsp;</span>
+        <input
+          type="email"
+          id="magicEmail"
+          name="email"
+          class="input-field"
+          placeholder="you@domain.com"
+          autocomplete="email"
+          spellcheck="false"
+          required
+        >
+      </div>
+    </div>
+
+    <!-- Math challenge (shown only when server signals requireChallenge) -->
+    <div class="challenge-box" id="challengeBox">
+      <div class="challenge-label" id="challengeQuestion">What is 3 + 5?</div>
+      <input type="text" class="challenge-input" id="challengeAnswer" placeholder="Your answer" autocomplete="off" inputmode="numeric">
+    </div>
+
+    <div class="error-box" id="magicError"></div>
+
+    <button type="button" class="enter-btn" id="magicBtn" onclick="handleMagicLink()">
+      <span id="magicBtnText">Send Link</span>
+      <span id="magicBtnSpinner" class="spinner" style="display:none;"></span>
+      <span class="enter-hint" id="magicBtnHint">&#8984; + Enter</span>
+    </button>
+
+    <div class="mode-toggle">
+      <a onclick="showLogin()">Back to password sign in</a>
+    </div>
+  </div>
+
+  <!-- Confirmation screen (magic link sent) -->
+  <div class="confirm-state" id="confirmState">
+    <div class="confirm-block">
+      <div class="confirm-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2 class="confirm-heading">Link sent.</h2>
+      <p class="confirm-text">Check your inbox at</p>
+      <p class="confirm-email" id="confirmEmail"></p>
+      <p class="confirm-sub">Expires in 15 minutes. Check your spam folder.</p>
+      <button class="resend-btn" id="resendBtn" onclick="handleResend()" style="display:none;">Resend link</button>
+      <p class="resend-note" id="resendNote"></p>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">BuildOrbit — autonomous execution</p>
+
+<script>
+  // ── State ──────────────────────────────────────────────────────────────────
+  let lastEmail = '';
+  let resendCount = 0;
+  const MAX_RESENDS = 3;
+  const RESEND_REVEAL_DELAY = 60;
+
+  // Challenge state (magic link only)
+  let challengeToken = null;
+  let challengePending = false;
+
+  // ── View switching ────────────────────────────────────────────────────────
+  function showLogin() {
+    document.getElementById('loginState').style.display = 'block';
+    document.getElementById('signupState').style.display = 'none';
+    document.getElementById('magicLinkState').style.display = 'none';
+    document.getElementById('confirmState').style.display = 'none';
+    hideError('loginError');
+    document.getElementById('loginEmail').focus();
+  }
+
+  function showSignup() {
+    document.getElementById('loginState').style.display = 'none';
+    document.getElementById('signupState').style.display = 'block';
+    document.getElementById('magicLinkState').style.display = 'none';
+    document.getElementById('confirmState').style.display = 'none';
+    hideError('signupError');
+    document.getElementById('signupEmail').focus();
+  }
+
+  function showMagicLink() {
+    document.getElementById('loginState').style.display = 'none';
+    document.getElementById('signupState').style.display = 'none';
+    document.getElementById('magicLinkState').style.display = 'block';
+    document.getElementById('confirmState').style.display = 'none';
+    hideError('magicError');
+    document.getElementById('magicEmail').focus();
+  }
+
+  // ── Login handler ─────────────────────────────────────────────────────────
+  async function handleLogin() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+
+    if (!email) { showError('loginError', 'Email is required.'); return; }
+    if (!password) { showError('loginError', 'Password is required.'); return; }
+
+    setLoading('login', true);
+    hideError('loginError');
+
+    try {
+      const res = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        // Check for specific error codes
+        if (res.status === 429) {
+          throw new Error(data.message || 'Too many attempts. Try again later.');
+        }
+        if (data.message && data.message.includes('Password not set')) {
+          throw new Error('No password set. Create an account first or use magic link.');
+        }
+        throw new Error(data.message || 'Invalid email or password.');
+      }
+
+      // Success — redirect to dashboard
+      window.location.href = '/new-task';
+    } catch (err) {
+      showError('loginError', err.message);
+    } finally {
+      setLoading('login', false);
+    }
+  }
+
+  // ── Signup handler ────────────────────────────────────────────────────────
+  async function handleSignup() {
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const confirm = document.getElementById('signupConfirm').value;
+
+    if (!email) { showError('signupError', 'Email is required.'); return; }
+    if (!password) { showError('signupError', 'Password is required.'); return; }
+    if (password.length < 8) { showError('signupError', 'Password must be at least 8 characters.'); return; }
+    if (password !== confirm) { showError('signupError', 'Passwords do not match.'); return; }
+
+    setLoading('signup', true);
+    hideError('signupError');
+
+    try {
+      const res = await fetch('/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        if (res.status === 429) {
+          throw new Error(data.message || 'Too many attempts. Try again later.');
+        }
+        if (data.code === 'ACCOUNT_EXISTS') {
+          throw new Error('Account already exists. Sign in instead.');
+        }
+        throw new Error(data.message || 'Signup failed. Please try again.');
+      }
+
+      // Success — redirect to new task with onboarding flow
+      window.location.href = '/new-task?onboarding=true';
+    } catch (err) {
+      showError('signupError', err.message);
+    } finally {
+      setLoading('signup', false);
+    }
+  }
+
+  // ── Magic link handler ────────────────────────────────────────────────────
+  async function handleMagicLink() {
+    const email = document.getElementById('magicEmail').value.trim();
+    if (!email) { showError('magicError', 'Email is required.'); return; }
+
+    lastEmail = email;
+    setLoading('magic', true);
+    hideError('magicError');
+
+    const payload = {
+      email,
+      _hp: document.getElementById('_hp').value,
+    };
+
+    if (challengeToken) {
+      payload.challenge_expected = challengeToken;
+      payload.challenge_answer = (document.getElementById('challengeAnswer').value || '').trim();
+    }
+
+    try {
+      const res = await fetch('/api/auth/magic-link', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (data.requireChallenge) {
+        await refreshChallenge();
+        setLoading('magic', false);
+        return;
+      }
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Something went wrong. Please try again.');
+      }
+
+      showConfirmation(email);
+    } catch (err) {
+      showError('magicError', err.message);
+    } finally {
+      setLoading('magic', false);
+    }
+  }
+
+  // ── Keyboard shortcuts ────────────────────────────────────────────────────
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+
+    // Login form
+    if (document.getElementById('loginState').style.display !== 'none') {
+      const active = document.activeElement;
+      if (active && (active.id === 'loginEmail' || active.id === 'loginPassword')) {
+        e.preventDefault();
+        handleLogin();
+      }
+    }
+
+    // Signup form
+    if (document.getElementById('signupState').style.display === 'block') {
+      const active = document.activeElement;
+      if (active && (active.id === 'signupEmail' || active.id === 'signupPassword' || active.id === 'signupConfirm')) {
+        e.preventDefault();
+        handleSignup();
+      }
+    }
+
+    // Magic link form
+    if (document.getElementById('magicLinkState').style.display === 'block') {
+      const active = document.activeElement;
+      if (active && (active.id === 'magicEmail' || active.id === 'challengeAnswer')) {
+        e.preventDefault();
+        handleMagicLink();
+      }
+    }
+  });
+
+  // ── Resend handler ─────────────────────────────────────────────────────────
+  async function handleResend() {
+    if (!lastEmail || resendCount >= MAX_RESENDS) return;
+
+    const btn = document.getElementById('resendBtn');
+    btn.textContent = 'Sending\u2026';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/auth/resend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: lastEmail }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        resendCount++;
+        const remaining = MAX_RESENDS - resendCount;
+        if (remaining > 0) {
+          btn.textContent = 'Sent. (' + remaining + ' resend' + (remaining === 1 ? '' : 's') + ' left)';
+          setTimeout(() => {
+            btn.textContent = 'Resend link';
+            btn.disabled = false;
+          }, 60000);
+        } else {
+          btn.textContent = 'No more resends available';
+          btn.disabled = true;
+          document.getElementById('resendNote').textContent =
+            'Maximum resends reached. Check your spam folder.';
+        }
+      } else {
+        btn.textContent = data.message || 'Try again later';
+        setTimeout(() => {
+          btn.textContent = 'Resend link';
+          btn.disabled = false;
+        }, 5000);
+      }
+    } catch (_) {
+      btn.textContent = 'Resend link';
+      btn.disabled = false;
+    }
+  }
+
+  // ── Confirmation screen ────────────────────────────────────────────────────
+  function showConfirmation(email) {
+    document.getElementById('magicLinkState').style.display = 'none';
+    document.getElementById('confirmState').style.display = 'block';
+    document.getElementById('confirmEmail').textContent = email;
+
+    const note = document.getElementById('resendNote');
+    const btn = document.getElementById('resendBtn');
+    let remaining = RESEND_REVEAL_DELAY;
+
+    note.textContent = 'Resend available in ' + remaining + 's';
+
+    const countdown = setInterval(() => {
+      remaining--;
+      if (remaining > 0) {
+        note.textContent = 'Resend available in ' + remaining + 's';
+      } else {
+        clearInterval(countdown);
+        note.textContent = '';
+        btn.style.display = 'block';
+      }
+    }, 1000);
+  }
+
+  // ── Challenge helpers ──────────────────────────────────────────────────────
+  function showChallenge(question, token) {
+    challengeToken = token;
+    challengePending = true;
+    document.getElementById('challengeQuestion').textContent = question;
+    document.getElementById('challengeBox').style.display = 'block';
+    document.getElementById('challengeAnswer').focus();
+  }
+
+  async function refreshChallenge() {
+    try {
+      const r = await fetch('/api/auth/challenge');
+      const d = await r.json();
+      if (d.required) {
+        showChallenge(d.question, d.token);
+        showError('magicError', 'Please solve the challenge to continue.');
+      }
+    } catch (_) {
+      showError('magicError', 'Too many attempts. Please wait a moment.');
+    }
+  }
+
+  // ── UI helpers ─────────────────────────────────────────────────────────────
+  function setLoading(form, loading) {
+    var btn, text, spinner, hint;
+    if (form === 'login') {
+      btn = document.getElementById('loginBtn');
+      text = document.getElementById('loginBtnText');
+      spinner = document.getElementById('loginBtnSpinner');
+      hint = document.getElementById('loginBtnHint');
+      text.textContent = loading ? 'Signing in\u2026' : 'Enter';
+    } else if (form === 'signup') {
+      btn = document.getElementById('signupBtn');
+      text = document.getElementById('signupBtnText');
+      spinner = document.getElementById('signupBtnSpinner');
+      hint = document.getElementById('signupBtnHint');
+      text.textContent = loading ? 'Creating\u2026' : 'Create Account';
+    } else {
+      btn = document.getElementById('magicBtn');
+      text = document.getElementById('magicBtnText');
+      spinner = document.getElementById('magicBtnSpinner');
+      hint = document.getElementById('magicBtnHint');
+      text.textContent = loading ? 'Sending\u2026' : 'Send Link';
+    }
+    btn.disabled = loading;
+    spinner.style.display = loading ? 'inline-flex' : 'none';
+    hint.style.display = loading ? 'none' : 'inline';
+  }
+
+  function showError(boxId, msg) {
+    var box = document.getElementById(boxId);
+    box.textContent = msg;
+    box.style.display = 'block';
+  }
+
+  function hideError(boxId) {
+    var box = document.getElementById(boxId);
+    if (box) {
+      box.style.display = 'none';
+    }
+  }
+
+  // Pre-fill email from ?email= query param (for expired/used links)
+  (function prefillEmail() {
+    var p = new URLSearchParams(window.location.search);
+    var e = p.get('email');
+    if (e) {
+      var decoded = decodeURIComponent(e);
+      var loginInput = document.getElementById('loginEmail');
+      if (loginInput) loginInput.value = decoded;
+    }
+    // If ?mode=signup, show signup form
+    var mode = p.get('mode');
+    if (mode === 'signup') showSignup();
+  })();
+</script>
+</body>
+</html>

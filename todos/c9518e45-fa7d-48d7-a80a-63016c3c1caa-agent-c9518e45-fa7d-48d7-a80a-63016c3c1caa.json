@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Update full_product schema in scaffold-schemas.js (add models, .env.example, dotenv, required_files)",
+    "status": "completed",
+    "activeForm": "Updating scaffold schema registry"
+  },
+  {
+    "content": "Update high-complexity scaffold tree in builder-agent.js (add models/, middleware/error.js, .env.example, dotenv)",
+    "status": "completed",
+    "activeForm": "Updating builder-agent scaffold tree"
+  },
+  {
+    "content": "Add required_files validation to validateScaffoldManifest in stage-contracts.js",
+    "status": "completed",
+    "activeForm": "Adding required_files validation to stage-contracts"
+  },
+  {
+    "content": "Add models and .env.example to full_product allowed_artifacts in intent-gate.js",
+    "status": "completed",
+    "activeForm": "Updating intent-gate allowed_artifacts"
+  },
+  {
+    "content": "Add full_product scaffold tests to test-scaffold-contracts.js",
+    "status": "completed",
+    "activeForm": "Adding full_product scaffold tests"
+  },
+  {
+    "content": "Run tests to verify everything passes",
+    "status": "in_progress",
+    "activeForm": "Running tests"
+  }
+]

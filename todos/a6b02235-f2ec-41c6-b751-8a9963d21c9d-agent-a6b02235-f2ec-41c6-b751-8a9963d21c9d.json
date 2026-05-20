@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Fix auth.js: remove broken client.sendEmail() call and add JSON payload construction",
+    "status": "completed",
+    "activeForm": "Fixing broken client.sendEmail() call in auth.js"
+  },
+  {
+    "content": "Update server.js catch blocks to expose err.message and err.errorCode in API response",
+    "status": "completed",
+    "activeForm": "Updating API error responses in server.js"
+  },
+  {
+    "content": "Verify syntax, commit, and push",
+    "status": "in_progress",
+    "activeForm": "Verifying and pushing changes"
+  }
+]

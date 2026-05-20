@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create migration 009_cdk_phase3.js (constraint_couplings + frozen column)",
+    "status": "completed",
+    "activeForm": "Creating migration 009_cdk_phase3.js"
+  },
+  {
+    "content": "Create lib/constraint-dynamics.js (CDK engine)",
+    "status": "completed",
+    "activeForm": "Creating lib/constraint-dynamics.js"
+  },
+  {
+    "content": "Modify lib/constraint-learner.js (frozen check + CDK integration)",
+    "status": "completed",
+    "activeForm": "Modifying lib/constraint-learner.js"
+  },
+  {
+    "content": "Modify pipeline-orchestrator.js (CDK events in run context)",
+    "status": "completed",
+    "activeForm": "Modifying pipeline-orchestrator.js"
+  },
+  {
+    "content": "Push to remote + verify",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying"
+  }
+]

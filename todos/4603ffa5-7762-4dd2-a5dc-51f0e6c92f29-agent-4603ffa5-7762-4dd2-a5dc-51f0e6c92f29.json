@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate current state machine, pipeline orchestrator, intent gate, and A2A code",
+    "status": "completed",
+    "activeForm": "Investigating current codebase"
+  },
+  {
+    "content": "Add intent_gate as first stage in state machine",
+    "status": "completed",
+    "activeForm": "Adding intent_gate stage to state machine"
+  },
+  {
+    "content": "Emit intent_gate started/completed events in pipeline-orchestrator",
+    "status": "completed",
+    "activeForm": "Emitting intent_gate events in orchestrator"
+  },
+  {
+    "content": "Store Constraint Contract Object as phase output",
+    "status": "completed",
+    "activeForm": "Storing Constraint Contract as phase output"
+  },
+  {
+    "content": "Update A2A to read persisted event instead of reconstructing",
+    "status": "completed",
+    "activeForm": "Updating A2A to read persisted event"
+  },
+  {
+    "content": "Update Dashboard/SSE to show Phase 1/6 as INTENT GATE",
+    "status": "completed",
+    "activeForm": "Updating Dashboard/SSE for Phase 1/6"
+  },
+  {
+    "content": "Verify fix with tests and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and deploying"
+  }
+]

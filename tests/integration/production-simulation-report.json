@@ -1,0 +1,319 @@
+{
+  "generated_at": "2026-05-01T04:03:47.496Z",
+  "simulation_version": "1.0.0",
+  "task_description": "Build a landing page for a coffee shop with online ordering",
+  "mock_environment": {
+    "mock_mode": true,
+    "node_env": "development",
+    "injected_user": {
+      "id": "mock-user-001",
+      "userId": "mock-user-001",
+      "email": "test@buildorbit.mock",
+      "sessionId": "mock-session-001"
+    },
+    "injected_env_vars": [
+      "POSTMARK_SERVER_TOKEN",
+      "JWT_SECRET"
+    ],
+    "mocked_dependencies": [
+      {
+        "name": "auth.requireAuth",
+        "real_type": "Express middleware — validates JWT session cookie against sessions table",
+        "mock_value": "Bypass — injects req.user = {\"id\":\"mock-user-001\",\"userId\":\"mock-user-001\",\"email\":\"test@buildorbit.mock\",\"sessionId\":\"mock-session-001\"}",
+        "impact": "All HTML-protected routes accept requests without a valid session cookie"
+      },
+      {
+        "name": "auth.requireApiAuth",
+        "real_type": "Express middleware — validates JWT session cookie, returns 401 JSON on failure",
+        "mock_value": "Bypass — injects req.user = {\"id\":\"mock-user-001\",\"userId\":\"mock-user-001\",\"email\":\"test@buildorbit.mock\",\"sessionId\":\"mock-session-001\"}",
+        "impact": "All API-protected routes accept requests without a valid session cookie"
+      },
+      {
+        "name": "auth.makeRequireAuth",
+        "real_type": "Factory — produces pool-aware session-validation middleware",
+        "mock_value": "Factory returns mock bypass middleware regardless of pool argument",
+        "impact": "server.js can call makeRequireAuth(pool) and get mock middleware back"
+      },
+      {
+        "name": "auth.makeRequireApiAuth",
+        "real_type": "Factory — produces pool-aware API session-validation middleware",
+        "mock_value": "Factory returns mock bypass middleware regardless of pool argument",
+        "impact": "server.js can call makeRequireApiAuth(pool) and get mock middleware back"
+      },
+      {
+        "name": "auth.sendMagicLinkEmail",
+        "real_type": "HTTP call to Postmark REST API (api.postmark.com) — sends magic link email",
+        "mock_value": "No-op logger — logs payload to console, returns { MessageID: \"mock-msg-001\", sent: true }",
+        "impact": "Zero network calls to Postmark. Magic link tokens are generated but not delivered."
+      },
+      {
+        "name": "POSTMARK_SERVER_TOKEN",
+        "real_type": "Postmark API key — required for email delivery",
+        "mock_value": "mock-token-xxx",
+        "impact": "Injected at startup if not already set. No real API calls made."
+      },
+      {
+        "name": "PostgreSQL (Neon)",
+        "real_type": "Live Neon DB — stores pipeline_runs, pipeline_events, api_keys",
+        "mock_value": "MockPool — in-memory state machine matching real schema",
+        "impact": "All queries intercepted in-memory; real persistence not verified in this run",
+        "mode": "MOCK_DB"
+      }
+    ],
+    "dependency_override_map": {
+      "auth.requireAuth": {
+        "real_type": "Express middleware — validates JWT session cookie against sessions table",
+        "mock_value": "Bypass — injects req.user = {\"id\":\"mock-user-001\",\"userId\":\"mock-user-001\",\"email\":\"test@buildorbit.mock\",\"sessionId\":\"mock-session-001\"}",
+        "impact": "All HTML-protected routes accept requests without a valid session cookie"
+      },
+      "auth.requireApiAuth": {
+        "real_type": "Express middleware — validates JWT session cookie, returns 401 JSON on failure",
+        "mock_value": "Bypass — injects req.user = {\"id\":\"mock-user-001\",\"userId\":\"mock-user-001\",\"email\":\"test@buildorbit.mock\",\"sessionId\":\"mock-session-001\"}",
+        "impact": "All API-protected routes accept requests without a valid session cookie"
+      },
+      "auth.makeRequireAuth": {
+        "real_type": "Factory — produces pool-aware session-validation middleware",
+        "mock_value": "Factory returns mock bypass middleware regardless of pool argument",
+        "impact": "server.js can call makeRequireAuth(pool) and get mock middleware back"
+      },
+      "auth.makeRequireApiAuth": {
+        "real_type": "Factory — produces pool-aware API session-validation middleware",
+        "mock_value": "Factory returns mock bypass middleware regardless of pool argument",
+        "impact": "server.js can call makeRequireApiAuth(pool) and get mock middleware back"
+      },
+      "auth.sendMagicLinkEmail": {
+        "real_type": "HTTP call to Postmark REST API (api.postmark.com) — sends magic link email",
+        "mock_value": "No-op logger — logs payload to console, returns { MessageID: \"mock-msg-001\", sent: true }",
+        "impact": "Zero network calls to Postmark. Magic link tokens are generated but not delivered."
+      },
+      "POSTMARK_SERVER_TOKEN": {
+        "real_type": "Postmark API key — required for email delivery",
+        "mock_value": "mock-token-xxx",
+        "impact": "Injected at startup if not already set. No real API calls made."
+      }
+    },
+    "db_mode": "MOCK_DB",
+    "db_mode_note": "Sandbox/CI environment: real DB unreachable. MockPool provides identical pipeline behavior without network."
+  },
+  "execution_trace": {
+    "request": {
+      "method": "POST",
+      "path": "/a2a/execute",
+      "url": "http://127.0.0.1:40199/a2a/execute",
+      "body": {
+        "task_description": "Build a landing page for a coffee shop with online ordering"
+      },
+      "auth_mode": "REAL_DB_KEY",
+      "db_mode": "MOCK_DB",
+      "run_id": "45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1"
+    },
+    "run_id": "45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1",
+    "phases": {
+      "intent_gate": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "phase_complete"
+        ],
+        "started": true
+      },
+      "plan": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "phase_complete"
+        ],
+        "started": true
+      },
+      "scaffold": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "artifact",
+          "phase_complete"
+        ],
+        "started": true,
+        "artifact_received": true
+      },
+      "code": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "artifact",
+          "phase_complete"
+        ],
+        "started": true,
+        "artifact_received": true
+      },
+      "save": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "phase_complete"
+        ],
+        "started": true
+      },
+      "verify": {
+        "completed": true,
+        "output_valid": true,
+        "events": [
+          "phase_start",
+          "phase_complete"
+        ],
+        "started": true
+      }
+    },
+    "complete_event": {
+      "task_id": "45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1",
+      "run_id": "45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1",
+      "status": "completed_with_warnings",
+      "passed": false,
+      "total_phases": 6,
+      "phases": [
+        {
+          "phase": "INTENT_GATE",
+          "status": "completed",
+          "intent_class": "static_surface",
+          "constraints": {
+            "frontend": true,
+            "server": false,
+            "db": false,
+            "auth": false,
+            "api": false
+          },
+          "expansion_lock": true,
+          "cco_hash": "002b2c7e7b3e04ad8fab9c5f607a7c6bf978e26e163c2902cc443b6f824f4213"
+        },
+        {
+          "phase": "PLAN",
+          "status": "completed",
+          "subtask_count": 4
+        },
+        {
+          "phase": "SCAFFOLD",
+          "status": "completed",
+          "manifest_hash": null,
+          "file_count": 3
+        },
+        {
+          "phase": "CODE",
+          "status": "completed",
+          "scaffold_validated": true
+        },
+        {
+          "phase": "SAVE",
+          "status": "completed",
+          "artifacts": []
+        },
+        {
+          "phase": "VERIFY",
+          "status": "completed",
+          "checks_passed": 8,
+          "checks_failed": 1,
+          "dom_validation": true
+        }
+      ],
+      "guardrails": {
+        "constraint_contract": "locked",
+        "intent_class": "static_surface",
+        "constraints": {
+          "frontend": true,
+          "server": false,
+          "db": false,
+          "auth": false,
+          "api": false
+        },
+        "expansion_lock": true,
+        "regression_checks": [
+          "no_raw_http",
+          "no_fire_and_forget",
+          "no_exposed_credentials",
+          "no_uncaught_promises",
+          "no_inline_sensitive_data"
+        ],
+        "violations_detected": 1
+      },
+      "verification": {
+        "passed": false,
+        "checks_passed": 8,
+        "total_checks": 9,
+        "errors": [],
+        "warnings": [
+          "DEAD_BUTTONS_DETECTED: Found 1 interactive elements (buttons, forms, nav) but only 0 event handlers in JS. 100% of interactive elements have no wired behavior."
+        ]
+      },
+      "artifacts_url": "https://buildorbit.polsia.app/api/pipeline/45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1/artifacts",
+      "live_url": "https://buildorbit.polsia.app/live/45dcb27f-ade1-44cf-8d6f-8e13f2ca26e1/",
+      "execution_time_ms": 56230
+    },
+    "fatal_error": null,
+    "execution_time_ms": 56252,
+    "total_sse_events": 16
+  },
+  "storage_verification": {
+    "runs_table": {
+      "canonical_table": "pipeline_runs",
+      "entry_exists": true,
+      "user_id_correct": true,
+      "has_phase_artifacts": true,
+      "state": "verify_complete"
+    },
+    "run_events_table": {
+      "canonical_table": "pipeline_events",
+      "event_count": 16,
+      "all_phases_logged": true,
+      "phases_found": [
+        "intent_gate",
+        "plan",
+        "scaffold",
+        "code",
+        "save",
+        "verify",
+        "code_retry_1",
+        "verify_retry_1",
+        "code_retry_2",
+        "verify_retry_2"
+      ]
+    },
+    "memory_items_table": {
+      "entries_created": false,
+      "count": 0,
+      "note": "Schema exists (migration 007); not written by current pipeline — future semantic layer"
+    },
+    "artifacts_table": {
+      "entries_created": false,
+      "count": 0,
+      "note": "Schema exists (migration 007); pipeline uses ArtifactStore (filesystem) — future DB storage"
+    },
+    "artifact_versions_table": {
+      "entries_created": false,
+      "count": 0,
+      "note": "Schema exists (migration 007); not written by current pipeline"
+    }
+  },
+  "validation_checks": {
+    "no_auth_crash": true,
+    "no_hidden_auth_deps": true,
+    "runs_table_recording": true,
+    "run_events_recorded": true,
+    "all_phases_in_events": true,
+    "pipeline_completes": true,
+    "no_external_network_leaks": true
+  },
+  "leaked_dependencies": [],
+  "overall_pass": true,
+  "architecture_notes": [
+    "pipeline_runs = primary run record (NOT migration-007 \"runs\" table)",
+    "pipeline_events = phase event log (NOT migration-007 \"run_events\" table)",
+    "memory_items / artifacts / artifact_versions = migration-007 future infra, not yet written by pipeline",
+    "Auth mock: requireAuth + requireApiAuth + makeRequireAuth + makeRequireApiAuth all bypassed via mock/mock-layer.js",
+    "Postmark mock: sendMagicLinkEmail no-op, zero network calls",
+    "A2A auth: REAL api_keys DB lookup — verified full auth path",
+    "DB: MOCK_DB — MockPool (sandbox — no outbound DB access)"
+  ]
+}

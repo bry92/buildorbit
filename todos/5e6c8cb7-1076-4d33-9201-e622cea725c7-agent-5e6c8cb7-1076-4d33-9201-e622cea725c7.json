@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Refactor QA Agent to emit structured audit report instead of pass/fail verdict",
+    "status": "completed",
+    "activeForm": "Refactoring QA Agent to emit audit reports"
+  },
+  {
+    "content": "Add PARTIAL_SUCCESS state to state machine transitions",
+    "status": "completed",
+    "activeForm": "Adding PARTIAL_SUCCESS state to state machine"
+  },
+  {
+    "content": "Update state machine transition() to handle runtime-determined verdicts",
+    "status": "completed",
+    "activeForm": "Updating state machine transition logic"
+  },
+  {
+    "content": "Refactor orchestrator VERIFY gate — runtime resolves canonical state from audit report",
+    "status": "completed",
+    "activeForm": "Refactoring orchestrator VERIFY gate"
+  },
+  {
+    "content": "Update frontend to display partial_success state with audit findings",
+    "status": "completed",
+    "activeForm": "Updating frontend for partial_success display"
+  },
+  {
+    "content": "Build frontend, run self-check, push to remote",
+    "status": "completed",
+    "activeForm": "Building frontend and deploying"
+  },
+  {
+    "content": "Verify deployment health",
+    "status": "in_progress",
+    "activeForm": "Verifying deployment health"
+  }
+]

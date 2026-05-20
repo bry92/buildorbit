@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{APP_TITLE}} — Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/design-dna.css"/>
+<style>
+body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-display)}
+.topbar{height:56px;background:var(--bg-surface);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;padding:0 var(--space-xl);gap:var(--space-md);position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:var(--space-sm);margin-right:var(--space-md)}
+.logo-mark{width:28px;height:28px;border-radius:var(--radius-sm);background:linear-gradient(135deg,#6366f1,#38bdf8);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff}
+.logo-name{font-size:var(--text-base);font-weight:var(--font-semibold)}
+.range-btns{display:flex;gap:4px}
+.range-btn{padding:4px 10px;border-radius:var(--radius-sm);border:1px solid var(--border-subtle);background:transparent;cursor:pointer;font-size:var(--text-xs);font-weight:var(--font-medium);color:var(--text-secondary);font-family:var(--font-display);transition:all var(--transition-fast)}
+.range-btn:hover{background:var(--bg-elevated);color:var(--text-primary)}
+.range-btn.active{background:var(--accent-primary);border-color:var(--accent-primary);color:#fff}
+.topbar-right{margin-left:auto}
+.export-btn{display:flex;align-items:center;gap:var(--space-xs);padding:4px 12px;border-radius:var(--radius-md);background:var(--bg-elevated);border:1px solid var(--border-subtle);color:var(--text-secondary);font-size:var(--text-xs);font-weight:var(--font-medium);cursor:pointer;font-family:var(--font-display);transition:all var(--transition-fast)}
+.export-btn:hover{color:var(--text-primary);border-color:var(--border-default)}
+.filter-bar{display:flex;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);border-bottom:1px solid var(--border-subtle);background:var(--bg-surface);overflow-x:auto}
+.filter-bar::-webkit-scrollbar{height:0}
+.filter-lbl{font-size:var(--text-xs);color:var(--text-muted);align-self:center;white-space:nowrap;margin-right:4px}
+.pill{display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:var(--radius-full);white-space:nowrap;border:1px solid var(--border-subtle);background:var(--bg-elevated);font-size:var(--text-xs);font-weight:var(--font-medium);cursor:pointer;color:var(--text-secondary);transition:all var(--transition-fast);user-select:none}
+.pill:hover{color:var(--text-primary);border-color:var(--border-default)}
+.pill.active{background:rgba(99,102,241,.15);border-color:var(--accent-primary);color:var(--accent-primary)}
+.pill-dot{width:6px;height:6px;border-radius:var(--radius-full);flex-shrink:0}
+.content{padding:var(--space-xl);max-width:1400px;margin:0 auto}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-bottom:var(--space-xl)}
+.hero-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:var(--space-xl);transition:all var(--transition-base);cursor:default}
+.hero-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.hero-lbl{font-size:var(--text-xs);font-weight:var(--font-semibold);color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-sm)}
+.hero-val{font-size:var(--text-4xl);font-weight:var(--font-bold);margin-bottom:4px;line-height:1}
+.hero-cmp{display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-muted)}
+.cmp-up{color:var(--accent-success);font-weight:var(--font-semibold)}.cmp-dn{color:var(--accent-danger);font-weight:var(--font-semibold)}
+.chart-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:var(--space-lg);margin-bottom:var(--space-xl)}
+.chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-lg)}
+.chart-title{font-size:var(--text-lg);font-weight:var(--font-semibold)}
+.legend{display:flex;gap:var(--space-md)}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-secondary)}
+.legend-dot{width:8px;height:8px;border-radius:var(--radius-full)}
+.bar-area{position:relative;height:220px;display:flex;align-items:flex-end;gap:var(--space-sm);padding-bottom:28px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.bar-seg{width:100%;max-width:52px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;transition:height .7s cubic-bezier(.34,1.56,.64,1);height:0;cursor:pointer;position:relative}
+.bar-seg:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100%+6px);left:50%;transform:translateX(-50%);background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:3px 8px;font-size:11px;color:var(--text-primary);white-space:nowrap;pointer-events:none;z-index:5}
+.bar-day{font-size:10px;color:var(--text-muted);text-align:center;position:absolute;bottom:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-bottom:var(--space-xl)}
+.data-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden}
+.data-header{padding:var(--space-md) var(--space-lg);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between}
+.data-title{font-size:var(--text-sm);font-weight:var(--font-semibold)}
+.pg-table{width:100%;border-collapse:collapse}
+.pg-table th{text-align:left;padding:var(--space-xs) var(--space-md);font-size:11px;color:var(--text-muted);font-weight:var(--font-semibold);text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border-subtle)}
+.pg-table td{padding:var(--space-sm) var(--space-md);font-size:var(--text-xs);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle)}
+.pg-table tr:last-child td{border-bottom:none}
+.pg-table tr:hover td{background:var(--bg-elevated)}
+.url{color:var(--accent-info);font-family:monospace}
+.sources{padding:var(--space-md) var(--space-lg);display:flex;flex-direction:column;gap:var(--space-sm)}
+.src-row{display:flex;align-items:center;gap:var(--space-sm)}
+.src-name{font-size:var(--text-xs);color:var(--text-primary);width:100px;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.src-dot{width:8px;height:8px;border-radius:var(--radius-full);flex-shrink:0}
+.src-bar-wrap{flex:1;background:var(--bg-elevated);border-radius:var(--radius-full);height:6px;overflow:hidden}
+.src-bar{height:100%;border-radius:var(--radius-full);transition:width .8s ease;width:0}
+.src-pct{font-size:var(--text-xs);color:var(--text-muted);width:36px;text-align:right;flex-shrink:0}
+.rt-section{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:var(--space-lg);display:flex;align-items:center;gap:var(--space-xl)}
+.rt-main{display:flex;align-items:center;gap:var(--space-md)}
+.rt-dot{width:12px;height:12px;border-radius:var(--radius-full);background:var(--accent-success);animation:rtp 1.5s infinite}
+@keyframes rtp{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.rt-count{font-size:var(--text-4xl);font-weight:var(--font-bold);font-variant-numeric:tabular-nums;min-width:80px}
+.rt-lbl{color:var(--text-secondary);font-size:var(--text-sm)}
+.rt-meta{color:var(--text-muted);font-size:var(--text-xs)}
+.rt-spark{flex:1}
+@media(max-width:1024px){.hero-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.topbar{padding:0 var(--space-md)}.content{padding:var(--space-md)}.filter-bar{padding:var(--space-sm) var(--space-md)}.rt-section{flex-direction:column;align-items:flex-start;gap:var(--space-md)}}
+@media(max-width:480px){.hero-val{font-size:var(--text-3xl)}.bar-area{height:160px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo"><div class="logo-mark">📈</div><div class="logo-name">{{APP_TITLE}}</div></div>
+  <div class="range-btns">
+    <button class="range-btn" onclick="setRange(this,'7d')">7d</button>
+    <button class="range-btn active" onclick="setRange(this,'30d')">30d</button>
+    <button class="range-btn" onclick="setRange(this,'90d')">90d</button>
+    <button class="range-btn" onclick="setRange(this,'custom')">Custom</button>
+  </div>
+  <div class="topbar-right"><button class="export-btn" onclick="toast('Exporting CSV…')"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10h8M6 1v6M3 4l3 3 3-3"/></svg>Export</button></div>
+</div>
+<div class="filter-bar">
+  <span class="filter-lbl">Filter:</span>
+  <div class="pill active" onclick="this.classList.toggle('active')"><div class="pill-dot" style="background:#6366f1"></div>All Channels</div>
+  <div class="pill" onclick="this.classList.toggle('active')"><div class="pill-dot" style="background:#22c55e"></div>Organic</div>
+  <div class="pill" onclick="this.classList.toggle('active')"><div class="pill-dot" style="background:#38bdf8"></div>Paid</div>
+  <div class="pill" onclick="this.classList.toggle('active')"><div class="pill-dot" style="background:#f59e0b"></div>Referral</div>
+  <div class="pill" onclick="this.classList.toggle('active')"><div class="pill-dot" style="background:#a78bfa"></div>Email</div>
+  <span class="filter-lbl" style="margin-left:var(--space-sm)">Region:</span>
+  <div class="pill" onclick="this.classList.toggle('active')">🌎 North America</div>
+  <div class="pill active" onclick="this.classList.toggle('active')">🌍 Europe</div>
+  <div class="pill" onclick="this.classList.toggle('active')">🌏 Asia Pacific</div>
+  <span class="filter-lbl" style="margin-left:var(--space-sm)">Device:</span>
+  <div class="pill active" onclick="this.classList.toggle('active')">💻 Desktop</div>
+  <div class="pill" onclick="this.classList.toggle('active')">📱 Mobile</div>
+</div>
+<div class="content">
+  <div class="hero-grid">
+    <div class="hero-card"><div class="hero-lbl">Total Visitors</div><div class="hero-val" id="mVis">142.8K</div><div class="hero-cmp"><span class="cmp-up">↑ 12.4%</span>vs previous period</div></div>
+    <div class="hero-card"><div class="hero-lbl">Conversion Rate</div><div class="hero-val" id="mConv">3.2%</div><div class="hero-cmp"><span class="cmp-up">↑ 0.8%</span>vs previous period</div></div>
+    <div class="hero-card"><div class="hero-lbl">Revenue</div><div class="hero-val" id="mRev">$48.2K</div><div class="hero-cmp"><span class="cmp-up">↑ 18.3%</span>vs previous period</div></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-header">
+      <div class="chart-title">Traffic Overview</div>
+      <div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#6366f1"></div>Sessions</div><div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Conversions</div></div>
+    </div>
+    <div class="bar-area" id="barArea"></div>
+  </div>
+  <div class="two-col">
+    <div class="data-card">
+      <div class="data-header"><div class="data-title">Top Pages</div><button class="export-btn" onclick="toast('Copied!')">Copy</button></div>
+      <table class="pg-table"><thead><tr><th>Page</th><th>Views</th><th>Bounce</th><th>Avg Time</th></tr></thead><tbody id="pagesBody"></tbody></table>
+    </div>
+    <div class="data-card">
+      <div class="data-header"><div class="data-title">Traffic Sources</div></div>
+      <div class="sources" id="sources"></div>
+    </div>
+  </div>
+  <div class="rt-section">
+    <div class="rt-main">
+      <div class="rt-dot"></div>
+      <div class="rt-count" id="rtCount">0</div>
+      <div><div class="rt-lbl">Visitors right now</div><div class="rt-meta">Updating every 2s · Last 30 minutes</div></div>
+    </div>
+    <div class="rt-spark"><svg id="rtSvg" width="100%" height="40" preserveAspectRatio="none"></svg></div>
+  </div>
+</div>
+<div id="toast" style="position:fixed;bottom:24px;right:24px;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:var(--radius-md);padding:10px 16px;font-size:var(--text-sm);color:var(--text-primary);box-shadow:var(--shadow-lg);transform:translateY(8px);opacity:0;transition:all var(--transition-base);pointer-events:none;z-index:999"></div>
+<script>
+const RD={'7d':{v:'42.1K',c:'2.9%',r:'$14.8K',bars:[52,68,61,78,71,85,80],lbls:['Mon','Tue','Wed','Thu','Fri','Sat','Sun']},'30d':{v:'142.8K',c:'3.2%',r:'$48.2K',bars:[38,42,39,48,51,47,54,56,52,60,58,64,61,67,65,71,68,74,70,76,73,79,75,81,78,84,80,87,83,90],lbls:null},'90d':{v:'398K',c:'3.6%',r:'$142K',bars:[35,38,40,42,43,45,47,49,50,52,54,55,57,58,60,62,63,65,67,68,70,72,73,75,77,78,80,82,83,85,87,88,90,92,93,95,97,98,100,102],lbls:null},'custom':{v:'—',c:'—',r:'—',bars:[60,60,60,60,60,60,60],lbls:['D1','D2','D3','D4','D5','D6','D7']}};
+let activeRange='30d';
+function setRange(el,r){document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');activeRange=r;const d=RD[r];document.getElementById('mVis').textContent=d.v;document.getElementById('mConv').textContent=d.c;document.getElementById('mRev').textContent=d.r;renderChart(d.bars,d.lbls)}
+function renderChart(vals,lbls){
+  const c=document.getElementById('barArea'),max=Math.max(...vals),step=Math.floor(vals.length/7);
+  c.innerHTML=vals.map((v,i)=>{
+    const h=Math.round((v/max)*180),cv=Math.round(h*.18),lbl=lbls?lbls[i]:(i%step===0?`D${i+1}`:'');
+    return `<div class="bar-col"><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end"><div class="bar-seg" data-tip="${v}K sessions" data-h="${h-cv}" style="background:rgba(99,102,241,.7)"></div><div class="bar-seg" data-tip="${Math.round(v*.018)/10}K conversions" data-h="${cv}" style="background:var(--accent-success);opacity:.7"></div></div><div class="bar-day">${lbl}</div></div>`;
+  }).join('');
+  requestAnimationFrame(()=>c.querySelectorAll('.bar-seg').forEach(b=>b.style.height=b.dataset.h+'px'));
+}
+const PAGES=[{u:'/pricing',v:'28.4K',b:'34%',t:'2:48'},{u:'/',v:'22.1K',b:'48%',t:'1:12'},{u:'/docs/start',v:'18.7K',b:'21%',t:'4:32'},{u:'/features',v:'14.2K',b:'39%',t:'2:05'},{u:'/blog/guide',v:'11.8K',b:'26%',t:'3:57'}];
+document.getElementById('pagesBody').innerHTML=PAGES.map(p=>`<tr><td class="url">${p.u}</td><td>${p.v}</td><td>${p.b}</td><td>${p.t}</td></tr>`).join('');
+const SRCS=[{n:'Organic Search',c:'#6366f1',p:38},{n:'Direct',c:'#22c55e',p:24},{n:'Paid Search',c:'#38bdf8',p:18},{n:'Social',c:'#f59e0b',p:12},{n:'Email',c:'#a78bfa',p:8}];
+document.getElementById('sources').innerHTML=SRCS.map(s=>`<div class="src-row"><div class="src-name"><div class="src-dot" style="background:${s.c}"></div>${s.n}</div><div class="src-bar-wrap"><div class="src-bar" data-w="${s.p}" style="background:${s.c}"></div></div><div class="src-pct">${s.p}%</div></div>`).join('');
+setTimeout(()=>document.querySelectorAll('.src-bar').forEach(b=>b.style.width=b.dataset.w+'%'),100);
+let rtCur=248;const rtH=Array.from({length:30},()=>200+Math.random()*100);
+function drawSpark(){const svg=document.getElementById('rtSvg');const w=svg.parentElement.offsetWidth||400,h=40,max=Math.max(...rtH),min=Math.min(...rtH);const pts=rtH.map((v,i)=>`${(i/(rtH.length-1))*w},${h-((v-min)/(max-min||1))*(h-6)-3}`);const fl=pts[pts.length-1].split(',');svg.innerHTML=`<defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity=".3"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0"/></linearGradient></defs><polygon points="${pts.join(' ')} ${fl[0]},${h} ${pts[0].split(',')[0]},${h}" fill="url(#rg)"/><polyline points="${pts.join(' ')}" fill="none" stroke="#6366f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`}
+function tickRt(){const d=Math.floor((Math.random()-.4)*15);rtCur=Math.max(50,Math.min(600,rtCur+d));const el=document.getElementById('rtCount'),s=parseInt(el.textContent)||0,t=rtCur;let step=0;const iv=setInterval(()=>{step++;el.textContent=Math.round(s+(t-s)*(step/12));if(step>=12)clearInterval(iv)},16);rtH.push(rtCur);if(rtH.length>30)rtH.shift();drawSpark()}
+let toastTimer;function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';t.style.transform='translateY(0)';clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(8px)'},2500)}
+window.addEventListener('DOMContentLoaded',()=>{renderChart(RD['30d'].bars,null);document.getElementById('rtCount').textContent=rtCur;drawSpark();setInterval(tickRt,2200+Math.random()*800)});
+</script>
+</body>
+</html>

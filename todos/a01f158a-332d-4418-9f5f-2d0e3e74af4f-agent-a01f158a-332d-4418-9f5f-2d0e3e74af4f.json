@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create migration 014_api_tokens.js",
+    "status": "completed",
+    "activeForm": "Creating migration 014_api_tokens.js"
+  },
+  {
+    "content": "Add api token helpers to auth.js + extend makeRequireApiAuth for Bearer bo_*",
+    "status": "completed",
+    "activeForm": "Adding api token helpers to auth.js"
+  },
+  {
+    "content": "Add POST/GET/DELETE /auth/api-token routes to server.js",
+    "status": "completed",
+    "activeForm": "Adding /auth/api-token routes to server.js"
+  },
+  {
+    "content": "Update A2A router to also accept bo_* bearer tokens",
+    "status": "completed",
+    "activeForm": "Updating A2A router to accept bo_* bearer tokens"
+  },
+  {
+    "content": "Push to production",
+    "status": "in_progress",
+    "activeForm": "Pushing to production"
+  }
+]

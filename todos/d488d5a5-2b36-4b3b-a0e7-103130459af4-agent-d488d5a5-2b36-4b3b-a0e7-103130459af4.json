@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Read existing auth/settings pages to understand current UI patterns",
+    "status": "completed",
+    "activeForm": "Reading existing auth/settings UI patterns"
+  },
+  {
+    "content": "Create DB migration for github_connections table",
+    "status": "completed",
+    "activeForm": "Creating DB migration for github_connections"
+  },
+  {
+    "content": "Add DB migration for github_repo on pipeline_runs",
+    "status": "completed",
+    "activeForm": "Adding github_repo column to pipeline_runs"
+  },
+  {
+    "content": "Create routes/github.js - OAuth flow + API endpoints",
+    "status": "completed",
+    "activeForm": "Creating GitHub OAuth routes"
+  },
+  {
+    "content": "Wire GitHub routes into server.js (minimal mount)",
+    "status": "completed",
+    "activeForm": "Wiring GitHub routes into server.js"
+  },
+  {
+    "content": "Create public/github.html - GitHub connection settings page",
+    "status": "completed",
+    "activeForm": "Creating GitHub connect UI"
+  },
+  {
+    "content": "Update public/new.html with repo selector section",
+    "status": "completed",
+    "activeForm": "Updating new build page with repo selector"
+  },
+  {
+    "content": "Create public/js/github.js - frontend OAuth + repo selector",
+    "status": "completed",
+    "activeForm": "Creating GitHub frontend JS"
+  },
+  {
+    "content": "Run self-check, push to remote, update CLAUDE.md",
+    "status": "in_progress",
+    "activeForm": "Running self-check, pushing to remote, updating CLAUDE.md"
+  }
+]

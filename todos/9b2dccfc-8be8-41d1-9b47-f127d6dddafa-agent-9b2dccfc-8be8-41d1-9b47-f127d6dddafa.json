@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Build src/lib/destructive-change-detector.js module",
+    "status": "completed",
+    "activeForm": "Building destructive change detector module"
+  },
+  {
+    "content": "Integrate detector into OpsAgent.execute() — hard-block before GitHub push",
+    "status": "completed",
+    "activeForm": "Integrating detector into OpsAgent"
+  },
+  {
+    "content": "Add confirmation endpoint + UI handling for blocked runs",
+    "status": "completed",
+    "activeForm": "Adding confirmation endpoint and UI"
+  },
+  {
+    "content": "Add SSE event type for catastrophic_rewrite in server.js SSE handler",
+    "status": "completed",
+    "activeForm": "Adding SSE event type"
+  },
+  {
+    "content": "Update CLAUDE.md with new module + recent change entry",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Run self-check, push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing"
+  }
+]

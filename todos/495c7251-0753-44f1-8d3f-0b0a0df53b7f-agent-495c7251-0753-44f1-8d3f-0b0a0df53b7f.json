@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Add _classifyDbEvidence() method to QAAgent in src/agents/qa-agent.js",
+    "status": "completed",
+    "activeForm": "Adding _classifyDbEvidence() method to QAAgent"
+  },
+  {
+    "content": "Replace binary DB check in src/agents/qa-agent.js with 3-tier check",
+    "status": "completed",
+    "activeForm": "Replacing binary DB check in qa-agent.js"
+  },
+  {
+    "content": "Update src/phases/pipeline.js binary DB check with 3-tier logic",
+    "status": "completed",
+    "activeForm": "Updating pipeline.js binary DB check"
+  },
+  {
+    "content": "Create tests/unit/test-db-evidence-classifier.js unit tests",
+    "status": "completed",
+    "activeForm": "Creating unit tests for DB evidence classifier"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

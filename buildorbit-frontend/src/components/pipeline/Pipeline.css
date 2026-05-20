@@ -1,0 +1,637 @@
+/**
+ * Pipeline — design system for pipeline phase cards.
+ * Owns: glassmorphism card system, status badges, timeline, log/diff/code panels, expand/collapse.
+ * Not owned: page layout, nav, background layers.
+ */
+
+/* ── Phase Card ───────────────────────────────────────────────── */
+.bo-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bo-phase-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 8px;
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow:
+    0 0 0 rgba(56, 189, 248, 0),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s var(--transition), box-shadow 0.2s var(--transition);
+}
+
+.bo-phase-card.expandable {
+  cursor: pointer;
+}
+
+.bo-phase-card.expandable:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 0 rgba(56, 189, 248, 0),
+    0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bo-phase-card.expanded {
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.06),
+    0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bo-phase-card.status-running {
+  border-color: var(--glass-border);
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.bo-phase-card.status-complete {
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.bo-phase-card.status-failed {
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+.bo-phase-card.status-skipped {
+  opacity: 0.6;
+}
+
+/* ── Phase Header ─────────────────────────────────────────────── */
+.bo-phase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  gap: 12px;
+}
+
+.bo-phase-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bo-phase-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.bo-phase-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+
+.bo-phase-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.bo-phase-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.bo-phase-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ── Chevron ─────────────────────────────────────────────────── */
+.bo-phase-chevron {
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: transform 0.2s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.bo-phase-chevron.expanded {
+  transform: rotate(180deg);
+}
+
+/* ── Status Badge ─────────────────────────────────────────────── */
+.bo-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 500;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.bo-status-badge.waiting {
+  background: rgba(71, 85, 105, 0.12);
+  color: var(--text-dim);
+  border: 1px solid rgba(71, 85, 105, 0.15);
+}
+
+.bo-status-badge.running {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.bo-status-badge.complete {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.bo-status-badge.failed {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.bo-status-badge.skipped {
+  background: rgba(71, 85, 105, 0.08);
+  color: var(--text-dim);
+  border: 1px solid rgba(71, 85, 105, 0.12);
+}
+
+.bo-spinner {
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: bo-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes bo-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Expanded Detail Panel ────────────────────────────────────── */
+.bo-phase-detail-panel {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  animation: bo-detail-reveal 0.2s ease-out;
+  cursor: default;
+}
+
+@keyframes bo-detail-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Detail Section (phase-specific content) ──────────────────── */
+.bo-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bo-detail-field {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.bo-detail-label {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bo-detail-value {
+  font-size: 13px;
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+}
+
+.bo-detail-link {
+  font-size: 13px;
+  color: var(--accent);
+  font-family: 'Space Mono', monospace;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.bo-detail-link:hover {
+  text-decoration: underline;
+}
+
+.bo-detail-reasoning {
+  margin-bottom: 4px;
+}
+
+.bo-detail-pre {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.bo-detail-list-field {
+  margin-bottom: 4px;
+}
+
+.bo-detail-list {
+  margin: 4px 0 0 0;
+  padding-left: 20px;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.bo-detail-list li {
+  margin-bottom: 2px;
+}
+
+/* ── Code files in expanded view ──────────────────────────────── */
+.bo-detail-file {
+  margin-bottom: 8px;
+}
+
+.bo-detail-filename {
+  display: block;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+  padding: 3px 8px;
+  background: rgba(56, 189, 248, 0.06);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.bo-detail-truncated {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  padding: 8px;
+  text-align: center;
+}
+
+/* ── Verify checks ────────────────────────────────────────────── */
+.bo-detail-checks {
+  margin-bottom: 4px;
+}
+
+.bo-detail-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.bo-detail-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.bo-detail-check.passed {
+  border-left: 2px solid var(--success);
+}
+
+.bo-detail-check.failed {
+  border-left: 2px solid var(--error);
+}
+
+.bo-detail-check-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.bo-detail-check.passed .bo-detail-check-icon {
+  color: var(--success);
+}
+
+.bo-detail-check.failed .bo-detail-check-icon {
+  color: var(--error);
+}
+
+.bo-detail-check-name {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.bo-detail-check-msg {
+  color: var(--text-dim);
+  font-size: 11px;
+  margin-left: auto;
+}
+
+/* ── Error display ────────────────────────────────────────────── */
+.bo-detail-error {
+  margin-bottom: 8px;
+}
+
+.bo-detail-error-text {
+  color: var(--error);
+  border-color: rgba(248, 113, 113, 0.15);
+}
+
+.bo-detail-empty {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* ── Log / Diff / Code Panels ─────────────────────────────────── */
+.bo-log-panel,
+.bo-diff-view,
+.bo-code-preview {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  white-space: pre;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.bo-diff-view .diff-add {
+  color: var(--success);
+}
+
+.bo-diff-view .diff-remove {
+  color: var(--error);
+}
+
+/* ── Timeline ─────────────────────────────────────────────────── */
+.bo-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.bo-timeline-segment {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.bo-timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.bo-timeline-dot.waiting {
+  background: rgba(71, 85, 105, 0.3);
+  border-color: rgba(71, 85, 105, 0.4);
+}
+
+.bo-timeline-dot.running {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  animation: bo-pulse 1.2s ease-in-out infinite;
+}
+
+.bo-timeline-dot.complete {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.bo-timeline-dot.failed {
+  background: var(--error);
+  border-color: var(--error);
+}
+
+.bo-timeline-dot.skipped {
+  background: rgba(71, 85, 105, 0.15);
+  border-color: rgba(71, 85, 105, 0.2);
+}
+
+.bo-timeline-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bo-timeline-line.complete {
+  background: rgba(52, 211, 153, 0.3);
+}
+
+.bo-timeline-line.running {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+@keyframes bo-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(56, 189, 248, 0.5); }
+  50%       { box-shadow: 0 0 16px rgba(56, 189, 248, 0.8); }
+}
+
+/* ── Verify Fix Buttons ─────────────────────────────────────────── */
+.bo-detail-checks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bo-verify-fix-btn,
+.bo-verify-fix-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.12);
+  color: #F87171;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+}
+
+.bo-verify-fix-btn:hover:not(:disabled),
+.bo-verify-fix-all-btn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.bo-verify-fix-btn:disabled,
+.bo-verify-fix-all-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bo-verify-fix-btn.exhausted {
+  color: #FBBF24;
+  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.bo-verify-fix-btn.error {
+  color: #FCA5A5;
+}
+
+.bo-verify-fix-all-btn {
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.bo-fix-icon {
+  display: inline-block;
+}
+
+.bo-fix-icon.spinning {
+  animation: bo-fix-spin 0.8s linear infinite;
+}
+
+@keyframes bo-fix-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Fix buttons sit at the right end of check rows */
+.bo-detail-check {
+  flex-wrap: nowrap;
+}
+
+.bo-detail-check .bo-verify-fix-btn {
+  margin-left: auto;
+}
+
+/* ── Verify Verdict Display ──────────────────────────────────────── */
+.bo-verify-verdict {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.bo-verify-verdict.verdict-passed {
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--success);
+}
+
+.bo-verify-verdict.verdict-partial {
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: #f59e0b;
+}
+
+.bo-verify-verdict.verdict-failed {
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  color: var(--error);
+}
+
+.bo-verdict-label {
+  display: block;
+}
+
+.bo-verify-critical-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(248, 113, 113, 0.06);
+  border: 1px solid rgba(248, 113, 113, 0.15);
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  color: var(--error);
+  margin-bottom: 4px;
+}
+
+.bo-critical-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Check Severity Badges ───────────────────────────────────────── */
+.bo-check-severity {
+  font-size: 9px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.bo-check-severity--critical {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--error);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.bo-check-severity--advisory {
+  background: rgba(251, 191, 36, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+/* ── Collapsed card (no panels below header) ───────────────────── */
+.bo-phase-card:not(.has-detail) .bo-phase-header {
+  margin-bottom: 0;
+}
+
+.bo-phase-card.has-detail .bo-phase-header {
+  margin-bottom: 0;
+}

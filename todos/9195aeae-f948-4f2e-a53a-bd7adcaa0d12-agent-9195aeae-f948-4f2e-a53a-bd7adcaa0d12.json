@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate recent commits and check syntax",
+    "status": "completed",
+    "activeForm": "Investigating recent commits and checking syntax"
+  },
+  {
+    "content": "Identify root cause of Intent Gate stuck bug",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Fix recovery: paused run blocking queue + stale runs cleanup",
+    "status": "completed",
+    "activeForm": "Fixing recovery queue starvation bug"
+  },
+  {
+    "content": "Fix dashboard stats SQL type mismatch",
+    "status": "completed",
+    "activeForm": "Fixing dashboard stats SQL error"
+  },
+  {
+    "content": "Verify fix and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and deploying"
+  },
+  {
+    "content": "Update CLAUDE.md and notify owner",
+    "status": "pending",
+    "activeForm": "Updating docs and notifying owner"
+  }
+]

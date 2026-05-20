@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate all better-sqlite3 injection points in builder-agent.js",
+    "status": "completed",
+    "activeForm": "Investigating better-sqlite3 injection points"
+  },
+  {
+    "content": "Fix agents/builder-agent.js — replace better-sqlite3 with dual-driver db/database.js",
+    "status": "completed",
+    "activeForm": "Fixing agents/builder-agent.js"
+  },
+  {
+    "content": "Fix src/agents/builder-agent.js — same changes in refactored copy",
+    "status": "completed",
+    "activeForm": "Fixing src/agents/builder-agent.js"
+  },
+  {
+    "content": "Fix scaffold-schemas.js and deploy-engine.js — update techStack and package.json deps",
+    "status": "completed",
+    "activeForm": "Fixing scaffold schemas and deploy engine"
+  },
+  {
+    "content": "Update CLAUDE.md with recent change entry",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Run self-checks and push",
+    "status": "in_progress",
+    "activeForm": "Running self-checks and pushing"
+  }
+]

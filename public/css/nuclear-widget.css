@@ -1,0 +1,423 @@
+/* ──────────────────────────────────────────────────────────────
+   NuclearAgent floating chat widget
+   Owns: .nw-* namespace. Does NOT style anything outside .nw-*.
+   ────────────────────────────────────────────────────────────── */
+
+/* Container — fixed, above everything */
+.nw-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Bubble ──────────────────────────────────────────────────── */
+.nw-bubble {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(14, 165, 233, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.15s;
+  position: relative;
+}
+.nw-bubble:hover {
+  background: #0284c7;
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(14, 165, 233, 0.12);
+}
+.nw-bubble:active { transform: scale(0.97); }
+
+.nw-bubble svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+/* Notification dot */
+.nw-bubble-dot {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f43f5e;
+  border: 2px solid #0ea5e9;
+}
+.nw-bubble-dot.visible { display: block; }
+
+/* ── Panel ───────────────────────────────────────────────────── */
+.nw-panel {
+  width: 380px;
+  height: 520px;
+  border-radius: 16px;
+  background: rgba(6, 10, 20, 0.97);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(14, 165, 233, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom right;
+  transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(24px);
+}
+
+/* Entrance/exit animation */
+.nw-panel.nw-hidden {
+  display: none;
+}
+.nw-panel.nw-entering {
+  animation: nw-panel-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.nw-panel.nw-leaving {
+  animation: nw-panel-out 0.15s ease-in forwards;
+}
+
+@keyframes nw-panel-in {
+  from { opacity: 0; transform: scale(0.85) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes nw-panel-out {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to   { opacity: 0; transform: scale(0.9) translateY(8px); }
+}
+
+/* ── Panel header ────────────────────────────────────────────── */
+.nw-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.07);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.nw-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nw-header-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #0ea5e9;
+}
+
+.nw-header-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: -0.2px;
+}
+
+.nw-header-sub {
+  font-size: 10px;
+  color: #475569;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  letter-spacing: 0.03em;
+}
+
+.nw-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nw-icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.nw-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+}
+.nw-icon-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Messages ────────────────────────────────────────────────── */
+.nw-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.12) transparent;
+}
+.nw-messages::-webkit-scrollbar { width: 3px; }
+.nw-messages::-webkit-scrollbar-track { background: transparent; }
+.nw-messages::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.12); border-radius: 2px; }
+
+/* Empty state */
+.nw-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 16px;
+  color: #475569;
+  margin: auto;
+}
+.nw-empty-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.06);
+  border: 1px solid rgba(14, 165, 233, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0 auto 10px;
+  color: #0ea5e9;
+}
+.nw-empty h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin: 0 0 4px;
+}
+.nw-empty p {
+  font-size: 11px;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+/* Message rows */
+.nw-msg {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+}
+.nw-msg.nw-user { flex-direction: row-reverse; }
+
+.nw-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.nw-msg.nw-user .nw-avatar {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0ea5e9;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+.nw-msg.nw-agent .nw-avatar {
+  background: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.nw-msg-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 82%;
+  gap: 3px;
+}
+.nw-msg.nw-user .nw-msg-body { align-items: flex-end; }
+
+.nw-bubble-msg {
+  padding: 8px 11px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: break-word;
+}
+.nw-msg.nw-user .nw-bubble-msg {
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  color: #e2e8f0;
+  border-bottom-right-radius: 3px;
+}
+.nw-msg.nw-agent .nw-bubble-msg {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.07);
+  color: #cbd5e1;
+  border-bottom-left-radius: 3px;
+  white-space: pre-wrap;
+}
+
+.nw-msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: #334155;
+  font-family: 'DM Mono', 'Courier New', monospace;
+}
+.nw-msg.nw-user .nw-msg-meta { justify-content: flex-end; }
+
+.nw-meta-type {
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.nw-meta-type.build  { background: rgba(16,185,129,0.1); color: #34d399; border: 1px solid rgba(16,185,129,0.18); }
+.nw-meta-type.modify { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.18); }
+.nw-meta-type.message{ background: rgba(100,116,139,0.1); color: #94a3b8; border: 1px solid rgba(100,116,139,0.18); }
+
+.nw-meta-run a {
+  color: #0ea5e9;
+  text-decoration: none;
+  opacity: 0.65;
+  font-size: 9px;
+  transition: opacity 0.15s;
+}
+.nw-meta-run a:hover { opacity: 1; }
+
+/* Thinking dots */
+.nw-thinking .nw-bubble-msg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  font-size: 12px;
+}
+.nw-dots { display: flex; gap: 3px; align-items: center; }
+.nw-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #475569;
+  display: block;
+  animation: nw-dot-pulse 1.2s ease-in-out infinite;
+}
+.nw-dots span:nth-child(2) { animation-delay: 0.2s; }
+.nw-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes nw-dot-pulse {
+  0%,80%,100% { opacity: 0.3; transform: scale(0.8); }
+  40%          { opacity: 1;   transform: scale(1); }
+}
+
+/* Error bubble */
+.nw-error .nw-bubble-msg {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+/* ── Input area ──────────────────────────────────────────────── */
+.nw-input-area {
+  flex-shrink: 0;
+  padding: 8px 12px 12px;
+  border-top: 1px solid rgba(56, 189, 248, 0.06);
+}
+
+.nw-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 10px;
+  padding: 7px 7px 7px 11px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.nw-input-row:focus-within {
+  border-color: rgba(56, 189, 248, 0.28);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.05);
+}
+
+.nw-textarea {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  resize: none;
+  line-height: 1.5;
+  max-height: 100px;
+  padding: 2px 0;
+  scrollbar-width: thin;
+}
+.nw-textarea::placeholder { color: #334155; }
+
+.nw-send {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  background: #0ea5e9;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.1s;
+  color: #060a14;
+}
+.nw-send:hover:not(:disabled) { background: #0284c7; }
+.nw-send:active:not(:disabled) { transform: scale(0.94); }
+.nw-send:disabled { background: rgba(14, 165, 233, 0.18); cursor: not-allowed; color: #334155; }
+.nw-send svg { width: 13px; height: 13px; }
+
+.nw-hint {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #1e293b;
+  text-align: center;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive: mobile full-screen panel ──────────────────────
+   On screens narrower than 440px the panel takes most of the
+   viewport so it's comfortable to type.
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 440px) {
+  .nw-container {
+    bottom: 16px;
+    right: 16px;
+  }
+  .nw-panel {
+    position: fixed;
+    inset: 12px 12px 80px;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+  }
+}

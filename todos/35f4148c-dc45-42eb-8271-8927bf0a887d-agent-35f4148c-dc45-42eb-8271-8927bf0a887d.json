@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Implement _computeDecompositionTelemetry and _logDecompositionTelemetry in intent-gate.js",
+    "status": "completed",
+    "activeForm": "Implementing decomposition telemetry in intent-gate.js"
+  },
+  {
+    "content": "Update classify() signature to accept optional runId, fire telemetry on scope_locked and soft_expansion",
+    "status": "completed",
+    "activeForm": "Updating classify() to fire decomposition telemetry"
+  },
+  {
+    "content": "Update orchestrator to pass runId to classifyIntent()",
+    "status": "completed",
+    "activeForm": "Updating orchestrator to pass runId to classifyIntent()"
+  },
+  {
+    "content": "Update stress-test.js to display decomposition telemetry",
+    "status": "completed",
+    "activeForm": "Updating stress-test.js for decomposition telemetry display"
+  },
+  {
+    "content": "Write tests/test-decomposition-telemetry.js",
+    "status": "completed",
+    "activeForm": "Writing decomposition telemetry tests"
+  },
+  {
+    "content": "Run existing tests to verify no regression",
+    "status": "completed",
+    "activeForm": "Running tests to verify no regression"
+  },
+  {
+    "content": "Push changes to git",
+    "status": "in_progress",
+    "activeForm": "Pushing changes to git"
+  }
+]

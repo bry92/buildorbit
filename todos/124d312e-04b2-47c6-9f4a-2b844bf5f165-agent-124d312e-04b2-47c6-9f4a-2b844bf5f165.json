@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create agents/planner-agent.js (PLAN stage)",
+    "status": "completed",
+    "activeForm": "Creating Planner Agent"
+  },
+  {
+    "content": "Create agents/builder-agent.js (SCAFFOLD + CODE stages)",
+    "status": "completed",
+    "activeForm": "Creating Builder Agent"
+  },
+  {
+    "content": "Create agents/qa-agent.js (VERIFY stage)",
+    "status": "completed",
+    "activeForm": "Creating QA Agent"
+  },
+  {
+    "content": "Create agents/ops-agent.js (SAVE + health monitoring)",
+    "status": "completed",
+    "activeForm": "Creating Ops Agent"
+  },
+  {
+    "content": "Create agents/index.js (AgentRegistry)",
+    "status": "completed",
+    "activeForm": "Creating AgentRegistry"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js to use AgentRegistry",
+    "status": "completed",
+    "activeForm": "Updating Orchestrator"
+  },
+  {
+    "content": "Update server.js to wire up agents",
+    "status": "completed",
+    "activeForm": "Updating server.js wiring"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

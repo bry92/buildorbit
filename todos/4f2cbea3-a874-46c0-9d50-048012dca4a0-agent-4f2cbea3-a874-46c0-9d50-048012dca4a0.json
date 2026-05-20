@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Verify CLI package is fully publish-ready (package.json, files, README)",
+    "status": "completed",
+    "activeForm": "Verifying CLI package"
+  },
+  {
+    "content": "Create GitHub Actions npm publish workflow",
+    "status": "completed",
+    "activeForm": "Creating GitHub Actions publish workflow"
+  },
+  {
+    "content": "Push changes to repo",
+    "status": "in_progress",
+    "activeForm": "Pushing changes to repo"
+  },
+  {
+    "content": "Report missing NPM_TOKEN to Polsia platform",
+    "status": "pending",
+    "activeForm": "Reporting missing NPM_TOKEN"
+  },
+  {
+    "content": "Block task with npm token reason",
+    "status": "pending",
+    "activeForm": "Blocking task"
+  }
+]

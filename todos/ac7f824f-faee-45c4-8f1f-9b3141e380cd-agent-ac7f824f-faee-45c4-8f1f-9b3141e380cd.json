@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate: Read the 4 key files and understand current state machine",
+    "status": "completed",
+    "activeForm": "Investigating state machine and intent gate implementation"
+  },
+  {
+    "content": "Add intent_gate as first stage in state machine",
+    "status": "completed",
+    "activeForm": "Adding intent_gate to state machine stages"
+  },
+  {
+    "content": "Emit intent_gate started/completed events in pipeline-orchestrator",
+    "status": "completed",
+    "activeForm": "Emitting intent_gate lifecycle events"
+  },
+  {
+    "content": "Store Constraint Contract Object as phase output",
+    "status": "completed",
+    "activeForm": "Storing constraint contract as phase output"
+  },
+  {
+    "content": "Update A2A to read persisted event instead of reconstructing",
+    "status": "completed",
+    "activeForm": "Updating A2A to read real intent_gate events"
+  },
+  {
+    "content": "Update Dashboard/SSE for consistent intent_gate naming",
+    "status": "completed",
+    "activeForm": "Updating Dashboard/SSE phase display"
+  },
+  {
+    "content": "Verify fix with node --check and test",
+    "status": "completed",
+    "activeForm": "Verifying the fix"
+  },
+  {
+    "content": "Push to remote and deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and deploying"
+  }
+]

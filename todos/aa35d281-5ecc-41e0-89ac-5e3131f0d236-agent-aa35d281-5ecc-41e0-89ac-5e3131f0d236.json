@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate codebase: React Router, Shell.tsx, existing nav, /new route",
+    "status": "completed",
+    "activeForm": "Investigating codebase structure"
+  },
+  {
+    "content": "Add sidebar navigation to Shell.tsx",
+    "status": "completed",
+    "activeForm": "Building sidebar navigation"
+  },
+  {
+    "content": "Add /new route with NewBuild component",
+    "status": "completed",
+    "activeForm": "Creating /new route and NewBuild page"
+  },
+  {
+    "content": "Add /history route with History component",
+    "status": "completed",
+    "activeForm": "Creating /history route and page"
+  },
+  {
+    "content": "Consolidate duplicate New Build entry points in Dashboard",
+    "status": "completed",
+    "activeForm": "Removing duplicate New Build buttons"
+  },
+  {
+    "content": "Update server.js routes to serve React shell for /new and /history",
+    "status": "completed",
+    "activeForm": "Updating Express route handlers"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Self-check, build, push, and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Running self-checks and deploying"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create migration 006 for pipeline_deployments table",
+    "status": "completed",
+    "activeForm": "Creating migration 006"
+  },
+  {
+    "content": "Create deploy-engine.js service",
+    "status": "completed",
+    "activeForm": "Creating deploy-engine.js"
+  },
+  {
+    "content": "Update artifact-store.js to add deploy filename",
+    "status": "completed",
+    "activeForm": "Updating artifact-store.js"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js with auto-deploy hook",
+    "status": "completed",
+    "activeForm": "Updating pipeline-orchestrator.js"
+  },
+  {
+    "content": "Update server.js with deploy endpoints + file serving",
+    "status": "completed",
+    "activeForm": "Updating server.js"
+  },
+  {
+    "content": "Update run.html with deploy phase UI",
+    "status": "completed",
+    "activeForm": "Updating run.html"
+  },
+  {
+    "content": "Update dashboard.html with deploy status badges",
+    "status": "completed",
+    "activeForm": "Updating dashboard.html"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and verifying"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Read deterministicScaffold() function in agents/builder-agent.js",
+    "status": "completed",
+    "activeForm": "Reading deterministicScaffold() function"
+  },
+  {
+    "content": "Update agents/builder-agent.js (root) — remove soft_expansion, update schemaClass",
+    "status": "completed",
+    "activeForm": "Updating agents/builder-agent.js"
+  },
+  {
+    "content": "Update src/agents/builder-agent.js — remove soft_expansion branches",
+    "status": "completed",
+    "activeForm": "Updating src/agents/builder-agent.js"
+  },
+  {
+    "content": "Update planner agents (agents/ and src/agents/) — remove soft_expansion",
+    "status": "completed",
+    "activeForm": "Updating planner agents"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing"
+  },
+  {
+    "content": "Complete task and send inbox message",
+    "status": "pending",
+    "activeForm": "Completing task and notifying owner"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create DB migration for pipeline_traces table",
+    "status": "completed",
+    "activeForm": "Creating DB migration for pipeline_traces table"
+  },
+  {
+    "content": "Create trace-store.js module",
+    "status": "completed",
+    "activeForm": "Creating trace-store.js module"
+  },
+  {
+    "content": "Instrument pipeline-orchestrator.js for trace capture",
+    "status": "completed",
+    "activeForm": "Instrumenting pipeline-orchestrator.js for trace capture"
+  },
+  {
+    "content": "Add 3 new API endpoints + wire traceStore in server.js",
+    "status": "completed",
+    "activeForm": "Adding trace API endpoints + wiring traceStore in server.js"
+  },
+  {
+    "content": "Build Trace Viewer UI (trace.html)",
+    "status": "completed",
+    "activeForm": "Building Trace Viewer UI (trace.html)"
+  },
+  {
+    "content": "Run migration, commit and push to deploy",
+    "status": "in_progress",
+    "activeForm": "Running migration, committing and pushing to deploy"
+  }
+]

@@ -1,0 +1,250 @@
+# BuildOrbit Subagent Descriptor
+# Machine-readable descriptor for A2A (Agent-to-Agent) protocol integration.
+# Also available at: https://buildorbit.polsia.app/a2a/descriptor (JSON)
+#
+# Usage from Gemini CLI or any A2A client:
+#   curl -X POST https://buildorbit.polsia.app/a2a/execute \
+#     -H "Authorization: Bearer <api_key>" \
+#     -H "Content-Type: application/json" \
+#     -H "Accept: text/event-stream" \
+#     -d '{"task_description": "Build a SaaS landing page for..."}'
+
+name: buildorbit
+description: >
+  Deterministic 6-phase system builder — visible execution from intent to verified output.
+  Unlike LLM-based builders that emit unstructured code blobs, BuildOrbit runs every
+  request through a typed, gated pipeline with immutable constraints, binding manifests,
+  and mandatory verification. You see every phase as it executes.
+version: "1.0.0"
+endpoint: https://buildorbit.polsia.app/a2a/execute
+descriptor_url: https://buildorbit.polsia.app/a2a/descriptor
+
+auth:
+  type: bearer
+  header: "Authorization: Bearer <api_key>"
+  obtain_key: "POST https://buildorbit.polsia.app/a2a/keys (requires session auth)"
+  key_format: "bk_<48-hex-chars>"
+
+rate_limits:
+  executions_per_hour: 10
+  window: 1h
+
+input:
+  schema:
+    task_description:
+      type: string
+      required: true
+      description: Natural language description of what to build
+      examples:
+        - "Build a waitlist landing page for an AI productivity tool"
+        - "Create a SaaS dashboard for tracking API usage with auth"
+        - "Build a mortgage calculator with amortization schedule"
+
+    intent_class:
+      type: enum
+      required: false
+      description: >
+        Override auto-detected intent classification. If omitted, the
+        INTENT_GATE phase classifies automatically from task_description.
+      values:
+        - STATIC_SURFACE     # Landing pages, homepages, marketing sites (no backend)
+        - INTERACTIVE_LIGHT_APP  # Forms, calculators, waitlists (optional minimal backend)
+        - PRODUCT_SYSTEM     # SaaS, platforms, dashboards (full stack + auth + DB)
+
+    product_context:
+      type: object
+      required: false
+      description: Brand/product context for accurate content generation
+      example:
+        name: "AcmeSaaS"
+        tagline: "The fastest way to ship"
+        primary_color: "#6366f1"
+        domain: "acmesaas.com"
+
+    constraints:
+      type: object
+      required: false
+      description: Hard constraints passed to INTENT_GATE constraint compiler
+      example:
+        no_auth: true
+        max_files: 5
+        tech_stack: ["html", "css", "vanilla-js"]
+
+output:
+  format: SSE (text/event-stream)
+  content_type: text/event-stream
+
+  events:
+    - event: connected
+      description: Stream opened, run created and queued
+      fields:
+        run_id: string (UUID)
+        task_description: string
+        total_phases: integer (always 6)
+        message: string
+
+    - event: phase_start
+      description: A phase has begun executing
+      fields:
+        phase: string (INTENT_GATE|PLAN|SCAFFOLD|CODE|SAVE|VERIFY)
+        phase_number: integer (1-6)
+        total_phases: integer (always 6)
+        status: "running"
+        description: string
+
+    - event: phase_complete
+      description: A phase finished successfully, with optional artifact
+      fields:
+        phase: string
+        phase_number: integer
+        total_phases: integer
+        status: "completed"
+        artifact: object (optional, phase-specific)
+
+    - event: artifact
+      description: Intermediate artifact produced during a phase
+      fields:
+        phase: string
+        phase_number: integer
+        artifact_type: string (scaffold_manifest|generated_files|constraint_contract)
+        content: object
+
+    - event: phase_error
+      description: A phase failed
+      fields:
+        phase: string
+        phase_number: integer
+        message: string
+
+    - event: complete
+      description: All 6 phases completed — final bundle
+      fields:
+        run_id: string
+        passed: boolean
+        total_phases: integer
+        verification:
+          passed: boolean
+          checks_passed: integer
+          total_checks: integer
+          errors: array
+          warnings: array
+        artifacts_url: string (REST endpoint for full artifact access)
+        live_url: string (served build output)
+        execution_time_ms: integer
+
+    - event: error
+      description: Fatal pipeline error
+      fields:
+        run_id: string
+        phase: string (optional)
+        message: string
+
+phases:
+  - number: 1
+    name: INTENT_GATE
+    description: >
+      Deterministic constraint compiler. Classifies task intent (STATIC_SURFACE /
+      INTERACTIVE_LIGHT_APP / PRODUCT_SYSTEM) and outputs an immutable Constraint
+      Contract Object. All subsequent phases operate within these boundaries.
+      expansion_lock=true prevents scope creep at the PLAN level.
+    outputs:
+      - intent_class (classified type)
+      - constraint_contract (immutable scope boundaries)
+      - allowed_artifacts
+      - prohibited_layers
+      - complexity_budget
+
+  - number: 2
+    name: PLAN
+    description: >
+      Generates a structured technical plan within the INTENT_GATE constraint ceiling.
+      Cannot introduce new systems beyond constraint boundaries. Outputs typed subtasks
+      with dependencies.
+    outputs:
+      - subtasks (ordered array with dependencies)
+      - estimated_complexity
+      - raw_markdown (human-readable plan)
+
+  - number: 3
+    name: SCAFFOLD
+    description: >
+      Creates the binding file/project structure manifest. This is the schema authority
+      that CODE must obey. Uses polymorphic schemas routed by intent_class — not a
+      monomorphic template. CODE cannot execute without a valid scaffold manifest.
+    outputs:
+      - tree (directory structure)
+      - tech_stack
+      - file_manifest (binding list of files to generate)
+      - constraints
+
+  - number: 4
+    name: CODE
+    description: >
+      Implements the system against the scaffold manifest. Every file must exist in
+      the manifest. Hard gate: CODE phase fails if it generates files not in the
+      scaffold contract. Outputs complete, runnable source files.
+    outputs:
+      - files (filename → content map)
+      - entry_point
+      - total_lines
+
+  - number: 5
+    name: SAVE
+    description: >
+      Persists all artifacts to storage with versioning. Creates a stable artifact
+      snapshot for VERIFY and downstream consumers.
+    outputs:
+      - version_id
+      - persisted (boolean)
+
+  - number: 6
+    name: VERIFY
+    description: >
+      Validates the output against the original plan and INTENT_GATE constraints.
+      Runs typed checks: contract conformance, completeness, constraint violations,
+      artifact integrity. Returns pass/fail per check — not just overall pass/fail.
+    outputs:
+      - checks (array: { name, passed, message })
+      - errors
+      - warnings
+
+capabilities:
+  - landing_pages
+  - web_apps
+  - full_stack_systems
+  - deterministic_execution
+  - phase_streaming
+  - artifact_versioning
+  - constraint_enforcement
+  - intent_classification
+  - scaffold_binding
+  - verify_checks
+
+differentiators:
+  - Every execution is phase-by-phase visible — no black-box blobs
+  - INTENT_GATE produces immutable constraints before any generation begins
+  - SCAFFOLD creates a binding manifest — CODE cannot hallucinate new files
+  - VERIFY runs typed checks, not vibes-based evaluation
+  - Designed to be called from other agents (this descriptor exists for that reason)
+
+example_curl: |
+  # Create an API key (one time, via web auth):
+  curl -X POST https://buildorbit.polsia.app/a2a/keys \
+    -H "Cookie: bo_session=<your_session>" \
+    -H "Content-Type: application/json" \
+    -d '{"name": "gemini-cli"}'
+
+  # Execute a build and stream phases:
+  curl -X POST https://buildorbit.polsia.app/a2a/execute \
+    -H "Authorization: Bearer bk_your_key_here" \
+    -H "Content-Type: application/json" \
+    -H "Accept: text/event-stream" \
+    -d '{
+      "task_description": "Build a SaaS waitlist page with email capture and a counter",
+      "intent_class": "INTERACTIVE_LIGHT_APP",
+      "product_context": { "name": "LaunchWave", "tagline": "Ship faster" }
+    }'
+
+  # Check status of a run:
+  curl https://buildorbit.polsia.app/a2a/status/<run_id> \
+    -H "Authorization: Bearer bk_your_key_here"

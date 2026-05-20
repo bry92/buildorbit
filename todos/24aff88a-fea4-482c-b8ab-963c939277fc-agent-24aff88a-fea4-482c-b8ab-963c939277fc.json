@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate root cause of missing Fix buttons",
+    "status": "completed",
+    "activeForm": "Investigating root cause"
+  },
+  {
+    "content": "Read React PhaseDetail.tsx and understand current VerifyDetail rendering",
+    "status": "completed",
+    "activeForm": "Reading PhaseDetail.tsx and related components"
+  },
+  {
+    "content": "Add Fix button and Fix All button to VerifyDetail component",
+    "status": "completed",
+    "activeForm": "Adding Fix buttons to VerifyDetail component"
+  },
+  {
+    "content": "Wire API calls for verify-fix and verify-fix-all endpoints",
+    "status": "completed",
+    "activeForm": "Wiring fix API calls"
+  },
+  {
+    "content": "Build frontend and verify no TypeScript errors",
+    "status": "completed",
+    "activeForm": "Building frontend to check for errors"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Deploy and verify fix is working",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

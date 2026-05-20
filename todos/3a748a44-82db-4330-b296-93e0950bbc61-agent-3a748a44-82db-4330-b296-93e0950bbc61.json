@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate CODE phase execution flow in builder-agent.js",
+    "status": "completed",
+    "activeForm": "Investigating CODE phase execution flow"
+  },
+  {
+    "content": "Identify root cause of mid-CODE failure on continuation builds",
+    "status": "completed",
+    "activeForm": "Identifying root cause of mid-CODE failure"
+  },
+  {
+    "content": "Fix the bug so continuation builds complete through CODE → SAVE → VERIFY",
+    "status": "completed",
+    "activeForm": "Fixing the continuation build bug"
+  },
+  {
+    "content": "Add error handling for mid-CODE failures",
+    "status": "completed",
+    "activeForm": "Adding error handling for mid-CODE failures"
+  },
+  {
+    "content": "Update CLAUDE.md and deploy",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md and deploying"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Build Serena built-in MCP server (Node.js in-process, no Python)",
+    "status": "completed",
+    "activeForm": "Building Serena built-in MCP server"
+  },
+  {
+    "content": "Register Serena in mcp-registry.js BUILTIN_SERVERS",
+    "status": "completed",
+    "activeForm": "Registering Serena in MCP registry"
+  },
+  {
+    "content": "Wire Serena into pipeline phases (classify/plan/scaffold/code/verify)",
+    "status": "completed",
+    "activeForm": "Wiring Serena into pipeline phases"
+  },
+  {
+    "content": "Add codebase analysis to classify/plan phase",
+    "status": "completed",
+    "activeForm": "Adding codebase analysis to classify/plan phase"
+  },
+  {
+    "content": "Add symbol lookup to scaffold/code phases",
+    "status": "completed",
+    "activeForm": "Adding symbol lookup to scaffold/code phases"
+  },
+  {
+    "content": "Add diagnostics check to verify phase",
+    "status": "completed",
+    "activeForm": "Adding diagnostics to verify phase"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing to remote"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "pending",
+    "activeForm": "Updating CLAUDE.md"
+  }
+]

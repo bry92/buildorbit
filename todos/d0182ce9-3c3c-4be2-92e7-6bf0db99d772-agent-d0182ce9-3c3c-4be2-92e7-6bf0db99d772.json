@@ -1,0 +1,27 @@
+[
+  {
+    "content": "State hypothesis and identify exact bug location",
+    "status": "completed",
+    "activeForm": "Stating hypothesis"
+  },
+  {
+    "content": "Apply fix to both builder-agent.js files (root + src/)",
+    "status": "completed",
+    "activeForm": "Applying fix to builder-agent.js"
+  },
+  {
+    "content": "Run unit tests to verify no regressions (45/45 passed)",
+    "status": "completed",
+    "activeForm": "Running unit tests"
+  },
+  {
+    "content": "Commit and push changes to remote",
+    "status": "in_progress",
+    "activeForm": "Committing and pushing changes"
+  },
+  {
+    "content": "Verify deploy on Render",
+    "status": "pending",
+    "activeForm": "Verifying deploy on Render"
+  }
+]

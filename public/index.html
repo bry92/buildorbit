@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildOrbit — The Glass-Box AI Pipeline for Regulated Industries</title>
+    <meta name="description" content="BuildOrbit is the deterministic 6-phase AI execution pipeline. Every decision is visible, auditable, and traceable. Built for legal, finance, and healthcare teams that can't afford black-box AI.">
+    <meta property="og:title" content="BuildOrbit — The Glass-Box AI Pipeline">
+    <meta property="og:description" content="Deterministic execution. Complete audit trails. AI autonomy your compliance team will actually approve.">
+    <meta property="og:url" content="https://buildorbit.polsia.app">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260502a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260502a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260508b">
+</head>
+<body class="page-landing">
+
+    <!-- ── Navigation ───────────────────────────────────── -->
+    <nav>
+        <div class="logo">
+            <div class="logo-dot"></div>
+            BuildOrbit
+        </div>
+        <div class="nav-right">
+            <div class="nav-tag mono">glass-box pipeline</div>
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/blog" class="nav-link">Blog</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="hero">
+        <div class="hero-eyebrow">6-phase deterministic execution</div>
+        <h1>You type a sentence.<br><em>Then you watch it come alive.</em></h1>
+        <p class="hero-sub">Not "generating..." with a spinner. Not a progress bar lying to you. You actually <em>watch</em> your idea take shape — phase by phase, decision by decision, in real time.</p>
+        <p class="hero-cta-line">BuildOrbit turns a sentence into a live app while you watch.</p>
+        <div class="hero-actions">
+            <a href="/signup" class="cta-primary">Start Building →</a>
+            <a href="/new" class="cta-secondary">Try It Free</a>
+        </div>
+    </section>
+
+    <!-- ── Glass Box Pitch ───────────────────────────────── -->
+    <section class="glass-pitch-section">
+        <div class="glass-pitch-inner">
+            <div class="glass-pitch-card">
+                <div class="glass-pitch-lede">Every other AI builder is a slot machine.</div>
+                <p class="glass-pitch-body">You pull the lever, wait, and hope what comes out doesn't suck. When it does — and it usually does — you have no idea why. You can't fix it. You can't learn from it. You just pull the lever again.</p>
+                <div class="glass-pitch-divider"></div>
+                <p class="glass-pitch-reveal">BuildOrbit is a glass box.</p>
+                <p class="glass-pitch-body">You see the plan before a single line of code gets written. You see the scaffold lock into place. You see the code emerge file by file. If something goes wrong, you know <em>exactly</em> where and <em>exactly</em> why — because you were watching the whole time.</p>
+                <p class="glass-pitch-emphasis"><strong>That changes everything.</strong> Not just the output. The <em>feeling.</em> The difference between being a passenger and being a pilot.</p>
+            </div>
+            <div class="glass-pitch-tagline">
+                <span class="glass-pitch-tagline-name">BuildOrbit.</span>
+                <span class="glass-pitch-tagline-sub">The autonomous OS that shows its work.</span>
+                <span class="glass-pitch-tagline-cap">One sentence in. Live app out. Everything visible in between.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Live Demo Section ─────────────────────────────── -->
+    <section class="demo-section" id="watch-it-work">
+        <div class="demo-label">
+            <span class="demo-live-dot"></span>
+            watch it work
+        </div>
+        <h2 class="demo-headline">The pipeline in action</h2>
+        <p class="demo-sub">Type a prompt. Watch 6 phases execute in real time. Every decision visible.</p>
+
+        <div class="demo-player" id="demo-player">
+            <!-- Browser chrome bar -->
+            <div class="demo-chrome">
+                <div class="demo-chrome-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="demo-chrome-url">
+                    <span class="demo-chrome-lock">🔒</span>
+                    buildorbit.polsia.app/run
+                </div>
+                <div class="demo-chrome-controls">
+                    <button class="demo-restart-btn" id="demo-restart" title="Restart demo" aria-label="Restart demo">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M11.5 6.5A5 5 0 1 1 6.5 1.5M6.5 1.5L9 4M6.5 1.5L9 -1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5 1.5L9 4L6.5 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Demo screen -->
+            <div class="demo-screen">
+                <!-- Left: prompt input + phase log -->
+                <div class="demo-left">
+                    <div class="demo-prompt-area">
+                        <div class="demo-prompt-label mono">task description</div>
+                        <div class="demo-prompt-text" id="demo-prompt-text"></div>
+                        <span class="demo-cursor" id="demo-cursor">|</span>
+                    </div>
+                    <div class="demo-phase-log" id="demo-phase-log">
+                        <!-- Phases appear here -->
+                    </div>
+                </div>
+
+                <!-- Right: live output -->
+                <div class="demo-right">
+                    <div class="demo-output-header">
+                        <span class="demo-output-label mono">live output</span>
+                        <span class="demo-status-badge" id="demo-status-badge">waiting</span>
+                    </div>
+                    <div class="demo-output-body" id="demo-output-body">
+                        <div class="demo-output-idle" id="demo-output-idle">
+                            <div class="demo-idle-icon">⬡</div>
+                            <div class="demo-idle-text">Pipeline ready</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="demo-progress-bar">
+                <div class="demo-progress-fill" id="demo-progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="demo-cta-row">
+            <a href="/new" class="cta-primary">Run Your Own Task →</a>
+            <a href="/signup" class="cta-secondary">Start Free</a>
+        </div>
+    </section>
+
+    <!-- ── Pipeline Visualization ───────────────────────── -->
+    <div class="pipeline-viz" id="pipeline">
+        <div class="pipeline-track">
+            <div class="pipeline-phase p1">
+                <div class="phase-num">01</div>
+                <div class="phase-name">Intent Gate</div>
+            </div>
+            <div class="pipeline-phase p2">
+                <div class="phase-num">02</div>
+                <div class="phase-name">Plan</div>
+            </div>
+            <div class="pipeline-phase p3">
+                <div class="phase-num">03</div>
+                <div class="phase-name">Scaffold</div>
+            </div>
+            <div class="pipeline-phase p4">
+                <div class="phase-num">04</div>
+                <div class="phase-name">Code</div>
+            </div>
+            <div class="pipeline-phase p5">
+                <div class="phase-num">05</div>
+                <div class="phase-name">Save</div>
+            </div>
+            <div class="pipeline-phase p6">
+                <div class="phase-num">06</div>
+                <div class="phase-name">Verify</div>
+            </div>
+        </div>
+        <div class="pipeline-caption">Every task. Always this order. Never skipped.</div>
+    </div>
+
+    <!-- ── Value Props ───────────────────────────────────── -->
+    <section class="section">
+        <div class="section-label">Why BuildOrbit</div>
+        <h2 class="section-title">Designed for teams who<br>need to know what happened.</h2>
+        <p class="section-sub">Regulated industries can't ship AI that fails silently. BuildOrbit was built for that constraint from the ground up.</p>
+
+        <div class="props-grid">
+            <div class="prop-card">
+                <div class="prop-icon">⬡</div>
+                <div class="prop-label">Deterministic</div>
+                <h3>Not a black box</h3>
+                <p>Six defined phases execute in the same order, every time. You see INTENT GATE → PLAN → SCAFFOLD → CODE → SAVE → VERIFY. You know what happened at phase 3 without guessing. Progress you can see, not hope for.</p>
+            </div>
+
+            <div class="prop-card">
+                <div class="prop-icon">◎</div>
+                <div class="prop-label">Explainability</div>
+                <h3>Full causal trace</h3>
+                <p>Every decision has a traceable origin. Regulators, auditors, and compliance teams see exactly what happened and why. View Trace = a complete DAG of every choice made during execution. No "the model decided."</p>
+            </div>
+
+            <div class="prop-card">
+                <div class="prop-icon">◈</div>
+                <div class="prop-label">Memory</div>
+                <h3>Gets smarter for you</h3>
+                <p>4-layer data architecture means BuildOrbit learns from every run in your context — your code, your conventions, your domain. Not generic improvement. Compounding intelligence specific to your company.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Free vs Pro Comparison ───────────────────────── -->
+    <section class="comparison-section">
+        <div class="comparison-inner">
+            <div class="section-label">Plans</div>
+            <h2 class="section-title comparison-headline">Start free.<br>Upgrade when it clicks.</h2>
+            <p class="section-sub">10 trial credits gets you through the full pipeline. Upgrade when you want unlimited builds, priority queue, and GitHub integration.</p>
+
+            <!-- Comparison grid -->
+            <div class="comparison-grid">
+
+                <!-- Free Trial column -->
+                <div class="comparison-col comparison-col--free">
+                    <div class="comparison-plan-name">Free Trial</div>
+                    <div class="comparison-price">
+                        <span class="comparison-price-amount">Free</span>
+                    </div>
+                    <div class="comparison-plan-sub">10 credits. No card required.</div>
+
+                    <ul class="comparison-features">
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span><strong>10 trial credits</strong> on signup</span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Full 6-phase pipeline</span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Live audit trail on every run</span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Deployed preview per build</span></li>
+                        <li class="feat-no"><span class="feat-icon">—</span><span>Unlimited builds</span></li>
+                        <li class="feat-no"><span class="feat-icon">—</span><span>Priority generation queue</span></li>
+                        <li class="feat-no"><span class="feat-icon">—</span><span>GitHub auto-push + PR</span></li>
+                        <li class="feat-no"><span class="feat-icon">—</span><span>Custom domains</span></li>
+                    </ul>
+
+                    <a href="/signup" class="comparison-cta comparison-cta--free">Try It Free →</a>
+                </div>
+
+                <!-- Divider -->
+                <div class="comparison-divider-col" aria-hidden="true">
+                    <div class="comparison-vs">vs</div>
+                </div>
+
+                <!-- Pro column -->
+                <div class="comparison-col comparison-col--pro">
+                    <div class="comparison-plan-badge">MOST POPULAR</div>
+                    <div class="comparison-plan-name">Pro</div>
+                    <div class="comparison-price">
+                        <span class="comparison-price-amount">$49</span>
+                        <span class="comparison-price-period">/month</span>
+                    </div>
+                    <div class="comparison-plan-sub">Everything in Free, plus everything else.</div>
+
+                    <ul class="comparison-features">
+                        <li class="feat-yes feat-highlight"><span class="feat-icon">✓</span><span><strong>Unlimited builds</strong></span></li>
+                        <li class="feat-yes feat-highlight"><span class="feat-icon">✓</span><span><strong>10 credits on signup</strong> + 5/month</span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Full 6-phase pipeline</span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Live audit trail on every run</span></li>
+                        <li class="feat-yes feat-highlight"><span class="feat-icon">✓</span><span><strong>Priority generation queue</strong></span></li>
+                        <li class="feat-yes feat-highlight"><span class="feat-icon">✓</span><span><strong>GitHub auto-push + PR creation</strong></span></li>
+                        <li class="feat-yes feat-highlight"><span class="feat-icon">✓</span><span><strong>Custom domains</strong></span></li>
+                        <li class="feat-yes"><span class="feat-icon">✓</span><span>Deployed preview per build</span></li>
+                    </ul>
+
+                    <a href="/pricing" class="comparison-cta comparison-cta--pro">See Full Pricing →</a>
+                    <div class="comparison-cta-note">Secured by Stripe · Cancel anytime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── Pipeline Deep Dive ────────────────────────────── -->
+    <section class="pipeline-section">
+        <div class="section">
+            <div class="section-label">The Pipeline</div>
+            <h2 class="section-title">Six phases. Zero ambiguity.<br>Complete visibility.</h2>
+            <p class="section-sub">Every task flows through this exact sequence. You can watch each phase progress in real time. The pipeline IS the audit log.</p>
+
+            <div class="pipeline-steps">
+                <div class="pipeline-step">
+                    <div class="step-badge step-s1">01</div>
+                    <div class="step-body">
+                        <h4>Intent Gate <span class="step-phase-tag">INTENT GATE</span></h4>
+                        <p>Validates the request before anything executes. Ambiguous or unsafe tasks are rejected here — with an explanation. Nothing runs until the intent is clear and within scope.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-badge step-s2">02</div>
+                    <div class="step-body">
+                        <h4>Plan <span class="step-phase-tag">PLAN</span></h4>
+                        <p>Structured execution plan produced from the validated intent. Every step explicit. Every decision visible before a single line of code is written. You can read the plan and disagree before it runs.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-badge step-s3">03</div>
+                    <div class="step-body">
+                        <h4>Scaffold <span class="step-phase-tag">SCAFFOLD</span></h4>
+                        <p>Architecture, file structure, schemas, and dependencies laid out against the plan. The shape of the output is visible before implementation begins — not a surprise at the end.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-badge step-s4">04</div>
+                    <div class="step-body">
+                        <h4>Code <span class="step-phase-tag">CODE</span></h4>
+                        <p>Implementation executed against the scaffold and plan. Actual output — not suggestions, not completions. Every generated artifact traces back to a specific scaffold node and plan step.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-badge step-s5">05</div>
+                    <div class="step-body">
+                        <h4>Save <span class="step-phase-tag">SAVE</span></h4>
+                        <p>Everything committed, versioned, and persisted. Nothing lives in a temporary session. Every file written is recorded with its originating phase, timestamp, and reasoning reference.</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-badge step-s6">06</div>
+                    <div class="step-body">
+                        <h4>Verify <span class="step-phase-tag">VERIFY</span></h4>
+                        <p>Automated validation confirms output matches the plan. Tests run. Quality gates pass. Discrepancies are logged — not silently swallowed. The trace is complete and immutable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── Audit / Trust ─────────────────────────────────── -->
+    <section class="section">
+        <div class="section-label">Trust Signals</div>
+        <h2 class="section-title">Every run produces a<br>complete audit trail.</h2>
+        <p class="section-sub">AI autonomy your compliance team will actually approve. Not because we say so — because you can show them the trace.</p>
+
+        <div class="audit-block">
+            <div class="audit-left">
+                <h3>Built for regulated industries</h3>
+                <p>Legal, finance, and healthcare teams can't ship AI that can't explain itself. BuildOrbit doesn't ask you to trust the model — it asks you to read the trace.</p>
+                <div class="audit-checks">
+                    <div class="audit-check">Complete decision DAG — every choice, every phase</div>
+                    <div class="audit-check">Immutable run records — nothing overwritten after the fact</div>
+                    <div class="audit-check">Phase-level diff — see exactly what changed and when</div>
+                    <div class="audit-check">Rejection logs — failed Intent Gates are recorded too</div>
+                    <div class="audit-check">Human-readable trace — not raw model outputs</div>
+                </div>
+            </div>
+            <div class="audit-right">
+                <div class="trace-mock">
+                    <div class="trace-line done"><span class="trace-dot"></span> intent_gate → PASS</div>
+                    <div class="trace-line done"><span class="trace-dot"></span> plan → 7 steps</div>
+                    <div class="trace-line done"><span class="trace-dot"></span> scaffold → 12 files</div>
+                    <div class="trace-line active"><span class="trace-dot"></span> code → executing…</div>
+                    <div class="trace-line"><span class="trace-dot"></span> save → pending</div>
+                    <div class="trace-line"><span class="trace-dot"></span> verify → pending</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="industries-strip">
+            <div class="industry-badge">⚖ Legal</div>
+            <div class="industry-badge">$ Finance</div>
+            <div class="industry-badge">+ Healthcare</div>
+            <div class="industry-badge">🔒 Compliance</div>
+            <div class="industry-badge">⊕ Audit-ready</div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── Competitive Positioning ───────────────────────── -->
+    <section class="section">
+        <div class="section-label">Positioning</div>
+        <h2 class="section-title">Controlled imagination.<br>Not gambling.</h2>
+        <p class="section-sub">Other tools bet on the model getting it right. BuildOrbit constrains what it can do — and shows you every constraint it respected.</p>
+
+        <div class="positioning-grid">
+            <div class="pos-card">
+                <div class="pos-vs">vs. Autonomous Agents</div>
+                <h3>15% success rates aren't autonomy</h3>
+                <p>Agents that fail silently, hallucinate dependencies, and hide their errors behind a "done" message aren't autonomous — they're gambling with your time. Hidden costs aren't features.</p>
+            </div>
+
+            <div class="pos-card">
+                <div class="pos-vs">vs. AI Chat Tools</div>
+                <h3>A conversation isn't a pipeline</h3>
+                <p>Powerful models with zero structure produce confident wrong answers. No phase gating, no audit trail, no causal trace. A chat window is not an execution engine.</p>
+            </div>
+
+            <div class="pos-card highlight">
+                <div class="pos-vs">BuildOrbit</div>
+                <h3>Controlled imagination</h3>
+                <p>The AI executes within constraints you can see. The pipeline enforces the constraints. The trace proves they were respected. That's the glass box.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── Pricing ───────────────────────────────────────── -->
+    <section class="pricing-section">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">One plan.<br>Everything included.</h2>
+        <p class="section-sub">Sign up, watch a real task execute immediately. No tour. No empty dashboard. The pipeline is the onboarding.</p>
+
+        <div class="price-card">
+            <div class="price-amount"><span>$</span>49</div>
+            <div class="price-period">per month</div>
+
+            <div class="price-features">
+                <div class="price-feature">Daily autonomous execution cycles</div>
+                <div class="price-feature">Task credits for on-demand runs</div>
+                <div class="price-feature">Full audit trail on every run</div>
+                <div class="price-feature">Complete causal trace — View Trace DAG</div>
+                <div class="price-feature">6-phase pipeline with real-time visibility</div>
+                <div class="price-feature">Memory that compounds across runs</div>
+            </div>
+
+            <a href="/signup" class="price-cta">Start Building →</a>
+            <p class="price-note">No tours. No empty dashboards. Your first experience is a live pipeline run.</p>
+        </div>
+    </section>
+
+    <!-- ── Closing CTA ───────────────────────────────────── -->
+    <section class="closing">
+        <h2>BuildOrbit.<br><em>The autonomous OS that shows its work.</em></h2>
+        <p>One sentence in. Live app out. Everything visible in between.</p>
+        <div class="hero-actions">
+            <a href="/signup" class="cta-primary">Start Building →</a>
+            <a href="/new" class="cta-secondary">Try It Free</a>
+        </div>
+    </section>
+
+    <!-- ── Footer ────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <!-- Brand column -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-dot"></div>
+                    BuildOrbit
+                </div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+
+            <!-- Link columns -->
+            <div class="footer-links">
+                <div class="footer-col">
+                    <div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right">
+                <span class="footer-copy">© 2026 BuildOrbit</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Pipeline Demo Animation -->
+    <script>
+    (function() {
+        var PROMPT_TEXT = 'Build a full-stack todo app with user authentication and Postgres database';
+        var PHASES = [
+            {
+                id: 'intent-gate',
+                label: 'INTENT GATE',
+                num: '01',
+                duration: 1800,
+                output: [
+                    { type: 'badge', text: 'PASS', color: 'success' },
+                    { type: 'row', label: 'scope', value: 'full-stack web app' },
+                    { type: 'row', label: 'complexity', value: 'medium (6/10)' },
+                    { type: 'row', label: 'stack', value: 'Node.js + Postgres' },
+                    { type: 'row', label: 'risk', value: 'none detected' },
+                ]
+            },
+            {
+                id: 'plan',
+                label: 'PLAN',
+                num: '02',
+                duration: 2200,
+                output: [
+                    { type: 'task', done: true, text: 'Initialize Express project structure' },
+                    { type: 'task', done: true, text: 'Design database schema (users, todos)' },
+                    { type: 'task', done: true, text: 'Implement JWT auth middleware' },
+                    { type: 'task', done: false, text: 'Build REST API endpoints' },
+                    { type: 'task', done: false, text: 'Create frontend HTML/CSS' },
+                    { type: 'task', done: false, text: 'Wire login/signup forms' },
+                    { type: 'task', done: false, text: 'Deploy and verify live' },
+                ]
+            },
+            {
+                id: 'scaffold',
+                label: 'SCAFFOLD',
+                num: '03',
+                duration: 1600,
+                output: [
+                    { type: 'file', text: 'server.js' },
+                    { type: 'file', text: 'routes/auth.js' },
+                    { type: 'file', text: 'routes/todos.js' },
+                    { type: 'file', text: 'db/index.js' },
+                    { type: 'file', text: 'db/users.js' },
+                    { type: 'file', text: 'db/todos.js' },
+                    { type: 'file', text: 'public/index.html' },
+                    { type: 'file', text: 'migrations/001_init.sql' },
+                ]
+            },
+            {
+                id: 'code',
+                label: 'CODE',
+                num: '04',
+                duration: 2800,
+                output: [
+                    { type: 'code', lines: [
+                        'const express = require("express");',
+                        'const jwt = require("jsonwebtoken");',
+                        'const bcrypt = require("bcrypt");',
+                        '',
+                        'app.post("/api/auth/login",',
+                        '  async (req, res) => {',
+                        '    const user = await db.getUserByEmail(',
+                        '      req.body.email',
+                        '    );',
+                        '    if (!user) return res',
+                        '      .status(401).json({',
+                        '        error: "Invalid credentials"',
+                        '      });',
+                        '    const token = jwt.sign(',
+                        '      { userId: user.id },',
+                        '      process.env.JWT_SECRET',
+                        '    );',
+                        '    res.json({ token });',
+                        '  }',
+                        ');',
+                    ]}
+                ]
+            },
+            {
+                id: 'save',
+                label: 'SAVE',
+                num: '05',
+                duration: 1200,
+                output: [
+                    { type: 'save-card', files: 8, version: 'v1.0.0', timestamp: '02:41:07 UTC' },
+                    { type: 'row', label: 'repo', value: 'github.com/org/todo-app' },
+                    { type: 'row', label: 'artifacts', value: '8 files committed' },
+                    { type: 'row', label: 'hash', value: 'a3f7d91' },
+                ]
+            },
+            {
+                id: 'verify',
+                label: 'VERIFY',
+                num: '06',
+                duration: 1500,
+                output: [
+                    { type: 'verify-pass', text: 'All 6 phases completed' },
+                    { type: 'verify-pass', text: 'Tests: 12/12 passing' },
+                    { type: 'verify-pass', text: 'Auth flow verified' },
+                    { type: 'verify-pass', text: 'DB migrations applied' },
+                    { type: 'verify-pass', text: 'App live at buildorbit.polsia.app' },
+                    { type: 'complete', text: 'BUILD COMPLETE' },
+                ]
+            }
+        ];
+
+        var currentPhase = -1;
+        var promptTimer = null;
+        var phaseTimer = null;
+        var isRunning = false;
+        var totalDuration = PHASES.reduce(function(s, p) { return s + p.duration; }, 0) + 1500; // +typing
+
+        function getEl(id) { return document.getElementById(id); }
+
+        function clearTimers() {
+            if (promptTimer) clearTimeout(promptTimer);
+            if (phaseTimer) clearTimeout(phaseTimer);
+        }
+
+        function resetDemo() {
+            clearTimers();
+            isRunning = false;
+            currentPhase = -1;
+            getEl('demo-prompt-text').textContent = '';
+            getEl('demo-cursor').style.display = 'inline';
+            getEl('demo-phase-log').innerHTML = '';
+            getEl('demo-output-body').innerHTML = '<div class="demo-output-idle" id="demo-output-idle"><div class="demo-idle-icon">&#x2b21;</div><div class="demo-idle-text">Pipeline ready</div></div>';
+            getEl('demo-status-badge').textContent = 'waiting';
+            getEl('demo-status-badge').className = 'demo-status-badge';
+            getEl('demo-progress-fill').style.width = '0%';
+        }
+
+        function typePrompt(text, i, cb) {
+            if (i >= text.length) {
+                getEl('demo-cursor').style.display = 'none';
+                cb();
+                return;
+            }
+            getEl('demo-prompt-text').textContent = text.slice(0, i + 1);
+            var delay = 28 + Math.random() * 20;
+            promptTimer = setTimeout(function() {
+                typePrompt(text, i + 1, cb);
+            }, delay);
+        }
+
+        function renderOutput(outputs, container) {
+            container.innerHTML = '';
+            outputs.forEach(function(item, idx) {
+                var el = document.createElement('div');
+                var delay = idx * 120;
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(4px)';
+                el.style.transition = 'opacity 0.25s ease ' + delay + 'ms, transform 0.25s ease ' + delay + 'ms';
+
+                if (item.type === 'badge') {
+                    el.className = 'demo-output-badge demo-output-badge--' + item.color;
+                    el.textContent = item.text;
+                } else if (item.type === 'row') {
+                    el.className = 'demo-output-row';
+                    el.innerHTML = '<span class="demo-output-key mono">' + item.label + '</span><span class="demo-output-val">' + item.value + '</span>';
+                } else if (item.type === 'task') {
+                    el.className = 'demo-output-task' + (item.done ? ' done' : '');
+                    el.innerHTML = '<span class="demo-task-check">' + (item.done ? '✓' : '○') + '</span><span>' + item.text + '</span>';
+                } else if (item.type === 'file') {
+                    el.className = 'demo-output-file';
+                    el.innerHTML = '<span class="demo-file-icon">📄</span><span class="mono">' + item.text + '</span>';
+                } else if (item.type === 'code') {
+                    el.className = 'demo-output-code';
+                    el.innerHTML = item.lines.map(function(l) {
+                        return '<div class="demo-code-line mono">' + (l ? escapeHtml(l) : '&nbsp;') + '</div>';
+                    }).join('');
+                } else if (item.type === 'save-card') {
+                    el.className = 'demo-save-card';
+                    el.innerHTML = '<div class="demo-save-version">' + item.version + '</div><div class="demo-save-meta">' + item.files + ' files &middot; ' + item.timestamp + '</div>';
+                } else if (item.type === 'verify-pass') {
+                    el.className = 'demo-verify-row';
+                    el.innerHTML = '<span class="demo-verify-check">✓</span><span>' + item.text + '</span>';
+                } else if (item.type === 'complete') {
+                    el.className = 'demo-complete-badge';
+                    el.textContent = item.text;
+                }
+
+                container.appendChild(el);
+                setTimeout(function(elem) {
+                    return function() { elem.style.opacity = '1'; elem.style.transform = 'translateY(0)'; };
+                }(el), 40 + delay);
+            });
+        }
+
+        function escapeHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function addPhaseToLog(phase, state) {
+            // state: 'running' | 'done'
+            var log = getEl('demo-phase-log');
+            var existing = log.querySelector('[data-phase="' + phase.id + '"]');
+            if (existing) {
+                existing.className = 'demo-phase-row demo-phase-row--' + state;
+                existing.querySelector('.demo-phase-dot').className = 'demo-phase-dot demo-phase-dot--' + state;
+                existing.querySelector('.demo-phase-state').textContent = state === 'running' ? 'executing...' : 'done';
+            } else {
+                var el = document.createElement('div');
+                el.className = 'demo-phase-row demo-phase-row--' + state;
+                el.setAttribute('data-phase', phase.id);
+                el.innerHTML = '<span class="demo-phase-num mono">' + phase.num + '</span>' +
+                               '<span class="demo-phase-dot demo-phase-dot--' + state + '"></span>' +
+                               '<span class="demo-phase-name">' + phase.label + '</span>' +
+                               '<span class="demo-phase-state mono">' + (state === 'running' ? 'executing...' : 'done') + '</span>';
+                el.style.opacity = '0';
+                el.style.transition = 'opacity 0.2s ease';
+                log.appendChild(el);
+                setTimeout(function() { el.style.opacity = '1'; }, 20);
+            }
+        }
+
+        function updateProgress(elapsed) {
+            var pct = Math.min(100, (elapsed / totalDuration) * 100);
+            getEl('demo-progress-fill').style.width = pct + '%';
+        }
+
+        function runPhase(idx, elapsedMs) {
+            if (idx >= PHASES.length) {
+                // all done
+                var badge = getEl('demo-status-badge');
+                badge.textContent = 'complete';
+                badge.className = 'demo-status-badge demo-status-badge--complete';
+                updateProgress(totalDuration);
+                isRunning = false;
+                return;
+            }
+            var phase = PHASES[idx];
+            currentPhase = idx;
+
+            // Update status badge
+            var badge = getEl('demo-status-badge');
+            badge.textContent = 'running';
+            badge.className = 'demo-status-badge demo-status-badge--running';
+
+            // Add phase to log as running
+            addPhaseToLog(phase, 'running');
+
+            // Update output
+            var outputBody = getEl('demo-output-body');
+            renderOutput(phase.output, outputBody);
+
+            updateProgress(elapsedMs);
+
+            // After phase duration, mark done and move on
+            phaseTimer = setTimeout(function() {
+                addPhaseToLog(phase, 'done');
+                updateProgress(elapsedMs + phase.duration);
+                runPhase(idx + 1, elapsedMs + phase.duration);
+            }, phase.duration);
+        }
+
+        function startDemo() {
+            if (isRunning) return;
+            resetDemo();
+            isRunning = true;
+
+            // Type the prompt first
+            setTimeout(function() {
+                typePrompt(PROMPT_TEXT, 0, function() {
+                    // Small pause then start pipeline
+                    setTimeout(function() {
+                        runPhase(0, 1500);
+                    }, 400);
+                });
+            }, 300);
+        }
+
+        // Intersection observer — start when visible
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !isRunning) {
+                    startDemo();
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var player = getEl('demo-player');
+        if (player) observer.observe(player);
+
+        // Restart button
+        var restartBtn = getEl('demo-restart');
+        if (restartBtn) {
+            restartBtn.addEventListener('click', function() {
+                startDemo();
+            });
+        }
+    })();
+    </script>
+
+    <!-- Polsia Analytics -->
+    <script>
+    (function() {
+        var slug = 'buildorbit';
+        if (!slug) return;
+        var vid = localStorage.getItem('polsia_vid');
+        if (!vid) {
+            vid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0;
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+            localStorage.setItem('polsia_vid', vid);
+        }
+        new Image().src = 'https://polsia.com/api/beacon/pixel?s=' + encodeURIComponent(slug) + '&v=' + encodeURIComponent(vid);
+    })();
+    </script>
+</body>
+</html>

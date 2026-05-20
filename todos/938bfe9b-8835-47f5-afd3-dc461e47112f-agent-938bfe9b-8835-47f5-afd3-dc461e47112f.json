@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate root cause of output streaming bug",
+    "status": "completed",
+    "activeForm": "Investigating root cause of output streaming bug"
+  },
+  {
+    "content": "Identify the broken code path",
+    "status": "completed",
+    "activeForm": "Identifying the broken code path"
+  },
+  {
+    "content": "Fix emitStateEvent to reliably extract output for all stages",
+    "status": "completed",
+    "activeForm": "Fixing emitStateEvent to reliably extract output for all stages"
+  },
+  {
+    "content": "Fix missing await on _simulatedCode",
+    "status": "completed",
+    "activeForm": "Fixing missing await on _simulatedCode"
+  },
+  {
+    "content": "Verify fix works with syntax check",
+    "status": "completed",
+    "activeForm": "Verifying fix with syntax check"
+  },
+  {
+    "content": "Deploy and confirm in production",
+    "status": "in_progress",
+    "activeForm": "Deploying and confirming in production"
+  }
+]

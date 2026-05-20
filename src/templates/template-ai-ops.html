@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{APP_TITLE}} — Mission Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/design-dna.css"/>
+<style>
+body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-display)}
+.topnav{height:52px;background:var(--bg-surface);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;padding:0 var(--space-xl);gap:var(--space-lg);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:var(--space-sm)}
+.brand-mark{width:28px;height:28px;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--accent-primary),#7c3aed);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:var(--font-bold);color:#fff}
+.brand-name{font-size:var(--text-base);font-weight:var(--font-semibold)}
+.status-row{display:flex;align-items:center;gap:var(--space-md);margin-left:var(--space-xl)}
+.status-item{display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-secondary)}
+.dot{width:8px;height:8px;border-radius:var(--radius-full)}
+.dot-green{background:var(--accent-success);box-shadow:0 0 6px var(--accent-success);animation:pg 2s infinite}
+.dot-yellow{background:var(--accent-warning)}
+.dot-red{background:var(--accent-danger);animation:pr 1.5s infinite}
+@keyframes pg{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes pr{0%,100%{opacity:1}50%{opacity:.4}}
+.topnav-right{margin-left:auto;display:flex;align-items:center;gap:4px;font-size:var(--text-xs);color:var(--text-muted)}
+.kbd{background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px;padding:1px 5px;font-size:11px;font-family:var(--font-mono);color:var(--text-secondary)}
+.workspace{display:flex;height:calc(100vh - 52px);overflow:hidden}
+.left-panel{width:30%;min-width:260px;max-width:360px;background:var(--bg-surface);border-right:1px solid var(--border-subtle);overflow-y:auto;display:flex;flex-direction:column}
+.panel-header{padding:var(--space-md) var(--space-lg);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.panel-title{font-size:var(--text-sm);font-weight:var(--font-semibold)}
+.agent-list{padding:var(--space-sm);display:flex;flex-direction:column;gap:var(--space-sm)}
+.agent-card{background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:var(--space-md);cursor:pointer;transition:all var(--transition-base)}
+.agent-card:hover{border-color:var(--border-default)}
+.agent-card.s-active{border-left:3px solid var(--accent-success);animation:ap 3s ease-in-out infinite}
+.agent-card.s-error{border-left:3px solid var(--accent-danger)}
+.agent-card.s-idle{border-left:3px solid var(--text-muted)}
+@keyframes ap{0%,100%{box-shadow:none}50%{box-shadow:0 0 12px rgba(34,197,94,.15)}}
+.agent-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-sm)}
+.agent-name{font-size:var(--text-sm);font-weight:var(--font-semibold)}
+.agent-meta{display:flex;gap:var(--space-md)}
+.agent-meta-item{font-size:var(--text-xs);color:var(--text-muted)}
+.agent-meta-item span{color:var(--text-secondary);font-weight:var(--font-medium)}
+.progress-bar{height:3px;background:var(--bg-base);border-radius:var(--radius-full);margin-top:var(--space-sm);overflow:hidden}
+.progress-fill{height:100%;border-radius:var(--radius-full);background:var(--accent-success);transition:width 1s ease}
+.badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:var(--radius-full);font-size:11px;font-weight:var(--font-semibold)}
+.badge-success{background:rgba(34,197,94,.15);color:var(--accent-success)}
+.badge-danger{background:rgba(239,68,68,.15);color:var(--accent-danger)}
+.badge-default{background:var(--bg-base);color:var(--text-muted);border:1px solid var(--border-subtle)}
+.right-panel{flex:1;overflow-y:auto;display:flex;flex-direction:column}
+.feed-header{padding:var(--space-md) var(--space-lg);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between;background:var(--bg-surface);position:sticky;top:0;z-index:5}
+.live-dot{width:7px;height:7px;border-radius:var(--radius-full);background:var(--accent-success);margin-right:6px;animation:pg 1.5s infinite;display:inline-block}
+.feed-log{height:220px;overflow-y:auto;background:#080810;font-family:var(--font-mono);font-size:var(--text-xs);padding:var(--space-sm) var(--space-md)}
+.feed-log::-webkit-scrollbar{width:4px}
+.feed-log::-webkit-scrollbar-thumb{background:var(--border-subtle);border-radius:2px}
+.log-line{padding:2px 0;line-height:1.6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.log-ts{color:#4a5568;margin-right:8px}
+.log-agent{color:#6366f1;margin-right:6px}
+.log-info{color:#38bdf8;margin-right:6px}.log-ok{color:#22c55e;margin-right:6px}.log-warn{color:#f59e0b;margin-right:6px}.log-err{color:#ef4444;margin-right:6px}
+.log-msg{color:#c0c0d0}
+.metrics-section{padding:var(--space-md) var(--space-lg);border-bottom:1px solid var(--border-subtle)}
+.metrics-row{display:flex;gap:var(--space-xl);align-items:center;flex-wrap:wrap}
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:var(--space-sm)}
+.gauge{width:80px;height:80px;position:relative}
+.gauge svg{width:80px;height:80px;transform:rotate(-90deg)}
+.gauge-bg{fill:none;stroke:var(--bg-elevated);stroke-width:7}
+.gauge-fill{fill:none;stroke-width:7;stroke-linecap:round;stroke-dasharray:201;stroke-dashoffset:201;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.gauge-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gauge-val{font-size:var(--text-sm);font-weight:var(--font-bold)}
+.gauge-sub{font-size:10px;color:var(--text-muted)}
+.gauge-name{font-size:var(--text-xs);color:var(--text-secondary);font-weight:var(--font-medium)}
+.mini-stats{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm)}
+.mini-stat{background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:var(--space-sm) var(--space-md)}
+.mini-stat-label{font-size:10px;color:var(--text-muted);margin-bottom:4px}
+.mini-stat-val{font-size:var(--text-xl);font-weight:var(--font-bold)}
+.ops-section{flex:1;padding:var(--space-md) var(--space-lg)}
+.ops-title{font-size:var(--text-sm);font-weight:var(--font-semibold);margin-bottom:var(--space-md)}
+.ops-table{width:100%;border-collapse:collapse}
+.ops-table th{text-align:left;padding:var(--space-xs) var(--space-sm);font-size:11px;font-weight:var(--font-semibold);color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-subtle)}
+.ops-table td{padding:var(--space-sm);font-size:var(--text-xs);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono)}
+.ops-table tr:hover td{background:var(--bg-elevated)}
+.out{color:var(--text-muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmd-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:none;align-items:flex-start;justify-content:center;padding-top:15vh;backdrop-filter:blur(2px)}
+.cmd-overlay.open{display:flex}
+.cmd-modal{background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:var(--radius-xl);width:560px;max-width:90vw;box-shadow:var(--shadow-lg),0 0 40px rgba(99,102,241,.15)}
+.cmd-input-wrap{display:flex;align-items:center;padding:var(--space-md) var(--space-lg);border-bottom:1px solid var(--border-subtle);gap:var(--space-sm)}
+.cmd-input{flex:1;background:transparent;border:none;outline:none;font-size:var(--text-base);color:var(--text-primary);font-family:var(--font-display)}
+.cmd-input::placeholder{color:var(--text-muted)}
+.cmd-results{padding:var(--space-sm)}
+.cmd-item{display:flex;align-items:center;gap:var(--space-sm);padding:var(--space-sm) var(--space-md);border-radius:var(--radius-md);cursor:pointer;font-size:var(--text-sm);color:var(--text-secondary);transition:all var(--transition-fast)}
+.cmd-item:hover,.cmd-item.sel{background:var(--bg-base);color:var(--text-primary)}
+.cmd-item-icon{width:28px;height:28px;background:var(--bg-surface);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:14px}
+.cmd-footer{padding:var(--space-sm) var(--space-lg);border-top:1px solid var(--border-subtle);display:flex;gap:var(--space-md)}
+.cmd-hint{font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+@media(max-width:768px){.workspace{flex-direction:column;height:auto}.left-panel{width:100%;max-width:none;border-right:none;border-bottom:1px solid var(--border-subtle);max-height:50vh}.metrics-row{justify-content:space-around}.status-row{display:none}}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="brand"><div class="brand-mark">⚡</div><div class="brand-name">{{APP_TITLE}}</div></div>
+  <div class="status-row">
+    <div class="status-item"><div class="dot dot-green"></div>All systems operational</div>
+    <div class="status-item"><div class="dot dot-yellow"></div>Degraded: model-b</div>
+    <div class="status-item"><div class="dot dot-red"></div>Error: data-ingestion</div>
+  </div>
+  <div class="topnav-right">Command palette <span class="kbd">⌘K</span></div>
+</nav>
+<div class="workspace">
+  <div class="left-panel">
+    <div class="panel-header"><div class="panel-title">Active Agents</div><span class="badge badge-success" id="agentCount">4 online</span></div>
+    <div class="agent-list" id="agentList"></div>
+  </div>
+  <div class="right-panel">
+    <div class="feed-header">
+      <div style="display:flex;align-items:center"><span class="live-dot"></span><span style="font-size:var(--text-sm);font-weight:var(--font-semibold)">Live Activity Feed</span></div>
+      <span class="badge badge-default" id="logCount">0 events</span>
+    </div>
+    <div class="feed-log" id="feedLog"></div>
+    <div class="metrics-section">
+      <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);margin-bottom:var(--space-md)">System Metrics</div>
+      <div class="metrics-row">
+        <div class="gauge-wrap"><div class="gauge"><svg viewBox="0 0 80 80"><circle class="gauge-bg" cx="40" cy="40" r="32"/><circle class="gauge-fill" id="gCpu" cx="40" cy="40" r="32" stroke="var(--accent-warning)"/></svg><div class="gauge-label"><div class="gauge-val" id="gCpuV">0%</div><div class="gauge-sub">CPU</div></div></div><div class="gauge-name">CPU Usage</div></div>
+        <div class="gauge-wrap"><div class="gauge"><svg viewBox="0 0 80 80"><circle class="gauge-bg" cx="40" cy="40" r="32"/><circle class="gauge-fill" id="gMem" cx="40" cy="40" r="32" stroke="var(--accent-info)"/></svg><div class="gauge-label"><div class="gauge-val" id="gMemV">0%</div><div class="gauge-sub">Mem</div></div></div><div class="gauge-name">Memory</div></div>
+        <div class="gauge-wrap"><div class="gauge"><svg viewBox="0 0 80 80"><circle class="gauge-bg" cx="40" cy="40" r="32"/><circle class="gauge-fill" id="gThr" cx="40" cy="40" r="32" stroke="var(--accent-success)"/></svg><div class="gauge-label"><div class="gauge-val" id="gThrV">0</div><div class="gauge-sub">req/s</div></div></div><div class="gauge-name">Throughput</div></div>
+        <div class="mini-stats">
+          <div class="mini-stat"><div class="mini-stat-label">TOTAL RUNS (24h)</div><div class="mini-stat-val">1,847</div></div>
+          <div class="mini-stat"><div class="mini-stat-label">SUCCESS RATE</div><div class="mini-stat-val" style="color:var(--accent-success)">98.4%</div></div>
+          <div class="mini-stat"><div class="mini-stat-label">AVG LATENCY</div><div class="mini-stat-val">342ms</div></div>
+          <div class="mini-stat"><div class="mini-stat-label">ERROR COUNT</div><div class="mini-stat-val" style="color:var(--accent-danger)">29</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ops-section">
+      <div class="ops-title">Recent Operations</div>
+      <table class="ops-table">
+        <thead><tr><th>Operation</th><th>Agent</th><th>Duration</th><th>Status</th><th>Output</th></tr></thead>
+        <tbody id="opsTable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="cmd-overlay" id="cmdOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="cmd-modal">
+    <div class="cmd-input-wrap"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--text-muted)"><circle cx="7" cy="7" r="5"/><line x1="11" y1="11" x2="15" y2="15"/></svg><input class="cmd-input" id="cmdInput" placeholder="Search agents, operations, logs…"/></div>
+    <div class="cmd-results">
+      <div class="cmd-item sel"><div class="cmd-item-icon">🤖</div>View Agent Status</div>
+      <div class="cmd-item"><div class="cmd-item-icon">📋</div>Export Logs</div>
+      <div class="cmd-item"><div class="cmd-item-icon">🔄</div>Restart Agent</div>
+      <div class="cmd-item"><div class="cmd-item-icon">⚙️</div>System Settings</div>
+    </div>
+    <div class="cmd-footer"><div class="cmd-hint"><span class="kbd">↑↓</span>Navigate</div><div class="cmd-hint"><span class="kbd">↵</span>Select</div><div class="cmd-hint"><span class="kbd">Esc</span>Close</div></div>
+  </div>
+</div>
+<script>
+const AGENTS=[
+  {id:'a',name:'Orchestrator',   status:'active',sr:99.2,lr:'just now',prog:78},
+  {id:'b',name:'Data Pipeline', status:'active',sr:97.1,lr:'14s ago',  prog:45},
+  {id:'c',name:'Model Evaluator',status:'idle',  sr:95.8,lr:'3m ago',  prog:0 },
+  {id:'d',name:'Ingestion Bot', status:'error', sr:81.3,lr:'8m ago',  prog:0 },
+  {id:'e',name:'Validator',     status:'active',sr:98.6,lr:'1m ago',  prog:62},
+];
+function renderAgents(){
+  document.getElementById('agentList').innerHTML=AGENTS.map(a=>{
+    const b=a.status==='active'?'badge-success':a.status==='error'?'badge-danger':'badge-default';
+    const sl=a.status==='active'?'Active':a.status==='error'?'Error':'Idle';
+    const pr=a.status==='active'?`<div class="progress-bar"><div class="progress-fill" style="width:${a.prog}%"></div></div>`:'';
+    return `<div class="agent-card s-${a.status}"><div class="agent-header"><div class="agent-name">${a.name}</div><span class="badge ${b}">${sl}</span></div><div class="agent-meta"><div class="agent-meta-item">Success <span>${a.sr}%</span></div><div class="agent-meta-item">Last <span>${a.lr}</span></div></div>${pr}</div>`;
+  }).join('');
+}
+const LOGS=[['INFO','orchestrator','Task batch dispatched — 12 items queued'],['SUCCESS','data-pipeline','Completed ingestion cycle in 1.2s'],['INFO','validator','Schema check passed for batch #2184'],['WARN','model-eval','Latency spike detected — p95 at 820ms'],['SUCCESS','orchestrator','Routing policy updated'],['ERROR','ingestion','Connection reset by remote host — retrying (1/3)'],['INFO','data-pipeline','Processed 4,820 records'],['SUCCESS','validator','Output verified — no drift detected'],['INFO','orchestrator','Health check passed on all active nodes'],['WARN','model-eval','Token usage at 84% of daily limit']];
+let logCount=0,autoScroll=true;
+function addLog(){
+  const log=document.getElementById('feedLog');
+  const [lv,ag,msg]=LOGS[logCount%LOGS.length];
+  const ts=new Date().toTimeString().slice(0,8);
+  const lc=lv==='INFO'?'log-info':lv==='SUCCESS'?'log-ok':lv==='WARN'?'log-warn':'log-err';
+  const d=document.createElement('div');d.className='log-line';
+  d.innerHTML=`<span class="log-ts">${ts}</span><span class="log-agent">[${ag}]</span><span class="${lc}">${lv}</span><span class="log-msg">${msg}</span>`;
+  log.appendChild(d);logCount++;
+  document.getElementById('logCount').textContent=`${logCount} events`;
+  if(autoScroll)log.scrollTop=log.scrollHeight;
+  if(log.children.length>200)log.removeChild(log.children[0]);
+}
+document.getElementById('feedLog').addEventListener('scroll',function(){autoScroll=(this.scrollHeight-this.scrollTop-this.clientHeight)<32});
+const C=201;
+function setGauge(id,pct,lid,lbl){const e=document.getElementById(id);if(e)e.style.strokeDashoffset=C-(pct/100)*C;const l=document.getElementById(lid);if(l)l.textContent=lbl}
+const OPS=[{o:'classify_intent',a:'orchestrator',d:'84ms',b:'badge-success',s:'Success',out:'intent=product_query'},{o:'embed_documents',a:'data-pipeline',d:'312ms',b:'badge-success',s:'Success',out:'dims=1536, count=48'},{o:'run_evaluation',a:'model-eval',d:'1.8s',b:'badge-warning',s:'Partial',out:'score=0.82 (below threshold)'},{o:'ingest_batch',a:'ingestion',d:'—',b:'badge-danger',s:'Error',out:'Connection refused'},{o:'validate_schema',a:'validator',d:'23ms',b:'badge-success',s:'Success',out:'0 violations'}];
+function renderOps(){document.getElementById('opsTable').innerHTML=OPS.map(o=>`<tr><td>${o.o}</td><td>${o.a}</td><td>${o.d}</td><td><span class="badge ${o.b}">${o.s}</span></td><td class="out">${o.out}</td></tr>`).join('')}
+document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();const ov=document.getElementById('cmdOverlay');ov.classList.add('open');setTimeout(()=>document.getElementById('cmdInput').focus(),50)}if(e.key==='Escape')document.getElementById('cmdOverlay').classList.remove('open')});
+window.addEventListener('DOMContentLoaded',()=>{
+  renderAgents();renderOps();
+  for(let i=0;i<10;i++)addLog();
+  setInterval(addLog,1800);
+  setTimeout(()=>{setGauge('gCpu',62,'gCpuV','62%');setGauge('gMem',74,'gMemV','74%');setGauge('gThr',48,'gThrV','284')},300);
+  setInterval(()=>{const c=50+Math.random()*30,m=65+Math.random()*15,t=40+Math.random()*40;setGauge('gCpu',c,'gCpuV',Math.round(c)+'%');setGauge('gMem',m,'gMemV',Math.round(m)+'%');setGauge('gThr',t,'gThrV',Math.round(t*7)+'')},4000);
+});
+</script>
+</body>
+</html>

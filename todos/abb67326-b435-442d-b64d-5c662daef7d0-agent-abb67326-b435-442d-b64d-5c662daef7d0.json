@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate state machine idempotency key bug",
+    "status": "completed",
+    "activeForm": "Investigating state machine idempotency key bug"
+  },
+  {
+    "content": "Write migration for retry_count column",
+    "status": "completed",
+    "activeForm": "Writing migration for retry_count column"
+  },
+  {
+    "content": "Fix state-machine.js: attempt-aware idempotency keys + state read inside txn",
+    "status": "completed",
+    "activeForm": "Fixing state machine with attempt-aware idempotency keys"
+  },
+  {
+    "content": "Fix pipeline-orchestrator.js: increment retry_count on retry",
+    "status": "completed",
+    "activeForm": "Adding retry_count increment to orchestrator retry method"
+  },
+  {
+    "content": "Verify fix with node --check and push",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and pushing"
+  }
+]

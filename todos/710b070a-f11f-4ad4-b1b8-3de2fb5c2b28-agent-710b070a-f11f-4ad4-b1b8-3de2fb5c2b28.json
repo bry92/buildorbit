@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate _enforceManifest and validateCodeAgainstScaffold implementations",
+    "status": "completed",
+    "activeForm": "Investigating _enforceManifest and validateCodeAgainstScaffold implementations"
+  },
+  {
+    "content": "Create shared manifest-constants.js module",
+    "status": "completed",
+    "activeForm": "Creating shared manifest-constants.js module"
+  },
+  {
+    "content": "Add safety net for zero-file output in _enforceManifest (pipeline.js + src/phases/pipeline.js)",
+    "status": "completed",
+    "activeForm": "Adding safety net for zero-file output in _enforceManifest"
+  },
+  {
+    "content": "Add safety net for zero-file output in builder-agent _enforceManifest",
+    "status": "completed",
+    "activeForm": "Adding safety net in builder-agent _enforceManifest"
+  },
+  {
+    "content": "Add telemetry/warning when >50% files stripped in all enforcement sites",
+    "status": "completed",
+    "activeForm": "Adding telemetry/warning when >50% files stripped"
+  },
+  {
+    "content": "Update validateCodeAgainstScaffold to use shared constants",
+    "status": "completed",
+    "activeForm": "Updating validateCodeAgainstScaffold to use shared constants"
+  },
+  {
+    "content": "Update pipeline-orchestrator inline enforcement to use shared constants",
+    "status": "completed",
+    "activeForm": "Updating pipeline-orchestrator inline enforcement"
+  },
+  {
+    "content": "Update CLAUDE.md, run self-check, push",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md, running self-check, pushing"
+  }
+]

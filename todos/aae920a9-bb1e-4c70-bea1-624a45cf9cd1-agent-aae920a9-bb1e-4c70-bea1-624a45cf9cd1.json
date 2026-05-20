@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate NuclearAgent chat endpoint and credit bypass flow",
+    "status": "completed",
+    "activeForm": "Investigating NuclearAgent credit bypass"
+  },
+  {
+    "content": "Implement auth + credit check before orchestrator.enqueue() in NuclearAgent",
+    "status": "completed",
+    "activeForm": "Implementing auth + credit gate on pipeline actions"
+  },
+  {
+    "content": "Verify fix works — syntax check, deploy, test",
+    "status": "completed",
+    "activeForm": "Verifying the fix"
+  },
+  {
+    "content": "Update CLAUDE.md with security fix",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md"
+  }
+]

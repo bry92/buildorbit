@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Read agents/intent-gate.js and pipeline-orchestrator.js for exact edit points",
+    "status": "completed",
+    "activeForm": "Reading key files"
+  },
+  {
+    "content": "Add full_product scope lock to agents/intent-gate.js",
+    "status": "completed",
+    "activeForm": "Adding scope lock to intent-gate.js"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js to handle INTENT_GATE_SCOPE_LOCKED",
+    "status": "completed",
+    "activeForm": "Updating pipeline orchestrator"
+  },
+  {
+    "content": "Create scripts/stress-test.js with 10 real-world prompts",
+    "status": "completed",
+    "activeForm": "Creating stress test harness"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

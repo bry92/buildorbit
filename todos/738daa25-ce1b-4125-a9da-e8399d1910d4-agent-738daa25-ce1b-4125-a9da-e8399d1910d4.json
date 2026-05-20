@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate pipeline phase order and PLAN→SCAFFOLD handoff",
+    "status": "completed",
+    "activeForm": "Investigating pipeline phase order and PLAN→SCAFFOLD handoff"
+  },
+  {
+    "content": "Fix PLAN to output structured files/components/techStack fields",
+    "status": "completed",
+    "activeForm": "Fixing PLAN to output structured files/components/techStack fields"
+  },
+  {
+    "content": "Fix SCAFFOLD to derive file tree from PLAN output instead of hardcoded templates",
+    "status": "completed",
+    "activeForm": "Fixing SCAFFOLD to derive file tree from PLAN output"
+  },
+  {
+    "content": "Fix CODE to use PLAN spec as hard constraint",
+    "status": "completed",
+    "activeForm": "Fixing CODE to use PLAN spec as hard constraint"
+  },
+  {
+    "content": "Update simulated plan fallbacks to include structured fields",
+    "status": "completed",
+    "activeForm": "Updating simulated plan fallbacks with structured fields"
+  },
+  {
+    "content": "Push fix and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing fix and verifying deployment"
+  }
+]

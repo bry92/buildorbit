@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate root cause of welcome email not firing",
+    "status": "completed",
+    "activeForm": "Investigating root cause"
+  },
+  {
+    "content": "Report missing POSTMARK_SERVER_TOKEN as platform bug",
+    "status": "completed",
+    "activeForm": "Reporting platform bug"
+  },
+  {
+    "content": "Add Polsia email proxy transport as fallback",
+    "status": "completed",
+    "activeForm": "Adding Polsia email proxy fallback"
+  },
+  {
+    "content": "Deploy and verify fix in production",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying fix"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Read pipeline-orchestrator.js and identify _runSelfHeal and its call site",
+    "status": "completed",
+    "activeForm": "Reading pipeline-orchestrator.js"
+  },
+  {
+    "content": "Identify the actual root cause of self-heal loop failure",
+    "status": "completed",
+    "activeForm": "Tracing the actual root cause"
+  },
+  {
+    "content": "Fix self-heal trigger to only fire when VERIFY overall fails (not on any individual check failure)",
+    "status": "completed",
+    "activeForm": "Fixing self-heal trigger condition"
+  },
+  {
+    "content": "Fix self-heal success check to use 75% threshold instead of 100%",
+    "status": "completed",
+    "activeForm": "Fixing self-heal success threshold"
+  },
+  {
+    "content": "Increase MAX_RETRIES to 3",
+    "status": "completed",
+    "activeForm": "Increasing MAX_RETRIES"
+  },
+  {
+    "content": "Verify the complete fix with syntax check",
+    "status": "completed",
+    "activeForm": "Verifying the complete fix"
+  },
+  {
+    "content": "Update CLAUDE.md with recent change entry",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Run self-checks, push, and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Running checks and deploying"
+  }
+]

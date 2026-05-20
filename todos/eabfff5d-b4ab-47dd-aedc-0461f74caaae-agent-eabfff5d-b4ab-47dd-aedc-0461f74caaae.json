@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create src/state/runContext.ts (global pipeline state)",
+    "status": "completed",
+    "activeForm": "Creating runContext.ts"
+  },
+  {
+    "content": "Create src/state/websocket.ts (streaming helper)",
+    "status": "completed",
+    "activeForm": "Creating websocket.ts"
+  },
+  {
+    "content": "Create src/state/uiState.ts (global UI state)",
+    "status": "completed",
+    "activeForm": "Creating uiState.ts"
+  },
+  {
+    "content": "Wire RunProvider into Shell and integrate useRun() in Run.tsx",
+    "status": "completed",
+    "activeForm": "Wiring RunProvider and useRun"
+  },
+  {
+    "content": "Integrate uiState chatOpenAtom into ChatWidget",
+    "status": "completed",
+    "activeForm": "Integrating chatOpenAtom into ChatWidget"
+  },
+  {
+    "content": "Run self-check, update CLAUDE.md, push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and deploying"
+  }
+]

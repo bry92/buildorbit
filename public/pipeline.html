@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 6-Phase Pipeline — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit's deterministic 6-phase execution pipeline: Intent Gate → Plan → Scaffold → Code → Save → Verify. Every decision logged. Every output traceable.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+        .page-wrap { flex: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 56px; max-width: 620px; }
+
+        .phase-list { display: flex; flex-direction: column; gap: 0; }
+        .phase-item { display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; }
+        .phase-item:last-child { border-bottom: none; }
+        .phase-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; padding-top: 4px; }
+        .phase-body h2 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+        .phase-body p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+        .phase-badge { display: inline-block; font-size: 10px; font-family: 'Space Mono', monospace; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+        .badge-intent { background: rgba(168,85,247,0.12); color: #a855f7; border: 1px solid rgba(168,85,247,0.2); }
+        .badge-plan { background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); }
+        .badge-scaffold { background: rgba(14,165,233,0.12); color: #0ea5e9; border: 1px solid rgba(14,165,233,0.2); }
+        .badge-code { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.2); }
+        .badge-save { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.2); }
+        .badge-verify { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+
+        .info-box { background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.15); border-radius: 10px; padding: 20px 24px; margin: 48px 0 0; }
+        .info-box h3 { font-size: 14px; font-weight: 700; margin: 0 0 8px; color: var(--accent); }
+        .info-box p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+        @media (max-width: 600px) {
+            .phase-item { grid-template-columns: 1fr; gap: 8px; }
+            .page-nav-right { display: none; }
+        }
+    </style>
+</head>
+<body class="page-landing">
+
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/dashboard" class="page-nav-link">Dashboard</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Core Architecture</div>
+        <h1 class="page-h1">The Deterministic<br>6-Phase Pipeline</h1>
+        <p class="page-lead">Six phases. Strict order. No shortcuts. Every decision logged, every output traceable, every failure understandable. That's the difference between AI you trust and AI you can't.</p>
+
+        <div class="phase-list">
+            <div class="phase-item">
+                <div class="phase-num">01</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-intent">Intent Gate</span>
+                    <h2>Classify the task before touching it</h2>
+                    <p>The agent reads your prompt and classifies intent: is this a static page, a light interactive app, or a full product system? This single decision determines every downstream choice — scaffold structure, code complexity, deployment target. The gate blocks impossible requests early rather than failing late.</p>
+                </div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-num">02</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-plan">Plan</span>
+                    <h2>Write the build spec. Approve it first.</h2>
+                    <p>The agent generates a structured build specification: file tree, tech stack, dependencies, key decisions, known constraints. You see exactly what will be built before a single file is created. You can push back, redirect, or refine — this is the last checkpoint before execution. No more "surprise, here's 40 files."</p>
+                </div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-num">03</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-scaffold">Scaffold</span>
+                    <h2>Build the skeleton. Verify the structure.</h2>
+                    <p>The agent creates the project structure: directory tree, config files, entry points, folder conventions. Scaffold is the skeleton — it determines whether the build has a clean foundation or will fight against itself. You see the structure lock into place. You can inspect it before code is written.</p>
+                </div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-num">04</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-code">Code</span>
+                    <h2>Write the files. File by file.</h2>
+                    <p>Actual code generation. The agent works through the file list from the scaffold, writing each file in dependency order. You watch files appear in real time. Every file creation is logged. Every error is surfaced. No black-box "generating..." — you see the work as it happens.</p>
+                </div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-num">05</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-save">Save</span>
+                    <h2>Deploy or save. Your call.</h2>
+                    <p>Once code is generated, the Save phase handles deployment: GitHub PR creation, static file upload, or local save. The agent generates a deployment URL. You approve before anything goes live. Catastrophic rewrites are caught and blocked — the system will not destroy working code without explicit consent.</p>
+                </div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-num">06</div>
+                <div class="phase-body">
+                    <span class="phase-badge badge-verify">Verify</span>
+                    <h2>Audit the output. Report, don't decide.</h2>
+                    <p>The QA agent audits the output: syntax checks, resource accessibility, consistency verification, edge case review. It produces a structured audit report — severity-tagged findings (critical/advisory), specific issue locations, screenshots where relevant. <strong>Verify does not declare success or failure.</strong> The Orbit runtime is the sole authority for run state. This is by design: audit and governance are separate from execution authority.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Why order matters</h3>
+            <p>The pipeline is not a suggestion — it's a constraint. Each phase's output feeds the next. Intent Gate determines Plan's scope. Plan determines Scaffold's structure. Scaffold determines how Code executes. Skip a phase and you break the chain. This is what "glass-box" means: the order is the contract. You know what you're getting because the process is the product.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right">
+                <span class="footer-copy">© 2026 BuildOrbit</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

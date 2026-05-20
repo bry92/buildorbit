@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create scripts/package-cli.js (bundles CLI into tarball)",
+    "status": "completed",
+    "activeForm": "Creating CLI packaging script"
+  },
+  {
+    "content": "Create routes/cli.js (install.sh, version endpoints)",
+    "status": "completed",
+    "activeForm": "Creating CLI routes"
+  },
+  {
+    "content": "Add health command to CLI",
+    "status": "completed",
+    "activeForm": "Adding health command to CLI"
+  },
+  {
+    "content": "Wire routes into server.js and update build config",
+    "status": "completed",
+    "activeForm": "Wiring routes and updating build config"
+  },
+  {
+    "content": "Push to production and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to production and verifying"
+  }
+]

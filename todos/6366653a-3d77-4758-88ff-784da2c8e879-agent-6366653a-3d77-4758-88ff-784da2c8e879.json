@@ -1,0 +1,52 @@
+[
+  {
+    "content": "Map repo structure - understand src/ reorg and all file locations",
+    "status": "completed",
+    "activeForm": "Mapping repo structure and src/ reorg"
+  },
+  {
+    "content": "Audit server.js imports and require() paths",
+    "status": "completed",
+    "activeForm": "Auditing server.js imports and require paths"
+  },
+  {
+    "content": "Audit all require/import statements across all JS files",
+    "status": "completed",
+    "activeForm": "Auditing all require/import statements"
+  },
+  {
+    "content": "Audit Express routes - verify all serve content",
+    "status": "completed",
+    "activeForm": "Auditing Express routes for broken paths"
+  },
+  {
+    "content": "Audit HTML files and static asset references",
+    "status": "completed",
+    "activeForm": "Auditing HTML files and static asset references"
+  },
+  {
+    "content": "Audit dashboard navigation links",
+    "status": "completed",
+    "activeForm": "Auditing dashboard navigation links"
+  },
+  {
+    "content": "Fix broken require path in src/routes/billing.js",
+    "status": "completed",
+    "activeForm": "Fixing broken require path in billing.js"
+  },
+  {
+    "content": "Fix broken path.join in src/routes/cli.js for cli/package.json",
+    "status": "completed",
+    "activeForm": "Fixing broken path.join in cli.js"
+  },
+  {
+    "content": "Update test imports to point to src/ versions (canonical code)",
+    "status": "completed",
+    "activeForm": "Updating test imports to canonical src/ paths"
+  },
+  {
+    "content": "Push and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate builder-agent.js CODE phase logic",
+    "status": "completed",
+    "activeForm": "Investigating builder-agent.js CODE phase logic"
+  },
+  {
+    "content": "Investigate previewAssets.ts preview extraction",
+    "status": "completed",
+    "activeForm": "Investigating previewAssets.ts preview extraction"
+  },
+  {
+    "content": "Fix 1: previewAssets.ts — inline Babel script refs for CDN builds",
+    "status": "completed",
+    "activeForm": "Fixing previewAssets.ts to inline Babel script refs"
+  },
+  {
+    "content": "Fix 2: Scaffold — filter Vite-pattern files from CDN builds",
+    "status": "completed",
+    "activeForm": "Filtering conflicting architecture files in scaffold"
+  },
+  {
+    "content": "Fix 3: Post-CODE mixed architecture detection and hard-fail",
+    "status": "completed",
+    "activeForm": "Adding mixed-architecture detection in CODE phase"
+  },
+  {
+    "content": "Build frontend and deploy",
+    "status": "in_progress",
+    "activeForm": "Building frontend and deploying"
+  }
+]

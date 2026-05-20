@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit is a verifiable execution runtime for AI agent orchestration. The problem: context-blind coding agents ship code nobody can audit.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 24px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 48px; }
+
+        .thesis-block { background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.12); border-radius: 10px; padding: 28px 32px; margin-bottom: 48px; }
+        .thesis-block p { font-size: 18px; line-height: 1.65; margin: 0; color: var(--text); }
+        .thesis-block em { color: var(--accent); font-style: normal; font-weight: 700; }
+        .thesis-block .attribution { font-size: 13px; color: var(--text-muted); margin-top: 16px; }
+
+        .about-section { margin-bottom: 40px; }
+        .about-section h2 { font-size: 18px; font-weight: 700; margin: 0 0 12px; }
+        .about-section p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px; }
+
+        .manifesto-list { list-style: none; padding: 0; margin: 0 0 40px; display: flex; flex-direction: column; gap: 16px; }
+        .manifesto-list li { font-size: 15px; color: var(--text-muted); line-height: 1.65; padding: 16px 20px; background: rgba(255,255,255,0.03); border-radius: 8px; border-left: 3px solid var(--accent); }
+        .manifesto-list li strong { color: var(--text); font-weight: 600; }
+
+        @media (max-width: 600px) { .page-nav-right { display: none; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Company</div>
+        <h1 class="page-h1">About BuildOrbit</h1>
+        <p class="page-lead">A verifiable execution runtime for AI agent orchestration. Built for teams that can't afford to trust code they can't audit.</p>
+
+        <div class="thesis-block">
+            <p>If you can't audit it, you don't own it.</p>
+            <p class="attribution">— The BuildOrbit thesis</p>
+        </div>
+
+        <div class="about-section">
+            <h2>The problem</h2>
+            <p>Context-blind coding agents ship code that nobody can fully audit. The agent works in a closed box — it takes input, generates output, and leaves no trace of how it got there. When the code works, great. When it doesn't, you have no way to understand why. You can only try again and hope.</p>
+            <p>This is fine for a hobby project. It's not fine for anything that matters.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>The thesis</h2>
+            <p>AI-assisted development only becomes trustworthy when every decision is visible and every output is traceable. Not retroactively searchable. Not "trust us, we log things." Visible at the moment of execution. Traceable to the specific reasoning that produced it.</p>
+            <p>That's what BuildOrbit is. A pipeline that shows its work. An execution runtime where the audit trail is the product.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>What we believe</h2>
+        </div>
+        <ul class="manifesto-list">
+            <li><strong>Determinism over flexibility.</strong> Six phases, strict order, no shortcuts. The pipeline is a constraint — and constraints are what make audits possible.</li>
+            <li><strong>The agent explains itself or it doesn't ship.</strong> Reasoning isn't a nice-to-have. It's the primary artifact of every build. If you can't read the agent's reasoning, you can't verify its work.</li>
+            <li><strong>Human approval is a feature, not a bottleneck.</strong> The plan is useless without your review. The scaffold is useless without your inspection. You are the oversight — BuildOrbit makes you effective at it.</li>
+            <li><strong>Enterprise software is honest about being early.</strong> We don't have fake logos. We don't have invented case studies. We don't claim certifications we don't have. We're pre-revenue and building in public.</li>
+        </ul>
+
+        <div class="about-section">
+            <h2>Who runs this</h2>
+            <p>BuildOrbit is a solo project. One person, building in public, with a live product. This isn't a facade — it's the actual state of the company. If you want to talk about what you're building with BuildOrbit, <a href="mailto:hello@buildorbit.polsia.app" style="color:var(--accent)">reach out</a>. I read every email.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

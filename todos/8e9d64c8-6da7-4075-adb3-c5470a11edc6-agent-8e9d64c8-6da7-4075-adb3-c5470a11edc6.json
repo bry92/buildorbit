@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Add POST /api/pipeline/:runId/copilot endpoint to server.js",
+    "status": "completed",
+    "activeForm": "Adding copilot API endpoint to server.js"
+  },
+  {
+    "content": "Add copilot panel CSS, HTML, and JS to run.html",
+    "status": "completed",
+    "activeForm": "Adding copilot panel to run.html"
+  },
+  {
+    "content": "Expose currentRunId to copilot script in run.html IIFE",
+    "status": "completed",
+    "activeForm": "Exposing currentRunId to copilot script"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and verifying"
+  }
+]

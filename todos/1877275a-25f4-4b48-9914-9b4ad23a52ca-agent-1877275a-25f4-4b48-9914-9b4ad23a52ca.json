@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create migration 008_acl_instrumentation.js (4 ACL tables)",
+    "status": "completed",
+    "activeForm": "Creating migration 008 with 4 ACL tables"
+  },
+  {
+    "content": "Modify pipeline-orchestrator.js: log constraint predictions after classify()",
+    "status": "completed",
+    "activeForm": "Modifying orchestrator for prediction logging"
+  },
+  {
+    "content": "Modify agents/qa-agent.js: detect violations and insert into constraint_violations",
+    "status": "completed",
+    "activeForm": "Modifying QA agent for violation detection"
+  },
+  {
+    "content": "Modify agents/index.js: pass pool to QAAgent",
+    "status": "completed",
+    "activeForm": "Wiring pool into QAAgent"
+  },
+  {
+    "content": "Commit and push feature branch",
+    "status": "in_progress",
+    "activeForm": "Committing and pushing feature branch"
+  }
+]

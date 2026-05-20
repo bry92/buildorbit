@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — BuildOrbit</title>
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260502a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260502a">
+    <style>
+        .legal-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
+        }
+        .legal-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 48px;
+        }
+        .legal-wrap h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .legal-date {
+            color: #6B7280;
+            font-size: 14px;
+            margin-bottom: 48px;
+        }
+        .legal-wrap h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+        .legal-wrap p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 16px;
+        }
+        .legal-wrap ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .legal-wrap ul li {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        .legal-contact {
+            background: #F3F4F6;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 48px;
+        }
+        .legal-contact p { margin: 0; }
+        .legal-contact a { color: #0EA5E9; }
+        @media (prefers-color-scheme: dark) {
+            .legal-wrap p, .legal-wrap ul li { color: #D1D5DB; }
+            .legal-contact { background: #1F2937; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="legal-wrap">
+        <a href="/" class="legal-logo">
+            <div class="logo-dot"></div>
+            BuildOrbit
+        </a>
+
+        <h1>Privacy Policy</h1>
+        <p class="legal-date">Last updated: May 1, 2026</p>
+
+        <h2>1. What We Collect</h2>
+        <p>When you use BuildOrbit, we collect:</p>
+        <ul>
+            <li><strong>Account data:</strong> Email address, authentication tokens</li>
+            <li><strong>Pipeline data:</strong> Task descriptions, code outputs, execution traces, artifact files</li>
+            <li><strong>Usage data:</strong> Pages visited, features used, pipeline run counts</li>
+            <li><strong>Payment data:</strong> Handled entirely by Stripe — we never store card numbers</li>
+        </ul>
+
+        <h2>2. How We Use It</h2>
+        <p>We use your data to:</p>
+        <ul>
+            <li>Execute pipeline runs and return results to you</li>
+            <li>Authenticate your account and maintain sessions</li>
+            <li>Send transactional emails (magic links, run completions)</li>
+            <li>Improve the pipeline engine using anonymized execution patterns</li>
+            <li>Comply with legal obligations</li>
+        </ul>
+
+        <h2>3. Pipeline Content</h2>
+        <p>The code, prompts, and artifacts from your pipeline runs are stored to give you access to run history, traces, and diffs. We do not use your specific code outputs to train AI models without your explicit consent.</p>
+
+        <h2>4. Data Sharing</h2>
+        <p>We do not sell your data. We share data only with:</p>
+        <ul>
+            <li><strong>Infrastructure providers:</strong> Render (hosting), Neon (database), Cloudflare (storage) — under data processing agreements</li>
+            <li><strong>AI providers:</strong> OpenAI/Anthropic — your task content is sent to execute pipeline phases. Their privacy policies apply to what they receive.</li>
+            <li><strong>Payment processor:</strong> Stripe — for billing and subscription management</li>
+        </ul>
+
+        <h2>5. Data Retention</h2>
+        <p>Pipeline run data is retained for 90 days after a run is deleted or your account is closed. Account data is retained for 30 days after account deletion to process any outstanding issues, then permanently deleted.</p>
+
+        <h2>6. Your Rights</h2>
+        <p>You may:</p>
+        <ul>
+            <li>Request a copy of your data</li>
+            <li>Delete your account and associated pipeline runs</li>
+            <li>Request correction of inaccurate data</li>
+            <li>Object to processing of your data for analytics</li>
+        </ul>
+        <p>Contact us at the address below to exercise these rights.</p>
+
+        <h2>7. Security</h2>
+        <p>All data in transit is encrypted via TLS. Database credentials and API tokens are encrypted at rest using AES-256. We enforce strict access controls and conduct regular security reviews.</p>
+
+        <h2>8. Cookies</h2>
+        <p>We use session cookies for authentication. No third-party advertising cookies. Analytics use a privacy-first provider (no cross-site tracking).</p>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>We'll notify you by email before material changes take effect. Continued use after the effective date constitutes acceptance.</p>
+
+        <div class="legal-contact">
+            <p>Privacy questions or data requests: <a href="mailto:privacy@buildorbit.polsia.app">privacy@buildorbit.polsia.app</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

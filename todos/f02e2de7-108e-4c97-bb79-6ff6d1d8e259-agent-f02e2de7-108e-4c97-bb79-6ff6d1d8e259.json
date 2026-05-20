@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate previous fix attempts and current code state",
+    "status": "completed",
+    "activeForm": "Investigating previous attempts and current code"
+  },
+  {
+    "content": "Trace the full data flow: VERIFY results → backend → frontend banner",
+    "status": "completed",
+    "activeForm": "Tracing VERIFY result data flow"
+  },
+  {
+    "content": "Identify root cause with evidence",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Fix 1: Return latest verifyOutput from exhausted self-heal",
+    "status": "completed",
+    "activeForm": "Fixing self-heal stale data in orchestrator"
+  },
+  {
+    "content": "Fix 2: Harden frontend banner with re-validation and better inference",
+    "status": "completed",
+    "activeForm": "Hardening frontend banner rendering"
+  },
+  {
+    "content": "Push and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

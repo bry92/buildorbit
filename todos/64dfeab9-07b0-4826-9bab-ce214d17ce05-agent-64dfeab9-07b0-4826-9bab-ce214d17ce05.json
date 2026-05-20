@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Fix server.js to import routes/a2a.js instead of stub a2a-router.js",
+    "status": "completed",
+    "activeForm": "Fixing server.js A2A import"
+  },
+  {
+    "content": "Add GET /execute → 405 in routes/a2a.js",
+    "status": "completed",
+    "activeForm": "Adding GET /execute 405 handler"
+  },
+  {
+    "content": "Verify node starts cleanly, push and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying and deploying"
+  }
+]

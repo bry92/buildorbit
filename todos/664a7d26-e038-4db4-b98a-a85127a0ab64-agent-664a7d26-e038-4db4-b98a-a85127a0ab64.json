@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create mock/mock-layer.js (permanent mock infrastructure)",
+    "status": "completed",
+    "activeForm": "Creating mock/mock-layer.js"
+  },
+  {
+    "content": "Modify server.js to apply mock layer when MOCK_MODE=true",
+    "status": "completed",
+    "activeForm": "Modifying server.js for MOCK_MODE"
+  },
+  {
+    "content": "Create tests/validation/run-production-simulation.js",
+    "status": "completed",
+    "activeForm": "Creating production simulation test harness"
+  },
+  {
+    "content": "Run simulation and generate production-simulation-report.json",
+    "status": "in_progress",
+    "activeForm": "Running simulation and generating report"
+  },
+  {
+    "content": "Commit and push all files",
+    "status": "pending",
+    "activeForm": "Committing and pushing"
+  }
+]

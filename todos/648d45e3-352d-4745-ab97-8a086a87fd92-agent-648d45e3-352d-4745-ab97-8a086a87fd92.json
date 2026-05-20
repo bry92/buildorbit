@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Explore current codebase (pipeline.js, server.js, run.html)",
+    "status": "completed",
+    "activeForm": "Exploring current codebase"
+  },
+  {
+    "content": "Create migration for pipeline_events table",
+    "status": "completed",
+    "activeForm": "Creating pipeline_events migration"
+  },
+  {
+    "content": "Implement state machine + event log backend",
+    "status": "completed",
+    "activeForm": "Implementing state machine + event log"
+  },
+  {
+    "content": "Implement job queue with stage progression",
+    "status": "completed",
+    "activeForm": "Implementing job queue with stage progression"
+  },
+  {
+    "content": "Refactor pipeline.js for stage-based execution",
+    "status": "completed",
+    "activeForm": "Refactoring pipeline.js for stage execution"
+  },
+  {
+    "content": "Wire up server.js routes to state machine + SSE",
+    "status": "completed",
+    "activeForm": "Wiring up server routes"
+  },
+  {
+    "content": "Update frontend to support event replay + reconnection",
+    "status": "completed",
+    "activeForm": "Updating frontend for event replay"
+  },
+  {
+    "content": "Push, verify deployment, send notifications",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

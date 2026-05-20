@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit blog: building in public, architecture decisions, and what we're learning about auditable AI code generation.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 48px; }
+
+        .post-list { display: flex; flex-direction: column; gap: 0; }
+        .post-item { display: block; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-decoration: none; }
+        .post-item:hover .post-title { color: var(--accent); }
+        .post-item:last-child { border-bottom: none; }
+        .post-item--featured { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 24px 28px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.07); transition: border-color 0.2s, background 0.2s; }
+        .post-item--featured:hover { border-color: rgba(56,189,248,0.25); background: rgba(56,189,248,0.03); }
+        .post-item--featured .post-title { font-size: 20px; }
+        .post-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .post-ext-icon { font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
+        .post-item--featured:hover .post-ext-icon { color: var(--accent); }
+        .post-read-more { font-size: 12px; font-family: 'Space Mono', monospace; color: var(--text-muted); margin-top: 10px; transition: color 0.2s; }
+        .post-item--featured:hover .post-read-more { color: var(--accent); }
+        .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .post-date { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); }
+        .post-tag { font-size: 11px; font-family: 'Space Mono', monospace; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(56,189,248,0.1); color: #38bdf8; }
+        .post-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 0 0 8px; transition: color 0.2s; }
+        .post-excerpt { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+        .empty-state { text-align: center; padding: 60px 20px; }
+        .empty-state p { font-size: 15px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+
+        .subscribe-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 20px 24px; margin-top: 40px; display: flex; align-items: center; gap: 20px; }
+        .subscribe-box p { font-size: 13px; color: var(--text-muted); margin: 0; flex: 1; }
+        .subscribe-box a { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
+        @media (max-width: 600px) { .page-nav-right { display: none; } .subscribe-box { flex-direction: column; align-items: flex-start; gap: 12px; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/docs" class="page-nav-link">Docs</a>
+            <a href="/about" class="page-nav-link">About</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Resources</div>
+        <h1 class="page-h1">Blog</h1>
+        <p class="page-lead">Building in public. Architecture decisions, product thinking, and what we're learning as we go.</p>
+
+        <div class="post-list">
+
+            <a href="https://dev.to/bryanpage/ai-agents-are-lying-to-you-22o7" target="_blank" rel="noopener noreferrer" class="post-item post-item--featured">
+                <div class="post-meta">
+                    <span class="post-date">May 14, 2026</span>
+                    <span class="post-tag">external</span>
+                </div>
+                <div class="post-title-row">
+                    <h2 class="post-title">AI Agents Are Lying to You</h2>
+                    <span class="post-ext-icon">↗</span>
+                </div>
+                <p class="post-excerpt">Agents that fail silently and hide their errors behind a "done" message aren't autonomous — they're gambling with your time. Here's what the audit trail actually reveals, and why visibility matters more than output.</p>
+                <div class="post-read-more">Read on Dev.to →</div>
+            </a>
+
+        </div>
+
+        <!--
+        ADDING NEW POSTS
+        Copy the block below and fill in:
+        - href: the article URL
+        - post-date: publication date (Month DD, YYYY)
+        - post-title: article title
+        - post-excerpt: 1-2 sentence summary
+        - post-read-more: CTA text + arrow
+        - For external posts: target="_blank" rel="noopener noreferrer"
+        - For internal posts: remove target, link to /blog/post-slug
+        -->
+
+        <div class="subscribe-box" style="margin-top:48px">
+            <p>More posts coming. Building in public — observations from shipping, not generic takes.</p>
+            <a href="mailto:hello@buildorbit.polsia.app?subject=Blog updates">Subscribe →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

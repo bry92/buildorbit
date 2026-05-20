@@ -1,0 +1,42 @@
+name: Publish buildorbit CLI to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      npm_token:
+        description: 'npm Automation token (bypasses 2FA). Leave empty to use NPM_TOKEN secret.'
+        required: false
+        default: ''
+      version:
+        description: 'Version bump (patch|minor|major) or leave empty to use current version'
+        required: false
+        default: ''
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cli
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Bump version (if requested)
+        if: ${{ github.event.inputs.version != '' }}
+        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ github.event.inputs.npm_token || secrets.NPM_TOKEN }}

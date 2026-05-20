@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate root cause — which planner file is used in production",
+    "status": "completed",
+    "activeForm": "Investigating root cause"
+  },
+  {
+    "content": "Update src/agents/planner-agent.js _aiPlan with structured fields schema",
+    "status": "completed",
+    "activeForm": "Updating _aiPlan with structured fields schema"
+  },
+  {
+    "content": "Update src/agents/planner-agent.js JSON parse fallback path",
+    "status": "completed",
+    "activeForm": "Updating JSON parse fallback path"
+  },
+  {
+    "content": "Add _parseJsonResponse helper and update _simulatedPlan with structured fields",
+    "status": "completed",
+    "activeForm": "Adding JSON parser and updating simulated plan"
+  },
+  {
+    "content": "Remove CRUD terminology from both planner-agent files",
+    "status": "completed",
+    "activeForm": "Removing CRUD terminology"
+  },
+  {
+    "content": "Verify node --check passes, push, and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying and deploying"
+  }
+]

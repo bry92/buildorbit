@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate current state of HTML files and prior restyle attempts",
+    "status": "completed",
+    "activeForm": "Investigating current state"
+  },
+  {
+    "content": "Create restyle.css with aggressive visual overrides",
+    "status": "completed",
+    "activeForm": "Creating restyle.css stylesheet"
+  },
+  {
+    "content": "Inject restyle.css link into all HTML files via sed with cache-busting",
+    "status": "completed",
+    "activeForm": "Injecting stylesheet links via sed"
+  },
+  {
+    "content": "Fix any remaining visual issues in JS/inline styles",
+    "status": "completed",
+    "activeForm": "Fixing remaining style issues"
+  },
+  {
+    "content": "Commit, push, verify deployment visually",
+    "status": "in_progress",
+    "activeForm": "Committing and verifying deployment"
+  }
+]

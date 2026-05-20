@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create lib/cco-validator.js with full schema validation + hash utilities",
+    "status": "completed",
+    "activeForm": "Creating lib/cco-validator.js"
+  },
+  {
+    "content": "Add validateCCO call and hash computation to pipeline-orchestrator.js",
+    "status": "completed",
+    "activeForm": "Wiring CCO validation into pipeline-orchestrator.js"
+  },
+  {
+    "content": "Add secondary CCO guard to builder-agent.js execute()",
+    "status": "completed",
+    "activeForm": "Adding secondary CCO guard to builder-agent.js"
+  },
+  {
+    "content": "Create tests/validation/a2a-contract-test.js",
+    "status": "completed",
+    "activeForm": "Creating a2a-contract-test.js"
+  },
+  {
+    "content": "Run tests and verify all 8 validation checks pass",
+    "status": "completed",
+    "activeForm": "Running validation tests"
+  },
+  {
+    "content": "Push to remote and complete task",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

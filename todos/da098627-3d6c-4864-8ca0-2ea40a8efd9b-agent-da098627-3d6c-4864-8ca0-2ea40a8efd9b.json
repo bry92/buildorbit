@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate the root cause of the Settings panel flash-then-disappear bug",
+    "status": "completed",
+    "activeForm": "Investigating root cause of Settings panel bug"
+  },
+  {
+    "content": "Fix Settings.tsx crash: t.token_hash is undefined (not returned by API)",
+    "status": "completed",
+    "activeForm": "Fixing Settings.tsx token_hash crash"
+  },
+  {
+    "content": "Fix API URL mismatches (create and revoke token endpoints)",
+    "status": "completed",
+    "activeForm": "Fixing API URL mismatches"
+  },
+  {
+    "content": "Build frontend and push",
+    "status": "in_progress",
+    "activeForm": "Building frontend and pushing"
+  },
+  {
+    "content": "Verify the fix in production",
+    "status": "pending",
+    "activeForm": "Verifying the fix in production"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate current pipeline code and previous attempts",
+    "status": "completed",
+    "activeForm": "Investigating current pipeline code and previous attempts"
+  },
+  {
+    "content": "Implement SCAFFOLD manifest schema and validation",
+    "status": "completed",
+    "activeForm": "Implementing SCAFFOLD manifest schema and validation"
+  },
+  {
+    "content": "Enforce hard gate: block CODE without valid manifest",
+    "status": "completed",
+    "activeForm": "Enforcing hard gate: blocking CODE without valid manifest"
+  },
+  {
+    "content": "Inject scaffold manifest into CODE phase prompt + update builder agent",
+    "status": "completed",
+    "activeForm": "Injecting scaffold manifest into CODE phase prompt + updating builder agent"
+  },
+  {
+    "content": "Add post-CODE validation against scaffold",
+    "status": "completed",
+    "activeForm": "Adding post-CODE validation against scaffold"
+  },
+  {
+    "content": "Push branch and create PR",
+    "status": "in_progress",
+    "activeForm": "Pushing branch and creating PR"
+  }
+]

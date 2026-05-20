@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit API: programmatic access to the glass-box pipeline. Coming soon — submit builds, fetch run status, and retrieve audit reports via REST.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+        .page-wrap { flex: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 48px; max-width: 600px; }
+
+        .coming-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: #f59e0b; margin-bottom: 32px; }
+        .coming-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #f59e0b; }
+
+        .endpoint-grid { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
+        .endpoint-row { display: grid; grid-template-columns: 80px 1fr 160px; gap: 16px; align-items: center; padding: 14px 18px; background: rgba(255,255,255,0.02); border-radius: 6px; }
+        .endpoint-row:hover { background: rgba(255,255,255,0.04); }
+        .endpoint-method { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-align: center; }
+        .method-get { background: rgba(16,185,129,0.1); color: #10b981; }
+        .method-post { background: rgba(56,189,248,0.1); color: #38bdf8; }
+        .endpoint-path { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text); }
+        .endpoint-desc { font-size: 13px; color: var(--text-muted); }
+        .endpoint-status { font-size: 11px; color: #64748b; font-family: 'Space Mono', monospace; text-align: right; }
+
+        .api-section { margin-bottom: 40px; }
+        .api-section h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+        .api-section p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin: 0 0 16px; }
+
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+        .info-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 16px; }
+        .info-card h3 { font-size: 13px; font-weight: 700; margin: 0 0 6px; }
+        .info-card p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.55; }
+
+        .contact-row { display: flex; align-items: center; gap: 12px; margin-top: 40px; padding: 20px; background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.12); border-radius: 8px; }
+        .contact-row p { font-size: 14px; color: var(--text-muted); margin: 0; flex: 1; }
+        .contact-row a { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .page-nav-right { display: none; }
+            .endpoint-grid { gap: 1px; }
+            .endpoint-row { grid-template-columns: 70px 1fr; }
+            .endpoint-status { display: none; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="page-landing">
+
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Product</div>
+        <h1 class="page-h1">API</h1>
+        <p class="page-lead">Programmatic access to the BuildOrbit pipeline. Submit builds, check status, and retrieve audit reports — all through a REST API.</p>
+
+        <div class="coming-badge">Coming soon — early access available</div>
+
+        <div class="api-section">
+            <h2>Planned endpoints</h2>
+
+            <div class="endpoint-grid">
+                <div class="endpoint-row">
+                    <span class="endpoint-method method-post">POST</span>
+                    <span class="endpoint-path">/api/v1/builds</span>
+                    <span class="endpoint-status">planned</span>
+                    <span class="endpoint-desc">Submit a new build. Pass a task description and source context.</span>
+                </div>
+                <div class="endpoint-row">
+                    <span class="endpoint-method method-get">GET</span>
+                    <span class="endpoint-path">/api/v1/builds/:id</span>
+                    <span class="endpoint-status">planned</span>
+                    <span class="endpoint-desc">Fetch a run's current status, phase, and cost.</span>
+                </div>
+                <div class="endpoint-row">
+                    <span class="endpoint-method method-get">GET</span>
+                    <span class="endpoint-path">/api/v1/builds/:id/reasoning</span>
+                    <span class="endpoint-status">planned</span>
+                    <span class="endpoint-desc">Retrieve the full agent reasoning transcript for a run.</span>
+                </div>
+                <div class="endpoint-row">
+                    <span class="endpoint-method method-get">GET</span>
+                    <span class="endpoint-path">/api/v1/builds/:id/audit</span>
+                    <span class="endpoint-status">planned</span>
+                    <span class="endpoint-desc">Fetch the VERIFY phase audit report for a run.</span>
+                </div>
+                <div class="endpoint-row">
+                    <span class="endpoint-method method-get">GET</span>
+                    <span class="endpoint-path">/api/v1/builds/:id/files</span>
+                    <span class="endpoint-status">planned</span>
+                    <span class="endpoint-desc">List and download generated files from a completed run.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="api-section">
+            <h2>Authentication</h2>
+            <p>All API requests require an API key passed as a bearer token in the Authorization header. Keys are generated per user in the dashboard under <a href="/settings/api-keys" style="color:var(--accent)">Settings → API Keys</a>. Keys are scoped to your account and can be rotated at any time.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Rate limits</h3>
+                <p>During early access: 60 requests/minute per key. Limits will be configurable by plan tier at general availability.</p>
+            </div>
+            <div class="info-card">
+                <h3>Versioning</h3>
+                <p>API is versioned via URL prefix (/api/v1/). Breaking changes will be versioned. Deprecation notices will be sent 90 days in advance.</p>
+            </div>
+            <div class="info-card">
+                <h3>Audit logs</h3>
+                <p>Every API call is logged as a pipeline event. You can retrieve your API activity history for compliance review.</p>
+            </div>
+            <div class="info-card">
+                <h3>Webhook support</h3>
+                <p>Configure webhooks to receive run completion and audit report notifications via POST to your endpoint.</p>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <p>Want early API access? Reach out and tell us what you're building.</p>
+            <a href="mailto:api@buildorbit.polsia.app">Request access →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right">
+                <span class="footer-copy">© 2026 BuildOrbit</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

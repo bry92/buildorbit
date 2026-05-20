@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — BuildOrbit</title>
+    <meta name="description" content="What BuildOrbit's dashboard shows: real-time pipeline execution, run history, agent reasoning transcripts, and deployment previews.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+        .page-wrap { flex: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 48px; max-width: 620px; }
+
+        .dash-section { margin-bottom: 56px; }
+        .dash-section h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+        .dash-tag { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border: 1px solid rgba(56,189,248,0.2); border-radius: 3px; }
+        .dash-section p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin: 0 0 16px; }
+        .dash-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .dash-list li { font-size: 14px; color: var(--text-muted); padding: 10px 14px; background: rgba(255,255,255,0.03); border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+        .dash-list li::before { content: '→'; color: var(--accent); font-size: 12px; flex-shrink: 0; }
+        .dash-list li strong { color: var(--text); font-weight: 600; }
+
+        .mock-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; margin: 16px 0 24px; }
+        .mock-topbar { background: rgba(255,255,255,0.04); padding: 10px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .mock-dot-r { background: #ef4444; }
+        .mock-dot-y { background: #f59e0b; }
+        .mock-dot-g { background: #10b981; }
+        .mock-url { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); }
+        .mock-body { padding: 20px; }
+        .mock-row { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .mock-row:last-child { border-bottom: none; }
+        .mock-label { font-size: 11px; color: var(--text-muted); font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; }
+        .mock-val { font-size: 13px; color: var(--text); }
+        .status-live { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981; }
+
+        .cta-box { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.15); border-radius: 10px; padding: 24px; margin-top: 40px; text-align: center; }
+        .cta-box p { font-size: 15px; color: var(--text); margin: 0 0 16px; font-weight: 600; }
+        .cta-box a { display: inline-block; font-size: 13px; font-weight: 600; color: #0f1117; background: var(--accent); padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+        .cta-box a:hover { opacity: 0.85; }
+
+        @media (max-width: 600px) {
+            .page-nav-right { display: none; }
+            .mock-row { grid-template-columns: 1fr; gap: 4px; }
+        }
+    </style>
+</head>
+<body class="page-landing">
+
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Product</div>
+        <h1 class="page-h1">The Dashboard</h1>
+        <p class="page-lead">Everything about your builds in one place. Pipeline status, run history, agent reasoning, deployment previews — all visible, all logged, all yours.</p>
+
+        <div class="dash-section">
+            <h2>Run List <span class="dash-tag">Home</span></h2>
+            <p>Your main view. Every build you've started, with current state, timestamp, and source repo. Sortable by status, date, and cost.</p>
+            <div class="mock-card">
+                <div class="mock-topbar">
+                    <span class="mock-dot mock-dot-r"></span>
+                    <span class="mock-dot mock-dot-y"></span>
+                    <span class="mock-dot mock-dot-g"></span>
+                    <span class="mock-url">buildorbit.polsia.app/dashboard</span>
+                </div>
+                <div class="mock-body">
+                    <div class="mock-row"><span class="mock-label">Run #1284</span><span class="mock-val">Todo app with auth — completed · 4 phases · $0.12</span></div>
+                    <div class="mock-row"><span class="mock-label">Run #1283</span><span class="mock-val">Landing page redesign — completed · 3 phases · $0.08</span></div>
+                    <div class="mock-row"><span class="mock-label">Run #1282</span><span class="mock-val"><span class="status-live"></span> Analytics dashboard — VERIFY phase · 5/6</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-section">
+            <h2>Live Pipeline View <span class="dash-tag">During Build</span></h2>
+            <p>When a build is running, you see it live. Each phase lights up as it executes. Agent reasoning transcript scrolls below in real time. You can watch every decision as it happens — or come back later and read the full log.</p>
+            <ul class="dash-list">
+                <li><strong>Phase cards</strong> — Intent Gate, Plan, Scaffold, Code, Save, Verify with live status (pending/running/completed/failed)</li>
+                <li><strong>Agent Reasoning panel</strong> — Full transcript per phase: what the agent decided, why, and what it considered but rejected</li>
+                <li><strong>Cost tracker</strong> — Running cost estimate updates in real time</li>
+                <li><strong>Preview pane</strong> — Live preview of generated output as files are created</li>
+            </ul>
+        </div>
+
+        <div class="dash-section">
+            <h2>Run Detail <span class="dash-tag">Post Build</span></h2>
+            <p>After a build completes (or fails), the run detail page gives you the full picture.</p>
+            <ul class="dash-list">
+                <li><strong>Phase-by-phase breakdown</strong> — Each phase's output, timing, and cost</li>
+                <li><strong>Agent reasoning timeline</strong> — Every decision the agent made, with context and justification</li>
+                <li><strong>Audit report</strong> — VERIFY phase output: critical and advisory findings, with file/line references</li>
+                <li><strong>File tree viewer</strong> — Browse the generated output, inspect any file</li>
+                <li><strong>Deploy link</strong> — Live URL, PR link, or download, depending on deployment type</li>
+                <li><strong>Source + prompt</strong> — The original task description and source context</li>
+            </ul>
+        </div>
+
+        <div class="dash-section">
+            <h2>History & Export</h2>
+            <p>All past runs are stored and searchable. You can filter by status, date, source repo, or outcome. Export any run's full transcript and audit report as a standalone document — useful for compliance logging or client handoff.</p>
+        </div>
+
+        <div class="cta-box">
+            <p>See it for yourself. Start a build and watch it run.</p>
+            <a href="/signup">Open your dashboard →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span>
+                <span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right">
+                <span class="footer-copy">© 2026 BuildOrbit</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

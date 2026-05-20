@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate root cause of Run page showing all phases as Waiting",
+    "status": "completed",
+    "activeForm": "Investigating root cause"
+  },
+  {
+    "content": "Add phases and current_phase to /api/pipeline/:runId/details endpoint",
+    "status": "completed",
+    "activeForm": "Adding phases data to /details endpoint"
+  },
+  {
+    "content": "Verify the WebSocket /api/stream/:runId path isn't shadowed",
+    "status": "completed",
+    "activeForm": "Verifying WebSocket streaming path"
+  },
+  {
+    "content": "Build, push, verify fix in production",
+    "status": "in_progress",
+    "activeForm": "Building and deploying fix"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes entry",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md"
+  }
+]

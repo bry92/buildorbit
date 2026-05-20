@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Analyze current structure and plan moves",
+    "status": "completed",
+    "activeForm": "Analyzing current structure"
+  },
+  {
+    "content": "Create public/js/ and public/assets/; move sidebar.js, update HTML refs",
+    "status": "completed",
+    "activeForm": "Organizing public/ assets"
+  },
+  {
+    "content": "Move 6 test files to tests/unit/ and update their require paths",
+    "status": "completed",
+    "activeForm": "Moving test files to tests/unit/"
+  },
+  {
+    "content": "Move tests/validation/ to tests/integration/; move test-fixtures/ to tests/fixtures/",
+    "status": "completed",
+    "activeForm": "Reorganizing test subdirectories"
+  },
+  {
+    "content": "Run final sweep: verify imports, paths, and server.js boot",
+    "status": "completed",
+    "activeForm": "Running final import sweep"
+  },
+  {
+    "content": "Commit and push to production",
+    "status": "in_progress",
+    "activeForm": "Committing and pushing to production"
+  }
+]

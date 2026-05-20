@@ -1,0 +1,458 @@
+/* Overview page styles — BuildOrbit glassmorphism design system */
+
+.ov-root {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Orbital background (same as globals) */
+.ov-root .orbital-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ov-root .orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.04);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ov-root .orbital-ring-1 {
+  width: 60vw;
+  height: 60vw;
+  animation: orbit-rotate 90s linear infinite;
+}
+
+.ov-root .orbital-ring-2 {
+  width: 100vw;
+  height: 100vw;
+  animation: orbit-rotate 150s linear infinite reverse;
+}
+
+.ov-root .orbital-ring-3 {
+  width: 140vw;
+  height: 140vw;
+  border-color: rgba(56, 189, 248, 0.02);
+  animation: orbit-rotate 220s linear infinite;
+}
+
+.ov-root .orbital-ring-4 {
+  width: 180vw;
+  height: 180vw;
+  border-color: rgba(56, 189, 248, 0.01);
+}
+
+.orbital-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ov-main {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── Hero ── */
+.ov-hero {
+  text-align: center;
+  padding: 120px 0 80px;
+}
+
+.ov-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  padding: 5px 12px;
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 20px;
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.ov-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+  animation: pulse-glow 1.8s ease-in-out infinite;
+}
+
+.ov-hero-title {
+  font-size: clamp(52px, 8vw, 88px);
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 0.95;
+  color: var(--text);
+  margin: 0 0 20px;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ov-hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 20px;
+  letter-spacing: -0.3px;
+}
+
+.ov-hero-body {
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0 auto 40px;
+}
+
+.ov-hero-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ov-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 28px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #060a14;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.35);
+}
+
+.ov-cta-btn:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.5);
+}
+
+/* ── Sections ── */
+.ov-section {
+  padding: 80px 0;
+  border-top: 1px solid rgba(56, 189, 248, 0.08);
+}
+
+.ov-section-label {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.ov-section-heading {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 18px;
+}
+
+.ov-section-body {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0;
+}
+
+/* ── Phase cards ── */
+.ov-phases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.ov-phase-card {
+  display: flex;
+  gap: 18px;
+  padding: 24px;
+  background: rgba(13, 20, 36, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ov-phase-card:hover {
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(13, 20, 36, 0.8);
+}
+
+.ov-phase-num {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  padding-top: 3px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.ov-phase-content {
+  min-width: 0;
+}
+
+.ov-phase-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+}
+
+.ov-phase-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Feature cards ── */
+.ov-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.ov-feature-card {
+  position: relative;
+  padding: 28px;
+  background: rgba(13, 20, 36, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.ov-feature-card:hover {
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.ov-feature-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  border-radius: 3px 0 0 3px;
+}
+
+.ov-feature-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.ov-feature-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Architecture ── */
+.ov-arch-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.ov-arch-layer {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px;
+  background: rgba(13, 20, 36, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+.ov-arch-num {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  padding-top: 3px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.ov-arch-content {
+  min-width: 0;
+}
+
+.ov-arch-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+}
+
+.ov-arch-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ov-arch-connector {
+  display: none;
+}
+
+/* ── Who It's For ── */
+.ov-verticals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ov-vertical-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  padding: 5px 12px;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: rgba(56, 189, 248, 0.04);
+}
+
+/* ── Status pills ── */
+.ov-status-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ov-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(52, 211, 153, 0.08);
+  color: var(--success);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+.ov-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+/* ── CTA section ── */
+.ov-cta-section {
+  padding: 100px 0 40px;
+  text-align: center;
+  border-top: 1px solid rgba(56, 189, 248, 0.08);
+}
+
+.ov-cta-heading {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 36px;
+}
+
+.ov-cta-btn-lg {
+  height: 52px;
+  padding: 0 36px;
+  font-size: 15px;
+}
+
+/* ── Animations ── */
+@keyframes orbit-rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .ov-hero {
+    padding: 80px 0 60px;
+  }
+
+  .ov-phases-grid,
+  .ov-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ov-phase-card,
+  .ov-feature-card,
+  .ov-arch-layer {
+    padding: 20px;
+  }
+
+  .ov-section {
+    padding: 56px 0;
+  }
+
+  .ov-cta-section {
+    padding: 64px 0 32px;
+  }
+}

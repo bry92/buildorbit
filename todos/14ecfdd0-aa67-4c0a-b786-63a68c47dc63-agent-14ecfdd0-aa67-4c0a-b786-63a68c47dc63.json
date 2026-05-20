@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Read pipeline.js executeVerify() to understand pass/fail logic",
+    "status": "completed",
+    "activeForm": "Reading pipeline.js VERIFY logic"
+  },
+  {
+    "content": "Read qa-agent.js _runChecks() to understand check aggregation",
+    "status": "completed",
+    "activeForm": "Reading qa-agent.js check aggregation"
+  },
+  {
+    "content": "Read run.html to understand verify_report and completed banner rendering",
+    "status": "completed",
+    "activeForm": "Reading run.html verify report handling"
+  },
+  {
+    "content": "Identify root cause with evidence",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Implement fix in server.js — emit verify_report for live streams and correct phase status",
+    "status": "completed",
+    "activeForm": "Fixing server.js SSE event emission"
+  },
+  {
+    "content": "Implement fix in pipeline-orchestrator.js — stream self-heal retry VERIFY output",
+    "status": "completed",
+    "activeForm": "Fixing self-heal retry output streaming"
+  },
+  {
+    "content": "Implement fix in run.html — update phase indicator on verify_report",
+    "status": "completed",
+    "activeForm": "Fixing frontend phase indicator update"
+  },
+  {
+    "content": "Syntax check, push, and deploy",
+    "status": "in_progress",
+    "activeForm": "Syntax checking and deploying"
+  }
+]

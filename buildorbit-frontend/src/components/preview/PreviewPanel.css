@@ -1,0 +1,132 @@
+/* PreviewPanel — live preview / file tree panel styling */
+
+.bo-preview-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast) var(--transition);
+}
+.bo-preview-panel:hover {
+  border-color: var(--glass-border-medium);
+}
+
+/* Header bar */
+.bo-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border-subtle);
+  background: rgba(13, 20, 36, 0.5);
+}
+.bo-preview-header-icon {
+  font-size: 16px;
+}
+.bo-preview-header-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.bo-preview-header-count {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  margin-left: auto;
+}
+
+/* Toggle button (compact mode) */
+.bo-preview-toggle {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  transition: background var(--transition-fast) var(--transition);
+}
+.bo-preview-toggle:hover {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+/* File tree (server projects) */
+.bo-preview-file-tree {
+  padding: 12px 16px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.bo-preview-file-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+}
+.bo-preview-file-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.bo-preview-file-name {
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Live app link */
+.bo-preview-live-link {
+  display: block;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border-top: 1px solid var(--glass-border-subtle);
+  text-align: center;
+  transition: background var(--transition-fast) var(--transition);
+}
+.bo-preview-live-link:hover {
+  background: var(--accent-soft);
+}
+
+/* Compact mode (chat widget) */
+.bo-preview-compact {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+}
+.bo-preview-compact .bo-preview-file-tree {
+  max-height: 180px;
+}
+
+/* ── Run page split layout ───────────────────────────── */
+.run-content-split {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.run-content-phases {
+  flex: 1;
+  min-width: 0;
+}
+.run-content-preview {
+  width: 400px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .run-content-split {
+    flex-direction: column;
+  }
+  .run-content-preview {
+    width: 100%;
+    position: static;
+  }
+}

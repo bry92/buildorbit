@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate _repairDeadButtons() and Phase 5 continuation scoping in builder-agent.js",
+    "status": "completed",
+    "activeForm": "Investigating dead buttons fix scoping"
+  },
+  {
+    "content": "Fix _buildInteractionContract to handle soft_expansion via base_class delegation",
+    "status": "completed",
+    "activeForm": "Fixing interaction contract for soft_expansion"
+  },
+  {
+    "content": "Expand Phase 5 continuation handler to inject interactivity block universally",
+    "status": "completed",
+    "activeForm": "Expanding Phase 5 handler"
+  },
+  {
+    "content": "Broaden interactivity scan to count more element types",
+    "status": "completed",
+    "activeForm": "Broadening interactivity scan"
+  },
+  {
+    "content": "Add universal fallback to _repairDeadButtons for empty contracts",
+    "status": "completed",
+    "activeForm": "Adding repair fallback"
+  },
+  {
+    "content": "Verify fix with node --check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Verifying and deploying fix"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Check server.js extraction requirement (>300 lines)",
+    "status": "completed",
+    "activeForm": "Checking server.js size"
+  },
+  {
+    "content": "Read existing builder-agent.js structure",
+    "status": "completed",
+    "activeForm": "Reading builder-agent.js"
+  },
+  {
+    "content": "Create src/services/browserbase.js service wrapper",
+    "status": "completed",
+    "activeForm": "Creating browserbase.js service"
+  },
+  {
+    "content": "Install playwright-core in package.json",
+    "status": "completed",
+    "activeForm": "Installing Browserbase SDK"
+  },
+  {
+    "content": "Integrate browserbase capability into builder agent VERIFY phase",
+    "status": "completed",
+    "activeForm": "Integrating into VERIFY phase"
+  },
+  {
+    "content": "Update CLAUDE.md with new integration",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Push to remote and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  },
+  {
+    "content": "Complete task and send notifications",
+    "status": "pending",
+    "activeForm": "Completing task"
+  }
+]

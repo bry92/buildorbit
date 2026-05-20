@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Create src/services/github-fetch.js to fetch repo contents via GitHub API",
+    "status": "completed",
+    "activeForm": "Creating github-fetch service"
+  },
+  {
+    "content": "Add migration 031 to store source_repo on pipeline_runs",
+    "status": "completed",
+    "activeForm": "Adding migration 031"
+  },
+  {
+    "content": "Add GET /api/github/repo-contents endpoint",
+    "status": "completed",
+    "activeForm": "Adding repo-contents API endpoint"
+  },
+  {
+    "content": "Update server.js pipeline POST to handle source_repo",
+    "status": "completed",
+    "activeForm": "Updating server.js pipeline POST"
+  },
+  {
+    "content": "Update PlannerAgent to inject existing repo context into prompts",
+    "status": "completed",
+    "activeForm": "Updating PlannerAgent"
+  },
+  {
+    "content": "Update public/js/github.js to handle source repo picker mode",
+    "status": "completed",
+    "activeForm": "Updating github.js"
+  },
+  {
+    "content": "Update /new page UI to add 'Build FROM existing repo' mode toggle",
+    "status": "completed",
+    "activeForm": "Updating new.html UI"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Run self-check, push to remote, verify deploy",
+    "status": "in_progress",
+    "activeForm": "Running self-check and deploying"
+  }
+]

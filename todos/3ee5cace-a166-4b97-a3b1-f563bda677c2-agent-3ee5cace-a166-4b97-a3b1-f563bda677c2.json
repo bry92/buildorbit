@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Create agents/intent-gate.js module",
+    "status": "completed",
+    "activeForm": "Creating intent-gate module"
+  },
+  {
+    "content": "Inject constraint contract into pipeline orchestrator as Step 0",
+    "status": "completed",
+    "activeForm": "Injecting constraint contract into pipeline"
+  },
+  {
+    "content": "Update planner-agent.js to receive and obey constraints",
+    "status": "completed",
+    "activeForm": "Updating planner agent"
+  },
+  {
+    "content": "Update builder-agent.js to validate against constraints",
+    "status": "completed",
+    "activeForm": "Updating builder agent"
+  },
+  {
+    "content": "Update qa-agent.js to check constraint compliance",
+    "status": "completed",
+    "activeForm": "Updating QA agent"
+  },
+  {
+    "content": "Write tests for Intent Gate",
+    "status": "completed",
+    "activeForm": "Writing tests"
+  },
+  {
+    "content": "Push to remote",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

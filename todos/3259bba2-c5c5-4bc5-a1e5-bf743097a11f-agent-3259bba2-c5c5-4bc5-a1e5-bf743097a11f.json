@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create real Stripe subscription link via MCP",
+    "status": "completed",
+    "activeForm": "Creating Stripe subscription link via MCP"
+  },
+  {
+    "content": "Fix billing status credits bug (data.credits → data.task_credits)",
+    "status": "completed",
+    "activeForm": "Fixing billing status credits display bug"
+  },
+  {
+    "content": "Handle ?subscription=active redirect — call /api/billing/activate in dashboard JS",
+    "status": "completed",
+    "activeForm": "Adding post-checkout activation handler"
+  },
+  {
+    "content": "Revamp pricing page with Free Trial vs Pro comparison",
+    "status": "completed",
+    "activeForm": "Revamping pricing page with plan comparison"
+  },
+  {
+    "content": "Add upgrade banner after 3+ builds for trial users",
+    "status": "completed",
+    "activeForm": "Adding 3-build upgrade banner to dashboard"
+  },
+  {
+    "content": "Add upgrade CTA to post-build completion screen",
+    "status": "completed",
+    "activeForm": "Adding upgrade CTA to run completion screen"
+  },
+  {
+    "content": "Update CLAUDE.md with changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Run pre-push self-check and deploy",
+    "status": "in_progress",
+    "activeForm": "Running self-check and deploying"
+  }
+]

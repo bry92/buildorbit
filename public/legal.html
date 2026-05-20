@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit for legal teams: every AI code decision is logged, every change is traceable, every output is auditable. Built for compliance.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 820px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 40px; max-width: 620px; }
+        .benefit-list { display: flex; flex-direction: column; gap: 1px; }
+        .benefit-row { display: grid; grid-template-columns: 28px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .benefit-row:last-child { border-bottom: none; }
+        .benefit-icon { font-size: 18px; }
+        .benefit-text h3 { font-size: 14px; font-weight: 700; margin: 0 0 4px; }
+        .benefit-text p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+        .contact-row { display: flex; align-items: center; gap: 12px; margin-top: 40px; padding: 20px; background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.12); border-radius: 8px; }
+        .contact-row p { font-size: 14px; color: var(--text-muted); margin: 0; flex: 1; }
+        .contact-row a { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        @media (max-width: 600px) { .page-nav-right { display: none; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Solutions</div>
+        <h1 class="page-h1">Legal</h1>
+        <p class="page-lead">Every code change traceable. Every agent decision logged. Every output auditable. BuildOrbit is built for legal and compliance teams that can't sign off on black-box AI.</p>
+
+        <div class="benefit-list">
+            <div class="benefit-row">
+                <div class="benefit-icon">📜</div>
+                <div class="benefit-text">
+                    <h3>Full reasoning transcript</h3>
+                    <p>Not just the output — the decision chain. For every build, you get the full agent reasoning: what it decided to do, why, what alternatives it considered and rejected, and what constraints it worked within.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">🔍</div>
+                <div class="benefit-text">
+                    <h3>Complete audit log</h3>
+                    <p>Every phase execution, every file created or modified, every error encountered — logged as an immutable event record. Exportable as a structured document for legal review or regulatory submission.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">⚖️</div>
+                <div class="benefit-text">
+                    <h3>Approval gates before deployment</h3>
+                    <p>Code doesn't go live without explicit human approval. The agent proposes, you review the plan, you approve the scaffold, you approve the deployment. No autonomous code deployment.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">🚫</div>
+                <div class="benefit-text">
+                    <h3>Catastrophic rewrite prevention</h3>
+                    <p>BuildOrbit won't destroy working code without explicit consent. If a build would overwrite existing files, it asks first. This is enforced, not suggested.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">📋</div>
+                <div class="benefit-text">
+                    <h3>Source attribution</h3>
+                    <p>Every generated file can be traced back to the original prompt, the plan that generated it, and the phase that produced it. No orphan code with no provenance.</p>
+                </div>
+            </div>
+            <div class="benefit-row">
+                <div class="benefit-icon">🧠</div>
+                <div class="benefit-text">
+                    <h3>VERIFY phase as auditor</h3>
+                    <p>The VERIFY phase is a structured audit — not a pass/fail gate. It produces a severity-tagged report: critical findings vs. advisory notes. You decide what to act on.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <p>If you're evaluating BuildOrbit for a legal or compliance use case, let's talk about what's built vs. what's planned.</p>
+            <a href="mailto:legal@buildorbit.polsia.app">legal@buildorbit.polsia.app →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

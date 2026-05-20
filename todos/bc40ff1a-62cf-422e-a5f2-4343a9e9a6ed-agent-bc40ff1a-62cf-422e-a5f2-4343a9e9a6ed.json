@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Create rate-limiter.js module (IP limits, velocity, resend, UA parser, geolocation)",
+    "status": "completed",
+    "activeForm": "Creating rate-limiter.js module"
+  },
+  {
+    "content": "Update auth.js: device context in email, Reply-To header",
+    "status": "completed",
+    "activeForm": "Updating auth.js"
+  },
+  {
+    "content": "Update server.js: rate limiting middleware, enumeration protection, resend endpoint",
+    "status": "completed",
+    "activeForm": "Updating server.js"
+  },
+  {
+    "content": "Update signup.html: honeypot field, 60s resend delay, max 3 resends",
+    "status": "completed",
+    "activeForm": "Updating signup.html"
+  },
+  {
+    "content": "Push to remote and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote"
+  }
+]

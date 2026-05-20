@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create GitHub push service module (src/services/github-push.js)",
+    "status": "completed",
+    "activeForm": "Creating GitHub push service module"
+  },
+  {
+    "content": "Add new migration for github_pr_url column on pipeline_runs",
+    "status": "completed",
+    "activeForm": "Adding migration for github_pr_url column"
+  },
+  {
+    "content": "Update OpsAgent to call GitHub push after save",
+    "status": "completed",
+    "activeForm": "Updating OpsAgent to push to GitHub after save"
+  },
+  {
+    "content": "Update /api/pipeline/:id/details to include github_pr_url",
+    "status": "completed",
+    "activeForm": "Updating details API endpoint"
+  },
+  {
+    "content": "Update /run/:id page to show View PR button",
+    "status": "completed",
+    "activeForm": "Updating run page to show View PR button"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and pushing to remote"
+  }
+]

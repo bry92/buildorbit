@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate root cause of entry point mismatch",
+    "status": "completed",
+    "activeForm": "Investigating root cause of entry point mismatch"
+  },
+  {
+    "content": "Read key files: stage-contracts.js, builder-agent.js, scaffold-schemas.js, pipeline.js",
+    "status": "completed",
+    "activeForm": "Reading key source files"
+  },
+  {
+    "content": "State hypothesis with evidence",
+    "status": "completed",
+    "activeForm": "Stating hypothesis with evidence"
+  },
+  {
+    "content": "Fix scaffold routing gap for soft_expansion with static_surface base",
+    "status": "completed",
+    "activeForm": "Fixing scaffold routing gap for soft_expansion"
+  },
+  {
+    "content": "Fix _detectEntryPoint to respect scaffold expected entry",
+    "status": "completed",
+    "activeForm": "Fixing _detectEntryPoint to use scaffold entry"
+  },
+  {
+    "content": "Add pre-VERIFY entry point reconciliation in orchestrator",
+    "status": "completed",
+    "activeForm": "Adding pre-VERIFY entry point reconciliation"
+  },
+  {
+    "content": "Run tests and verify fix",
+    "status": "completed",
+    "activeForm": "Running tests and verifying fix"
+  },
+  {
+    "content": "Push to remote and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and verifying"
+  }
+]

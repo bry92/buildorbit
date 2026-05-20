@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Explore agent/pipeline code to understand reasoning output structure",
+    "status": "completed",
+    "activeForm": "Exploring agent/pipeline code"
+  },
+  {
+    "content": "Add migration for reasoning storage column on pipeline_runs",
+    "status": "completed",
+    "activeForm": "Adding reasoning migration"
+  },
+  {
+    "content": "Add GET /api/runs/:id/reasoning polling endpoint in routes/",
+    "status": "completed",
+    "activeForm": "Adding reasoning endpoint"
+  },
+  {
+    "content": "Capture reasoning in each pipeline phase (orchestrator instrumentation)",
+    "status": "completed",
+    "activeForm": "Capturing reasoning in pipeline phases"
+  },
+  {
+    "content": "Build ReasoningCard.tsx component with glassmorphism style",
+    "status": "completed",
+    "activeForm": "Building ReasoningCard component"
+  },
+  {
+    "content": "Wire ReasoningCard into Run.tsx with 3s polling",
+    "status": "completed",
+    "activeForm": "Wiring ReasoningCard into Run page"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Build frontend and push to remote",
+    "status": "in_progress",
+    "activeForm": "Building frontend and pushing to remote"
+  }
+]

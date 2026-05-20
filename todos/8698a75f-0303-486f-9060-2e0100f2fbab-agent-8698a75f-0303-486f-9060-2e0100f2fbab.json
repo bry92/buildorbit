@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create src/services/polsia-deploy.js — uploads files to R2 CDN, returns live URL",
+    "status": "completed",
+    "activeForm": "Creating polsia-deploy.js service"
+  },
+  {
+    "content": "Create migrations/032_polsia_app_url.js — adds polsia_app_url column",
+    "status": "completed",
+    "activeForm": "Creating migration 032"
+  },
+  {
+    "content": "Update agents/ops-agent.js SAVE phase to call polsia-deploy and persist URL",
+    "status": "completed",
+    "activeForm": "Updating ops-agent.js SAVE phase"
+  },
+  {
+    "content": "Update server.js — emitStateEvent save handler + details endpoint to include polsia_app_url",
+    "status": "completed",
+    "activeForm": "Updating server.js SSE and API"
+  },
+  {
+    "content": "Update public/run-view.html — add View Live App button",
+    "status": "completed",
+    "activeForm": "Updating run-view.html"
+  },
+  {
+    "content": "Update public/js/run-view.js — show live app button from SSE/details",
+    "status": "completed",
+    "activeForm": "Updating run-view.js"
+  },
+  {
+    "content": "Update CLAUDE.md with recent changes",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md"
+  },
+  {
+    "content": "Install node-fetch + form-data, run self-check, push to remote",
+    "status": "in_progress",
+    "activeForm": "Installing deps and deploying"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Create migration 020 for task_credits + subscription_status default",
+    "status": "completed",
+    "activeForm": "Creating migration 020"
+  },
+  {
+    "content": "Add POST /api/auth/register alias + GET /api/auth/me endpoint",
+    "status": "completed",
+    "activeForm": "Adding auth endpoints"
+  },
+  {
+    "content": "Fix signup handler to set subscription_status=trial",
+    "status": "completed",
+    "activeForm": "Fixing signup handler"
+  },
+  {
+    "content": "Push and verify deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying"
+  }
+]

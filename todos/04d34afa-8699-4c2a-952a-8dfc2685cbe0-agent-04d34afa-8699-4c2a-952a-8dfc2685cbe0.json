@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create migration 034_nuclear_conversations.js",
+    "status": "completed",
+    "activeForm": "Creating migration for nuclear_conversations table"
+  },
+  {
+    "content": "Create src/agents/nuclear-agent.js",
+    "status": "completed",
+    "activeForm": "Creating NuclearAgent with LLM tool-calling"
+  },
+  {
+    "content": "Create src/routes/a2a-nuclear.js",
+    "status": "completed",
+    "activeForm": "Creating nuclear chat route"
+  },
+  {
+    "content": "Mount nuclear route in server.js",
+    "status": "completed",
+    "activeForm": "Mounting nuclear route in server.js"
+  },
+  {
+    "content": "Update CLAUDE.md",
+    "status": "completed",
+    "activeForm": "Updating CLAUDE.md with new changes"
+  },
+  {
+    "content": "Run self-check and push to remote",
+    "status": "in_progress",
+    "activeForm": "Running self-check and deploying"
+  }
+]

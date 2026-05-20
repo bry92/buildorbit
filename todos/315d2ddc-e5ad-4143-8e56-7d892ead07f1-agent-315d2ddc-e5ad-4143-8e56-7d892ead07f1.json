@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Investigate CODE phase - how prompt flows into content generation",
+    "status": "completed",
+    "activeForm": "Investigating CODE phase prompt flow"
+  },
+  {
+    "content": "Identify root cause - why user prompt content is ignored",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Fix buildContextInstruction to extract from prompt instead of placeholders",
+    "status": "completed",
+    "activeForm": "Fixing buildContextInstruction"
+  },
+  {
+    "content": "Fix _deriveTitle to detect 'called X' named entity pattern",
+    "status": "completed",
+    "activeForm": "Fixing title derivation"
+  },
+  {
+    "content": "Add pet/grooming domain to _derivePromptDomain",
+    "status": "completed",
+    "activeForm": "Adding pet grooming domain"
+  },
+  {
+    "content": "Add content fidelity instructions to Phase 1 AI prompt",
+    "status": "completed",
+    "activeForm": "Adding content fidelity instructions"
+  },
+  {
+    "content": "Enhance simulated static_surface to parse prompt for sections/CTAs",
+    "status": "completed",
+    "activeForm": "Enhancing simulated code"
+  },
+  {
+    "content": "Deploy and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying and verifying"
+  }
+]

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs — BuildOrbit</title>
+    <meta name="description" content="BuildOrbit documentation: getting started, pipeline overview, architecture, and API reference.">
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260514a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260514a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260514a">
+    <style>
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        .page-nav { width: 100%; max-width: 1080px; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto; }
+        .page-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -0.3px; color: var(--text); }
+        .page-logo .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+        .page-nav-right { display: flex; align-items: center; gap: 20px; }
+        .page-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+        .page-nav-link:hover { color: var(--text); }
+        .nav-cta { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .page-wrap { flex: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; width: 100%; }
+        .page-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; margin: 40px 0 0; }
+        .page-back:hover { opacity: 0.8; }
+        .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin: 24px 0 8px; }
+        .page-h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin: 0 0 20px; }
+        .page-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin: 0 0 40px; }
+
+        .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+        .doc-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 20px; text-decoration: none; display: block; }
+        .doc-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(56,189,248,0.2); }
+        .doc-card .doc-tag { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .doc-card h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+        .doc-card p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+        .coming-soon { margin-top: 40px; }
+        .coming-soon h2 { font-size: 16px; font-weight: 700; margin: 0 0 16px; }
+        .coming-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .coming-list li { font-size: 13px; color: var(--text-muted); padding: 10px 14px; background: rgba(255,255,255,0.02); border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+        .coming-list li::before { content: '→'; color: var(--accent); font-size: 12px; }
+        .coming-tag { font-family: 'Space Mono', monospace; font-size: 10px; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .tag-soon { background: rgba(245,158,11,0.1); color: #f59e0b; }
+        .tag-building { background: rgba(56,189,248,0.1); color: #38bdf8; }
+
+        @media (max-width: 600px) { .page-nav-right { display: none; } .doc-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="page-landing">
+    <nav class="page-nav">
+        <a href="/" class="page-logo"><div class="logo-dot"></div>BuildOrbit</a>
+        <div class="page-nav-right">
+            <a href="/pipeline" class="page-nav-link">Pipeline</a>
+            <a href="/pricing" class="page-nav-link">Pricing</a>
+            <a href="/signup" class="nav-cta">Start Building →</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <a href="/" class="page-back">← Back to home</a>
+        <div class="page-eyebrow">Resources</div>
+        <h1 class="page-h1">Documentation</h1>
+        <p class="page-lead">Guides, references, and explanations for BuildOrbit's pipeline, architecture, and features.</p>
+
+        <div class="doc-grid">
+            <a href="/pipeline" class="doc-card">
+                <div class="doc-tag">Core Concept</div>
+                <h3>The 6-Phase Pipeline</h3>
+                <p>How the pipeline works: Intent Gate, Plan, Scaffold, Code, Save, Verify. Why order matters and what each phase does.</p>
+            </a>
+            <a href="/dashboard" class="doc-card">
+                <div class="doc-tag">Product</div>
+                <h3>The Dashboard</h3>
+                <p>What the dashboard shows: run list, live pipeline view, run detail, agent reasoning, audit reports, and file explorer.</p>
+            </a>
+            <a href="/api" class="doc-card">
+                <div class="doc-tag">API</div>
+                <h3>API Reference</h3>
+                <p>REST API overview, planned endpoints, authentication, rate limits, and webhook support. Early access available.</p>
+            </a>
+            <a href="/overview" class="doc-card">
+                <div class="doc-tag">Architecture</div>
+                <h3>System Overview</h3>
+                <p>Architecture diagram, phase breakdown, feature flags, and status indicators. The full technical picture.</p>
+            </a>
+        </div>
+
+        <div class="coming-soon">
+            <h2>Coming soon</h2>
+            <ul class="coming-list">
+                <li><span class="coming-tag tag-soon">planned</span> Getting started guide — first build from scratch</li>
+                <li><span class="coming-tag tag-soon">planned</span> Intent Gate classification reference — what each class means</li>
+                <li><span class="coming-tag tag-soon">planned</span> Plan approval workflow — how to review and redirect builds</li>
+                <li><span class="coming-tag tag-soon">planned</span> Repo-aware builds — attaching context from existing repos</li>
+                <li><span class="coming-tag tag-soon">planned</span> VERIFY phase reports — understanding audit findings</li>
+                <li><span class="coming-tag tag-building">building</span> Full API documentation — endpoint specs, request/response shapes, examples</li>
+                <li><span class="coming-tag tag-soon">planned</span> Security model — how BuildOrbit handles data, auth, and isolation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-dot"></div>BuildOrbit</div>
+                <p class="footer-tagline">The glass-box pipeline.<br>AI that explains itself.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col"><div class="footer-col-heading">Product</div>
+                    <a href="/pipeline" class="footer-link">Pipeline</a>
+                    <a href="/pricing" class="footer-link">Pricing</a>
+                    <a href="/dashboard" class="footer-link">Dashboard</a>
+                    <a href="/api" class="footer-link">API</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Solutions</div>
+                    <a href="/enterprise" class="footer-link">Enterprise</a>
+                    <a href="/legal" class="footer-link">Legal</a>
+                    <a href="/finance" class="footer-link">Finance</a>
+                    <a href="/healthcare" class="footer-link">Healthcare</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Company</div>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="/terms" class="footer-link">Terms</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+                <div class="footer-col"><div class="footer-col-heading">Resources</div>
+                    <a href="/docs" class="footer-link">Docs</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                    <a href="/case-studies" class="footer-link">Case Studies</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <span class="footer-pipeline-mono">Intent Gate</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Plan</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Scaffold</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Code</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Save</span><span class="footer-arrow">→</span>
+                <span class="footer-pipeline-mono">Verify</span>
+            </div>
+            <div class="footer-bottom-right"><span class="footer-copy">© 2026 BuildOrbit</span></div>
+        </div>
+    </footer>
+</body>
+</html>

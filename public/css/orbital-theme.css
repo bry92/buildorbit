@@ -1,0 +1,2360 @@
+/* ═══════════════════════════════════════════════════════════════
+   BuildOrbit Orbital Theme — Dark Space Aesthetic
+   Overrides the light glassmorphism design system.
+   Load AFTER buildorbit.css to take precedence.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── 1. Dark Design Tokens — Complete Override ─────────────────── */
+:root {
+  /* Background — deep space */
+  --bg: #060a14;
+  --surface: #0d1424;
+  --surface-2: #111827;
+  --surface-3: #0d1424;
+  --bg-surface: #0d1424;
+  --bg-card: #0d1424;
+  --bg-primary: #060a14;
+
+  /* Text — high contrast on dark */
+  --text: #e8edf5;
+  --text-primary: #e8edf5;
+  --text-muted: #8b9ab5;
+  --text-secondary: #8b9ab5;
+  --text-dim: #4a5878;
+
+  /* Accent — cyan/blue orbital glow */
+  --accent: #38bdf8;
+  --accent-dim: rgba(56, 189, 248, 0.08);
+  --accent-border: rgba(56, 189, 248, 0.2);
+  --accent-hover: #7dd3fc;
+
+  /* Semantic */
+  --success: #34d399;
+  --success-dim: rgba(52, 211, 153, 0.08);
+  --error: #f87171;
+  --error-dim: rgba(248, 113, 113, 0.08);
+  --warning: #fbbf24;
+  --warning-dim: rgba(251, 191, 36, 0.08);
+
+  /* Borders — subtle dark glass */
+  --border: rgba(56, 189, 248, 0.1);
+  --border-focus: rgba(56, 189, 248, 0.25);
+  --border-glow: rgba(56, 189, 248, 0.15);
+
+  /* Cards — dark glass */
+  --card: rgba(13, 20, 36, 0.8);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.06);
+  --card-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(56, 189, 248, 0.15), 0 0 20px rgba(56, 189, 248, 0.04);
+
+  /* Disabled */
+  --disabled: rgba(74, 88, 120, 0.3);
+
+  /* Phase colors — orbital blue progression */
+  --phase-intent-gate: rgba(56, 189, 248, 0.05);
+  --phase-plan: rgba(56, 189, 248, 0.1);
+  --phase-scaffold: rgba(56, 189, 248, 0.16);
+  --phase-code: rgba(56, 189, 248, 0.24);
+  --phase-save: rgba(56, 189, 248, 0.36);
+  --phase-verify: rgba(56, 189, 248, 0.52);
+  --phase-deploy: #38bdf8;
+
+  /* Agent colors */
+  --planner: rgba(56, 189, 248, 0.8);
+  --planner-dim: rgba(56, 189, 248, 0.08);
+  --builder: #34d399;
+  --builder-dim: rgba(52, 211, 153, 0.08);
+  --qa: #fbbf24;
+  --qa-dim: rgba(251, 191, 36, 0.08);
+  --ops: #a78bfa;
+  --ops-dim: rgba(167, 139, 250, 0.08);
+
+  /* Layout */
+  --history-w: 320px;
+
+  /* Radius — unchanged */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+}
+
+/* ── 2. Font Override ────────────────────────────────────────── */
+html, body,
+button, input, textarea, select,
+.btn, [class*="btn"] {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.mono, code, pre,
+.panel-tab, .run-id-label, .run-time,
+.queue-badge, .nav-title, .footer-pipeline-mono,
+.term-content, .terminal-body,
+[class*="mono"], [class*="DM Mono"] {
+  font-family: 'Space Mono', monospace !important;
+}
+
+/* ── 3. Base Body — Orbital Space Background ─────────────────── */
+html, body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Remove the old cloud body pseudo-elements */
+body::before,
+body::after {
+  background: transparent !important;
+  animation: none !important;
+}
+
+/* Orbital starfield — pure CSS */
+body {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(14, 10, 30, 0.8) 0%, transparent 80%),
+    #060a14 !important;
+}
+
+/* ── 4. Starfield / Orbital Paths (on pages that use .orbital-bg) ── */
+.orbital-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Orbital ring 1 */
+.orbital-bg::before {
+  content: '';
+  position: absolute;
+  width: 140vw;
+  height: 140vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.04);
+  animation: orbit-rotate 120s linear infinite;
+}
+
+/* Orbital ring 2 */
+.orbital-bg::after {
+  content: '';
+  position: absolute;
+  width: 90vw;
+  height: 90vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.06);
+  animation: orbit-rotate 80s linear infinite reverse;
+}
+
+.orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.05);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbital-ring-1 { width: 60vw; height: 60vw; animation: orbit-rotate 60s linear infinite; }
+.orbital-ring-2 { width: 100vw; height: 100vw; animation: orbit-rotate 90s linear infinite reverse; }
+.orbital-ring-3 { width: 130vw; height: 130vw; animation: orbit-rotate 150s linear infinite; border-color: rgba(56, 189, 248, 0.03); }
+
+/* Glowing node on orbit */
+.orbital-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(56, 189, 248, 0.3);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes orbit-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── 5. Replace cloud-bg with orbital dark bg ─────────────────── */
+.cloud-bg {
+  background: var(--bg) !important;
+}
+
+.cloud-bg::before,
+.cloud-bg::after {
+  background: none !important;
+  animation: none !important;
+}
+
+.cloud-layer-1,
+.cloud-layer-2,
+.cloud-layer-3,
+.cloud-layer-4 {
+  background: none !important;
+  animation: none !important;
+}
+
+/* ── 6. Global Link & Selection Colors ───────────────────────── */
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+::selection {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--text);
+}
+
+/* ── 7. Navigation — Orbital Dark Glass ──────────────────────── */
+nav,
+.topnav,
+.page-landing nav,
+nav.landing-nav,
+.page-run nav,
+.page-new-task nav,
+body.page-run .topnav,
+body.page-new-task .topnav,
+body.page-dashboard .topnav {
+  background: rgba(6, 10, 20, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
+.logo {
+  color: var(--text) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo:hover { color: var(--accent) !important; }
+
+.logo-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(56, 189, 248, 0.4) !important;
+}
+
+.nav-tag {
+  color: var(--accent) !important;
+  background: var(--accent-dim) !important;
+  border-color: var(--accent-border) !important;
+  font-family: 'Space Mono', monospace !important;
+}
+
+.nav-link,
+.nav-back {
+  color: var(--text-muted) !important;
+}
+
+.nav-link:hover { color: var(--text) !important; }
+.nav-back:hover { color: var(--accent) !important; }
+
+.nav-divider { background: rgba(56, 189, 248, 0.12) !important; }
+
+.nav-title {
+  color: var(--text-muted) !important;
+  font-family: 'Space Mono', monospace !important;
+}
+
+/* ── 8. Buttons — Orbital Style ──────────────────────────────── */
+.btn-primary,
+.run-pipeline-btn,
+.start-build-btn,
+.cta-btn,
+.nav-cta,
+.new-run-btn,
+#run-btn,
+.modal-run-btn,
+.price-cta,
+.cta-primary,
+.enter-btn {
+  background: var(--accent) !important;
+  color: #060a14 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+.btn-primary:hover,
+.run-pipeline-btn:hover,
+.start-build-btn:hover,
+.cta-btn:hover,
+.nav-cta:hover,
+.new-run-btn:hover,
+#run-btn:hover,
+.modal-run-btn:hover,
+.price-cta:hover,
+.cta-primary:hover,
+.enter-btn:hover:not(:disabled) {
+  background: var(--accent-hover) !important;
+  color: #060a14 !important;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4), 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+.btn-secondary {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border-color: var(--accent-border) !important;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-dim) !important;
+}
+
+.btn-ghost,
+.cta-secondary {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border) !important;
+}
+
+.btn-ghost:hover,
+.cta-secondary:hover {
+  background: rgba(56, 189, 248, 0.06) !important;
+  color: var(--text) !important;
+  border-color: var(--border-focus) !important;
+}
+
+/* ── 9. Forms & Inputs ────────────────────────────────────────── */
+input, textarea, select,
+.adv-config-input,
+.config-input,
+.dash-intv-input,
+.dash-override-textarea {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  color: var(--text) !important;
+}
+
+input:focus, textarea:focus, select:focus,
+.adv-config-input:focus,
+.config-input:focus,
+.dash-intv-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12) !important;
+}
+
+input::placeholder, textarea::placeholder { color: var(--text-dim) !important; }
+
+/* ── 10. Cards & Panels — Dark Glass ─────────────────────────── */
+.card,
+.project-card,
+.status-card,
+.agent-card,
+.health-card,
+.econ-stat-card,
+.constraint-card,
+.econ-section,
+.qa-issue-card,
+.prop-card,
+.pos-card,
+.price-card,
+.plan-card,
+.summary-card,
+.node-card,
+.delete-confirm-modal {
+  background: rgba(13, 20, 36, 0.75) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 0 1px rgba(56, 189, 248, 0.06) !important;
+}
+
+.card:hover,
+.project-card:hover,
+.agent-card:hover,
+.prop-card:hover {
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(56, 189, 248, 0.15), 0 0 20px rgba(56, 189, 248, 0.04) !important;
+}
+
+/* ── 11. Navigation — Sidebar & History Panel ─────────────────── */
+.run-history,
+.sidebar {
+  background: rgba(10, 15, 28, 0.85) !important;
+  border-right-color: rgba(56, 189, 248, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.run-history-header {
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+/* ── 12. Run Items ─────────────────────────────────────────────── */
+.run-item:hover {
+  background: rgba(56, 189, 248, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+}
+
+.run-item.selected,
+.run-item.active {
+  background: rgba(56, 189, 248, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: inset 3px 0 0 var(--accent) !important;
+}
+
+/* ── 13. Dashboard Top Nav & Layout ───────────────────────────── */
+body.page-dashboard .layout,
+body.page-dashboard .topnav,
+body.page-dashboard .modal-overlay {
+  position: relative;
+  z-index: 10;
+}
+
+body.page-dashboard .topnav {
+  box-shadow: 0 1px 0 rgba(56, 189, 248, 0.08) !important;
+}
+
+.queue-badge {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  color: var(--text-dim) !important;
+}
+
+.queue-badge.active .q-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 6px var(--accent) !important;
+}
+
+/* ── 14. Main Panel & Tabs ────────────────────────────────────── */
+.main-panel {
+  background: transparent !important;
+}
+
+.panel-tabs {
+  background: rgba(10, 15, 28, 0.7) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.panel-tab {
+  color: var(--text-dim) !important;
+}
+
+.panel-tab:hover { color: var(--text-muted) !important; }
+
+.panel-tab.active {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
+}
+
+.panel-content {
+  background: transparent !important;
+}
+
+/* ── 15. Modals — Dark Glass ──────────────────────────────────── */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+.modal,
+.delete-confirm-modal {
+  background: rgba(13, 20, 36, 0.95) !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(56, 189, 248, 0.1), 0 0 40px rgba(56, 189, 248, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.modal textarea,
+.modal input,
+#modal-prompt {
+  background: rgba(6, 10, 20, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  color: var(--text) !important;
+}
+
+/* ── 16. Terminal ─────────────────────────────────────────────── */
+.terminal {
+  background: rgba(4, 7, 15, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.terminal-header {
+  background: rgba(6, 10, 20, 0.8) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.terminal-body,
+.term-content {
+  background: rgba(4, 7, 15, 0.9) !important;
+  color: #7dd3fc !important;
+}
+
+.term-tab { color: var(--text-dim) !important; }
+.term-tab:hover { background: rgba(56, 189, 248, 0.06) !important; color: var(--text-muted) !important; }
+.term-tab.active { color: var(--accent) !important; background: rgba(56, 189, 248, 0.08) !important; }
+
+/* ── 17. Landing Page ─────────────────────────────────────────── */
+body.page-landing,
+.page-landing {
+  background: var(--bg) !important;
+}
+
+.page-landing nav {
+  background: rgba(6, 10, 20, 0.9) !important;
+}
+
+.hero h1 {
+  color: var(--text) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.hero h1 em {
+  color: var(--accent) !important;
+}
+
+.hero-sub {
+  color: var(--text-muted) !important;
+}
+
+.hero-eyebrow {
+  color: var(--accent) !important;
+  background: var(--accent-dim) !important;
+  border-color: var(--accent-border) !important;
+}
+
+/* Pipeline track */
+.pipeline-track {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.pipeline-phase {
+  border-right-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.pipeline-phase:hover {
+  background: rgba(56, 189, 248, 0.06) !important;
+}
+
+.pipeline-caption { color: var(--text-dim) !important; }
+
+/* Sections */
+.section-label { color: var(--accent) !important; }
+.section-title { color: var(--text) !important; }
+.section-sub { color: var(--text-muted) !important; }
+
+/* Value props */
+.prop-icon {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+}
+.prop-label { color: var(--accent) !important; }
+.prop-card h3 { color: var(--text) !important; }
+.prop-card p { color: var(--text-muted) !important; }
+
+/* Pipeline section */
+.pipeline-section {
+  background: rgba(10, 15, 28, 0.5) !important;
+  border-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.pipeline-steps {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.pipeline-step {
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.pipeline-step:hover {
+  background: rgba(56, 189, 248, 0.04) !important;
+}
+
+/* Step badges */
+.step-s1 { background: rgba(56,189,248,0.06) !important; color: rgba(56,189,248,0.5) !important; border-color: rgba(56,189,248,0.1) !important; }
+.step-s2 { background: rgba(56,189,248,0.1) !important; color: rgba(56,189,248,0.65) !important; border-color: rgba(56,189,248,0.15) !important; }
+.step-s3 { background: rgba(56,189,248,0.15) !important; color: rgba(56,189,248,0.8) !important; border-color: rgba(56,189,248,0.2) !important; }
+.step-s4 { background: rgba(56,189,248,0.22) !important; color: rgba(56,189,248,0.9) !important; border-color: rgba(56,189,248,0.25) !important; }
+.step-s5 { background: rgba(56,189,248,0.3) !important; color: var(--accent) !important; border-color: rgba(56,189,248,0.35) !important; }
+.step-s6 { background: var(--accent) !important; color: #060a14 !important; border-color: var(--accent) !important; }
+
+.step-body h4 { color: var(--text) !important; }
+.step-body p { color: var(--text-muted) !important; }
+
+/* Positioning cards */
+.pos-card {
+  background: rgba(13, 20, 36, 0.75) !important;
+}
+
+.pos-card.highlight {
+  background: rgba(56, 189, 248, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+.pos-card.highlight h3 { color: var(--accent) !important; }
+
+/* Audit block */
+.audit-block {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.trace-mock {
+  background: rgba(4, 7, 15, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.trace-line { color: var(--text-dim) !important; }
+.trace-line.active { color: var(--accent) !important; }
+.trace-line.done { color: var(--success) !important; }
+
+/* Industries */
+.industry-badge {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  color: var(--text-dim) !important;
+}
+
+/* Pricing */
+.price-card {
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 4px 30px rgba(56, 189, 248, 0.06), 0 0 0 1px rgba(56, 189, 248, 0.1) !important;
+}
+
+.price-amount { color: var(--text) !important; }
+.price-period { color: var(--text-dim) !important; }
+
+.price-features {
+  border-top-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.price-feature { color: var(--text-muted) !important; }
+.price-feature::before { color: var(--accent) !important; }
+.price-note { color: var(--text-dim) !important; }
+
+/* Closing CTA */
+.closing {
+  background: rgba(10, 15, 28, 0.5) !important;
+  border-top-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.closing h2 { color: var(--text) !important; }
+.closing p { color: var(--text-muted) !important; }
+
+/* Divider */
+.section-divider { background: rgba(56, 189, 248, 0.06) !important; }
+
+/* ── 17b. Hero CTA Line ───────────────────────────────────────── */
+.hero-cta-line {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--accent) !important;
+  letter-spacing: -0.01em;
+  margin: 0.25rem 0 1.75rem;
+  padding: 0;
+}
+
+/* ── 17c. Glass Box Pitch Section ─────────────────────────────── */
+.glass-pitch-section {
+  max-width: 820px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+
+.glass-pitch-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.glass-pitch-card {
+  background: rgba(13, 20, 36, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top glow */
+.glass-pitch-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+}
+
+.glass-pitch-lede {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.glass-pitch-body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+.glass-pitch-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(56, 189, 248, 0.25);
+  margin: 1.75rem 0;
+}
+
+.glass-pitch-reveal {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.glass-pitch-emphasis {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--text);
+  line-height: 1.75;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.glass-pitch-emphasis strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.glass-pitch-emphasis em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.glass-pitch-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.glass-pitch-tagline-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.glass-pitch-tagline-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.glass-pitch-tagline-cap {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+  margin-top: 0.25rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .glass-pitch-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .glass-pitch-section {
+    padding: 0 1rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* ── 18. Demo Section ─────────────────────────────────────────── */
+.demo-label {
+  color: var(--success) !important;
+  background: rgba(52, 211, 153, 0.08) !important;
+  border-color: rgba(52, 211, 153, 0.15) !important;
+}
+
+.demo-headline { color: var(--text) !important; }
+.demo-sub { color: var(--text-muted) !important; }
+
+.demo-player {
+  background: rgba(13, 20, 36, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(56,189,248,0.08) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.demo-chrome {
+  background: rgba(6, 10, 20, 0.8) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.demo-chrome-url {
+  background: rgba(4, 7, 15, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  color: var(--text-dim) !important;
+}
+
+.demo-left {
+  border-right-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.demo-prompt-area {
+  background: rgba(6, 10, 20, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.demo-prompt-label { color: var(--text-dim) !important; }
+.demo-prompt-text { color: var(--text) !important; }
+
+.demo-phase-row--running { background: rgba(56, 189, 248, 0.06) !important; }
+.demo-phase-row--done { background: rgba(52, 211, 153, 0.06) !important; }
+
+.demo-output-code {
+  background: rgba(4, 7, 15, 0.9) !important;
+}
+
+.demo-save-card {
+  background: rgba(6, 10, 20, 0.7) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.demo-progress-bar {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-top-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.demo-restart-btn {
+  background: transparent !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+  color: var(--text-dim) !important;
+}
+
+.demo-restart-btn:hover {
+  background: rgba(56, 189, 248, 0.08) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent-border) !important;
+}
+
+/* ── 19. Footer ───────────────────────────────────────────────── */
+footer,
+.site-footer {
+  background: rgba(4, 7, 15, 0.95) !important;
+  border-top-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.footer-logo { color: var(--text) !important; }
+.footer-tagline { color: var(--text-dim) !important; }
+.footer-col-heading { color: var(--text-muted) !important; }
+.footer-link { color: var(--text-dim) !important; }
+.footer-link:hover { color: var(--text) !important; }
+.footer-bottom { border-top-color: rgba(56, 189, 248, 0.06) !important; }
+.footer-copy { color: var(--text-dim) !important; }
+.footer-pipeline-mono, .footer-arrow { color: var(--text-dim) !important; }
+footer p { color: var(--text-dim) !important; }
+
+/* ── 20. Auth Page (signup) ───────────────────────────────────── */
+body.page-auth {
+  background: var(--bg) !important;
+}
+
+.input-container {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+}
+
+.input-container:focus-within {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12) !important;
+}
+
+.input-field {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.prompt-label { color: var(--text-muted) !important; }
+.prompt-prefix { color: var(--accent) !important; }
+.version-tag { color: var(--text-dim) !important; }
+
+.error-box {
+  background: rgba(248, 113, 113, 0.08) !important;
+  border-color: rgba(248, 113, 113, 0.2) !important;
+  color: var(--error) !important;
+}
+
+.confirm-icon {
+  background: var(--accent-dim) !important;
+  border-color: var(--accent-border) !important;
+}
+
+/* ── 21. Run Page ─────────────────────────────────────────────── */
+body.page-run,
+body.page-new-task {
+  background: var(--bg) !important;
+}
+
+.input-wrapper textarea,
+#prompt {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  color: var(--text) !important;
+}
+
+.input-wrapper textarea:focus,
+#prompt:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12) !important;
+}
+
+details {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+details summary {
+  background: rgba(13, 20, 36, 0.8) !important;
+  color: var(--text-dim) !important;
+}
+
+details > div {
+  background: rgba(10, 15, 28, 0.7) !important;
+  border-top-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+/* Run step cards (6-phase) */
+.run-step,
+body.page-run .run-step {
+  background: rgba(13, 20, 36, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ── 22. Badges & Status ──────────────────────────────────────── */
+.run-status-badge.running {
+  color: var(--accent) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+.run-status-badge.completed {
+  color: var(--success) !important;
+  background: rgba(52, 211, 153, 0.08) !important;
+}
+
+.run-status-badge.failed {
+  color: var(--error) !important;
+  background: rgba(248, 113, 113, 0.08) !important;
+}
+
+.run-status-badge.queued {
+  color: var(--text-muted) !important;
+  background: rgba(13, 20, 36, 0.6) !important;
+}
+
+.intent-badge {
+  color: var(--text-muted) !important;
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.phase-pip { background: rgba(56, 189, 248, 0.12) !important; }
+.phase-pip.done { background: var(--accent) !important; }
+.phase-pip.running { background: var(--accent) !important; }
+.phase-pip.failed { background: var(--error) !important; }
+
+/* ── 23. Trace / History Page ─────────────────────────────────── */
+.page-trace,
+.page-history {
+  background: var(--bg) !important;
+}
+
+.timeline-sidebar {
+  background: rgba(10, 15, 28, 0.85) !important;
+  border-right-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.page-trace .section,
+.page-history .section {
+  background: rgba(13, 20, 36, 0.75) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.page-trace .section-header:hover,
+.page-history .section-header:hover {
+  background: rgba(56, 189, 248, 0.04) !important;
+}
+
+.page-trace .code-block,
+.page-history .code-block,
+.json-view {
+  background: rgba(4, 7, 15, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.08) !important;
+  color: var(--text-muted) !important;
+}
+
+.summary-card {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.detail-panel {
+  background: transparent !important;
+}
+
+/* Filter bar on trace page */
+.intent-filter-bar button,
+.filter-btn {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  color: var(--text-dim) !important;
+}
+
+.intent-filter-bar button:hover,
+.filter-btn:hover,
+.intent-filter-bar button.active,
+.filter-btn.active {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: var(--accent) !important;
+}
+
+/* ── 24. Analytics Bar ────────────────────────────────────────── */
+.analytics-bar,
+#analytics-bar {
+  background: rgba(10, 15, 28, 0.8) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+  color: var(--text-dim) !important;
+}
+
+/* ── 25. Plan/Credits Badge ───────────────────────────────────── */
+.plan-credits-badge {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.12) !important;
+  color: var(--text-dim) !important;
+}
+
+.upgrade-link {
+  background: var(--accent) !important;
+  color: #060a14 !important;
+}
+
+/* ── 26. Toasts ───────────────────────────────────────────────── */
+.toast {
+  background: rgba(13, 20, 36, 0.95) !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+  color: var(--text) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+
+/* ── 27. Paused / Intervention Banners ────────────────────────── */
+.dash-paused-banner {
+  background: rgba(251, 191, 36, 0.06) !important;
+  border-color: rgba(251, 191, 36, 0.15) !important;
+}
+
+.dash-intv-panel.inject-mode,
+.dash-intv-panel.override-mode {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+/* ── 28. Completed Banner ─────────────────────────────────────── */
+.completed-banner {
+  background: rgba(13, 20, 36, 0.7) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.completed-banner.success {
+  background: rgba(52, 211, 153, 0.08) !important;
+}
+
+.completed-banner.warning {
+  background: rgba(251, 191, 36, 0.08) !important;
+}
+
+.completed-banner.error {
+  background: rgba(248, 113, 113, 0.08) !important;
+}
+
+/* ── 29. DAG Page ─────────────────────────────────────────────── */
+.page-dag { background: var(--bg) !important; }
+
+.node-card {
+  background: rgba(13, 20, 36, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.phase-header:hover { background: rgba(56, 189, 248, 0.04) !important; }
+
+.constraint-chip {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* ── 30. Old Glassmorphism → Dark Glass Override ──────────────── */
+/* Neutralize the legacy !important glassmorphism blocks */
+.card,
+.panel,
+.widget,
+.modal-content,
+.dropdown,
+.tooltip,
+.notification {
+  background: rgba(13, 20, 36, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(56, 189, 248, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sidebar {
+  background: rgba(10, 15, 28, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-right: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+/* ── 31. Glass Panel Utilities — Dark versions ─────────────────── */
+.glass-panel {
+  background: rgba(13, 20, 36, 0.7) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.12) !important;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 1px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(56, 189, 248, 0.06) !important;
+}
+
+.glass-subtle {
+  background: rgba(10, 15, 28, 0.5) !important;
+  backdrop-filter: blur(10px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(130%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+.glass-card {
+  background: rgba(13, 20, 36, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.12) !important;
+}
+
+/* ── 32. Dashboard glass panels (override) ────────────────────── */
+body.page-dashboard .run-history {
+  background: rgba(10, 15, 28, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border-right-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+body.page-dashboard .topnav {
+  background: rgba(6, 10, 20, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+body.page-dashboard .live-log {
+  background: rgba(4, 7, 15, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+body.page-dashboard .panel-content {
+  background: transparent !important;
+}
+
+body.page-dashboard .topnav,
+body.page-dashboard .run-history-header {
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+/* ── 33. Orbital Shared Nav Component ─────────────────────────── */
+
+/* Sidebar nav (new architecture) */
+.orbital-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  background: rgba(6, 10, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(56, 189, 248, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.orbital-nav-brand {
+  padding: 1.5rem 1.25rem 1rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+}
+
+.orbital-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.orbital-nav-logo:hover { color: var(--accent); }
+
+.orbital-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(56, 189, 248, 0.3);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.orbital-nav-links {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.orbital-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.orbital-nav-link:hover {
+  background: rgba(56, 189, 248, 0.06);
+  color: var(--text);
+  border-color: rgba(56, 189, 248, 0.1);
+}
+
+.orbital-nav-link.active {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--accent);
+  border-color: rgba(56, 189, 248, 0.15);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.orbital-nav-link-icon {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* New Task CTA in nav */
+.orbital-nav-cta {
+  margin: 0.75rem;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: #060a14;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.orbital-nav-cta:hover {
+  background: var(--accent-hover);
+  color: #060a14;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+}
+
+/* Nav footer */
+.orbital-nav-footer {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.orbital-nav-footer-link {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s;
+}
+
+.orbital-nav-footer-link:hover { color: var(--accent); }
+
+/* Page with sidebar nav */
+.orbital-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.orbital-layout-main {
+  flex: 1;
+  margin-left: 220px;
+  min-width: 0;
+}
+
+/* Page header bar */
+.orbital-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 56px;
+  background: rgba(6, 10, 20, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.orbital-page-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+/* ── 34. Body/background — remove legacy cloud z-index layers ─── */
+body.page-dashboard,
+body.page-run,
+body.page-new-task {
+  background: var(--bg) !important;
+}
+
+/* ── 35. Scrollbars — dark orbital ────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.3);
+}
+
+/* ── 36. Phase Progress / Pipeline dots ───────────────────────── */
+.p-connector { background: rgba(56, 189, 248, 0.1) !important; }
+
+.phase-bar-step[data-status="active"] .p-dot,
+.phase-bar-step[data-status="running"] .p-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
+}
+
+.phase-bar-step[data-status="complete"] .p-dot,
+.phase-bar-step[data-status="completed"] .p-dot {
+  background: var(--success) !important;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.4) !important;
+}
+
+/* ── 37. Section & No-selection states ────────────────────────── */
+.section-heading { color: var(--text-dim) !important; }
+.no-selection h3 { color: var(--text-muted) !important; }
+.no-selection p { color: var(--text-dim) !important; }
+
+/* ── 38. Mobile responsive sidebar ─────────────────────────────── */
+@media (max-width: 768px) {
+  .orbital-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    border-right: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+  }
+
+  .orbital-nav-brand {
+    padding: 0.75rem 0;
+    border-bottom: none;
+    flex-shrink: 0;
+  }
+
+  .orbital-nav-links {
+    flex-direction: row;
+    padding: 0.5rem 0;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .orbital-nav-cta {
+    margin: 0.5rem 0 0.5rem 0.5rem;
+    padding: 0.4rem 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .orbital-nav-footer {
+    display: none;
+  }
+
+  .orbital-layout {
+    flex-direction: column;
+  }
+
+  .orbital-layout-main {
+    margin-left: 0;
+  }
+
+  .orbital-nav-link {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .orbital-nav-link.active {
+    box-shadow: none;
+    border-bottom: 2px solid var(--accent);
+    border-radius: 0;
+  }
+}
+
+/* ── 39. Heading fonts ─────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--text) !important;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.4rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* ── 40. Run step phase glow effects ──────────────────────────── */
+/* Running phase: cyan orbital glow */
+.run-step[data-phase-status="running"],
+.run-step.running {
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2), 0 0 20px rgba(56, 189, 248, 0.08) !important;
+}
+
+/* Complete phase: green glow */
+.run-step[data-phase-status="complete"],
+.run-step.complete {
+  border-color: rgba(52, 211, 153, 0.2) !important;
+}
+
+/* Failed phase: red glow */
+.run-step[data-phase-status="failed"],
+.run-step.failed {
+  border-color: rgba(248, 113, 113, 0.2) !important;
+}
+
+/* ── 41. Cost bar overrides ────────────────────────────────────── */
+.cost-bar-track,
+.budget-track {
+  background: rgba(13, 20, 36, 0.8) !important;
+}
+
+.cost-bar-fill,
+.budget-fill {
+  background: var(--accent) !important;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* ── 42. Constraint Health Bar ────────────────────────────────── */
+.constraint-health-bar {
+  background: rgba(10, 15, 28, 0.5) !important;
+  border-bottom-color: rgba(56, 189, 248, 0.08) !important;
+}
+
+.chp {
+  background: rgba(13, 20, 36, 0.6) !important;
+  color: var(--text-muted) !important;
+}
+
+/* ── 43. Delete confirm buttons ────────────────────────────────── */
+.delete-cancel-btn {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  color: var(--text-muted) !important;
+}
+
+.delete-cancel-btn:hover {
+  color: var(--text) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+.delete-confirm-btn {
+  background: var(--error) !important;
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.2) !important;
+}
+
+/* ── 44. Intervention buttons ─────────────────────────────────── */
+.intv-btn-pause { color: var(--warning) !important; border-color: rgba(251, 191, 36, 0.2) !important; }
+.intv-btn-resume { color: var(--accent) !important; border-color: var(--accent-border) !important; }
+.intv-btn-inject, .intv-btn-override { color: var(--text-muted) !important; border-color: var(--border) !important; }
+
+/* ── 45. Retry button ──────────────────────────────────────────── */
+.retry-btn {
+  color: var(--warning) !important;
+  border-color: rgba(251, 191, 36, 0.2) !important;
+}
+
+.retry-btn:hover { background: rgba(251, 191, 36, 0.06) !important; }
+
+/* ── 46. Override selector agents ─────────────────────────────── */
+.dash-override-agent {
+  background: rgba(13, 20, 36, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.1) !important;
+  color: var(--text-muted) !important;
+}
+
+.dash-override-agent:hover,
+.dash-override-agent.sel,
+.dash-override-agent.selected {
+  background: rgba(56, 189, 248, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: var(--accent) !important;
+}
+
+/* ── 47. Diff items ────────────────────────────────────────────── */
+.diff-item.info { background: rgba(13, 20, 36, 0.6) !important; color: var(--text-muted) !important; }
+.diff-item.added { background: rgba(52, 211, 153, 0.05) !important; }
+.diff-item.passed { background: rgba(52, 211, 153, 0.05) !important; color: var(--success) !important; }
+.diff-item.failed { background: rgba(248, 113, 113, 0.05) !important; color: var(--error) !important; }
+.diff-item.error { background: rgba(248, 113, 113, 0.05) !important; color: var(--error) !important; }
+.diff-item.warning { background: rgba(251, 191, 36, 0.05) !important; color: var(--warning) !important; }
+
+/* ── 48. Budget details section ────────────────────────────────── */
+.config-details {
+  border-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+.config-summary {
+  color: var(--text-dim) !important;
+  background: rgba(13, 20, 36, 0.6) !important;
+}
+
+.config-body {
+  background: rgba(10, 15, 28, 0.7) !important;
+}
+
+.config-hint { color: var(--text-dim) !important; }
+.config-label { color: var(--text-muted) !important; }
+.config-chip { color: var(--text-dim) !important; }
+
+/* ── 49. Phase pill progress animation ─────────────────────────── */
+@keyframes pip-pulse-orbital {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--accent); }
+  50% { opacity: 0.7; box-shadow: 0 0 12px var(--accent); }
+}
+
+.phase-pip.running {
+  animation: pip-pulse-orbital 1s ease-in-out infinite !important;
+}
+
+/* ── 50. Misc overrides ────────────────────────────────────────── */
+
+/* Sidebar cloud layer — neutralize */
+.sidebar::before {
+  background: none !important;
+  animation: none !important;
+}
+
+/* Card/panel/widget cloud layers — neutralize */
+.card::before,
+.panel::before,
+.widget::before {
+  background: none !important;
+  animation: none !important;
+}
+
+/* driftSlow body::after — neutralize */
+body::after {
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+/* Build orbit footer brand */
+.footer-logo-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 8px var(--accent) !important;
+}
+
+/* Chip tokens */
+.chip-tokens {
+  background: rgba(167, 139, 250, 0.08) !important;
+  color: #a78bfa !important;
+}
+
+/* Z-index fix: content above any bg layers */
+body.page-dashboard .layout,
+body.page-dashboard .topnav,
+body.page-dashboard .modal-overlay,
+body.page-run main,
+body.page-new-task main,
+body.page-run nav,
+body.page-new-task nav {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* ── Dashboard Hero ───────────────────────────────────────────── */
+.dash-hero {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 1.5rem;
+  overflow: hidden;
+  /* entrance animation */
+  animation: hero-enter 0.5s ease both;
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Orbital rings — decorative background */
+.dash-hero-orbital {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.dho-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.04);
+}
+
+.dho-ring-1 {
+  width: 500px; height: 500px;
+  top: -200px; right: -100px;
+  animation: orbit-rotate 90s linear infinite;
+}
+.dho-ring-2 {
+  width: 300px; height: 300px;
+  top: -80px; right: 80px;
+  border-color: rgba(56, 189, 248, 0.06);
+  animation: orbit-rotate 60s linear infinite reverse;
+}
+.dho-ring-3 {
+  width: 180px; height: 180px;
+  top: -20px; right: 180px;
+  border-color: rgba(56, 189, 248, 0.08);
+  animation: orbit-rotate 40s linear infinite;
+}
+
+/* Welcome row */
+.dash-hero-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.dash-hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin: 0 0 0.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.dash-hero-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.dash-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* System status indicator */
+.dash-system-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: rgba(13, 20, 36, 0.6);
+}
+
+.dss-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.dss-dot.healthy { background: var(--success); box-shadow: 0 0 8px rgba(52, 211, 153, 0.5); }
+.dss-dot.running {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+.dss-dot.idle { background: var(--text-dim); }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* New Build CTA */
+.dash-hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #060a14;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+}
+
+.dash-hero-cta:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Stat grid */
+.dash-stat-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  animation: hero-enter 0.55s 0.08s ease both;
+}
+
+.dash-stat-card {
+  background: rgba(13, 20, 36, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.dash-stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+}
+
+.dash-stat-card:hover { border-color: rgba(56, 189, 248, 0.18); }
+.dash-stat-card:hover::before { opacity: 1; }
+
+.dash-stat-card.success { border-color: rgba(52, 211, 153, 0.1); }
+.dash-stat-card.success:hover { border-color: rgba(52, 211, 153, 0.25); }
+.dash-stat-card.success .dsc-value { color: var(--success); }
+
+.dash-stat-card.accent { border-color: rgba(56, 189, 248, 0.12); }
+.dash-stat-card.accent .dsc-value { color: var(--accent); }
+
+.dash-stat-card.live { border-color: rgba(56, 189, 248, 0.1); }
+.dash-stat-card.live.pulsing { border-color: rgba(56, 189, 248, 0.25); animation: card-pulse 2s ease-in-out infinite; }
+@keyframes card-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.08); }
+}
+.dash-stat-card.live .dsc-value { color: var(--accent); }
+
+.dsc-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 0.5rem;
+}
+
+.dsc-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -1px;
+}
+
+.dsc-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+}
+
+/* Hero body: intent dist + recent runs */
+.dash-hero-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: hero-enter 0.6s 0.15s ease both;
+}
+
+/* Intent distribution */
+.dash-intent-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dis-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  flex-shrink: 0;
+}
+
+.dis-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dis-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: rgba(13, 20, 36, 0.5);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.dis-pill strong { color: var(--text); }
+.dis-pct { color: var(--text-dim); font-size: 0.65rem; }
+
+/* Recent runs */
+.dash-recent-section {
+  background: rgba(13, 20, 36, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.drs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem 0.75rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+}
+
+.drs-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+}
+
+.drs-see-all {
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  transition: color 0.15s;
+}
+.drs-see-all:hover { color: var(--accent-hover); }
+
+.drs-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.drs-empty {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.drs-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.04);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.drs-item:last-child { border-bottom: none; }
+
+.drs-item:hover {
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.drs-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.drs-prompt {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.3rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.drs-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.drs-badge {
+  font-size: 0.65rem;
+  font-family: 'Space Mono', monospace;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.drs-badge.completed { color: var(--success); background: rgba(52, 211, 153, 0.08); }
+.drs-badge.failed { color: var(--error); background: rgba(248, 113, 113, 0.08); }
+.drs-badge.running { color: var(--accent); background: rgba(56, 189, 248, 0.08); animation: pulse-dot 1.5s ease-in-out infinite; }
+.drs-badge.paused { color: var(--warning); background: rgba(251, 191, 36, 0.08); }
+.drs-badge.queued { color: var(--text-dim); background: rgba(74, 88, 120, 0.15); }
+
+.drs-intent {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+.drs-dur {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+}
+
+.drs-time {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+}
+
+.drs-arrow {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.drs-item:hover .drs-arrow { color: var(--accent); background: rgba(56, 189, 248, 0.06); }
+
+/* Section divider between hero and live monitor */
+.dash-section-divider {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto 0;
+}
+
+.dsd-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  font-family: 'Space Mono', monospace;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dsd-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(56, 189, 248, 0.06);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dash-hero { padding: 1.25rem 1rem 1rem; }
+  .dash-hero-top { flex-direction: column; gap: 1rem; }
+  .dash-hero-actions { width: 100%; justify-content: space-between; }
+  .dash-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .dsc-value { font-size: 1.5rem; }
+  .dho-ring { display: none; }
+}
+
+@media (max-width: 480px) {
+  .dash-stat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .dsc-value { font-size: 1.25rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Free vs Pro Comparison Section — Landing Page
+   ═══════════════════════════════════════════════════════════════ */
+
+.comparison-section {
+  padding: 72px 0 80px;
+  position: relative;
+}
+
+.comparison-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.comparison-headline {
+  margin-bottom: 10px;
+}
+
+/* Grid: [Free col] [vs divider] [Pro col] */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 0;
+  margin-top: 48px;
+  align-items: stretch;
+  text-align: left;
+}
+
+/* ── Plan columns ── */
+.comparison-col {
+  background: rgba(13, 20, 36, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comparison-col--pro {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.06),
+              0 1px 0 rgba(56, 189, 248, 0.12) inset;
+}
+
+.comparison-col--free:hover {
+  border-color: rgba(56, 189, 248, 0.18);
+}
+
+.comparison-col--pro:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 60px rgba(56, 189, 248, 0.1),
+              0 1px 0 rgba(56, 189, 248, 0.2) inset;
+}
+
+/* Plan badge */
+.comparison-plan-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #060a14;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  padding: 3px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Plan name + price */
+.comparison-plan-name {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.comparison-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.comparison-price-amount {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: -1.5px;
+  color: var(--text);
+}
+
+.comparison-price-period {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.comparison-plan-sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Feature list */
+.comparison-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  flex: 1;
+}
+
+.comparison-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.04);
+  line-height: 1.45;
+}
+
+.comparison-features li:last-child {
+  border-bottom: none;
+}
+
+.comparison-features li strong {
+  color: var(--text);
+}
+
+.feat-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-family: 'Space Mono', monospace;
+  width: 14px;
+}
+
+.comparison-features .feat-yes .feat-icon {
+  color: var(--success);
+}
+
+.comparison-features .feat-no .feat-icon {
+  color: var(--text-dim);
+}
+
+.comparison-features .feat-no {
+  opacity: 0.5;
+}
+
+/* Highlighted Pro rows */
+.feat-highlight strong {
+  color: var(--accent) !important;
+}
+
+/* CTAs */
+.comparison-cta {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.comparison-cta--free {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+.comparison-cta--free:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  color: var(--text);
+}
+
+.comparison-cta--pro {
+  background: var(--accent);
+  color: #060a14;
+  border: none;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+}
+
+.comparison-cta--pro:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 0 36px rgba(56, 189, 248, 0.45);
+}
+
+.comparison-cta-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+}
+
+/* Center divider column */
+.comparison-divider-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-vs {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(13, 20, 36, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 680px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .comparison-divider-col {
+    display: none;
+  }
+
+  .comparison-col--pro {
+    order: -1; /* Pro shows first on mobile */
+  }
+}

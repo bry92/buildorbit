@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate current interactivity check in src/phases/pipeline.js",
+    "status": "completed",
+    "activeForm": "Investigating interactivity check"
+  },
+  {
+    "content": "Investigate _extractInlinedAssets in src/agents/builder-agent.js",
+    "status": "completed",
+    "activeForm": "Investigating _extractInlinedAssets method"
+  },
+  {
+    "content": "Apply interactivity check patch to src/phases/pipeline.js",
+    "status": "completed",
+    "activeForm": "Patching interactivity check"
+  },
+  {
+    "content": "Apply _extractInlinedAssets patch to src/agents/builder-agent.js",
+    "status": "completed",
+    "activeForm": "Patching _extractInlinedAssets"
+  },
+  {
+    "content": "Verify syntax and push to remote",
+    "status": "in_progress",
+    "activeForm": "Verifying and pushing"
+  }
+]

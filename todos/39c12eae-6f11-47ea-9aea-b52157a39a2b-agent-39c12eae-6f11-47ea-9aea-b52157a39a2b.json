@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate the runs/history API endpoint for user_id filtering",
+    "status": "completed",
+    "activeForm": "Investigating the runs/history API endpoint for user_id filtering"
+  },
+  {
+    "content": "Check pipeline_runs table schema for user_id column",
+    "status": "completed",
+    "activeForm": "Checking pipeline_runs table for user_id column"
+  },
+  {
+    "content": "Fix the data isolation bug - scope all queries by user_id",
+    "status": "completed",
+    "activeForm": "Fixing data isolation - scoping queries by user_id"
+  },
+  {
+    "content": "Verify the fix works (fresh account sees zero runs)",
+    "status": "in_progress",
+    "activeForm": "Verifying the fix works"
+  }
+]

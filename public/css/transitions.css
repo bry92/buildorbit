@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════════════════
+   BuildOrbit Page Transitions
+   Adds smooth, professional page transitions across the app.
+   Fast by design: 150–250ms max.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Page Entry Animations ─────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered page entry — main content slides up on load */
+main {
+  animation: slideUp 0.2s ease-out both;
+}
+
+/* Staggered entry for cards and panels */
+.card,
+.panel,
+.section-block {
+  animation: slideUp 0.2s ease-out both;
+}
+
+/* Nav and footer load instantly (no animation) */
+nav,
+footer,
+.topnav {
+  animation: none;
+}
+
+/* ── 2. Navigation Transitions ──────────────────────────────────── */
+
+/* View Transitions API (where supported) */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) {
+    animation: 150ms ease-out fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 200ms ease-out fade-in;
+  }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Nav link hover → press feedback */
+a.nav-link,
+a.nav-action-link,
+.topnav a,
+.nav-link-inline {
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Logo hover — subtle pulse */
+a.logo {
+  transition: opacity 0.15s ease;
+}
+a.logo:hover {
+  opacity: 0.8;
+}
+
+/* Back link hover */
+a.nav-back:hover {
+  color: var(--accent);
+}
+
+/* ── 3. Button Press Feedback ──────────────────────────────────── */
+
+/* Primary button press */
+.btn-primary:active,
+.run-pipeline-btn:active,
+.start-build-btn:active,
+.cta-btn:active,
+.nav-cta:active,
+.new-run-btn:active,
+#run-btn:active,
+.modal-run-btn:active,
+.price-cta:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 2px rgba(14, 165, 233, 0.15);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Secondary button press */
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+  background: var(--accent-dim);
+  transition: transform 0.1s ease;
+}
+
+/* Ghost button press */
+.btn-ghost:active {
+  transform: translateY(0) scale(0.98);
+  background: var(--surface-2);
+  border-color: var(--border-focus);
+  transition: transform 0.1s ease;
+}
+
+/* Danger button press */
+.btn-danger:active,
+.delete-confirm-btn:active {
+  transform: translateY(0) scale(0.98);
+  background: #DC2626;
+  box-shadow: none;
+  transition: transform 0.1s ease;
+}
+
+/* Small buttons press */
+.btn-sm:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+/* General button press — all buttons scale down slightly */
+button:active,
+[class*='btn']:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* ── 4. Loading / Skeleton States ─────────────────────────────── */
+
+/* Page transition overlay — brief flash prevention */
+.page-loading::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  animation: page-unloading 0.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes page-unloading {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Skeleton shimmer for loading content */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-2) 25%,
+    var(--border) 50%,
+    var(--surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+  height: 14px;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.skeleton-text:last-child {
+  width: 60%;
+  margin-bottom: 0;
+}
+
+.skeleton-block {
+  border-radius: var(--radius-md);
+}
+
+/* Fade-in on content load (for async content) */
+.fade-in {
+  animation: fadeIn 0.2s ease-out both;
+}
+
+/* ── 5. Micro-interactions ─────────────────────────────────────── */
+
+/* Phase badges — subtle pulse on active */
+.phase-pip.running {
+  animation: pip-pulse 1s ease-in-out infinite;
+}
+
+/* Status dots — pulse to draw attention */
+.status-dot.running,
+.status-dot.active {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Tooltip / popover fade in */
+[class*='tooltip'],
+.popover {
+  animation: fadeIn 0.15s ease-out both;
+}
+
+/* ── 6. Focus / Active States ─────────────────────────────────── */
+
+/* Visible focus ring for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Remove focus ring on mouse click (keep for keyboard nav) */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── 7. Card / List Item Hover ─────────────────────────────────── */
+
+.run-item:hover,
+.build-card:hover,
+.file-tree-item:hover {
+  background: var(--surface-2);
+  transition: background 0.15s ease;
+}
+
+/* ── 8. Spinner Enhancement ────────────────────────────────────── */
+
+.spinner {
+  animation: spin 0.65s linear infinite;
+  transition: none; /* Spinners should not ease */
+}
+
+/* ── 9. Copilot Page Specific ─────────────────────────────────── */
+
+/* Chat message appear */
+.chat-message {
+  animation: slideUp 0.2s ease-out both;
+}
+
+/* Copilot file tree items */
+.file-tree-item {
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+/* ── 10. Settings / Dashboard Transitions ─────────────────────── */
+
+/* Toggle switches */
+.toggle-switch {
+  transition: background 0.15s ease;
+}
+
+/* Section expand/collapse */
+details[open] .config-body,
+details[open] summary .chevron {
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* ── 11. View Transitions — Cross-page Fade ────────────────────── */
+
+/* Applied via JS before navigation (fallback for non-supporting browsers) */
+.page-fade-out {
+  animation: fade-out 0.15s ease-out forwards;
+}
+
+.page-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}

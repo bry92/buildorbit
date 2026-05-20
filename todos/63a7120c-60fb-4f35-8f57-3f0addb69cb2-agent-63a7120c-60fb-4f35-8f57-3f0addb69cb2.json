@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate: understand pipeline execution flow and why VERIFY→CODE retry isn't firing",
+    "status": "completed",
+    "activeForm": "Investigating pipeline execution flow and VERIFY→CODE retry logic"
+  },
+  {
+    "content": "Identify root cause with evidence",
+    "status": "completed",
+    "activeForm": "Identifying root cause with evidence"
+  },
+  {
+    "content": "Implement fix for feedback loop",
+    "status": "completed",
+    "activeForm": "Implementing fix for feedback loop"
+  },
+  {
+    "content": "Verify fix works and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and deploying"
+  },
+  {
+    "content": "Update CLAUDE.md and notify owner",
+    "status": "pending",
+    "activeForm": "Updating CLAUDE.md and notifying owner"
+  }
+]

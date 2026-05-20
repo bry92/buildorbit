@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate codebase: find streaming/SSE/WebSocket connection code",
+    "status": "completed",
+    "activeForm": "Investigating streaming connection code"
+  },
+  {
+    "content": "Review previous attempts and recent git history",
+    "status": "completed",
+    "activeForm": "Reviewing previous attempts"
+  },
+  {
+    "content": "State root cause hypothesis with evidence",
+    "status": "completed",
+    "activeForm": "Forming root cause hypothesis"
+  },
+  {
+    "content": "Implement connection loss detection + reconnection + state recovery",
+    "status": "completed",
+    "activeForm": "Implementing reconnection fix"
+  },
+  {
+    "content": "Push and verify the fix",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying fix"
+  },
+  {
+    "content": "Notify owner of completion",
+    "status": "pending",
+    "activeForm": "Notifying owner"
+  }
+]

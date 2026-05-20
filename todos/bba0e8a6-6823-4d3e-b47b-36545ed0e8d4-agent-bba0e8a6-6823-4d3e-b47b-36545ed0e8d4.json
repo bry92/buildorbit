@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Add env var validation at startup (fail-fast)",
+    "status": "completed",
+    "activeForm": "Added environment variable validation at startup"
+  },
+  {
+    "content": "Add correlation ID middleware to all requests",
+    "status": "completed",
+    "activeForm": "Added correlation ID middleware"
+  },
+  {
+    "content": "Install zod and add schema validation to API responses",
+    "status": "completed",
+    "activeForm": "Installed zod and added schema validation"
+  },
+  {
+    "content": "Verify integration and test deployment",
+    "status": "in_progress",
+    "activeForm": "Verifying integration and testing deployment"
+  },
+  {
+    "content": "Extract auth.js concerns into focused modules (follow-up task)",
+    "status": "pending",
+    "activeForm": "Extracting auth concerns"
+  },
+  {
+    "content": "Split god files (pipeline-orchestrator, server) (follow-up task)",
+    "status": "pending",
+    "activeForm": "Splitting god files"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate the fix data flow: load → fix → save → reload cycle",
+    "status": "completed",
+    "activeForm": "Investigating the fix data flow"
+  },
+  {
+    "content": "Fix _loadCodeFiles artifact store lookup (filename + artifact name)",
+    "status": "completed",
+    "activeForm": "Fixing _loadCodeFiles artifact store lookup"
+  },
+  {
+    "content": "Fix _saveUpdatedCode to also update the artifact store",
+    "status": "completed",
+    "activeForm": "Fixing save to update artifact store"
+  },
+  {
+    "content": "Enrich _buildFixPrompt with failure reasons and check descriptions",
+    "status": "completed",
+    "activeForm": "Enriching the fix prompt"
+  },
+  {
+    "content": "Fix _runSingleCheck to cover all QA agent checks",
+    "status": "completed",
+    "activeForm": "Completing _runSingleCheck coverage"
+  },
+  {
+    "content": "Verify fix works end-to-end, push and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying and deploying"
+  }
+]

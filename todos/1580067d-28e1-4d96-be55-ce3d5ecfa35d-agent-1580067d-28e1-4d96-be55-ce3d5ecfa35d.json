@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Replace raw HTTPS sendMagicLinkEmail with Postmark SDK",
+    "status": "completed",
+    "activeForm": "Replacing raw HTTPS email transport with Postmark SDK"
+  },
+  {
+    "content": "Verify no raw HTTPS remnants with grep",
+    "status": "completed",
+    "activeForm": "Verifying no raw HTTPS remnants"
+  },
+  {
+    "content": "Push changes and deploy",
+    "status": "in_progress",
+    "activeForm": "Pushing changes and deploying"
+  }
+]

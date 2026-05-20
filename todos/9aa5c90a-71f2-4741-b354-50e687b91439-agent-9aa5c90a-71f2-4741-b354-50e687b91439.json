@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate SCAFFOLD phase failure on existing repo builds",
+    "status": "completed",
+    "activeForm": "Investigating SCAFFOLD phase failure"
+  },
+  {
+    "content": "Identify root cause with evidence",
+    "status": "completed",
+    "activeForm": "Identifying root cause"
+  },
+  {
+    "content": "Implement fix for state machine desync when skipping completed stages",
+    "status": "completed",
+    "activeForm": "Implementing fix for state machine desync"
+  },
+  {
+    "content": "Fix secondary bug: scaffold constraint violation for extend_existing mode",
+    "status": "completed",
+    "activeForm": "Fixing scaffold constraint violation"
+  },
+  {
+    "content": "Verify fix and deploy",
+    "status": "in_progress",
+    "activeForm": "Verifying fix and deploying"
+  },
+  {
+    "content": "Update CLAUDE.md and notify owner",
+    "status": "pending",
+    "activeForm": "Updating docs and notifying owner"
+  }
+]

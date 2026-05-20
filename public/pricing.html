@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — BuildOrbit</title>
+    <link rel="stylesheet" href="/css/buildorbit.css?v=20260511a">
+    <link rel="stylesheet" href="/css/transitions.css?v=20260511a">
+    <link rel="stylesheet" href="/css/orbital-theme.css?v=20260511a">
+    <style>
+      /* ── Pricing page layout ─────────────────────────────── */
+      body { min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+
+      .pricing-nav {
+        width: 100%; max-width: 1080px; padding: 20px 24px 0;
+        display: flex; align-items: center; justify-content: space-between;
+      }
+      .pricing-logo {
+        display: flex; align-items: center; gap: 8px;
+        text-decoration: none; font-weight: 700; font-size: 15px;
+        letter-spacing: -0.3px; color: var(--text);
+      }
+      .pricing-logo .logo-dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--accent); box-shadow: 0 0 8px var(--accent);
+      }
+      .pricing-nav-right { display: flex; align-items: center; gap: 16px; }
+      .pricing-nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+      .pricing-nav-link:hover { color: var(--text); }
+
+      /* ── Hero ─────────────────────────────────────────────── */
+      .pricing-hero {
+        text-align: center; padding: 56px 24px 40px; max-width: 600px;
+      }
+      .pricing-badge {
+        display: inline-block; font-size: 11px; font-family: 'Space Mono', monospace;
+        color: var(--accent); background: rgba(56,189,248,0.08);
+        border: 1px solid rgba(56,189,248,0.2); border-radius: 20px;
+        padding: 4px 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px;
+      }
+      .pricing-hero h1 {
+        font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.8px;
+        margin: 0 0 14px; line-height: 1.15;
+      }
+      .pricing-hero h1 span { color: var(--accent); }
+      .pricing-hero p {
+        font-size: 16px; color: var(--text-muted); margin: 0; line-height: 1.6;
+      }
+
+      /* ── Plan grid ────────────────────────────────────────── */
+      .plan-grid {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 20px; max-width: 760px; width: 100%; padding: 0 24px;
+        margin-bottom: 48px;
+      }
+      @media (max-width: 600px) {
+        .plan-grid { grid-template-columns: 1fr; }
+      }
+
+      .plan-card {
+        background: rgba(13,20,36,0.85); border: 1px solid rgba(56,189,248,0.1);
+        border-radius: 16px; padding: 32px 28px; position: relative;
+        display: flex; flex-direction: column;
+      }
+      .plan-card.pro {
+        border-color: rgba(56,189,248,0.35);
+        box-shadow: 0 0 40px rgba(56,189,248,0.07), 0 1px 0 rgba(56,189,248,0.15) inset;
+      }
+
+      .plan-badge-best {
+        position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+        background: var(--accent); color: #060a14; font-size: 11px; font-weight: 700;
+        font-family: 'Space Mono', monospace; padding: 3px 12px; border-radius: 20px;
+        letter-spacing: 0.06em; white-space: nowrap;
+      }
+
+      .plan-name {
+        font-size: 13px; font-family: 'Space Mono', monospace; color: var(--text-dim);
+        text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px;
+      }
+      .plan-price {
+        font-size: 40px; font-weight: 700; font-family: 'Space Mono', monospace;
+        letter-spacing: -2px; color: var(--text); line-height: 1; margin-bottom: 6px;
+      }
+      .plan-price .per { font-size: 16px; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
+      .plan-price .free-label { font-size: 32px; letter-spacing: -1px; }
+      .plan-tagline {
+        font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5;
+      }
+
+      /* Feature list */
+      .plan-features { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
+      .plan-features li {
+        display: flex; align-items: flex-start; gap: 10px;
+        font-size: 13.5px; color: var(--text-muted); padding: 7px 0;
+        border-bottom: 1px solid rgba(56,189,248,0.04);
+      }
+      .plan-features li:last-child { border-bottom: none; }
+      .plan-features li strong { color: var(--text); }
+      .feat-check { color: var(--success); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+      .feat-no    { color: var(--text-dim); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+      /* CTAs */
+      .plan-cta {
+        display: block; width: 100%; padding: 13px; border-radius: 10px;
+        font-size: 14px; font-weight: 700; font-family: 'Space Grotesk', sans-serif;
+        text-align: center; text-decoration: none; cursor: pointer; border: none;
+        transition: all 0.15s;
+      }
+      .plan-cta.primary {
+        background: var(--accent); color: #060a14;
+        box-shadow: 0 0 20px rgba(56,189,248,0.3);
+      }
+      .plan-cta.primary:hover { background: var(--accent-hover); box-shadow: 0 0 30px rgba(56,189,248,0.45); }
+      .plan-cta.secondary {
+        background: transparent; color: var(--text-muted);
+        border: 1px solid rgba(56,189,248,0.15);
+      }
+      .plan-cta.secondary:hover { border-color: rgba(56,189,248,0.3); color: var(--text); }
+      .plan-cta:disabled { opacity: 0.6; cursor: not-allowed; }
+
+      .plan-note {
+        text-align: center; font-size: 12px; color: var(--text-dim); margin-top: 10px;
+      }
+
+      /* ── FAQ-style trust row ──────────────────────────────── */
+      .pricing-trust {
+        display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
+        max-width: 760px; padding: 0 24px 48px; text-align: center;
+      }
+      .trust-item { font-size: 13px; color: var(--text-dim); }
+      .trust-item strong { color: var(--text-muted); display: block; margin-bottom: 2px; }
+
+      /* Back link */
+      .pricing-back {
+        display: inline-block; margin-bottom: 40px;
+        font-size: 13px; color: var(--text-dim); text-decoration: none;
+        transition: color 0.15s;
+      }
+      .pricing-back:hover { color: var(--text-muted); }
+    </style>
+</head>
+<body class="page-pricing">
+
+    <nav class="pricing-nav">
+        <a href="/" class="pricing-logo">
+            <div class="logo-dot"></div>
+            <span>BuildOrbit</span>
+        </a>
+        <div class="pricing-nav-right">
+            <a href="/dashboard" class="pricing-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="pricing-hero">
+        <div class="pricing-badge">Simple pricing</div>
+        <h1>Build in the open.<br><span>Ship every day.</span></h1>
+        <p>Start free. Upgrade when you're ready for unlimited builds and priority queue.</p>
+    </div>
+
+    <div class="plan-grid">
+
+        <!-- Free Trial -->
+        <div class="plan-card">
+            <div class="plan-name">Free Trial</div>
+            <div class="plan-price"><span class="free-label">Free</span></div>
+            <div class="plan-tagline">10 credits to explore the full pipeline. No credit card required.</div>
+
+            <ul class="plan-features">
+                <li><span class="feat-check">✓</span> <span><strong>10 trial credits</strong> on signup</span></li>
+                <li><span class="feat-check">✓</span> <span>Full 6-phase pipeline per build</span></li>
+                <li><span class="feat-check">✓</span> <span>Live dashboard + audit trail</span></li>
+                <li><span class="feat-check">✓</span> <span>Deployed preview for every build</span></li>
+                <li><span class="feat-no">—</span>   <span>Unlimited builds</span></li>
+                <li><span class="feat-no">—</span>   <span>Priority generation queue</span></li>
+                <li><span class="feat-no">—</span>   <span>GitHub auto-push + PR creation</span></li>
+                <li><span class="feat-no">—</span>   <span>Custom domains</span></li>
+            </ul>
+
+            <a href="/dashboard" class="plan-cta secondary" id="trial-cta">Go to dashboard →</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="plan-card pro">
+            <div class="plan-badge-best">MOST POPULAR</div>
+            <div class="plan-name">Pro</div>
+            <div class="plan-price">$29<span class="per">/month</span></div>
+            <div class="plan-tagline">Everything in trial, plus unlimited builds and full automation.</div>
+
+            <ul class="plan-features">
+                <li><span class="feat-check">✓</span> <span><strong>Unlimited builds</strong></span></li>
+                <li><span class="feat-check">✓</span> <span><strong>10 bonus credits</strong> on signup</span></li>
+                <li><span class="feat-check">✓</span> <span><strong>5 renewal credits</strong> every month</span></li>
+                <li><span class="feat-check">✓</span> <span>Full 6-phase pipeline per build</span></li>
+                <li><span class="feat-check">✓</span> <span>Live dashboard + audit trail</span></li>
+                <li><span class="feat-check">✓</span> <span>Priority generation queue</span></li>
+                <li><span class="feat-check">✓</span> <span>GitHub auto-push + PR creation</span></li>
+                <li><span class="feat-check">✓</span> <span>Custom domains</span></li>
+            </ul>
+
+            <button class="plan-cta primary" id="pro-cta">Subscribe for $29/month →</button>
+            <div class="plan-note">Secured by Stripe · Cancel any time</div>
+        </div>
+    </div>
+
+    <div class="pricing-trust">
+        <div class="trust-item"><strong>Cancel anytime</strong>No lock-in, no questions asked</div>
+        <div class="trust-item"><strong>Stripe-secured</strong>PCI-compliant checkout</div>
+        <div class="trust-item"><strong>Instant activation</strong>Credits land immediately</div>
+        <div class="trust-item"><strong>Full pipeline access</strong>Every phase, every time</div>
+    </div>
+
+    <a href="/dashboard" class="pricing-back">← Back to dashboard</a>
+
+    <script>
+    (async () => {
+        const proBtn = document.getElementById('pro-cta');
+
+        async function startCheckout() {
+            proBtn.disabled = true;
+            proBtn.textContent = 'Redirecting…';
+            try {
+                const res = await fetch('/api/billing/create-checkout', { method: 'POST' });
+                const data = await res.json();
+                if (data.success && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    proBtn.disabled = false;
+                    proBtn.textContent = 'Subscribe for $29/month →';
+                }
+            } catch (_) {
+                proBtn.disabled = false;
+                proBtn.textContent = 'Subscribe for $29/month →';
+            }
+        }
+
+        proBtn.addEventListener('click', startCheckout);
+
+        // Check if already subscribed — swap CTA accordingly
+        try {
+            const r = await fetch('/api/billing/status');
+            if (!r.ok) return;
+            const d = await r.json();
+            if (!d.success) return;
+
+            if (d.subscription_status === 'active') {
+                proBtn.textContent = '✓ You\'re on Pro — Go to dashboard';
+                proBtn.style.background = 'var(--success)';
+                proBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = '/dashboard';
+                }, { once: true });
+                proBtn.removeEventListener('click', startCheckout);
+            }
+        } catch (_) {}
+    })();
+    </script>
+</body>
+</html>

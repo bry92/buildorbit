@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Create migration 018_analytics_events.js",
+    "status": "completed",
+    "activeForm": "Creating migration 018_analytics_events.js"
+  },
+  {
+    "content": "Create lib/analytics.js event emitter",
+    "status": "completed",
+    "activeForm": "Creating lib/analytics.js event emitter"
+  },
+  {
+    "content": "Hook analytics events into pipeline-orchestrator.js",
+    "status": "completed",
+    "activeForm": "Hooking analytics events into pipeline-orchestrator.js"
+  },
+  {
+    "content": "Hook TASK_SUBMITTED + SESSION_STARTED in server.js",
+    "status": "completed",
+    "activeForm": "Hooking TASK_SUBMITTED + SESSION_STARTED in server.js"
+  },
+  {
+    "content": "Create routes/analytics.js with GET /api/analytics/summary",
+    "status": "completed",
+    "activeForm": "Creating routes/analytics.js"
+  },
+  {
+    "content": "Mount analytics route and add dashboard widget",
+    "status": "completed",
+    "activeForm": "Mounting analytics route and adding dashboard widget"
+  },
+  {
+    "content": "Push to remote and verify",
+    "status": "in_progress",
+    "activeForm": "Pushing to remote and verifying"
+  }
+]

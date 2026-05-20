@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Explore current codebase and check existing state",
+    "status": "completed",
+    "activeForm": "Exploring current codebase"
+  },
+  {
+    "content": "Build the 5-phase pipeline backend (/api/pipeline endpoint + SSE streaming)",
+    "status": "completed",
+    "activeForm": "Building pipeline backend"
+  },
+  {
+    "content": "Build the pipeline progress UI with real-time phase updates",
+    "status": "completed",
+    "activeForm": "Building pipeline progress UI"
+  },
+  {
+    "content": "Wire up end-to-end flow: add CTA to landing page, fix route order",
+    "status": "completed",
+    "activeForm": "Wiring up end-to-end flow"
+  },
+  {
+    "content": "Push to remote and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Deploying to production"
+  },
+  {
+    "content": "Complete task and notify owner",
+    "status": "pending",
+    "activeForm": "Completing task and notifying owner"
+  }
+]

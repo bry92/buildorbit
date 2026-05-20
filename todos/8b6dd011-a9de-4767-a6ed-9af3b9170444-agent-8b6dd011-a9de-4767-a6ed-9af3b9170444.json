@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate the bug: find where verification results and completion banner are rendered",
+    "status": "completed",
+    "activeForm": "Investigating the bug in the codebase"
+  },
+  {
+    "content": "Fix the PASSED threshold logic in qa-agent.js (3/7 should not be PASSED)",
+    "status": "completed",
+    "activeForm": "Fixing the PASSED threshold logic"
+  },
+  {
+    "content": "Fix the completion banner to reflect actual verification results",
+    "status": "completed",
+    "activeForm": "Fixing the completion banner logic"
+  },
+  {
+    "content": "Push fix and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing fix and verifying deployment"
+  }
+]

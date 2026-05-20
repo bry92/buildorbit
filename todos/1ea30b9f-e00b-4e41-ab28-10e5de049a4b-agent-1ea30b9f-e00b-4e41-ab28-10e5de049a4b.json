@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate current builder-agent.js and pipeline.js code",
+    "status": "completed",
+    "activeForm": "Investigating current code state"
+  },
+  {
+    "content": "Raise max_tokens from 16K to 64K+",
+    "status": "completed",
+    "activeForm": "Raising max_tokens ceiling"
+  },
+  {
+    "content": "Implement batched file generation as safety net",
+    "status": "completed",
+    "activeForm": "Implementing batched file generation"
+  },
+  {
+    "content": "Add output truncation detection and continuation",
+    "status": "completed",
+    "activeForm": "Adding truncation detection"
+  },
+  {
+    "content": "Verify fix works end-to-end",
+    "status": "in_progress",
+    "activeForm": "Verifying fix works"
+  },
+  {
+    "content": "Push changes and notify owner",
+    "status": "pending",
+    "activeForm": "Pushing changes and notifying owner"
+  }
+]

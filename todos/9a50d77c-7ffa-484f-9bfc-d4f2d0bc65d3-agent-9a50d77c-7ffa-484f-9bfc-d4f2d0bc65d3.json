@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Trace fix persistence bug — find where verify results fail to update pipeline_runs.verification",
+    "status": "completed",
+    "activeForm": "Tracing fix persistence bug in verify-fix route and run details endpoint"
+  },
+  {
+    "content": "Fix persistence bug — update pipeline_events verify payload after successful fix",
+    "status": "completed",
+    "activeForm": "Fixing persistence bug in verify-fix route"
+  },
+  {
+    "content": "Audit 'useState setters are actually called' check for false positives",
+    "status": "completed",
+    "activeForm": "Auditing useState setter check logic"
+  },
+  {
+    "content": "Audit 'All files within allowed artifacts' check for scaffold manifest mismatch",
+    "status": "completed",
+    "activeForm": "Auditing allowed artifacts check logic"
+  },
+  {
+    "content": "Audit 'Vite HTML (no CDN scripts, module entry)' check relevance",
+    "status": "completed",
+    "activeForm": "Auditing Vite HTML CDN check logic"
+  },
+  {
+    "content": "Push and verify deployed",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

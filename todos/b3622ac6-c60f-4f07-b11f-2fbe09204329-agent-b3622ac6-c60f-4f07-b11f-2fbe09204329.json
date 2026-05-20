@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Fix state-machine.js: remove payload.passed controlling run status",
+    "status": "completed",
+    "activeForm": "Fixing state-machine.js - removing VERIFY authority override"
+  },
+  {
+    "content": "Add finalizeRun() method to pipeline-orchestrator.js",
+    "status": "completed",
+    "activeForm": "Adding finalizeRun() canonical state resolver to orchestrator"
+  },
+  {
+    "content": "Wire finalizeRun() into VERIFY GATE success/failure paths",
+    "status": "completed",
+    "activeForm": "Wiring finalizeRun() into VERIFY GATE"
+  },
+  {
+    "content": "Verify syntax and push changes",
+    "status": "in_progress",
+    "activeForm": "Verifying syntax and pushing changes"
+  },
+  {
+    "content": "Verify deployment via Render logs",
+    "status": "pending",
+    "activeForm": "Verifying deployment via Render logs"
+  }
+]

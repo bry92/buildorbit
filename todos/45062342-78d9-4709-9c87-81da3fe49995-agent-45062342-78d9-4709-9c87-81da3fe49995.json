@@ -1,0 +1,42 @@
+[
+  {
+    "content": "Create lib/product-context.js formatting helper",
+    "status": "completed",
+    "activeForm": "Creating lib/product-context.js formatting helper"
+  },
+  {
+    "content": "Update pipeline-orchestrator.js to attach _productContext to previousOutputs",
+    "status": "completed",
+    "activeForm": "Updating pipeline-orchestrator.js to attach _productContext to previousOutputs"
+  },
+  {
+    "content": "Update planner-agent.js to inject product context into PLAN prompt",
+    "status": "completed",
+    "activeForm": "Updating planner-agent.js to inject product context into PLAN prompt"
+  },
+  {
+    "content": "Update builder-agent.js to inject product context into CODE prompts",
+    "status": "completed",
+    "activeForm": "Updating builder-agent.js to inject product context into CODE prompts"
+  },
+  {
+    "content": "Update qa-agent.js to add content accuracy check",
+    "status": "completed",
+    "activeForm": "Updating qa-agent.js to add content accuracy check"
+  },
+  {
+    "content": "Update server.js to accept productContext in POST body",
+    "status": "completed",
+    "activeForm": "Updating server.js to accept productContext in POST body"
+  },
+  {
+    "content": "Update run.html to add product context UI",
+    "status": "completed",
+    "activeForm": "Updating run.html to add product context UI"
+  },
+  {
+    "content": "Push changes to remote",
+    "status": "in_progress",
+    "activeForm": "Pushing changes to remote"
+  }
+]

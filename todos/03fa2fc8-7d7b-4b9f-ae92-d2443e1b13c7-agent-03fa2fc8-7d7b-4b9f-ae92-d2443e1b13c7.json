@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Remove hardcoded generic instruction from frontend (new.html line 780)",
+    "status": "completed",
+    "activeForm": "Removing frontend hardcoded prompt"
+  },
+  {
+    "content": "Remove hardcoded generic instruction from server.js (line 1302-1304)",
+    "status": "completed",
+    "activeForm": "Removing server-side hardcoded prompt"
+  },
+  {
+    "content": "Verify no other occurrences of generic instructions in pipeline",
+    "status": "completed",
+    "activeForm": "Verifying no other generic prompt injections"
+  },
+  {
+    "content": "Push fix and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Pushing and verifying deployment"
+  }
+]

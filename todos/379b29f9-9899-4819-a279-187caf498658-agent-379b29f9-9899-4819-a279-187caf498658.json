@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Investigate the bug: find billing portal route and stripe usage",
+    "status": "completed",
+    "activeForm": "Investigating billing portal route and stripe usage"
+  },
+  {
+    "content": "Add stripe package to package.json",
+    "status": "completed",
+    "activeForm": "Adding stripe package to package.json"
+  },
+  {
+    "content": "Add guard for missing STRIPE_SECRET_KEY and fix test URL",
+    "status": "completed",
+    "activeForm": "Adding guard for missing STRIPE_SECRET_KEY and fixing test URL"
+  },
+  {
+    "content": "Run self-checks, push, and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Running self-checks, pushing, and verifying deployment"
+  },
+  {
+    "content": "Update CLAUDE.md and notify owner",
+    "status": "in_progress",
+    "activeForm": "Updating CLAUDE.md and notifying owner"
+  }
+]

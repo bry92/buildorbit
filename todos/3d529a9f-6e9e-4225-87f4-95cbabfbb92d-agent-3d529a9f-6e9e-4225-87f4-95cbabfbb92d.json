@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Investigate current pipeline code",
+    "status": "completed",
+    "activeForm": "Investigating current pipeline code"
+  },
+  {
+    "content": "Fix executeScaffold in legacy PipelineExecutor for non-web projects",
+    "status": "completed",
+    "activeForm": "Fixing executeScaffold for non-web project support"
+  },
+  {
+    "content": "Fix executeVerify in legacy PipelineExecutor for non-web projects",
+    "status": "completed",
+    "activeForm": "Fixing executeVerify for non-web projects"
+  },
+  {
+    "content": "Fix intent gate to classify non-web projects correctly",
+    "status": "completed",
+    "activeForm": "Fixing intent gate classification"
+  },
+  {
+    "content": "Fix orchestrator to adjust constraints for non-web repos",
+    "status": "completed",
+    "activeForm": "Fixing orchestrator constraint adjustment"
+  },
+  {
+    "content": "Update CLAUDE.md, validate, push, and verify deployment",
+    "status": "in_progress",
+    "activeForm": "Updating docs and deploying"
+  }
+]

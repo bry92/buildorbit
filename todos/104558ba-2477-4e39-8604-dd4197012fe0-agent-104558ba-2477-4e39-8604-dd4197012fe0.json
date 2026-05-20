@@ -1,0 +1,32 @@
+[
+  {
+    "content": "View screenshot evidence to understand both bugs visually",
+    "status": "completed",
+    "activeForm": "Viewing screenshot evidence"
+  },
+  {
+    "content": "Investigate Bug 1: Fix button not appearing for failed verifications",
+    "status": "completed",
+    "activeForm": "Investigating Fix button missing bug"
+  },
+  {
+    "content": "Investigate Bug 2: 'Soft Expansion' still appearing in VERIFY phase",
+    "status": "completed",
+    "activeForm": "Investigating Soft Expansion references"
+  },
+  {
+    "content": "Fix Bug 1: Add Fix buttons to run-view.js renderVerifyChecks",
+    "status": "completed",
+    "activeForm": "Adding Fix buttons to run-view.js"
+  },
+  {
+    "content": "Fix Bug 2: Rename soft_expansion display strings across UI + QA agent",
+    "status": "completed",
+    "activeForm": "Renaming soft_expansion display strings"
+  },
+  {
+    "content": "Deploy fixes and verify",
+    "status": "in_progress",
+    "activeForm": "Deploying fixes and verifying"
+  }
+]

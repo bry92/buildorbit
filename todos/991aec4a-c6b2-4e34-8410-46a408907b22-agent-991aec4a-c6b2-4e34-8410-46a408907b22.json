@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate scaffold-schemas.js for STATIC_SURFACE schema",
+    "status": "completed",
+    "activeForm": "Investigating scaffold-schemas.js for STATIC_SURFACE schema"
+  },
+  {
+    "content": "Check builder-agent.js SCAFFOLD phase manifest generation",
+    "status": "completed",
+    "activeForm": "Checking builder-agent.js SCAFFOLD phase manifest generation"
+  },
+  {
+    "content": "Found root cause: entry point path mismatch between schema and file tree",
+    "status": "completed",
+    "activeForm": "Found root cause: entry point path mismatch"
+  },
+  {
+    "content": "Fix builder-agent.js: entry point self-check in SCAFFOLD phase",
+    "status": "completed",
+    "activeForm": "Fixing builder-agent.js entry point self-check"
+  },
+  {
+    "content": "Fix stage-contracts.js: path normalization for entry point validation",
+    "status": "completed",
+    "activeForm": "Fixing stage-contracts.js path normalization"
+  },
+  {
+    "content": "Fix verification script async/await bug",
+    "status": "completed",
+    "activeForm": "Fixing verification script async/await bug"
+  },
+  {
+    "content": "Run verification and deploy",
+    "status": "in_progress",
+    "activeForm": "Running verification and deploying"
+  }
+]

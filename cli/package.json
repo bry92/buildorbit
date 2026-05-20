@@ -1,0 +1,31 @@
+{
+  "name": "buildorbit",
+  "version": "1.0.0",
+  "description": "CLI for BuildOrbit — stream your 6-phase builds from the terminal",
+  "keywords": ["buildorbit", "ai", "builder", "cli", "sse", "code-generation"],
+  "homepage": "https://buildorbit.polsia.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Polsia-Inc/buildorbit.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "buildorbit": "./bin/buildorbit.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
+}

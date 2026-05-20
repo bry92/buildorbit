@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Write migration 035_mcp_connections.js",
+    "status": "completed",
+    "activeForm": "Writing DB migration for mcp_connections"
+  },
+  {
+    "content": "Build src/mcp/mcp-client.js — generic MCP client",
+    "status": "completed",
+    "activeForm": "Building MCP client core"
+  },
+  {
+    "content": "Build src/mcp/mcp-registry.js — server registry",
+    "status": "completed",
+    "activeForm": "Building MCP registry"
+  },
+  {
+    "content": "Build src/mcp/mcp-audit.js — audit layer writing to pipeline_events",
+    "status": "completed",
+    "activeForm": "Building MCP audit layer"
+  },
+  {
+    "content": "Build src/mcp/built-ins/postgres.js, git.js, filesystem.js",
+    "status": "completed",
+    "activeForm": "Building built-in MCP servers"
+  },
+  {
+    "content": "Add use_mcp tool to NuclearAgent",
+    "status": "completed",
+    "activeForm": "Adding use_mcp to NuclearAgent"
+  },
+  {
+    "content": "Wire MCP into pipeline phases (plan, code, verify)",
+    "status": "completed",
+    "activeForm": "Wiring MCP into pipeline phases"
+  },
+  {
+    "content": "Add /api/mcp route for user connection management",
+    "status": "completed",
+    "activeForm": "Adding MCP management API route"
+  },
+  {
+    "content": "Wire route + update CLAUDE.md + push",
+    "status": "in_progress",
+    "activeForm": "Wiring route into server.js, updating CLAUDE.md, pushing"
+  }
+]

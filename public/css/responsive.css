@@ -1,0 +1,370 @@
+/* ── BuildOrbit Global Responsive Fixes ──────────────────────────
+   Global box-model, overflow, and viewport safety rules.
+   Loaded on ALL pages to prevent horizontal scroll at any breakpoint.
+   Decluttered for better mobile/tablet spacing and hierarchy.
+   ───────────────────────────────────────────────────────────────── */
+
+/* Box-model reset — padding included in width calculations */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Viewport safety net */
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-width: 0;
+}
+
+/* Prevent images and media from breaking layout */
+img, video, svg, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent preformatted/code blocks from causing horizontal scroll */
+pre, code, .code-body, .streaming-output, .scaffold-tree {
+  overflow-x: auto;
+  max-width: 100%;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* ── Sidebar + content harmony ──────────────────────────────────
+   The sidebar.js injects a 240px sidebar and adds padding-left
+   to the body. These rules ensure content containers respect
+   the remaining viewport width.
+   ─────────────────────────────────────────────────────────────── */
+
+/* ── Tablet (769-1024px) — Optimized layout ────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Sidebar: collapse to icon-only by default */
+  #bo-sidebar:not(.mobile-open) {
+    width: var(--sb-wc, 64px) !important;
+  }
+  #bo-sidebar:not(.mobile-open) .sb-item-label,
+  #bo-sidebar:not(.mobile-open) .sb-logo-text,
+  #bo-sidebar:not(.mobile-open) .sb-toggle-label {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+  #bo-sidebar:not(.mobile-open) .sb-toggle-icon {
+    transform: rotate(180deg);
+  }
+  body.sb-ready:not(.sb-collapsed) {
+    padding-left: var(--sb-wc, 64px) !important;
+  }
+  body.sb-ready:not(.sb-collapsed) .bo-fixed-nav {
+    left: var(--sb-wc, 64px) !important;
+    width: calc(100% - var(--sb-wc, 64px)) !important;
+  }
+
+  /* Better content spacing on tablets */
+  .run-main, .dash-hero, .hist-page, .nb-page {
+    padding: 24px 20px 60px 20px !important;
+  }
+
+  /* Stat grid: 2 columns on tablet */
+  .dash-stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Better card spacing */
+  .phase-card, .nb-card, .card {
+    margin-bottom: 14px !important;
+  }
+}
+
+/* ── Large Desktop (≥1025px) — Generous spacing ────────────────── */
+@media (min-width: 1025px) {
+  /* Maximum content width for readability */
+  .run-main, .dash-hero, .hist-page, .nb-page {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 40px 32px 80px 32px !important;
+  }
+
+  /* Better section spacing on desktop */
+  section {
+    margin-bottom: 40px !important;
+  }
+
+  /* Card spacing on desktop */
+  .card, [class*="card"] {
+    margin-bottom: 16px !important;
+  }
+
+  /* Grid spacing */
+  .dash-stat-grid, [class*="grid"] {
+    gap: 16px !important;
+  }
+
+  /* Paragraph spacing for readability */
+  p {
+    line-height: 1.7 !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* ── Mobile fixes (≤768px) ─────────────────────────────────────
+   Sidebar is off-screen, hamburger visible. Ensure all content
+   uses full viewport width and nothing overflows.
+   Better spacing, hierarchy, and breathing room.
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Fixed top navbars: account for hamburger button, better spacing */
+  .topnav, .run-nav {
+    padding: 12px 52px 12px 52px !important;
+    height: auto !important;
+    min-height: 52px !important;
+    gap: 8px !important;
+  }
+
+  /* Ensure main content areas don't overflow with better breathing room */
+  .run-main, .dash-hero, .hist-page, .nb-page {
+    max-width: 100vw;
+    padding: 20px 16px 60px 16px !important;
+  }
+
+  /* Phase cards and glassmorphism cards: full width, no bleed, better spacing */
+  .phase-card, .run-prompt-header, .nb-card {
+    max-width: 100%;
+    margin: 0 0 16px 0 !important;
+    padding: 16px 14px !important;
+  }
+
+  /* Cards: add margin between them for hierarchy */
+  .card, [class*="card"] {
+    margin-bottom: 12px !important;
+  }
+
+  /* Stat cards: 2-col on tablet, 1-col on small phones */
+  .dash-stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Build complete banner: constrain to viewport with better spacing */
+  .build-complete-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px !important;
+    padding: 20px 16px !important;
+    max-width: 100%;
+  }
+
+  .bc-actions {
+    justify-content: center;
+    gap: 10px !important;
+    flex-wrap: wrap;
+  }
+
+  .bc-actions button, .bc-actions a {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  /* Table: enable horizontal scroll container instead of overflow */
+  .hist-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  /* Section spacing for better hierarchy */
+  section {
+    margin-bottom: 24px !important;
+  }
+
+  /* Headings: better spacing and readability */
+  h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.4 !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 12px !important;
+    margin-top: 16px !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Paragraphs: better line length and spacing */
+  p {
+    margin-bottom: 12px !important;
+    max-width: 100%;
+  }
+
+  /* Button spacing: stack vertically with better spacing */
+  .btn, button, [class*="btn"] {
+    margin-bottom: 8px !important;
+    margin-right: 0 !important;
+  }
+
+  /* Form spacing */
+  input, textarea, select, label {
+    margin-bottom: 12px !important;
+  }
+
+  /* List spacing */
+  li {
+    margin-bottom: 8px !important;
+  }
+}
+
+/* ── Small phone (≤480px) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .dash-stat-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .run-nav-links {
+    display: none !important;
+  }
+
+  .run-nav {
+    padding: 10px 48px 10px 48px !important;
+  }
+
+  .run-prompt-header {
+    padding: 14px 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .phase-header {
+    padding: 12px 12px !important;
+    gap: 8px !important;
+    flex-wrap: wrap;
+  }
+
+  .phase-body-inner {
+    padding: 12px 12px 12px 12px !important;
+  }
+
+  .phase-name {
+    font-size: 0.85rem !important;
+    word-break: break-word;
+  }
+
+  .phase-status-badge {
+    font-size: 0.65rem !important;
+    padding: 4px 8px !important;
+  }
+
+  /* Intent gate grid: single column on small phones */
+  .intent-gate-data {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .save-artifact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Code panel: comfortable padding for readability */
+  .code-body {
+    padding: 12px 10px !important;
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Action buttons: stack vertically with better spacing */
+  .run-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .run-action-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+  }
+
+  /* Text sizing for mobile readability */
+  body {
+    font-size: 13px !important;
+  }
+
+  h1 {
+    font-size: 1.4rem !important;
+  }
+
+  h2 {
+    font-size: 1.1rem !important;
+  }
+
+  h3 {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ── Very small screens (≤320px) ──────────────────────────────── */
+@media (max-width: 320px) {
+  .topnav, .run-nav {
+    padding: 8px 40px 8px 40px !important;
+    gap: 4px !important;
+  }
+
+  .run-main, .dash-hero, .hist-page, .nb-page {
+    padding: 16px 12px 50px 12px !important;
+  }
+
+  .phase-number {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.6rem !important;
+    flex-shrink: 0;
+  }
+
+  .phase-header {
+    padding: 10px 10px !important;
+    gap: 6px !important;
+  }
+
+  .phase-body-inner {
+    padding: 10px 10px 10px 10px !important;
+  }
+
+  .run-prompt-text {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .run-prompt-header {
+    padding: 12px 10px !important;
+  }
+
+  /* Better spacing on ultra-small */
+  section {
+    margin-bottom: 16px !important;
+  }
+
+  h1 {
+    font-size: 1.25rem !important;
+  }
+
+  h2 {
+    font-size: 1rem !important;
+  }
+
+  .card, [class*="card"] {
+    padding: 12px !important;
+  }
+}

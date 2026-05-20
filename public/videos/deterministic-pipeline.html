@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildOrbit — Deterministic Pipeline</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #060d14; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; font-family: 'Courier New', monospace; }
+  canvas { display: block; max-width: 100%; max-height: 80vh; }
+  .brand { color: #22d3ee; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; margin-top: 16px; opacity: 0.7; }
+  .progress-bar { width: 640px; max-width: 90vw; height: 3px; background: #0c1a24; margin-top: 16px; border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #22d3ee; width: 0%; transition: width 0.1s; box-shadow: 0 0 8px #22d3ee66; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1280" height="720"></canvas>
+<div class="brand">BuildOrbit — Deterministic Pipeline</div>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const W = 1280, H = 720;
+const progress = document.getElementById('progress');
+
+const DURATION = 20;
+const TOTAL_FRAMES = DURATION * 60;
+
+const PHASES = [
+  { name: 'Intent Gate', color: '#22d3ee', x: 120 },
+  { name: 'Plan', color: '#06b6d4', x: 300 },
+  { name: 'Scaffold', color: '#0891b2', x: 480 },
+  { name: 'Code', color: '#0e7490', x: 660 },
+  { name: 'Save', color: '#155e75', x: 840 },
+  { name: 'Verify', color: '#164e63', x: 1020 }
+];
+
+let phaseProgress = 0;
+let activePhase = 0;
+let completedPhases = [];
+let packets = [];
+let frameCount = 0;
+
+class Packet {
+  constructor(id) {
+    this.id = id;
+    this.phaseIdx = 0;
+    this.x = PHASES[0].x;
+    this.y = H/2;
+    this.done = false;
+    this.doneTime = 0;
+    this.arrived = false;
+    this.checkmarks = [];
+  }
+  update() {
+    if (this.done) {
+      this.x += 0;
+      return;
+    }
+    const target = PHASES[this.phaseIdx].x;
+    const dx = target - this.x;
+    if (Math.abs(dx) > 1) {
+      this.x += dx * 0.04;
+    } else {
+      if (!this.arrived) {
+        this.arrived = true;
+        this.checkmarks.push({ phase: this.phaseIdx, time: frameCount });
+      }
+      if (frameCount - this.checkmarks[this.checkmarks.length-1].time > 45) {
+        this.phaseIdx++;
+        this.arrived = false;
+        if (this.phaseIdx >= PHASES.length) {
+          this.done = true;
+          this.doneTime = frameCount;
+          completedPhases.push(this.id);
+        }
+      }
+    }
+  }
+}
+
+function drawBackground() {
+  ctx.fillStyle = '#060d14';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(34, 211, 238, 0.03)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < W; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+}
+
+function drawPhaseTrack() {
+  // Track line
+  ctx.save();
+  ctx.strokeStyle = 'rgba(34, 211, 238, 0.15)';
+  ctx.lineWidth = 3;
+  ctx.setLineDash([10, 6]);
+  ctx.beginPath();
+  ctx.moveTo(120, H/2);
+  ctx.lineTo(1100, H/2);
+  ctx.stroke();
+  ctx.restore();
+
+  // Phase nodes
+  PHASES.forEach((phase, i) => {
+    const isComplete = completedPhases.length > 0 && i < PHASES.length;
+    const isActive = i === Math.floor((frameCount / TOTAL_FRAMES) * PHASES.length) % PHASES.length;
+    const y = H/2;
+
+    // Glow for active
+    if (isActive) {
+      ctx.save();
+      ctx.shadowColor = phase.color;
+      ctx.shadowBlur = 25;
+      ctx.beginPath();
+      ctx.arc(phase.x, y, 28, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(34, 211, 238, 0.1)';
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Circle
+    ctx.beginPath();
+    ctx.arc(phase.x, y, 20, 0, Math.PI * 2);
+    ctx.fillStyle = isComplete ? 'rgba(34, 211, 238, 0.3)' : 'rgba(6, 13, 20, 0.9)';
+    ctx.strokeStyle = isComplete ? '#22d3ee' : 'rgba(34, 211, 238, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.fill();
+    ctx.stroke();
+
+    // Checkmark for complete
+    if (isComplete) {
+      ctx.fillStyle = '#22d3ee';
+      ctx.font = 'bold 16px Courier New';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('✓', phase.x, y);
+    } else {
+      ctx.fillStyle = 'rgba(34, 211, 238, 0.6)';
+      ctx.font = 'bold 12px Courier New';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(i + 1, phase.x, y);
+    }
+
+    // Label
+    ctx.fillStyle = isActive ? '#22d3ee' : 'rgba(34, 211, 238, 0.5)';
+    ctx.font = isActive ? 'bold 12px Courier New' : '11px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText(phase.name, phase.x, y + 42);
+
+    // Progress bar under each phase
+    const barW = 60;
+    ctx.fillStyle = 'rgba(34, 211, 238, 0.1)';
+    ctx.fillRect(phase.x - barW/2, y + 50, barW, 3);
+    const fill = isComplete ? 1 : (isActive ? 0.5 : 0);
+    ctx.fillStyle = phase.color;
+    ctx.fillRect(phase.x - barW/2, y + 50, barW * fill, 3);
+  });
+}
+
+function drawPacket(p) {
+  const cx = p.x, cy = p.y;
+  const size = 30;
+
+  // Glow
+  ctx.save();
+  ctx.shadowColor = '#22d3ee';
+  ctx.shadowBlur = 15;
+  ctx.beginPath();
+  ctx.arc(cx, cy, size, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.2)';
+  ctx.fill();
+  ctx.restore();
+
+  // Body
+  ctx.beginPath();
+  ctx.arc(cx, cy, size - 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#22d3ee';
+  ctx.fill();
+
+  // ID
+  ctx.fillStyle = '#060d14';
+  ctx.font = 'bold 14px Courier New';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(p.id, cx, cy);
+
+  // Trail
+  if (p.phaseIdx > 0) {
+    const prevX = PHASES[0].x;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(34, 211, 238, 0.2)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(prevX, cy);
+    ctx.lineTo(cx, cy);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+function drawPacketTrail(p) {
+  const completed = p.checkmarks.length;
+  for (let i = 0; i < completed; i++) {
+    const phase = p.checkmarks[i].phase;
+    const px = PHASES[phase].x;
+    const py = H/2;
+
+    ctx.save();
+    ctx.globalAlpha = 0.4;
+    ctx.fillStyle = '#22d3ee';
+    ctx.beginPath();
+    ctx.arc(px, py, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function drawTopBar() {
+  ctx.fillStyle = '#22d3ee';
+  ctx.font = 'bold 32px Courier New';
+  ctx.textAlign = 'left';
+  ctx.fillText('BuildOrbit', 40, 50);
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '16px Courier New';
+  ctx.fillText('Deterministic Pipeline', 40, 75);
+
+  const secs = Math.floor((frameCount / 60) % DURATION);
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.6)';
+  ctx.font = '14px Courier New';
+  ctx.textAlign = 'right';
+  ctx.fillText(`${secs}s / ${DURATION}s`, W - 40, 50);
+  ctx.fillText('● DETERMINISTIC', W - 40, 72);
+}
+
+function drawSidebar() {
+  // Run info panel
+  const panelX = 40, panelY = 110, panelW = 200, panelH = 160;
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.05)';
+  ctx.strokeStyle = 'rgba(34, 211, 238, 0.15)';
+  ctx.lineWidth = 1;
+  roundRect(panelX, panelY, panelW, panelH, 8);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.7)';
+  ctx.font = 'bold 11px Courier New';
+  ctx.textAlign = 'left';
+  ctx.fillText('RUN #2847', panelX + 16, panelY + 24);
+
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.4)';
+  ctx.font = '10px Courier New';
+  ctx.fillText('Phases: 6/6', panelX + 16, panelY + 48);
+  ctx.fillText('Status: EXECUTING', panelX + 16, panelY + 66);
+  ctx.fillText('Output: /orbit/run-2847', panelX + 16, panelY + 84);
+
+  // Phase list
+  PHASES.forEach((phase, i) => {
+    const isDone = i < Math.floor((frameCount / TOTAL_FRAMES) * PHASES.length);
+    ctx.fillStyle = isDone ? '#22d3ee' : 'rgba(34, 211, 238, 0.3)';
+    ctx.font = isDone ? 'bold 10px Courier New' : '10px Courier New';
+    ctx.fillText((isDone ? '✓ ' : '○ ') + phase.name, panelX + 16, panelY + 110 + i * 16);
+  });
+}
+
+function drawLog() {
+  const panelX = W - 240, panelY = 110, panelW = 200, panelH = 200;
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.03)';
+  ctx.strokeStyle = 'rgba(34, 211, 238, 0.1)';
+  ctx.lineWidth = 1;
+  roundRect(panelX, panelY, panelW, panelH, 8);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(34, 211, 238, 0.5)';
+  ctx.font = 'bold 10px Courier New';
+  ctx.textAlign = 'left';
+  ctx.fillText('EVENT LOG', panelX + 14, panelY + 20);
+
+  const logs = [
+    { t: '14:23:01', msg: 'Intent Gate: APPROVED' },
+    { t: '14:23:02', msg: 'Plan: 3 steps generated' },
+    { t: '14:23:04', msg: 'Scaffold: manifest v2' },
+    { t: '14:23:06', msg: 'Code: 12 files written' },
+    { t: '14:23:08', msg: 'Save: github.com/bry92/bo' },
+    { t: '14:23:10', msg: 'Verify: all checks pass' }
+  ];
+
+  const showLogs = Math.min(logs.length, Math.ceil(frameCount / 80));
+  for (let i = 0; i < showLogs; i++) {
+    ctx.fillStyle = 'rgba(34, 211, 238, 0.35)';
+    ctx.font = '9px Courier New';
+    ctx.fillText(logs[i].t, panelX + 14, panelY + 40 + i * 22);
+    ctx.fillStyle = i === showLogs - 1 ? '#22d3ee' : 'rgba(34, 211, 238, 0.55)';
+    ctx.fillText(logs[i].msg, panelX + 14, panelY + 54 + i * 22);
+  }
+}
+
+function drawDataFlow() {
+  // Animated particles flowing along the track
+  const particleCount = 8;
+  for (let i = 0; i < particleCount; i++) {
+    const t = ((frameCount * 0.02 + i / particleCount) % 1);
+    const px = 120 + t * (1020 - 120);
+    const py = H/2 + Math.sin(t * Math.PI * 2) * 15;
+
+    ctx.save();
+    ctx.globalAlpha = 0.4;
+    ctx.fillStyle = '#22d3ee';
+    ctx.beginPath();
+    ctx.arc(px, py, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function animate() {
+  frameCount++;
+
+  drawBackground();
+  drawDataFlow();
+  drawPhaseTrack();
+
+  // Spawn packets
+  if (frameCount % 180 === 0 && completedPhases.length < 3) {
+    const id = completedPhases.length + packets.length + 1;
+    if (id <= 5) packets.push(new Packet(id));
+  }
+
+  packets.forEach(p => {
+    p.update();
+    drawPacketTrail(p);
+    drawPacket(p);
+  });
+
+  drawTopBar();
+  drawSidebar();
+  drawLog();
+
+  progress.style.width = (frameCount / TOTAL_FRAMES * 100) + '%';
+
+  if (frameCount >= TOTAL_FRAMES) frameCount = 0;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</body>
+</html>
