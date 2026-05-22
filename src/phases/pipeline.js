@@ -478,7 +478,7 @@ CRITICAL RULES — violating these means the app won't work:
 10. The UI must visually match the task — use appropriate colors, icons (Unicode emoji ok), real content labels
 11. Every file must use the --- FILE: filename --- header format. No JSON wrapping.
 12. DO NOT truncate — generate every file completely
-13. BRANDING — add this badge as the last element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>`;
+13. BRANDING — add this badge as the last element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>`;
     }
 
     const chunks = [];
@@ -944,7 +944,7 @@ ${planContext ? `Architecture context:\n${planContext}\n` : ''}RULES:
     </section>
   </main>
   <div style="text-align:center;padding:12px 0 8px">
-    <a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a>
+    <a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a>
   </div>
   <script src="app.js"></script>
 </body>
@@ -1122,7 +1122,7 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; c
         '      </section>',
         '    </main>',
         '  </div>',
-        '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+        '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
         '  <script src="app.js"></script>',
         '</body>',
         '</html>',

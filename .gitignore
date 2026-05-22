@@ -2,12 +2,10 @@ node_modules/
 .env
 .DS_Store
 
-# Polsia safety (auto-injected)
+#local secret and generated files
 .env
-.env.*
 !.env.example
 .claude/
 .claude.json*
 .tmp/
-projects/
-*.jsonl
+

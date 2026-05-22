@@ -243,6 +243,9 @@ export default function Dashboard() {
                   : 'Pipeline idle'}
               </span>
             </div>
+            <button className="dash-hero-cta" onClick={() => setShowRunModal(true)}>
+              New Build
+            </button>
             {showPlanBadge && (
               <div className="plan-badge">
                 <span className="plan-credits-badge">

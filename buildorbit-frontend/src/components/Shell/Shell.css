@@ -1,13 +1,36 @@
 /* Shell — layout wrapper. Sidebar left, content right. */
 .bo-shell {
+  position: relative;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 20% 10%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(14, 10, 30, 0.8) 0%, transparent 80%),
-    #060a14;
+    radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.16), transparent 16%),
+    radial-gradient(circle at 90% 22%, rgba(167, 139, 250, 0.08), transparent 18%),
+    linear-gradient(180deg, #060a14 0%, #04070d 100%);
   color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden;
+}
+
+.bo-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 36%);
+}
+
+.bo-shell::after {
+  content: '';
+  position: absolute;
+  left: 40%;
+  top: 27%;
+  width: 540px;
+  height: 540px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08), transparent 60%);
+  filter: blur(1px);
+  pointer-events: none;
 }
 
 /* Main content area — shifts right for sidebar */

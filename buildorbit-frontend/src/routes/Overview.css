@@ -73,8 +73,18 @@
 
 /* ── Hero ── */
 .ov-hero {
+  position: relative;
   text-align: center;
   padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.ov-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.08), transparent 25%);
+  pointer-events: none;
 }
 
 .ov-hero-eyebrow {
@@ -134,6 +144,50 @@
 .ov-hero-body strong {
   color: var(--text);
   font-weight: 600;
+}
+
+.ov-hero-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ov-hero-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.16);
+  opacity: 0.8;
+}
+
+.orbit-small {
+  width: 220px;
+  height: 220px;
+  animation: orbit-rotate 32s linear infinite;
+}
+
+.orbit-medium {
+  width: 320px;
+  height: 320px;
+  animation: orbit-rotate 44s linear infinite reverse;
+}
+
+.orbit-large {
+  width: 420px;
+  height: 420px;
+  border-color: rgba(56, 189, 248, 0.08);
+  animation: orbit-rotate 58s linear infinite;
+}
+
+.ov-hero-core {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.24), transparent 65%);
+  box-shadow: 0 0 38px rgba(56, 189, 248, 0.24);
 }
 
 .ov-cta-btn {

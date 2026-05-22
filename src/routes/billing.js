@@ -14,7 +14,7 @@ const { sendSubscriptionConfirmationEmail } = require('../../backend/src/email/t
 
 // Stripe subscription link ($29/month, created 2026-05-13 via Polsia Stripe MCP)
 const STRIPE_SUBSCRIPTION_LINK = 'https://buy.stripe.com/3cIdRb8ec1uD2Bz0f05sA02';
-const APP_URL = process.env.APP_URL || 'https://buildorbit.polsia.app';
+const APP_URL = process.env.APP_URL || 'http://localhost:3000';
 
 // How many credits to provision on each event
 const CREDITS_ON_SIGNUP     = 10;  // checkout.session.completed

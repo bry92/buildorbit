@@ -390,7 +390,7 @@ function createA2ARouter({ pool, pipeline, orchestrator, stateMachine, auth }) {
       return res.status(401).json({
         success: false,
         message: 'A2A authentication required. Include: Authorization: Bearer <api_key>',
-        docs: 'https://buildorbit.polsia.app/a2a/descriptor',
+        docs: `${process.env.APP_URL || 'http://localhost:3000'}/a2a/descriptor`,
       });
     }
 
@@ -494,11 +494,11 @@ function createA2ARouter({ pool, pipeline, orchestrator, stateMachine, auth }) {
       name: 'buildorbit',
       description: 'Deterministic 6-phase system builder — visible execution from intent to verified output',
       version: '1.0.0',
-      endpoint: 'https://buildorbit.polsia.app/a2a/execute',
+      endpoint: `${process.env.APP_URL || 'http://localhost:3000'}/a2a/execute`,
       auth: {
         type: 'bearer',
         header: 'Authorization: Bearer <api_key>',
-        obtain_key: 'POST https://buildorbit.polsia.app/a2a/keys (session auth required)',
+        obtain_key: `POST ${process.env.APP_URL || 'http://localhost:3000'}/a2a/keys (session auth required)`,
       },
       input: {
         schema: {
@@ -553,7 +553,7 @@ function createA2ARouter({ pool, pipeline, orchestrator, stateMachine, auth }) {
     res.status(405).json({
       success: false,
       message: 'Method Not Allowed. Use POST /a2a/execute with a JSON body: { "task_description": "..." }',
-      docs: 'https://buildorbit.polsia.app/a2a/descriptor',
+      docs: `${process.env.APP_URL || 'http://localhost:3000'}/a2a/descriptor`,
     });
   });
 
@@ -1078,8 +1078,8 @@ function emitFinalBundle(emit, verifyEvent, runId, startTime, phaseProof) {
       errors: payload.errors || [],
       warnings: payload.warnings || [],
     },
-    artifacts_url: `https://buildorbit.polsia.app/api/pipeline/${runId}/artifacts`,
-    live_url: `https://buildorbit.polsia.app/live/${runId}/`,
+    artifacts_url: `${process.env.APP_URL || 'http://localhost:3000'}/api/pipeline/${runId}/artifacts`,
+    live_url: `${process.env.APP_URL || 'http://localhost:3000'}/app/${runId}/`,
     execution_time_ms: Date.now() - startTime,
   });
 }

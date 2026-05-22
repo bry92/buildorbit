@@ -18,11 +18,24 @@
   width: var(--sb-w);
   display: flex;
   flex-direction: column;
-  background: rgba(8, 12, 24, 0.92);
-  backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(56, 189, 248, 0.06);
-  transition: width 0.2s ease-out;
+  background: linear-gradient(180deg, rgba(8, 12, 24, 0.96), rgba(10, 14, 28, 0.98));
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(56, 189, 248, 0.08);
+  transition: width 0.2s ease-out, background 0.2s;
   overflow: hidden;
+}
+
+.sb::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.05);
+  filter: blur(24px);
+  pointer-events: none;
 }
 
 .sb--collapsed {

@@ -1,17 +1,13 @@
 /**
- * Polsia Environment Dependencies
+ * Environment Dependencies
  *
- * This app runs on Polsia infrastructure. The following env vars are provisioned
- * automatically by Polsia on Render — no separate .env setup is needed in production.
- *
- * When migrating OFF Polsia, you must provision these independently:
- *
+ * Required environment variables:
  *   OPENAI_API_KEY       → Direct OpenAI key (platform.openai.com)
- *   OPENAI_BASE_URL      → Remove or set to https://api.openai.com/v1
- *   JWT_SECRET           → Required. Independent 32+ byte secret for JWT signing.
- *   POLSIA_API_KEY       → Used for email proxy auth. Replace with POSTMARK_SERVER_TOKEN.
- *   POLSIA_API_TOKEN     → Alias for POLSIA_API_KEY — can be same value or removed.
- *   DATABASE_URL         → Provision a new Neon (neon.tech) or PostgreSQL database.
+ *   JWT_SECRET           → Required. 32+ byte secret for JWT signing.
+ *   DATABASE_URL         → PostgreSQL connection string (Neon, self-hosted, etc.)
+ *   EMAIL_PROVIDER       → 'postmark' or 'sendgrid' (for transactional email)
+ *   POSTMARK_TOKEN       → Postmark API token (if using Postmark)
+ *   SENDGRID_API_KEY     → SendGrid API key (if using SendGrid)
  *
  * See .env.example for the full list of required and optional env vars.
  */
@@ -49,7 +45,7 @@ const {
   sendPasswordResetEmail,
 } = require('./backend/src/email/transactional');
 
-const APP_URL = process.env.APP_URL || 'https://buildorbit.polsia.app';
+const APP_URL = process.env.APP_URL || 'http://localhost:3000';
 const { createA2ARouter } = require('./src/routes/a2a');
 const { createAnalyticsRouter } = require('./src/routes/analytics');
 const { createRunsRouter } = require('./src/routes/runs');
@@ -2480,7 +2476,7 @@ app.get('/api/pipeline/:runId/details', auth.requireAuth, async (req, res) => {
     }
     const result = await pool.query(
       `SELECT id, prompt, status, intent_class, current_phase, plan, scaffold, code, created_at, completed_at,
-              github_repo, github_pr_url, polsia_app_url, catastrophic_block
+              github_repo, github_pr_url, catastrophic_block
        FROM pipeline_runs WHERE id = $1 AND user_id = $2`,
       [runId, userId]
     );
@@ -2573,7 +2569,6 @@ app.get('/api/pipeline/:runId/details', auth.requireAuth, async (req, res) => {
         plan: planData,
         github_repo: run.github_repo || null,
         github_pr_url: run.github_pr_url || null,
-        polsia_app_url: run.polsia_app_url || null,
         catastrophic_block: blockData,
         failure_reason: failureReason,
         failed_stage: failedStage,

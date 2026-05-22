@@ -102,6 +102,12 @@ export default function Overview() {
             AI writes the code. Nobody audits the structure.{' '}
             <strong>BuildOrbit fixes that.</strong>
           </p>
+          <div className="ov-hero-visual" aria-hidden="true">
+            <div className="ov-hero-orbit orbit-small" />
+            <div className="ov-hero-orbit orbit-medium" />
+            <div className="ov-hero-orbit orbit-large" />
+            <div className="ov-hero-core" />
+          </div>
           <a href="https://buildorbit.polsia.app" className="ov-cta-btn">
             Try BuildOrbit
           </a>

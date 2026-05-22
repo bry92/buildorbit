@@ -59,7 +59,7 @@ const REPO_CACHE_TTL_MS = 30_000;
  * @returns {{ oauthRouter: Router, apiRouter: Router }}
  */
 function createGitHubRouters({ pool, auth }) {
-  const APP_URL              = process.env.APP_URL || 'https://buildorbit.polsia.app';
+  const APP_URL              = process.env.APP_URL || 'http://localhost:3000';
   const GITHUB_CLIENT_ID     = process.env.GITHUB_CLIENT_ID;
   const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
   const CALLBACK_URL         = `${APP_URL}/auth/github/callback`;

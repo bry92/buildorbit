@@ -25,7 +25,7 @@ try {
   // fall through with default
 }
 
-const BASE_URL = process.env.APP_URL || 'https://buildorbit.polsia.app';
+const BASE_URL = process.env.APP_URL || 'http://localhost:3000';
 
 // ── GET /cli/version ──────────────────────────────────────────────────────────
 
@@ -153,7 +153,7 @@ router.get('/buildorbit.tar.gz', (req, res) => {
   if (!fs.existsSync(tarballPath)) {
     return res.status(503).json({
       error: 'CLI tarball not yet built. Retry in a few moments.',
-      install: 'curl -sL https://buildorbit.polsia.app/cli/install.sh | sh',
+      install: 'curl -sL ${process.env.APP_URL || "http://localhost:3000"}/cli/install.sh | sh',
     });
   }
   res.download(tarballPath, 'buildorbit.tar.gz');

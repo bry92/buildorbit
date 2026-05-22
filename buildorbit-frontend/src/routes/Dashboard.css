@@ -42,13 +42,29 @@
 
 /* Hero */
 .dash-hero {
-  position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 40px 24px 60px;
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  border-radius: var(--radius-xl);
+  background: rgba(10, 16, 30, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+.dash-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 30%);
+  pointer-events: none;
 }
 .dash-hero-orbital { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .dho-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(56,189,248,0.04); top: 50%; right: -30%; transform: translateY(-50%); }
-.dho-ring-1 { width: 300px; height: 300px; animation: orbit-rotate 60s linear infinite; }
-.dho-ring-2 { width: 500px; height: 500px; animation: orbit-rotate 90s linear infinite reverse; right: -40%; }
-.dho-ring-3 { width: 700px; height: 700px; border-color: rgba(56,189,248,0.02); right: -50%; }
+.dho-ring-1 { width: 260px; height: 260px; animation: orbit-rotate 60s linear infinite; }
+.dho-ring-2 { width: 420px; height: 420px; animation: orbit-rotate 96s linear infinite reverse; right: -42%; }
+.dho-ring-3 { width: 620px; height: 620px; border-color: rgba(56,189,248,0.02); right: -48%; }
 
 .dash-hero-top {
   display: flex; align-items: flex-start; justify-content: space-between;
