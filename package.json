@@ -6,9 +6,10 @@
     "start": "node server.js",
     "dev": "node server.js",
     "build": "npm ci --include=dev --prefix buildorbit-frontend && npm run build --prefix buildorbit-frontend && npm run build:cli",
-    "test": "node scripts/run-tests.js",
+    "test": "node scripts/check-migrations.js && node scripts/run-tests.js",
     "test:unit": "node scripts/run-tests.js tests/unit",
     "test:integration": "node scripts/run-tests.js tests/integration",
+    "test:migrations": "node scripts/check-migrations.js",
     "migrate": "node migrate.js",
     "publish:cli": "cd cli && npm install && npm publish --access public",
     "build:cli": "node scripts/package-cli.js"
