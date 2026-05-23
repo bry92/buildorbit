@@ -24,6 +24,7 @@ const http = require('http');
 const { Pool } = require('pg');
 const path = require('path');
 const fs = require('fs');
+const { spawnSync } = require('child_process');
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const BCRYPT_ROUNDS = 12;
@@ -55,6 +56,8 @@ const { createAdminRouter } = require('./src/routes/admin');
 const analytics = require('./src/lib/analytics');
 const cliRouter = require('./src/routes/cli');
 const REACT_BUILD_INDEX = path.join(__dirname, 'public', 'react-build', 'index.html');
+const REACT_FRONTEND_DIR = path.join(__dirname, 'buildorbit-frontend');
+const REACT_FRONTEND_NODE_MODULES = path.join(REACT_FRONTEND_DIR, 'node_modules');
 const {
   checkIpRateLimit,
   checkVelocity,
@@ -1318,10 +1321,40 @@ app.use('/app/:runId', (req, res) => {
 app.use('/cli', cliRouter);
 
 // ── Multi-Page Routes ──────────────────────────────────────────────────────
+function runReactBuildCommand(command, args) {
+  const result = spawnSync(command, args, {
+    cwd: REACT_FRONTEND_DIR,
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+  });
+
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    throw new Error(`${command} ${args.join(' ')} exited with code ${result.status}`);
+  }
+}
+
+function ensureReactBuildForRequest() {
+  if (fs.existsSync(REACT_BUILD_INDEX)) return true;
+
+  console.warn(`[static] Missing React build at ${REACT_BUILD_INDEX}; attempting on-demand build.`);
+  try {
+    if (!fs.existsSync(REACT_FRONTEND_NODE_MODULES)) {
+      runReactBuildCommand('npm', ['ci', '--include=dev']);
+    }
+    runReactBuildCommand('npm', ['run', 'build']);
+  } catch (err) {
+    console.error(`[static] React build failed: ${err.message}`);
+    return false;
+  }
+
+  return fs.existsSync(REACT_BUILD_INDEX);
+}
+
 // All authenticated pages route to the React SPA shell. The Vite bundle is
-// generated during deployment, so fail clearly if the build step was skipped.
+// generated during deployment, with this fallback covering misconfigured starts.
 const serveSPA = (req, res) => {
-  if (!fs.existsSync(REACT_BUILD_INDEX)) {
+  if (!ensureReactBuildForRequest()) {
     console.error(`[static] Missing React build at ${REACT_BUILD_INDEX}. Run npm run build before starting the server.`);
     return res.status(503).send('React dashboard build is missing. Run npm run build before starting the server.');
   }

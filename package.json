@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node scripts/migrate-and-start.js",
     "dev": "node server.js",
     "build": "npm ci --include=dev --prefix buildorbit-frontend && npm run build --prefix buildorbit-frontend && npm run build:cli",
     "test": "node scripts/check-migrations.js && node scripts/run-tests.js",
