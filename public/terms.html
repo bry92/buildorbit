@@ -3,75 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service — BuildOrbit</title>
+    <title>Terms of Service - BuildOrbit</title>
     <link rel="stylesheet" href="/css/buildorbit.css?v=20260502a">
     <link rel="stylesheet" href="/css/transitions.css?v=20260502a">
     <style>
-        .legal-wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 80px 24px 120px;
-        }
-        .legal-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent, #0EA5E9);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 48px;
-            font-weight: 500;
-        }
-        .legal-back:hover { opacity: 0.8; }
-        .legal-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: none;
-            color: inherit;
-            margin-bottom: 48px;
-        }
-        .legal-wrap h1 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-        .legal-date {
-            color: #6B7280;
-            font-size: 14px;
-            margin-bottom: 48px;
-        }
-        .legal-wrap h2 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-top: 40px;
-            margin-bottom: 12px;
-        }
-        .legal-wrap p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #374151;
-            margin-bottom: 16px;
-        }
-        .legal-wrap ul {
-            padding-left: 20px;
-            margin-bottom: 16px;
-        }
-        .legal-wrap ul li {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #374151;
-            margin-bottom: 6px;
-        }
-        .legal-contact {
-            background: #F3F4F6;
-            border-radius: 10px;
-            padding: 24px;
-            margin-top: 48px;
-        }
+        .legal-wrap { max-width: 780px; margin: 0 auto; padding: 80px 24px 120px; }
+        .legal-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; text-decoration: none; color: inherit; margin-bottom: 48px; }
+        .legal-wrap h1 { font-size: 36px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+        .legal-date { color: #6B7280; font-size: 14px; margin-bottom: 32px; }
+        .legal-note { border: 1px solid rgba(14, 165, 233, 0.2); background: rgba(14, 165, 233, 0.08); border-radius: 10px; padding: 16px 18px; margin-bottom: 40px; }
+        .legal-wrap h2 { font-size: 18px; font-weight: 700; margin-top: 40px; margin-bottom: 12px; }
+        .legal-wrap p { font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 16px; }
+        .legal-wrap ul { padding-left: 20px; margin-bottom: 16px; }
+        .legal-wrap ul li { font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 6px; }
+        .legal-contact { background: #F3F4F6; border-radius: 10px; padding: 24px; margin-top: 48px; }
         .legal-contact p { margin: 0; }
         .legal-contact a { color: #0EA5E9; }
         @media (prefers-color-scheme: dark) {
@@ -89,52 +34,81 @@
         </a>
 
         <h1>Terms of Service</h1>
-        <p class="legal-date">Last updated: May 1, 2026</p>
+        <p class="legal-date">Last updated: May 23, 2026</p>
+
+        <div class="legal-note">
+            <p><strong>Contract note:</strong> These public terms govern self-service use of BuildOrbit. Enterprise customers may request a negotiated order form, data processing addendum, security review, and custom retention terms.</p>
+        </div>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or using BuildOrbit ("the Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the Service.</p>
+        <p>By accessing or using BuildOrbit ("BuildOrbit," "we," "us," or the "Service"), you agree to these Terms of Service and our Privacy Policy. If you use the Service for an organization, you represent that you are authorized to bind that organization.</p>
 
-        <h2>2. Description of Service</h2>
-        <p>BuildOrbit provides a deterministic AI execution pipeline for automating software development tasks. The Service executes tasks through a defined six-phase pipeline: Intent Gate, Plan, Scaffold, Code, Save, and Verify.</p>
+        <h2>2. Eligibility</h2>
+        <p>You must be at least 18 years old and legally able to enter into a binding agreement to use the Service. You may not use the Service if you are barred from doing so under applicable law.</p>
 
-        <h2>3. Account Responsibilities</h2>
-        <p>You are responsible for:</p>
-        <ul>
-            <li>Maintaining the confidentiality of your account credentials</li>
-            <li>All activity that occurs under your account</li>
-            <li>Ensuring the tasks you submit comply with applicable laws</li>
-            <li>Not submitting tasks that generate harmful, illegal, or malicious code</li>
-        </ul>
+        <h2>3. Description of Service</h2>
+        <p>BuildOrbit provides a verifiable execution runtime for AI-assisted software development. The Service executes tasks through an event-sourced pipeline: Intent Gate, Plan, Scaffold, Code, Save, and Verify. AI-generated output may require review, testing, and approval before production use.</p>
 
-        <h2>4. Acceptable Use</h2>
+        <h2>4. Account Responsibilities</h2>
+        <p>You are responsible for maintaining the confidentiality of your credentials, all activity under your account, and ensuring that users you invite comply with these Terms. You must promptly notify us of unauthorized access or suspected compromise.</p>
+
+        <h2>5. Acceptable Use</h2>
         <p>You agree not to use the Service to:</p>
         <ul>
-            <li>Generate code intended to harm, exploit, or attack systems</li>
-            <li>Violate any applicable law or regulation</li>
-            <li>Infringe on intellectual property rights of others</li>
-            <li>Circumvent security measures or access controls</li>
+            <li>Generate malware, exploit code, credential theft tooling, or instructions intended to harm systems.</li>
+            <li>Violate laws, sanctions, export controls, privacy obligations, or third-party rights.</li>
+            <li>Submit data you do not have the right to process or disclose to AI or infrastructure providers.</li>
+            <li>Attempt to bypass rate limits, authentication, isolation, or security controls.</li>
+            <li>Use the Service to make automated decisions with legal or similarly significant effects without appropriate human review.</li>
         </ul>
 
-        <h2>5. Payment and Billing</h2>
-        <p>BuildOrbit Pro is billed at $49/month. Subscriptions renew automatically. You may cancel at any time. Refunds are handled on a case-by-case basis — contact us within 7 days of a charge if you believe there's an error.</p>
+        <h2>6. Regulated Data and Data Processing</h2>
+        <p>BuildOrbit is not currently offered as a HIPAA-certified service and should not be used to process protected health information unless we have signed a Business Associate Agreement and any required enterprise addendum with you. Customers subject to GDPR, UK GDPR, CCPA/CPRA, GLBA, FINRA, or similar requirements must ensure their use of the Service is lawful and may request a Data Processing Addendum before submitting regulated personal data.</p>
+        <p>Unless a separate written agreement says otherwise, you instruct BuildOrbit to process submitted prompts, repository context, generated code, artifacts, logs, and execution traces only to provide, secure, troubleshoot, and improve the Service as described in these Terms and the Privacy Policy.</p>
 
-        <h2>6. Pipeline Output Ownership</h2>
-        <p>You retain ownership of the code and artifacts generated by the pipeline from your tasks. BuildOrbit does not claim ownership over your outputs. We may use anonymized pipeline execution data to improve the Service.</p>
+        <h2>7. Pipeline Output Ownership and Data Use</h2>
+        <p>As between you and BuildOrbit, you retain ownership of prompts, source materials, code, artifacts, and pipeline outputs you submit or generate through your account. You grant BuildOrbit a limited license to host, process, transmit, display, and store that content as necessary to provide and secure the Service.</p>
+        <p>We may use aggregated or anonymized operational telemetry to improve reliability and product performance. Enterprise customers may request contractual restrictions or opt-out terms for telemetry use where confidentiality requirements apply.</p>
 
-        <h2>7. Service Availability</h2>
-        <p>We target high availability but do not guarantee uninterrupted access. We are not liable for losses caused by downtime, bugs, or pipeline errors. The Service is provided "as-is" for production use at your own risk.</p>
+        <h2>8. Payment, Renewals, and Price Changes</h2>
+        <p>Paid subscriptions renew automatically unless canceled before the renewal date. Fees are non-refundable except where required by law or stated in an order form. If you cancel, your access continues through the paid billing period and no prorated refund is owed unless required by law.</p>
+        <p>We will provide at least 30 days' notice before material price increases for existing paid subscriptions. Continued use after the notice period constitutes acceptance of the changed pricing.</p>
 
-        <h2>8. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, BuildOrbit shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Service.</p>
+        <h2>9. Termination, Suspension, and Data Export</h2>
+        <p>You may stop using the Service or cancel a paid plan at any time. We may suspend or terminate access if you materially breach these Terms, create security or legal risk, fail to pay amounts due, or use the Service in a way that threatens the platform or other customers.</p>
+        <p>After termination or account closure, we may retain account, billing, security, and pipeline records for the periods described in the Privacy Policy or a signed enterprise agreement. During the active subscription term and for 30 days after termination, you may request export of available pipeline records and artifacts, subject to technical feasibility and legal limits.</p>
 
-        <h2>9. Changes to Terms</h2>
-        <p>We may update these terms at any time. Continued use of the Service after changes constitutes acceptance of the updated terms. Material changes will be communicated via email.</p>
+        <h2>10. Service Availability and Support</h2>
+        <p>We work to keep the Service available and reliable, but the self-service plan does not include guaranteed uptime, response times, or service credits. Enterprise plans may include negotiated support targets, incident response processes, and service level commitments.</p>
 
-        <h2>10. Governing Law</h2>
-        <p>These terms are governed by the laws of the State of Delaware, USA, without regard to conflict of law provisions.</p>
+        <h2>11. Warranty Disclaimer</h2>
+        <p>THE SERVICE, AI-GENERATED OUTPUTS, PIPELINE REPORTS, AND ARTIFACTS ARE PROVIDED "AS IS" AND "AS AVAILABLE." TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUILDORBIT DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, AVAILABILITY, AND ERROR-FREE OPERATION.</p>
+
+        <h2>12. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, BUILDORBIT WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR LOST PROFITS, LOST REVENUE, LOST DATA, BUSINESS INTERRUPTION, OR SUBSTITUTE SERVICES.</p>
+        <p>BUILDORBIT'S TOTAL LIABILITY FOR ALL CLAIMS RELATING TO THE SERVICE WILL NOT EXCEED THE AMOUNTS YOU PAID TO BUILDORBIT FOR THE SERVICE IN THE 12 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM, OR $100 IF YOU used THE SERVICE FOR FREE. These limits do not apply where prohibited by law.</p>
+
+        <h2>13. Indemnification</h2>
+        <p>You will defend, indemnify, and hold harmless BuildOrbit and its officers, employees, contractors, and affiliates from claims, damages, liabilities, costs, and expenses arising from your content, your use of the Service, your violation of these Terms, or your violation of laws or third-party rights.</p>
+
+        <h2>14. Confidentiality</h2>
+        <p>If you receive non-public information about BuildOrbit, including product roadmaps, security materials, pricing, or technical documentation, you must use it only for evaluating or using the Service and protect it with reasonable care. Enterprise confidentiality terms may be superseded by a signed agreement.</p>
+
+        <h2>15. Force Majeure</h2>
+        <p>Neither party is responsible for delay or failure to perform caused by events beyond reasonable control, including natural disasters, labor disputes, internet or cloud provider failures, power outages, acts of war, government actions, civil unrest, or widespread security incidents.</p>
+
+        <h2>16. Changes to Terms</h2>
+        <p>We may update these Terms from time to time. We will provide at least 30 days' notice before material changes take effect, unless changes are required sooner for legal, security, or operational reasons. Continued use after the effective date means you accept the updated Terms.</p>
+
+        <h2>17. Governing Law and Dispute Resolution</h2>
+        <p>These Terms are governed by the laws of the State of Delaware, USA, without regard to conflict of law rules. Before filing a formal claim, the parties will attempt to resolve disputes in good faith by emailing the notice address below and allowing 30 days for escalation.</p>
+        <p>Except for claims that may be brought in small claims court or claims seeking injunctive relief for misuse of intellectual property or confidential information, disputes will be resolved by binding arbitration on an individual basis. Class actions, class arbitrations, and representative actions are not permitted to the extent allowed by law.</p>
+
+        <h2>18. Order of Precedence</h2>
+        <p>If you have a signed order form, DPA, BAA, SLA, or enterprise agreement with BuildOrbit, that document controls where it conflicts with these public Terms. All other provisions remain in effect.</p>
 
         <div class="legal-contact">
-            <p>Questions? Email us at <a href="mailto:support@buildorbit.polsia.app">support@buildorbit.polsia.app</a></p>
+            <p>Questions, legal notices, DPA requests, or enterprise terms: <a href="mailto:legal@buildorbit.polsia.app">legal@buildorbit.polsia.app</a></p>
         </div>
     </div>
 

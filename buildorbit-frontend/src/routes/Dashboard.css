@@ -165,6 +165,40 @@
   color: var(--text);
   font-weight: 700;
 }
+.dash-guidance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: var(--radius-sm);
+  background: rgba(251, 191, 36, 0.08);
+}
+.dash-guidance strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--text);
+  font-size: 13px;
+}
+.dash-guidance span {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.dash-guidance a {
+  flex-shrink: 0;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.24);
+  color: var(--warning);
+  font-size: 12px;
+  font-weight: 700;
+}
 .dash-loading {
   padding: 18px;
   border: 1px solid rgba(56, 189, 248, 0.08);

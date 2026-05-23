@@ -134,10 +134,13 @@
 }
 
 .sb-link-icon {
-  font-size: 16px;
-  width: 20px;
+  font-size: 11px;
+  width: 24px;
   text-align: center;
   flex-shrink: 0;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .sb-link-label {
@@ -180,7 +183,9 @@
 }
 
 .sb-upgrade-icon {
-  font-size: 14px;
+  font-size: 10px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
   flex-shrink: 0;
 }
 

@@ -1,7 +1,6 @@
 /**
- * Sidebar — persistent navigation for all authenticated routes.
- * Owns: nav links, collapse toggle, mobile hamburger, logo, upgrade prompt.
- * Not owned: page content, auth state, routing decisions.
+ * Sidebar - persistent navigation for authenticated routes.
+ * Owns nav links, collapse state, mobile drawer, logo, and upgrade prompt.
  */
 import { useState, useEffect, useCallback } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -9,10 +8,10 @@ import { fetchBillingStatus } from '../../lib/api';
 import './Sidebar.css';
 
 const NAV_ITEMS = [
-  { to: '/dashboard', label: 'Dashboard', icon: '◎' },
-  { to: '/new',       label: 'New Build',  icon: '⊕' },
-  { to: '/history',   label: 'History',    icon: '☰' },
-  { to: '/settings',  label: 'Settings',   icon: '⚙' },
+  { to: '/dashboard', label: 'Dashboard', icon: 'DB' },
+  { to: '/new', label: 'New Build', icon: '+' },
+  { to: '/history', label: 'History', icon: 'H' },
+  { to: '/settings', label: 'Settings', icon: 'S' },
 ] as const;
 
 const STORAGE_KEY = 'bo_sidebar_collapsed';
@@ -28,10 +27,8 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const [showUpgrade, setShowUpgrade] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  /* Close mobile nav on route change */
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
-  /* Close mobile nav on Escape */
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMobileOpen(false);
@@ -40,7 +37,6 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
     return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
-  /* Show upgrade button only for trial/free users; detect admin */
   useEffect(() => {
     fetchBillingStatus().then(data => {
       if (!data.success) return;
@@ -52,7 +48,6 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <>
-      {/* Mobile hamburger — visible only on small screens */}
       <button
         className="sb-hamburger"
         onClick={() => setMobileOpen(prev => !prev)}
@@ -63,21 +58,17 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         <span className={`sb-hamburger-bar${mobileOpen ? ' open' : ''}`} />
       </button>
 
-      {/* Mobile overlay */}
       {mobileOpen && (
         <div className="sb-overlay" onClick={() => setMobileOpen(false)} />
       )}
 
-      {/* Sidebar */}
       <aside className={`sb${collapsed ? ' sb--collapsed' : ''}${mobileOpen ? ' sb--mobile-open' : ''}`}>
-        {/* Logo */}
         <div className="sb-logo">
           <div className="sb-logo-dot" />
           {!collapsed && <span className="sb-logo-text">BuildOrbit</span>}
         </div>
 
-        {/* Navigation */}
-        <nav className="sb-nav">
+        <nav className="sb-nav" aria-label="Primary navigation">
           {NAV_ITEMS.map(item => (
             <NavLink
               key={item.to}
@@ -85,49 +76,49 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
               className={({ isActive }) =>
                 `sb-link${isActive ? ' sb-link--active' : ''}`
               }
-              title={collapsed ? item.label : undefined}
+              title={item.label}
+              aria-label={item.label}
             >
-              <span className="sb-link-icon">{item.icon}</span>
+              <span className="sb-link-icon" aria-hidden="true">{item.icon}</span>
               {!collapsed && <span className="sb-link-label">{item.label}</span>}
             </NavLink>
           ))}
-          {/* Admin link — only visible to admin users */}
           {isAdmin && (
             <NavLink
               to="/admin"
               className={({ isActive }) =>
                 `sb-link sb-link--admin${isActive ? ' sb-link--active' : ''}`
               }
-              title={collapsed ? 'Admin' : undefined}
+              title="Admin"
+              aria-label="Admin"
             >
-              <span className="sb-link-icon">🛡</span>
+              <span className="sb-link-icon" aria-hidden="true">AD</span>
               {!collapsed && <span className="sb-link-label">Admin</span>}
             </NavLink>
           )}
         </nav>
 
-        {/* Upgrade to Pro — shown only for trial users */}
         {showUpgrade && (
           <a
             href="/pricing"
             className={`sb-upgrade${collapsed ? ' sb-upgrade--collapsed' : ''}`}
-            title={collapsed ? 'Upgrade to Pro — $29/mo' : undefined}
+            title="Upgrade to Pro - $29/mo"
+            aria-label="Upgrade to Pro"
           >
-            <span className="sb-upgrade-icon">⚡</span>
+            <span className="sb-upgrade-icon" aria-hidden="true">PRO</span>
             {!collapsed && <span className="sb-upgrade-label">Upgrade to Pro</span>}
           </a>
         )}
 
-        {/* Collapse toggle — desktop only */}
         <button className="sb-collapse-toggle" onClick={onToggle} aria-label="Collapse sidebar">
-          <span className={`sb-chevron${collapsed ? ' sb-chevron--flipped' : ''}`}>‹</span>
+          <span className={`sb-chevron${collapsed ? ' sb-chevron--flipped' : ''}`}>&lt;</span>
         </button>
       </aside>
     </>
   );
 }
 
-/** Hook for sidebar collapse state — persisted in localStorage */
+/** Persisted sidebar collapse state. */
 export function useSidebarCollapse() {
   const [collapsed, setCollapsed] = useState(() => {
     try { return localStorage.getItem(STORAGE_KEY) === '1'; }

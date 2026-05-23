@@ -49,11 +49,11 @@
 
       /* ── Plan grid ────────────────────────────────────────── */
       .plan-grid {
-        display: grid; grid-template-columns: 1fr 1fr;
-        gap: 20px; max-width: 760px; width: 100%; padding: 0 24px;
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px; max-width: 1080px; width: 100%; padding: 0 24px;
         margin-bottom: 48px;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 900px) {
         .plan-grid { grid-template-columns: 1fr; }
       }
 
@@ -65,6 +65,9 @@
       .plan-card.pro {
         border-color: rgba(56,189,248,0.35);
         box-shadow: 0 0 40px rgba(56,189,248,0.07), 0 1px 0 rgba(56,189,248,0.15) inset;
+      }
+      .plan-card.enterprise {
+        border-color: rgba(52,211,153,0.28);
       }
 
       .plan-badge-best {
@@ -126,7 +129,7 @@
       /* ── FAQ-style trust row ──────────────────────────────── */
       .pricing-trust {
         display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
-        max-width: 760px; padding: 0 24px 48px; text-align: center;
+        max-width: 980px; padding: 0 24px 48px; text-align: center;
       }
       .trust-item { font-size: 13px; color: var(--text-dim); }
       .trust-item strong { color: var(--text-muted); display: block; margin-bottom: 2px; }
@@ -200,6 +203,27 @@
 
             <button class="plan-cta primary" id="pro-cta">Subscribe for $29/month →</button>
             <div class="plan-note">Secured by Stripe · Cancel any time</div>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="plan-card enterprise">
+            <div class="plan-name">Enterprise</div>
+            <div class="plan-price"><span class="free-label">Custom</span></div>
+            <div class="plan-tagline">For legal, healthcare, finance, and teams with compliance review.</div>
+
+            <ul class="plan-features">
+                <li><span class="feat-check">✓</span> <span>Volume pricing and seat management</span></li>
+                <li><span class="feat-check">✓</span> <span>DPA, BAA discussion, and security review</span></li>
+                <li><span class="feat-check">✓</span> <span>Custom retention and export terms</span></li>
+                <li><span class="feat-check">✓</span> <span>SLA and incident response terms</span></li>
+                <li><span class="feat-check">✓</span> <span>Dedicated implementation support</span></li>
+                <li><span class="feat-check">✓</span> <span>Webhook and notification roadmap access</span></li>
+                <li><span class="feat-check">✓</span> <span>Compliance artifact review path</span></li>
+                <li><span class="feat-check">✓</span> <span>Procurement-ready order form</span></li>
+            </ul>
+
+            <a href="mailto:sales@buildorbit.polsia.app?subject=BuildOrbit%20Enterprise" class="plan-cta secondary">Contact Sales -></a>
+            <div class="plan-note">Custom terms for regulated teams</div>
         </div>
     </div>
 

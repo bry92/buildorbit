@@ -27,6 +27,27 @@ const INTENT_MAP: Record<string, { label: string; cls: string; color: string }> 
   full_product:   { label: '🏗 Full Product', cls: 'intent-full',    color: '#a78bfa'        },
 };
 
+const INTENT_LABELS: Record<string, { label: string; cls: string; color: string }> = {
+  ...INTENT_MAP,
+  static_surface: { label: 'Static Surface', cls: 'intent-static', color: 'var(--accent)' },
+  light_app: { label: 'Interactive App', cls: 'intent-light', color: 'var(--success)' },
+  interactive_light_app: { label: 'Interactive App', cls: 'intent-light', color: 'var(--success)' },
+  soft_expansion: { label: 'Adaptive Build', cls: 'intent-soft', color: 'var(--warning)' },
+  full_product: { label: 'Product System', cls: 'intent-full', color: '#a78bfa' },
+  product_system: { label: 'Product System', cls: 'intent-full', color: '#a78bfa' },
+};
+
+function normalizeIntent(value?: string | null) {
+  return value ? value.toLowerCase() : '';
+}
+
+function humanizeIntent(value: string) {
+  return value
+    .replace(/_/g, ' ')
+    .toLowerCase()
+    .replace(/\b\w/g, (c: string) => c.toUpperCase());
+}
+
 const STATUS_LABELS: Record<string, string> = {
   completed:       'Completed',
   partial_success: 'Partial',
@@ -50,7 +71,8 @@ function StatusBadge({ status }: { status: string }) {
 
 function IntentBadge({ ic }: { ic?: string | null }) {
   if (!ic) return <span className="intent-badge intent-unknown">—</span>;
-  const m = INTENT_MAP[ic] ?? { label: ic, cls: 'intent-unknown', color: 'var(--text-dim)' };
+  const normalized = normalizeIntent(ic);
+  const m = INTENT_LABELS[normalized] ?? { label: humanizeIntent(ic), cls: 'intent-unknown', color: 'var(--text-dim)' };
   return <span className={`intent-badge ${m.cls}`}>{m.label}</span>;
 }
 
@@ -215,6 +237,8 @@ export default function Dashboard() {
   }, [showToast]);
 
   const running = stats?.running ?? 0;
+  const completed = stats?.completed ?? 0;
+  const hasBuilds = totalBuilds > 0;
   const intentEntries = Object.entries(intentDist).filter(([, v]) => v > 0);
 
   return (
@@ -285,7 +309,9 @@ export default function Dashboard() {
             <div className="dsc-value dsc-success">
               {stats && stats.total_builds > 0 ? `${stats.success_rate}%` : '—'}
             </div>
-            <div className="dsc-sub">{stats?.completed ?? 0} completed</div>
+            <div className="dsc-sub">
+              {hasBuilds && completed === 0 ? 'No completed builds yet' : `${completed} completed`}
+            </div>
           </div>
           <div className="dash-stat-card accent">
             <div className="dsc-label">Avg Build Time</div>
@@ -333,6 +359,18 @@ export default function Dashboard() {
             </div>
           )}
 
+          {hasBuilds && completed === 0 && !dashboardError && (
+            <div className="dash-guidance" role="status">
+              <div>
+                <strong>Your audit trail is working; no build has reached completed yet.</strong>
+                <span>Partial runs can still contain useful files, trace data, and verify findings. Inspect the latest run or start with a smaller scoped task.</span>
+              </div>
+              <Link to={recentRuns[0]?.id ? `/run/${recentRuns[0].id}` : '/history'}>
+                Inspect latest build
+              </Link>
+            </div>
+          )}
+
           {isDashboardLoading && (
             <div className="dash-loading" aria-label="Loading dashboard">
               <div className="dash-loading-row" />
@@ -346,7 +384,8 @@ export default function Dashboard() {
               <div className="dis-label">Intent distribution</div>
               <div className="dis-pills">
                 {intentEntries.map(([ic, count]) => {
-                  const m = INTENT_MAP[ic] ?? { label: ic, color: 'var(--text-muted)' };
+                  const normalized = normalizeIntent(ic);
+                  const m = INTENT_LABELS[normalized] ?? { label: humanizeIntent(ic), color: 'var(--text-muted)' };
                   return (
                     <span
                       key={ic}
@@ -376,7 +415,7 @@ export default function Dashboard() {
                     onClick={() => setShowClearAllModal(true)}
                     title="Delete all builds permanently"
                   >
-                    ✕ Clear All
+                    Review & clear all
                   </button>
                 )}
                 <Link to="/history" className="drs-view-all">View All →</Link>
