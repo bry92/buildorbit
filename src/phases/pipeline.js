@@ -1122,7 +1122,7 @@ body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; c
         '      </section>',
         '    </main>',
         '  </div>',
-        '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+        `  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>`,
         '  <script src="app.js"></script>',
         '</body>',
         '</html>',
