@@ -8,8 +8,41 @@
 const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const repoRoot = path.join(__dirname, '..');
+const reactBuildIndex = path.join(repoRoot, 'public', 'react-build', 'index.html');
+const frontendDir = path.join(repoRoot, 'buildorbit-frontend');
+const frontendNodeModules = path.join(frontendDir, 'node_modules');
+
+function runChecked(command, args, options) {
+  const result = spawnSync(command, args, {
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+    ...options,
+  });
+
+  if (result.error) {
+    throw result.error;
+  }
+  if (result.status !== 0) {
+    throw new Error(`${command} ${args.join(' ')} exited with code ${result.status}`);
+  }
+}
+
+function ensureReactBuild() {
+  if (fs.existsSync(reactBuildIndex)) {
+    console.log('[startup] React dashboard build found.');
+    return;
+  }
+
+  console.log('[startup] React dashboard build missing; building from buildorbit-frontend.');
+  if (!fs.existsSync(frontendNodeModules)) {
+    runChecked('npm', ['ci', '--include=dev'], { cwd: frontendDir });
+  }
+  runChecked('npm', ['run', 'build'], { cwd: frontendDir });
+}
 
 async function runMigrations() {
   console.log('[migrate] Running pending migrations...');
@@ -61,8 +94,11 @@ async function runMigrations() {
   }
 }
 
-// Run migrations then start server
-runMigrations()
+// Build frontend assets if the deploy platform skipped the configured build step,
+// then run migrations and start the server.
+Promise.resolve()
+  .then(ensureReactBuild)
+  .then(runMigrations)
   .then(() => {
     // eslint-disable-next-line global-require
     require('../server.js');
