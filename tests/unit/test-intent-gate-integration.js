@@ -180,7 +180,7 @@ console.log('\n=== Intent Gate Integration Tests ===\n');
       _constraintContract: contract,
     };
 
-    const result = await qa._runChecks('test-run-id-12345678', fakeArtifacts, emitChunk);
+    const result = await qa._runChecks('test-run-id-12345678', 'Build a landing page', fakeArtifacts, emitChunk);
 
     const complianceCheck = result.checks.find(c => c.name.includes('Intent Gate compliance'));
     assert(complianceCheck, 'Should have Intent Gate compliance check');
@@ -204,7 +204,7 @@ console.log('\n=== Intent Gate Integration Tests ===\n');
       _constraintContract: contract,
     };
 
-    const result = await qa._runChecks('test-run-id-99999999', fakeArtifacts, emitChunk);
+    const result = await qa._runChecks('test-run-id-99999999', 'Build a landing page', fakeArtifacts, emitChunk);
 
     const complianceCheck = result.checks.find(c => c.name.includes('Intent Gate compliance'));
     assert(complianceCheck, 'Should have Intent Gate compliance check');

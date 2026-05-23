@@ -1,11 +1,14 @@
 {
-  "name": "express-postgres-starter",
+  "name": "buildorbit-runtime",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "cd buildorbit-frontend && npm install --include=dev && npm run build && cd .. && npm run build:cli",
+    "build": "npm ci --include=dev --prefix buildorbit-frontend && npm run build --prefix buildorbit-frontend && npm run build:cli",
+    "test": "node scripts/run-tests.js",
+    "test:unit": "node scripts/run-tests.js tests/unit",
+    "test:integration": "node scripts/run-tests.js tests/integration",
     "migrate": "node migrate.js",
     "publish:cli": "cd cli && npm install && npm publish --access public",
     "build:cli": "node scripts/package-cli.js"
