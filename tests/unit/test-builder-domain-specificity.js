@@ -57,12 +57,37 @@ test('unknown prompt derives prompt entity instead of task manager fallback', ()
   assert(/grant|proposal|review|nonprofit|funding|application/.test(domain.entity.name), `entity should reflect prompt, got ${domain.entity.name}`);
 });
 
+test('Autonomos-style workspace prompt maps to businesses, not pronoun fallback', () => {
+  const prompt = 'Autonomos manages 5 data types including businesses. Helps you organize, track, and share your work in 1 place for teams and solo users.';
+  const domain = agent._deriveAppDomain(prompt);
+  assert(domain.type === 'workspace_data', `expected workspace_data, got ${domain.type}`);
+  assert(domain.entity.name === 'businesses', `expected businesses entity, got ${domain.entity.name}`);
+  assert(!domain.fields.some(f => /your/i.test(f.label) || /your/i.test(f.placeholder)), 'fields should not use pronouns as entity labels');
+});
+
 test('light app fallback emits domain-specific files', () => {
   const files = agent._generateLightAppFiles('PropertyDesk', agent._deriveAppDomain('Build a real estate app for property listings and leases'));
   const combined = Object.values(files).join('\n').toLowerCase();
   assert(combined.includes('listings'), 'generated files should include listings');
   assert(combined.includes('address'), 'generated files should include address');
   assert(!combined.includes('/tasks'), 'generated files should not expose task routes');
+});
+
+test('Autonomos light app preview uses business/workspace labels', () => {
+  const prompt = 'Autonomos manages 5 data types including businesses. Helps you organize, track, and share your work in 1 place for teams and solo users.';
+  const files = agent._generateLightAppFiles('Autonomos', agent._deriveAppDomain(prompt));
+  const combined = Object.values(files).join('\n').toLowerCase();
+  assert(combined.includes('businesses'), 'generated files should include businesses');
+  assert(combined.includes('business name'), 'generated files should include business-specific form labels');
+  assert(!combined.includes('new your'), 'generated files should not contain the broken "New your" label');
+  assert(!combined.includes('enter your title'), 'generated files should not contain pronoun-derived placeholders');
+  assert(!combined.includes('[app]'), 'matched domain should not use generic [app] marker');
+});
+
+test('pronouns are never selected as inferred custom entities', () => {
+  const domain = agent._deriveAppDomain('Build an operations app to organize and share your work with clients');
+  assert(domain.entity.name !== 'yours', `pronoun should not be pluralized into entity, got ${domain.entity.name}`);
+  assert(domain.entity.singular !== 'your', 'pronoun should not be singular entity');
 });
 
 if (failed > 0) {

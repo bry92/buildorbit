@@ -7246,6 +7246,25 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
         uiLayout: 'cards',
       },
       {
+        keywords: ['data types', 'data type', 'businesses', 'business records', 'organize track share', 'organize, track, and share', 'teams and solo users', 'solo users', 'workspace', 'work in 1 place', 'work in one place'],
+        type: 'workspace_data',
+        icon: '[workspace]',
+        label: 'Workspace Data',
+        color: { header: 'indigo-600', accent: 'indigo' },
+        entity: { name: 'businesses', singular: 'business', icon: '[workspace]' },
+        fields: [
+          { name: 'name', label: 'Business Name', type: 'varchar(255)', placeholder: 'Business or workspace name...', required: true, inputType: 'text' },
+          { name: 'data_type', label: 'Data Type', type: 'varchar(80)', placeholder: 'Business, project, contact...', required: true, inputType: 'text' },
+          { name: 'owner', label: 'Owner', type: 'varchar(120)', placeholder: 'Team or solo owner...', required: false, inputType: 'text' },
+          { name: 'visibility', label: 'Visibility', type: 'varchar(30)', placeholder: 'team', required: false, inputType: 'select', options: ['private', 'team', 'shared'] },
+        ],
+        dbColumns: `name VARCHAR(255) NOT NULL, data_type VARCHAR(80) NOT NULL, owner VARCHAR(120) DEFAULT '', visibility VARCHAR(30) DEFAULT 'team'`,
+        emptyState: 'No businesses or workspace records yet. Add the first record above!',
+        addLabel: 'Add Business',
+        listLabel: 'Businesses',
+        uiLayout: 'table',
+      },
+      {
         keywords: ['event', 'calendar', 'schedule', 'appointment', 'booking system', 'reservation'],
         type: 'events',
         icon: '📅',
@@ -7336,10 +7355,10 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
       'build', 'create', 'make', 'generate', 'develop', 'design', 'professional', 'grade',
       'fullstack', 'full-stack', 'frontend', 'backend', 'web', 'app', 'application', 'dashboard',
       'platform', 'system', 'tool', 'manager', 'tracker', 'portal', 'with', 'that', 'for', 'and',
-      'the', 'a', 'an', 'to', 'of', 'in', 'on', 'my', 'our', 'simple', 'modern', 'saas',
+      'the', 'a', 'an', 'to', 'of', 'in', 'on', 'my', 'our', 'your', 'their', 'simple', 'modern', 'saas',
     ]);
 
-    const explicit = lower.match(/\b(?:for|manage|track|organize|book|sell|share|upload|schedule)\s+(?:a|an|the|my|our)?\s*([a-z][a-z0-9-]{2,})/);
+    const explicit = lower.match(/\b(?:for|manage|track|organize|book|sell|share|upload|schedule)\s+(?:a|an|the|my|our|your|their)?\s*([a-z][a-z0-9-]{2,})/);
     const words = lower
       .replace(/[^a-z0-9\s-]/g, ' ')
       .split(/\s+/)
