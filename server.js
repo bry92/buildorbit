@@ -54,6 +54,7 @@ const { createExpoExportRouter } = require('./src/routes/expo-export');
 const { createAdminRouter } = require('./src/routes/admin');
 const analytics = require('./src/lib/analytics');
 const cliRouter = require('./src/routes/cli');
+const REACT_BUILD_INDEX = path.join(__dirname, 'public', 'react-build', 'index.html');
 const {
   checkIpRateLimit,
   checkVelocity,
@@ -1317,8 +1318,15 @@ app.use('/app/:runId', (req, res) => {
 app.use('/cli', cliRouter);
 
 // ── Multi-Page Routes ──────────────────────────────────────────────────────
-// All authenticated pages → React SPA shell (React Router handles client-side routing)
-const serveSPA = (req, res) => res.sendFile('react-build/index.html', { root: path.join(__dirname, 'public') });
+// All authenticated pages route to the React SPA shell. The Vite bundle is
+// generated during deployment, so fail clearly if the build step was skipped.
+const serveSPA = (req, res) => {
+  if (!fs.existsSync(REACT_BUILD_INDEX)) {
+    console.error(`[static] Missing React build at ${REACT_BUILD_INDEX}. Run npm run build before starting the server.`);
+    return res.status(503).send('React dashboard build is missing. Run npm run build before starting the server.');
+  }
+  return res.sendFile(REACT_BUILD_INDEX);
+};
 app.get('/dashboard', serveSPA);
 app.get('/new', serveSPA);
 // Redirect /new-task → /new (bookmark safety, old links)
@@ -3570,7 +3578,7 @@ app.get('/run/:runId', auth.requireAuth, (req, res) => {
     return res.status(400).send('Invalid run ID');
   }
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 
 // Code Copilot editor page — 3-panel IDE for post-build editing
@@ -3591,7 +3599,7 @@ app.get('/dashboard', auth.requireAuth, (req, res) => {
     user_agent: req.headers['user-agent'] ? req.headers['user-agent'].slice(0, 128) : null,
   });
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 
 // Decision Trace Viewer — explainability layer for every agent step
@@ -3603,7 +3611,7 @@ app.get('/trace', auth.requireAuth, (req, res) => {
 // /history — React app (History.tsx handles client-side)
 app.get('/history', auth.requireAuth, (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 
 // Causal DAG Viewer — visual flowchart of decision nodes from trace_nodes table
@@ -3618,18 +3626,18 @@ app.get('/dag', auth.requireAuth, (req, res) => {
 // are handled client-side by React Router; Express delivers the shell for both.
 app.get('/settings', auth.requireAuth, (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 app.get('/settings/api-keys', auth.requireAuth, (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 
 // /admin — Admin panel. Auth required server-side; React handles the admin gate client-side.
 // Non-admins who navigate here will see the "Access Denied" React view, not a raw redirect.
 app.get('/admin', auth.requireAuth, (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.sendFile(path.join(__dirname, 'public', 'react-build', 'index.html'));
+  serveSPA(req, res);
 });
 
 // ── Elemental Page — reusable pipeline components (coming soon) ──
@@ -3870,7 +3878,7 @@ If multiple files change, include all of them. Always provide the COMPLETE file 
 // serve the React SPA entry point so React Router can handle client-side navigation
 app.get('*', (req, res) => {
   if (req.method === 'GET') {
-    res.sendFile('react-build/index.html', { root: path.join(__dirname, 'public') });
+    serveSPA(req, res);
   } else {
     res.status(404).json({ error: 'Not found' });
   }
