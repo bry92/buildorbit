@@ -1473,16 +1473,28 @@ Use the ===FILE: path=== ... ===END=== delimiter format.`;
     }
 
     let result;
+    const allowSimulatedFallback = process.env.NODE_ENV !== 'production'
+      || process.env.ALLOW_SIMULATED_CODE_FALLBACK === 'true'
+      || process.env.MOCK_MODE === 'true';
     if (this.openai || this.anthropic) {
       try {
         result = await this._aiCode(prompt, plan, scaffold, emitChunk, productContext, constraintContract, serenaCodeContext);
       } catch (e) {
         console.error('[BuilderAgent] AI code failed, falling back to simulated mode:', e.message);
+        if (!allowSimulatedFallback) {
+          throw new Error(
+            `AI code generation failed and simulated fallback is disabled in production: ${e.message}`
+          );
+        }
         // Emit visible warning to user so they know AI generation failed
         if (emitChunk) {
           emitChunk(`\n⚠️ [CODE] AI code generation encountered an error: ${e.message}. Using fallback generation.\n`);
         }
       }
+    } else if (!allowSimulatedFallback) {
+      throw new Error(
+        'No AI code provider is configured. Set OPENAI_API_KEY or ANTHROPIC_API_KEY, or explicitly set ALLOW_SIMULATED_CODE_FALLBACK=true.'
+      );
     }
     if (!result) {
       result = await this._simulatedCode(prompt, emitChunk, constraintContract, productContext, scaffold, repoProfile);
@@ -5315,6 +5327,16 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
           '    });',
           '  }, { threshold: 0.1 });',
           '  sections.forEach(function(s) { observer.observe(s); });',
+          '',
+          '  // Wire internal navigation/CTA anchors so VERIFY does not pass a dead interaction.',
+          '  document.querySelectorAll("a[href^=\\"#\\"]").forEach(function(anchor) {',
+          '    anchor.addEventListener("click", function(event) {',
+          '      var target = document.querySelector(anchor.getAttribute("href"));',
+          '      if (!target) return;',
+          '      event.preventDefault();',
+          '      target.scrollIntoView({ behavior: "smooth", block: "start" });',
+          '    });',
+          '  });',
           '})();',
         ].join('\n'),
       };
@@ -7092,6 +7114,138 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
         uiLayout: 'table',
       },
       {
+        keywords: ['ecommerce', 'e-commerce', 'shop', 'store', 'marketplace', 'cart', 'checkout', 'orders', 'order management', 'catalog', 'sell products'],
+        type: 'commerce',
+        icon: '[order]',
+        label: 'Commerce',
+        color: { header: 'violet-600', accent: 'violet' },
+        entity: { name: 'orders', singular: 'order', icon: '[order]' },
+        fields: [
+          { name: 'customer', label: 'Customer', type: 'varchar(255)', placeholder: 'Customer name...', required: true, inputType: 'text' },
+          { name: 'product', label: 'Product', type: 'varchar(255)', placeholder: 'Product or SKU...', required: true, inputType: 'text' },
+          { name: 'total', label: 'Order Total', type: 'decimal(10,2)', placeholder: '0.00', required: true, inputType: 'number' },
+          { name: 'status', label: 'Status', type: 'varchar(30)', placeholder: 'processing', required: false, inputType: 'select', options: ['new', 'processing', 'shipped', 'completed'] },
+        ],
+        dbColumns: `customer VARCHAR(255) NOT NULL, product VARCHAR(255) NOT NULL, total DECIMAL(10,2) NOT NULL DEFAULT 0, status VARCHAR(30) DEFAULT 'processing'`,
+        emptyState: 'No orders yet. Capture the first purchase above!',
+        addLabel: 'Create Order',
+        listLabel: 'Orders',
+        uiLayout: 'table',
+      },
+      {
+        keywords: ['real estate', 'property', 'properties', 'listing', 'listings', 'apartment', 'house', 'home search', 'rentals', 'lease', 'mortgage'],
+        type: 'real_estate',
+        icon: '[home]',
+        label: 'Real Estate',
+        color: { header: 'teal-600', accent: 'teal' },
+        entity: { name: 'listings', singular: 'listing', icon: '[home]' },
+        fields: [
+          { name: 'address', label: 'Address', type: 'varchar(255)', placeholder: '123 Market Street...', required: true, inputType: 'text' },
+          { name: 'price', label: 'Price', type: 'decimal(12,2)', placeholder: '450000', required: true, inputType: 'number' },
+          { name: 'beds', label: 'Beds', type: 'integer', placeholder: '3', required: false, inputType: 'number' },
+          { name: 'status', label: 'Status', type: 'varchar(30)', placeholder: 'available', required: false, inputType: 'select', options: ['available', 'pending', 'sold', 'leased'] },
+        ],
+        dbColumns: `address VARCHAR(255) NOT NULL, price DECIMAL(12,2) NOT NULL DEFAULT 0, beds INTEGER DEFAULT 0, status VARCHAR(30) DEFAULT 'available'`,
+        emptyState: 'No property listings yet. Add the first listing above!',
+        addLabel: 'Add Listing',
+        listLabel: 'Listings',
+        uiLayout: 'table',
+      },
+      {
+        keywords: ['healthcare', 'health care', 'medical', 'clinic', 'patient', 'patients', 'doctor', 'provider', 'care plan', 'appointment', 'telehealth'],
+        type: 'healthcare',
+        icon: '[medical]',
+        label: 'Healthcare',
+        color: { header: 'cyan-600', accent: 'cyan' },
+        entity: { name: 'appointments', singular: 'appointment', icon: '[medical]' },
+        fields: [
+          { name: 'patient', label: 'Patient', type: 'varchar(255)', placeholder: 'Patient name...', required: true, inputType: 'text' },
+          { name: 'provider', label: 'Provider', type: 'varchar(255)', placeholder: 'Clinician or team...', required: true, inputType: 'text' },
+          { name: 'date', label: 'Date', type: 'varchar(50)', placeholder: '2026-05-23', required: true, inputType: 'date' },
+          { name: 'status', label: 'Status', type: 'varchar(30)', placeholder: 'scheduled', required: false, inputType: 'select', options: ['scheduled', 'checked_in', 'completed', 'cancelled'] },
+        ],
+        dbColumns: `patient VARCHAR(255) NOT NULL, provider VARCHAR(255) NOT NULL, date VARCHAR(50) NOT NULL, status VARCHAR(30) DEFAULT 'scheduled'`,
+        emptyState: 'No patient appointments yet. Schedule the first visit above!',
+        addLabel: 'Schedule Visit',
+        listLabel: 'Appointments',
+        uiLayout: 'table',
+      },
+      {
+        keywords: ['legal', 'law firm', 'case management', 'case tracker', 'matter', 'matters', 'client intake', 'contract review', 'document review'],
+        type: 'legal',
+        icon: '[case]',
+        label: 'Legal',
+        color: { header: 'slate-700', accent: 'slate' },
+        entity: { name: 'cases', singular: 'case', icon: '[case]' },
+        fields: [
+          { name: 'client', label: 'Client', type: 'varchar(255)', placeholder: 'Client name...', required: true, inputType: 'text' },
+          { name: 'matter', label: 'Matter', type: 'varchar(255)', placeholder: 'Matter summary...', required: true, inputType: 'text' },
+          { name: 'deadline', label: 'Deadline', type: 'varchar(50)', placeholder: '2026-06-01', required: false, inputType: 'date' },
+          { name: 'status', label: 'Status', type: 'varchar(30)', placeholder: 'open', required: false, inputType: 'select', options: ['open', 'review', 'filed', 'closed'] },
+        ],
+        dbColumns: `client VARCHAR(255) NOT NULL, matter VARCHAR(255) NOT NULL, deadline VARCHAR(50) DEFAULT '', status VARCHAR(30) DEFAULT 'open'`,
+        emptyState: 'No legal matters yet. Open the first case above!',
+        addLabel: 'Open Case',
+        listLabel: 'Cases',
+        uiLayout: 'table',
+      },
+      {
+        keywords: ['photo', 'photos', 'image', 'images', 'gallery', 'photography', 'portfolio', 'upload', 'media library', 'album'],
+        type: 'media',
+        icon: '[image]',
+        label: 'Media',
+        color: { header: 'fuchsia-600', accent: 'fuchsia' },
+        entity: { name: 'photos', singular: 'photo', icon: '[image]' },
+        fields: [
+          { name: 'title', label: 'Title', type: 'varchar(255)', placeholder: 'Photo title...', required: true, inputType: 'text' },
+          { name: 'url', label: 'Image URL', type: 'text', placeholder: 'https://...', required: true, inputType: 'text' },
+          { name: 'album', label: 'Album', type: 'varchar(100)', placeholder: 'Portfolio...', required: false, inputType: 'text' },
+          { name: 'caption', label: 'Caption', type: 'text', placeholder: 'Short caption...', required: false, inputType: 'textarea' },
+        ],
+        dbColumns: `title VARCHAR(255) NOT NULL, url TEXT NOT NULL, album VARCHAR(100) DEFAULT '', caption TEXT DEFAULT ''`,
+        emptyState: 'No photos uploaded yet. Add the first image above!',
+        addLabel: 'Upload Photo',
+        listLabel: 'Gallery',
+        uiLayout: 'cards',
+      },
+      {
+        keywords: ['support', 'help desk', 'helpdesk', 'ticket', 'tickets', 'customer support', 'incident', 'service desk'],
+        type: 'support',
+        icon: '[support]',
+        label: 'Support',
+        color: { header: 'red-600', accent: 'red' },
+        entity: { name: 'tickets', singular: 'ticket', icon: '[support]' },
+        fields: [
+          { name: 'subject', label: 'Subject', type: 'varchar(255)', placeholder: 'Issue summary...', required: true, inputType: 'text' },
+          { name: 'customer', label: 'Customer', type: 'varchar(255)', placeholder: 'Customer name...', required: true, inputType: 'text' },
+          { name: 'priority', label: 'Priority', type: 'varchar(20)', placeholder: 'medium', required: false, inputType: 'select', options: ['low', 'medium', 'high', 'urgent'] },
+          { name: 'status', label: 'Status', type: 'varchar(30)', placeholder: 'open', required: false, inputType: 'select', options: ['open', 'triage', 'waiting', 'resolved'] },
+        ],
+        dbColumns: `subject VARCHAR(255) NOT NULL, customer VARCHAR(255) NOT NULL, priority VARCHAR(20) DEFAULT 'medium', status VARCHAR(30) DEFAULT 'open'`,
+        emptyState: 'No support tickets yet. Log the first customer issue above!',
+        addLabel: 'Create Ticket',
+        listLabel: 'Tickets',
+        uiLayout: 'table',
+      },
+      {
+        keywords: ['course', 'courses', 'education', 'learning', 'lms', 'student', 'students', 'teacher', 'lesson', 'classroom', 'training portal'],
+        type: 'education',
+        icon: '[course]',
+        label: 'Education',
+        color: { header: 'blue-700', accent: 'blue' },
+        entity: { name: 'courses', singular: 'course', icon: '[course]' },
+        fields: [
+          { name: 'title', label: 'Course', type: 'varchar(255)', placeholder: 'Course title...', required: true, inputType: 'text' },
+          { name: 'instructor', label: 'Instructor', type: 'varchar(255)', placeholder: 'Instructor name...', required: false, inputType: 'text' },
+          { name: 'level', label: 'Level', type: 'varchar(30)', placeholder: 'beginner', required: false, inputType: 'select', options: ['beginner', 'intermediate', 'advanced'] },
+        ],
+        dbColumns: `title VARCHAR(255) NOT NULL, instructor VARCHAR(255) DEFAULT '', level VARCHAR(30) DEFAULT 'beginner'`,
+        emptyState: 'No courses yet. Add the first learning path above!',
+        addLabel: 'Add Course',
+        listLabel: 'Courses',
+        uiLayout: 'cards',
+      },
+      {
         keywords: ['event', 'calendar', 'schedule', 'appointment', 'booking system', 'reservation'],
         type: 'events',
         icon: '📅',
@@ -7129,38 +7283,109 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
       },
     ];
 
-    for (const domain of APP_DOMAINS) {
-      if (domain.keywords.some(kw => lower.includes(kw))) {
-        return domain;
-      }
+    const matches = APP_DOMAINS
+      .map((domain, index) => ({
+        domain,
+        index,
+        score: domain.keywords.reduce((sum, kw) => {
+          if (!lower.includes(kw)) return sum;
+          return sum + (kw.includes(' ') ? 3 : 1);
+        }, 0),
+      }))
+      .filter(match => match.score > 0)
+      .sort((a, b) => (b.score - a.score) || (a.index - b.index));
+
+    if (matches.length > 0) {
+      return matches[0].domain;
     }
 
-    // Fallback: try to infer from prompt keywords for a generic but titled app
+    // Fallback: infer a prompt-specific entity instead of generating another
+    // generic task manager when no explicit domain matched.
     return this._defaultAppDomain(prompt);
   }
 
   _defaultAppDomain(prompt = '') {
-    // Use the prompt to at least name the entity sensibly.
-    // Default to a task/entry domain so we avoid the generic "name/description/items"
-    // CRUD template — tasks are the most universally applicable domain.
+    // Preserve prompt-specific language even in simulated mode. This prevents
+    // provider outages from turning unrelated requests into a task manager.
     const safeTitle = this._deriveTitle ? this._deriveTitle(prompt) : 'App';
-    const label = safeTitle || 'App';
+    const inferred = this._inferEntityFromPrompt(prompt, safeTitle);
+    const label = inferred.label;
     return {
-      type: 'tasks',
-      icon: '📋',
+      type: inferred.type,
+      icon: '[app]',
       label,
       color: { header: 'indigo-600', accent: 'indigo' },
-      entity: { name: 'entries', singular: 'entry', icon: '📋' },
+      entity: { name: inferred.plural, singular: inferred.singular, icon: '[app]' },
       fields: [
-        { name: 'title', label: label + ' Entry', type: 'varchar(255)', placeholder: 'Enter title or description...', required: true, inputType: 'text' },
-        { name: 'status', label: 'Status', type: 'varchar(20)', placeholder: 'active', required: false, inputType: 'select', options: ['active', 'pending', 'done'] },
+        { name: 'title', label: inferred.titleField, type: 'varchar(255)', placeholder: inferred.titlePlaceholder, required: true, inputType: 'text' },
+        { name: 'summary', label: 'Summary', type: 'text', placeholder: `Describe this ${inferred.singular}...`, required: false, inputType: 'textarea' },
+        { name: 'category', label: 'Category', type: 'varchar(80)', placeholder: inferred.categoryPlaceholder, required: false, inputType: 'text' },
+        { name: 'status', label: 'Status', type: 'varchar(20)', placeholder: 'active', required: false, inputType: 'select', options: ['active', 'review', 'archived'] },
       ],
-      dbColumns: `title VARCHAR(255) NOT NULL, status VARCHAR(20) DEFAULT 'active'`,
-      emptyState: `No ${label.toLowerCase()} entries yet. Add your first one above!`,
-      addLabel: `Add ${label} Entry`,
+      dbColumns: `title VARCHAR(255) NOT NULL, summary TEXT DEFAULT '', category VARCHAR(80) DEFAULT '', status VARCHAR(20) DEFAULT 'active'`,
+      emptyState: `No ${inferred.plural.replace(/_/g, ' ')} yet. Add the first ${inferred.singular.replace(/_/g, ' ')} above!`,
+      addLabel: `Add ${inferred.singularLabel}`,
       listLabel: label,
       uiLayout: 'cards',
     };
+  }
+
+  _inferEntityFromPrompt(prompt = '', safeTitle = 'App') {
+    const lower = String(prompt || '').toLowerCase();
+    const stopWords = new Set([
+      'build', 'create', 'make', 'generate', 'develop', 'design', 'professional', 'grade',
+      'fullstack', 'full-stack', 'frontend', 'backend', 'web', 'app', 'application', 'dashboard',
+      'platform', 'system', 'tool', 'manager', 'tracker', 'portal', 'with', 'that', 'for', 'and',
+      'the', 'a', 'an', 'to', 'of', 'in', 'on', 'my', 'our', 'simple', 'modern', 'saas',
+    ]);
+
+    const explicit = lower.match(/\b(?:for|manage|track|organize|book|sell|share|upload|schedule)\s+(?:a|an|the|my|our)?\s*([a-z][a-z0-9-]{2,})/);
+    const words = lower
+      .replace(/[^a-z0-9\s-]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean)
+      .filter(w => !stopWords.has(w) && !/^\d+$/.test(w));
+
+    const seed = (explicit && !stopWords.has(explicit[1])) ? explicit[1] : (words[0] || safeTitle || 'record');
+    const singular = this._normalizeEntityName(seed);
+    const plural = this._pluralizeEntityName(singular);
+    const singularLabel = this._titleCaseWords(singular.replace(/_/g, ' '));
+    const label = this._titleCaseWords(plural.replace(/_/g, ' '));
+
+    return {
+      type: `custom_${singular}`,
+      singular,
+      plural,
+      singularLabel,
+      label,
+      titleField: `${singularLabel} Title`,
+      titlePlaceholder: `Enter ${singularLabel.toLowerCase()} title...`,
+      categoryPlaceholder: `${singularLabel} category...`,
+    };
+  }
+
+  _normalizeEntityName(value) {
+    const cleaned = String(value || 'record')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+    return cleaned || 'record';
+  }
+
+  _pluralizeEntityName(value) {
+    if (!value) return 'records';
+    if (value.endsWith('s')) return value;
+    if (value.endsWith('y')) return `${value.slice(0, -1)}ies`;
+    if (/(ch|sh|x|z)$/.test(value)) return `${value}es`;
+    return `${value}s`;
+  }
+
+  _titleCaseWords(value) {
+    return String(value || 'Records')
+      .split(/\s+/)
+      .filter(Boolean)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
   }
 
   /**

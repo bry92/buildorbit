@@ -628,6 +628,9 @@ class QAAgent {
         { label: 'travel', keywords: ['travel', 'trip', 'hotel', 'flight', 'booking', 'destination', 'itinerary', 'vacation', 'tour', 'accommodation', 'passport', 'guide'], minMatch: 2 },
         { label: 'education', keywords: ['course', 'lesson', 'student', 'teacher', 'quiz', 'learn', 'class', 'grade', 'enroll', 'assignment', 'lecture', 'school'], minMatch: 2 },
         { label: 'real estate', keywords: ['property', 'listing', 'real estate', 'rent', 'apartment', 'house', 'bedroom', 'location', 'agent', 'mortgage', 'lease', 'landlord'], minMatch: 2 },
+        { label: 'healthcare', keywords: ['healthcare', 'medical', 'clinic', 'patient', 'doctor', 'provider', 'appointment', 'care', 'telehealth', 'visit'], minMatch: 2 },
+        { label: 'legal', keywords: ['legal', 'law', 'case', 'matter', 'client', 'contract', 'document', 'court', 'deadline', 'intake'], minMatch: 2 },
+        { label: 'support', keywords: ['support', 'ticket', 'helpdesk', 'customer', 'incident', 'priority', 'service desk', 'issue', 'resolution'], minMatch: 2 },
       ];
 
       const promptLower = prompt.toLowerCase();
