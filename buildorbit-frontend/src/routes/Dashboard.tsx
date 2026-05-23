@@ -74,6 +74,8 @@ export default function Dashboard() {
   const [recentRuns, setRecentRuns] = useState<RecentRun[]>([]);
   const [totalBuilds, setTotalBuilds] = useState(0);
   const [intentDist, setIntentDist] = useState<Record<string, number>>({});
+  const [isDashboardLoading, setIsDashboardLoading] = useState(true);
+  const [dashboardError, setDashboardError] = useState<string | null>(null);
 
   const [isPro, setIsPro] = useState(false);
   const [credits, setCredits] = useState(0);
@@ -99,12 +101,17 @@ export default function Dashboard() {
   const loadDashboard = useCallback(async () => {
     try {
       const data = await fetchDashboard();
-      if (!data.success) return;
+      if (!data.success) throw new Error('Dashboard API returned an unsuccessful response.');
       setStats(data.stats);
       setTotalBuilds(data.stats.total_builds ?? 0);
       setIntentDist(data.stats.intent_distribution ?? {});
       setRecentRuns(data.recent_runs ?? []);
-    } catch { /* non-fatal */ }
+      setDashboardError(null);
+    } catch (err) {
+      setDashboardError(err instanceof Error ? err.message : 'Dashboard data could not be loaded.');
+    } finally {
+      setIsDashboardLoading(false);
+    }
   }, []);
 
   /* ── Load billing status ─────────────────────────────── */
@@ -316,6 +323,23 @@ export default function Dashboard() {
 
         {/* Body */}
         <div className="dash-hero-body">
+          {dashboardError && (
+            <div className="dash-alert" role="status">
+              <div>
+                <strong>Dashboard data is temporarily unavailable.</strong>
+                <span>{dashboardError}</span>
+              </div>
+              <button type="button" onClick={loadDashboard}>Retry</button>
+            </div>
+          )}
+
+          {isDashboardLoading && (
+            <div className="dash-loading" aria-label="Loading dashboard">
+              <div className="dash-loading-row" />
+              <div className="dash-loading-row short" />
+            </div>
+          )}
+
           {/* Intent distribution */}
           {intentEntries.length > 0 && (
             <div className="dash-intent-section">

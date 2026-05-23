@@ -1,0 +1,78 @@
+.bo-error-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(56, 189, 248, 0.14), transparent 22%),
+    linear-gradient(180deg, #060a14 0%, #04070d 100%);
+  color: var(--text);
+}
+
+.bo-error-card {
+  width: min(520px, 100%);
+  padding: 28px;
+  border: 1px solid rgba(248, 113, 113, 0.22);
+  border-radius: var(--radius-lg);
+  background: rgba(13, 20, 36, 0.94);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+}
+
+.bo-error-kicker {
+  margin-bottom: 10px;
+  color: var(--error);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bo-error-card h1 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  letter-spacing: 0;
+}
+
+.bo-error-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.bo-error-detail {
+  max-height: 120px;
+  margin: 18px 0 0;
+  padding: 12px;
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  background: rgba(4, 7, 13, 0.72);
+  color: var(--text-soft);
+  white-space: pre-wrap;
+}
+
+.bo-error-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.bo-error-actions button,
+.bo-error-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.bo-error-actions button {
+  border: 0;
+  background: var(--accent);
+  color: #060a14;
+}
+
+.bo-error-actions a {
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: var(--text);
+}

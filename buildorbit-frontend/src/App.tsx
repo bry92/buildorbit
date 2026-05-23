@@ -9,25 +9,28 @@ import Admin from './routes/Admin';
 import NotFound from './routes/NotFound';
 import Overview from './routes/Overview';
 import Videos from './routes/Videos';
+import ErrorBoundary from './components/ErrorBoundary';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/videos" element={<Videos />} />
-        <Route element={<Shell />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/new" element={<NewBuild />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/run/:id" element={<Run />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/api-keys" element={<Settings />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/overview" element={<Overview />} />
+          <Route path="/videos" element={<Videos />} />
+          <Route element={<Shell />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/new" element={<NewBuild />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/run/:id" element={<Run />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/api-keys" element={<Settings />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
