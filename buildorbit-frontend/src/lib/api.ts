@@ -111,6 +111,11 @@ export interface DashboardResponse {
   recent_runs: RecentRun[];
 }
 
+export interface ApiEnvelope {
+  success: boolean;
+  message?: string;
+}
+
 export interface BillingStatus {
   success: boolean;
   subscription_status: string;
@@ -160,8 +165,16 @@ export const getBillingPortal = () => api.get<{ url: string }>('/api/billing/por
 export const createPipeline = (prompt: string, opts?: Record<string, unknown>) =>
   api.post<{ id: string }>('/api/pipeline', { prompt, ...opts });
 
-export const fetchRun = (runId: string) =>
-  api.get<{ success: boolean; run: PipelineRun }>(`/api/pipeline/${runId}/details`);
+export async function fetchRun(runId: string): Promise<ApiEnvelope & { run: PipelineRun }> {
+  const data = await api.get<ApiEnvelope & { run?: PipelineRun }>(`/api/pipeline/${runId}/details`);
+  if (!data.success || !data.run) {
+    throw new Error(data.message ?? 'Run details were not returned.');
+  }
+  if (data.run.id !== runId) {
+    throw new Error('Loaded run did not match the requested build.');
+  }
+  return { ...data, run: data.run };
+}
 
 export const deleteAllBuilds = () => api.delete<{ success: boolean; deleted: number }>('/api/builds/bulk', { all: true });
 

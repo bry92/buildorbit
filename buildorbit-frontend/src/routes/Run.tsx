@@ -150,6 +150,7 @@ export default function Run() {
 
   const intervalRef  = useRef<ReturnType<typeof setInterval> | null>(null);
   const connRef      = useRef<RunStreamConnection | null>(null);
+  const loadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ── Polling fallback ──────────────────────────────────────────
   // WHY merge instead of replace: polling fires every 3s and used to do
@@ -161,6 +162,11 @@ export default function Run() {
       const data = await fetchRun(runId);
       if (data.success) {
         setRun(prev => prev ? mergePollingUpdate(prev, data.run) : data.run);
+        setError(null);
+        if (loadTimeoutRef.current) {
+          clearTimeout(loadTimeoutRef.current);
+          loadTimeoutRef.current = null;
+        }
         if (['completed', 'partial_success', 'failed'].includes(data.run.status)) {
           if (intervalRef.current) clearInterval(intervalRef.current);
           // Also stop reasoning polling — run is done, no more phases to capture
@@ -229,6 +235,10 @@ export default function Run() {
     setReasoningTimeline([]);
 
     loadRun();
+    loadTimeoutRef.current = setTimeout(() => {
+      setError('This build is taking longer than expected to load. Try refreshing, or return to History and open it again.');
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }, 12000);
     intervalRef.current = setInterval(loadRun, 3000);
     connectWS();
 
@@ -239,6 +249,7 @@ export default function Run() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (reasoningIntervalRef.current) clearInterval(reasoningIntervalRef.current);
+      if (loadTimeoutRef.current) clearTimeout(loadTimeoutRef.current);
       connRef.current?.disconnect();
       connRef.current = null;
     };
