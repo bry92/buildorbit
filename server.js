@@ -2508,7 +2508,7 @@ app.get('/api/dashboard/stats', auth.requireAuth, async (req, res) => {
 
 // ── Run Details API ─────────────────────────────────────
 // Returns full run metadata including code files + scaffold for the Copilot page.
-app.get('/api/pipeline/:runId/details', auth.requireAuth, async (req, res) => {
+app.get('/api/pipeline/:runId/details', async (req, res) => {
   try {
     const { runId } = req.params;
     const userId = req.user?.userId;

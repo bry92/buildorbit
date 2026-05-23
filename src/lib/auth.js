@@ -373,6 +373,7 @@ async function revokeApiToken(pool, tokenId, userId) {
  */
 function makeRequireAuth(pool) {
   return async function requireAuth(req, res, next) {
+    if (req.user) return next();
     const token = req.cookies && req.cookies[COOKIE_NAME];
     if (!token) return res.redirect('/signup');
     const payload = verifySession(token);
@@ -402,6 +403,7 @@ function makeRequireAuth(pool) {
  */
 function makeRequireApiAuth(pool) {
   return async function requireApiAuth(req, res, next) {
+    if (req.user) return next();
     // ── Try Bearer API token first ─────────────────────────────────────────
     const authHeader = req.headers['authorization'];
     if (authHeader && authHeader.startsWith('Bearer bo_')) {
@@ -446,6 +448,7 @@ function makeRequireApiAuth(pool) {
 
 // Stateless fallbacks (used before pool is available — server.js re-assigns after init)
 function requireAuth(req, res, next) {
+  if (req.user) return next();
   const token = req.cookies && req.cookies[COOKIE_NAME];
   if (!token) return res.redirect('/signup');
   const payload = verifySession(token);
@@ -455,6 +458,7 @@ function requireAuth(req, res, next) {
 }
 
 function requireApiAuth(req, res, next) {
+  if (req.user) return next();
   const token = req.cookies && req.cookies[COOKIE_NAME];
   if (!token) return res.status(401).json({ success: false, message: 'Authentication required' });
   const payload = verifySession(token);
