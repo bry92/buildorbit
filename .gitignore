@@ -2,10 +2,24 @@ node_modules/
 .env
 .DS_Store
 
-#local secret and generated files
+# Local secrets and generated files
 .env
 !.env.example
 .claude/
 .claude.json*
 .tmp/
 
+# Build outputs
+public/react-build/
+public/downloads/
+buildorbit-frontend/dist/
+cli/buildorbit*.tgz
+
+# Runtime artifacts
+artifacts/
+debug/
+shell-snapshots/
+session-env/
+
+# Generated test reports
+tests/integration/*-report.json
