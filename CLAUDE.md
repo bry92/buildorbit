@@ -22,7 +22,7 @@ Node.js 20 + Express + Neon PostgreSQL + Render deploy + Stripe billing
 - `tests/` — Integration + unit tests
 
 ## Database
-- `pipeline_runs` — Each task execution, phase states, costs, github_repo selection, github_pr_url, source_repo, polsia_app_url, catastrophic_block (JSONB — block stats when SAVE is hard-blocked), phase_reasoning (JSONB — ordered reasoning timeline per phase)
+- `pipeline_runs` — Each task execution, phase states, costs, github_repo selection, github_pr_url, source_repo, deploy_url, catastrophic_block (JSONB — block stats when SAVE is hard-blocked), phase_reasoning (JSONB — ordered reasoning timeline per phase)
 - `pipeline_events` — Immutable event log per run
 - `pipeline_traces` — Execution DAG (nodes + edges for View Trace)
 - `deployments` — Deployed artifacts per run
@@ -38,7 +38,7 @@ Node.js 20 + Express + Neon PostgreSQL + Render deploy + Stripe billing
 - `run_failure_signatures` — Structured failure patterns per run: phase, error type, stable signature key, LLM root cause + fix proposal. Powers Orbit pattern detection and cross-run comparison.
 
 ## External integrations
-- Stripe — subscription billing ($29/mo), payment links via Polsia proxy
+- Stripe — subscription billing ($29/mo), direct Stripe payment links + webhooks
 - Render — hosting, auto-deploy on push to main
 - Neon — PostgreSQL (DATABASE_URL)
 - Anthropic — LLM calls for pipeline phases
@@ -46,7 +46,7 @@ Node.js 20 + Express + Neon PostgreSQL + Render deploy + Stripe billing
 - Sapiom — web research + browser automation for agents
 - GitHub OAuth — user repo connect/push (GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
 - Browserbase — cloud browser sessions for VERIFY phase visual screenshots (BROWSERBASE_API_KEY, optional)
-- Polsia R2 — CDN hosting for generated static builds (POLSIA_API_KEY, auto-provisioned)
+- Postmark — transactional email (magic links, welcome, billing notifications)
 
 ## Recent changes
 - 2026-05-15: SECURITY — Server hardening bundle (task #1597340). (1) Body parser limits (10mb). (2) Field-level validation in `src/lib/input-validation.js` (prompt 50KB, email 254 chars). (3) `req.user` frozen via `Object.defineProperty` — prevents privilege escalation. (4) Graceful shutdown handlers (SIGTERM/SIGINT) drain pool with 15s force-exit fallback. (5) Deploy race fixed: `deploy()` + `rollback()` in deploy-engine.js wrapped in transactions with `FOR UPDATE`. (6) CSRF: double-submit cookie pattern via `src/lib/csrf.js`, `/api/csrf-token` endpoint, frontend sends `X-CSRF-Token`.

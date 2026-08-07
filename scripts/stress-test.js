@@ -14,7 +14,7 @@
  *   BUILDORBIT_URL=http://localhost:3000 node scripts/stress-test.js
  *
  *   # Full pipeline with auth token
- *   BUILDORBIT_URL=https://buildorbit.polsia.app AUTH_TOKEN=xxx node scripts/stress-test.js
+ *   BUILDORBIT_URL= AUTH_TOKEN=xxx node scripts/stress-test.js
  *
  * Phase 4 Observation (soft expansion):
  *   If soft-expansion.js has shipped, this harness logs when soft expansion

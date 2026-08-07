@@ -96,7 +96,7 @@ scripts/                  Packaging, migration, and verification utilities
 - npm 9 or newer
 - PostgreSQL database for full local runtime
 - OpenAI-compatible API key for non-mock AI pipeline runs
-- Optional: Anthropic, Stripe, GitHub OAuth, Browserbase, and Polsia provider credentials
+- Optional: Anthropic, Stripe, GitHub OAuth, Browserbase, and Postmark (transactional email)
 
 ## Environment Variables
 
@@ -123,7 +123,8 @@ Common optional variables:
 | `STRIPE_WEBHOOK_SECRET` | Verifies Stripe webhooks. |
 | `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | Enables GitHub OAuth integration. |
 | `BROWSERBASE_API_KEY` / `BROWSERBASE_PROJECT_ID` | Enables Browserbase screenshots. |
-| `POLSIA_API_KEY` | Enables Polsia email/deploy provider calls. |
+| `POSTMARK_SERVER_TOKEN` | Enables magic-link and transactional email via Postmark. |
+| `EMAIL_FROM` | Sender address for Postmark (default `noreply@buildorbit.com`). |
 | `MOCK_MODE` | Set to `true` for local test paths without external providers. Never use in production. |
 
 ## Local Development

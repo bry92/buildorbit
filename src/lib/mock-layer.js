@@ -78,7 +78,7 @@ const MOCK_DEPENDENCIES = [
   },
   {
     name: 'auth.sendMagicLinkEmail',
-    real_type: 'HTTP call to Polsia email proxy (polsia.com/api/proxy/email/send) — sends magic link email',
+    real_type: 'HTTP call to Postmark API — sends magic link email',
     mock_value: 'No-op logger — logs payload to console, returns { messageId: "mock-msg-001", sent: true }',
     impact: 'Zero network calls to email proxy. Magic link tokens are generated but not delivered.',
   },

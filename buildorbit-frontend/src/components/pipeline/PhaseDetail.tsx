@@ -188,7 +188,7 @@ function SaveDetail({ output }: { output: Record<string, unknown> }) {
   const prUrl = str(output.pr_url) || str(output.github_pr_url);
   const branch = str(output.branch);
   const commitSha = str(output.commit_sha) || str(output.sha);
-  const deployUrl = str(output.deploy_url) || str(output.polsia_app_url);
+  const deployUrl = str(output.deploy_url);
 
   const hasFields = prUrl || branch || commitSha || deployUrl;
 

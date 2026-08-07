@@ -29,6 +29,7 @@
 
 const express = require('express');
 const crypto = require('crypto');
+const { getAppUrl } = require('../lib/app-url');
 
 // ── Phase Metadata ─────────────────────────────────────────────────────────
 // All 6 phases are first-class persisted stages in the state machine.
@@ -462,12 +463,12 @@ function createA2ARouter({ pool, pipeline, orchestrator, stateMachine, auth }) {
       description: 'Autonomous execution with deterministic 6-phase pipeline and constraint enforcement. Every task produces a cryptographically-traceable execution proof with guardrail metadata.',
       version: '1.0.0',
       capabilities: ['static_surface', 'interactive_light_app', 'product_system'],
-      endpoint: 'https://buildorbit.polsia.app/a2a/execute',
+      endpoint: `${getAppUrl()}/a2a/execute`,
       protocol: 'a2a-v1',
       auth: {
         type: 'bearer',
         header: 'Authorization: Bearer <api_key>',
-        obtain_key: 'POST https://buildorbit.polsia.app/a2a/keys (session auth required)',
+        obtain_key: `POST ${getAppUrl()}/a2a/keys (session auth required)`,
       },
       phases: [
         { number: 1, name: 'INTENT_GATE',  description: 'Classifies intent and compiles immutable constraint contract' },
@@ -782,7 +783,7 @@ function createA2ARouter({ pool, pipeline, orchestrator, stateMachine, auth }) {
         completed_stages: completedStages,
         current_phase: stageToPhaseNumber(run.state),
         total_phases: TOTAL_PHASES,
-        artifacts_url: `https://buildorbit.polsia.app/api/pipeline/${runId}/artifacts`,
+        artifacts_url: `${getAppUrl()}/api/pipeline/${runId}/artifacts`,
         created_at: run.created_at,
       });
     } catch (err) {

@@ -7,7 +7,7 @@
     <meta name="description" content="BuildOrbit is the deterministic 6-phase AI execution pipeline. Every decision is visible, auditable, and traceable. Built for legal, finance, and healthcare teams that can't afford black-box AI.">
     <meta property="og:title" content="BuildOrbit — The Glass-Box AI Pipeline">
     <meta property="og:description" content="Deterministic execution. Complete audit trails. AI autonomy your compliance team will actually approve.">
-    <meta property="og:url" content="https://buildorbit.polsia.app">
+    <meta property="og:url" content="/">
     <link rel="stylesheet" href="/css/buildorbit.css?v=20260502a">
     <link rel="stylesheet" href="/css/transitions.css?v=20260502a">
     <link rel="stylesheet" href="/css/orbital-theme.css?v=20260508b">
@@ -100,7 +100,7 @@
                 </div>
                 <div class="demo-chrome-url">
                     <span class="demo-chrome-lock">🔒</span>
-                    buildorbit.polsia.app/run
+                    buildorbit.com/run
                 </div>
                 <div class="demo-chrome-controls">
                     <button class="demo-restart-btn" id="demo-restart" title="Restart demo" aria-label="Restart demo">
@@ -517,7 +517,7 @@
                 <div class="footer-col">
                     <div class="footer-col-heading">Company</div>
                     <a href="/about" class="footer-link">About</a>
-                    <a href="mailto:careers@buildorbit.polsia.app" class="footer-link">Careers</a>
+                    <a href="mailto:careers@buildorbit.com" class="footer-link">Careers</a>
                     <a href="/terms" class="footer-link">Terms</a>
                     <a href="/privacy" class="footer-link">Privacy</a>
                 </div>
@@ -652,7 +652,7 @@
                     { type: 'verify-pass', text: 'Tests: 12/12 passing' },
                     { type: 'verify-pass', text: 'Auth flow verified' },
                     { type: 'verify-pass', text: 'DB migrations applied' },
-                    { type: 'verify-pass', text: 'App live at buildorbit.polsia.app' },
+                    { type: 'verify-pass', text: 'App live at buildorbit.com' },
                     { type: 'complete', text: 'BUILD COMPLETE' },
                 ]
             }
@@ -847,21 +847,5 @@
     })();
     </script>
 
-    <!-- Polsia Analytics -->
-    <script>
-    (function() {
-        var slug = 'buildorbit';
-        if (!slug) return;
-        var vid = localStorage.getItem('polsia_vid');
-        if (!vid) {
-            vid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                var r = Math.random() * 16 | 0;
-                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-            });
-            localStorage.setItem('polsia_vid', vid);
-        }
-        new Image().src = 'https://polsia.com/api/beacon/pixel?s=' + encodeURIComponent(slug) + '&v=' + encodeURIComponent(vid);
-    })();
-    </script>
 </body>
 </html>

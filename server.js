@@ -3545,15 +3545,11 @@ ${productCtxStr}`;
   }
 });
 
-// Landing page with analytics beacon injected
+// Landing page
 app.get('/', (req, res) => {
-  const slug = process.env.POLSIA_ANALYTICS_SLUG || '';
   const htmlPath = path.join(__dirname, 'public', 'index.html');
-
   if (fs.existsSync(htmlPath)) {
-    let html = fs.readFileSync(htmlPath, 'utf8');
-    html = html.replace('__POLSIA_SLUG__', slug);
-    res.type('html').send(html);
+    res.type('html').sendFile(htmlPath);
   } else {
     res.json({ message: 'BuildOrbit' });
   }
@@ -3853,7 +3849,7 @@ If multiple files change, include all of them. Always provide the COMPLETE file 
 - Only output files that actually change
 - Always include complete file content, never partial snippets
 - If the user asks about something unclear, ask a clarifying question before making changes
-- Keep the branding badge (<a href="https://buildorbit.polsia.app">) in place
+- Keep the branding badge (BuildOrbit link from APP_URL) in place
 - Maintain the existing code style and patterns`;
 
   // ── Stream response ───────────────────────────────────
@@ -4193,12 +4189,12 @@ function emitStateEvent(emit, event, isReplay = false, stagesWithOutput = null) 
       }
       emit('phase', { phase: stage, status: 'completed' });
     } else if (stage === 'save' && payload) {
-      // Pass githubPrUrl and polsiaAppUrl in the phase event so the frontend can show action buttons.
+      // Pass githubPrUrl and deployUrl in the phase event so the frontend can show action buttons.
       try {
         const _saveData = typeof payload === 'string' ? JSON.parse(payload) : payload;
         const _savePayload = {};
         if (_saveData && _saveData.githubPrUrl) _savePayload.githubPrUrl = _saveData.githubPrUrl;
-        if (_saveData && _saveData.polsiaAppUrl) _savePayload.polsiaAppUrl = _saveData.polsiaAppUrl;
+        if (_saveData && _saveData.deployUrl) _savePayload.deployUrl = _saveData.deployUrl;
         if (Object.keys(_savePayload).length > 0) {
           emit('phase', { phase: stage, status: 'completed', payload: _savePayload });
         } else {

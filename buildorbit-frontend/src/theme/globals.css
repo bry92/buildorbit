@@ -8,15 +8,25 @@ html, body {
   padding: 0;
   min-height: 100vh;
   color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(circle at 14% 10%, rgba(56, 189, 248, 0.14), transparent 18%),
-    radial-gradient(circle at 82% 16%, rgba(167, 139, 250, 0.08), transparent 20%),
-    linear-gradient(180deg, #060a14 0%, #04070d 100%);
+    radial-gradient(circle at 14% 10%, rgba(0, 212, 255, 0.12), transparent 18%),
+    radial-gradient(circle at 82% 16%, rgba(124, 58, 237, 0.11), transparent 20%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+}
+
+h1, h2, h3, h4, h5, h6,
+.dash-hero-title,
+.nb-title,
+.hy-title,
+.run-prompt,
+.page-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -32,7 +42,11 @@ a:hover {
 button {
   font-family: inherit;
   cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  transition:
+    transform var(--transition-med) var(--ease-orbit),
+    box-shadow var(--transition-med) var(--ease-orbit),
+    background var(--transition-med) var(--ease-orbit),
+    border-color var(--transition-med) var(--ease-orbit);
 }
 
 input, textarea, select {
@@ -67,14 +81,14 @@ select:focus {
 }
 
 button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.02);
 }
 
 .bo-card {
-  background: rgba(13, 20, 36, 0.75);
+  background: var(--gradient-panel);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-orbit);
   backdrop-filter: blur(var(--glass-blur));
 }
 
@@ -180,6 +194,7 @@ button:hover {
   background: var(--accent);
   flex-shrink: 0;
   box-shadow: 0 0 8px var(--accent);
+  animation: bo-orbital-drift 20s linear infinite;
 }
 
 .nav-divider {
@@ -301,18 +316,61 @@ button:hover {
   padding: 0 18px;
   border: none;
   border-radius: var(--radius-sm);
-  background: var(--accent);
-  color: #060a14;
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-orbit);
+  color: #050814;
   font-size: 13px;
   font-weight: 700;
   font-family: 'Space Grotesk', sans-serif;
   cursor: pointer;
-  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-med) var(--ease-orbit), box-shadow var(--transition-med) var(--ease-orbit), filter var(--transition-med) var(--ease-orbit);
   box-shadow: 0 0 16px var(--accent-glow);
 }
 
+.btn-primary::after,
+.run-pipeline-btn::after,
+.dash-hero-cta::after,
+.nb-submit::after,
+.hy-new-btn::after,
+.hy-empty-cta::after,
+.tub-cta::after,
+.upgrade-checkout-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hologram);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease-orbit);
+  pointer-events: none;
+}
+
+.run-pipeline-btn,
+.dash-hero-cta,
+.nb-submit,
+.hy-new-btn,
+.hy-empty-cta,
+.tub-cta,
+.upgrade-checkout-btn {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-orbit) !important;
+  color: #050814 !important;
+}
+
+.btn-primary:hover::after,
+.run-pipeline-btn:hover::after,
+.dash-hero-cta:hover::after,
+.nb-submit:hover::after,
+.hy-new-btn:hover::after,
+.hy-empty-cta:hover::after,
+.tub-cta:hover::after,
+.upgrade-checkout-btn:hover::after {
+  transform: translateX(120%);
+}
+
 .btn-primary:hover {
-  background: var(--accent-hover);
+  filter: saturate(1.12);
   box-shadow: 0 0 24px rgba(56, 189, 248, 0.4);
 }
 
@@ -363,12 +421,192 @@ button:hover {
   opacity: 1;
 }
 
-/* Loading spinner */
+/* Branded orbital loading state */
 .spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(56, 189, 248, 0.2);
-  border-top-color: var(--accent);
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(0, 212, 255, 0.34);
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.08), 0 0 14px rgba(0, 212, 255, 0.16);
+}
+
+.spinner::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 999px;
+  background: var(--orbital-cyan);
+  box-shadow: 0 0 12px var(--accent-glow);
+  transform-origin: 3px 14px;
+  animation: bo-loader-orbit 0.9s linear infinite;
+}
+
+.bo-animated-section {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: bo-section-enter 0.6s var(--ease-orbit) forwards;
+}
+
+@keyframes bo-section-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bo-orbital-drift {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bo-loader-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  button:hover {
+    transform: none;
+  }
+
+  .spinner::after {
+    animation: none !important;
+  }
+}
+
+/* Premium orbital surface system applied across existing route classes. */
+.dash-hero,
+.dash-recent-section,
+.trial-upgrade-banner,
+.nb-card,
+.nb-phases,
+.hy-list,
+.hy-filters,
+.admin-table-wrap,
+.admin-controls,
+.quickstart,
+.section,
+.run-header,
+.run-content-phases,
+.run-content-preview,
+.run-partial-banner,
+.rc-card,
+.bo-phase-card,
+.preview-panel,
+.sp-panel {
+  background: var(--gradient-panel);
+  border-color: var(--glass-border-subtle);
+  box-shadow: var(--shadow-orbit);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.dash-stat-card,
+.drs-item,
+.hy-item,
+.nb-phase-item,
+.token-item,
+.admin-table tbody tr,
+.bo-phase-card {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition:
+    transform var(--transition-med) var(--ease-orbit),
+    box-shadow var(--transition-med) var(--ease-orbit),
+    border-color var(--transition-med) var(--ease-orbit),
+    background var(--transition-med) var(--ease-orbit);
+}
+
+.dash-stat-card:hover,
+.drs-item:hover,
+.hy-item:hover,
+.nb-phase-item:hover,
+.token-item:hover,
+.bo-phase-card:hover {
+  transform: perspective(1000px) translateY(-2px) rotateX(0.5deg) rotateY(-0.5deg);
+  border-color: var(--glass-border-medium);
+  box-shadow: var(--shadow-orbit-hover);
+}
+
+.dash-stat-card,
+.drs-item,
+.hy-item,
+.nb-card,
+.nb-phases,
+.hy-list,
+.dash-recent-section,
+.run-header {
+  position: relative;
+}
+
+.dash-stat-card::before,
+.nb-card::before,
+.dash-recent-section::before,
+.run-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 212, 255, 0.16), transparent 32%, rgba(124, 58, 237, 0.12)),
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.025) 0, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 7px);
+  opacity: 0.36;
+  mix-blend-mode: screen;
+}
+
+.dash-stat-grid > *,
+.dis-pill,
+.drs-item,
+.hy-item,
+.nb-phase-item {
+  animation: bo-section-enter 0.55s var(--ease-orbit) both;
+}
+
+.dash-stat-grid > *:nth-child(1) { animation-delay: 0s; }
+.dash-stat-grid > *:nth-child(2) { animation-delay: 0.08s; }
+.dash-stat-grid > *:nth-child(3) { animation-delay: 0.16s; }
+.dash-stat-grid > *:nth-child(4) { animation-delay: 0.24s; }
+
+.drs-item:nth-child(1),
+.hy-item:nth-child(1) { animation-delay: 0s; }
+.drs-item:nth-child(2),
+.hy-item:nth-child(2) { animation-delay: 0.08s; }
+.drs-item:nth-child(3),
+.hy-item:nth-child(3) { animation-delay: 0.16s; }
+.drs-item:nth-child(4),
+.hy-item:nth-child(4) { animation-delay: 0.24s; }
+
+.intent-badge,
+.status-badge,
+.drs-status,
+.hy-status-label,
+.run-intent,
+.run-status,
+.queue-badge,
+.dash-system-status,
+.nb-credits {
+  border: 1px solid rgba(0, 212, 255, 0.14);
+  box-shadow: inset 0 0 12px rgba(0, 212, 255, 0.04);
+}
+
+@media (max-width: 768px) {
+  .dash-stat-card:hover,
+  .drs-item:hover,
+  .hy-item:hover,
+  .nb-phase-item:hover,
+  .token-item:hover,
+  .bo-phase-card:hover {
+    transform: translateY(-1px);
+  }
 }

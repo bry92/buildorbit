@@ -1,23 +1,32 @@
-/* BuildOrbit Design Tokens — Dark Cosmic Theme */
+/* BuildOrbit Design Tokens - premium orbital mission-control system */
 :root {
   /* Core backgrounds */
-  --bg: #060a14;
+  --bg: #0b0f19;
+  --bg-deep: #050814;
   --surface: rgba(13, 20, 36, 0.92);
   --surface-elevated: rgba(8, 12, 24, 0.96);
   --surface-soft: rgba(14, 21, 40, 0.75);
 
   /* Text hierarchy */
-  --text: #e2e8f0;
+  --text: #f0f4f8;
   --text-muted: #94a3b8;
   --text-dim: #5e7d98;
   --text-soft: #cbd5e1;
 
-  /* Accent — sky blue */
-  --accent: #38bdf8;
-  --accent-alt: #22d3ee;
-  --accent-hover: #0ea5e9;
-  --accent-soft: rgba(56, 189, 248, 0.14);
-  --accent-glow: rgba(56, 189, 248, 0.28);
+  /* Brand palette */
+  --deep-space-navy: #0b0f19;
+  --orbital-cyan: #00d4ff;
+  --stellar-white: #f0f4f8;
+  --accent-violet: #7c3aed;
+  --accent: var(--orbital-cyan);
+  --accent-alt: #7dd3fc;
+  --accent-hover: #38bdf8;
+  --accent-soft: rgba(0, 212, 255, 0.14);
+  --accent-glow: rgba(0, 212, 255, 0.32);
+  --violet-soft: rgba(124, 58, 237, 0.18);
+  --gradient-orbit: linear-gradient(135deg, var(--orbital-cyan) 0%, var(--accent-violet) 100%);
+  --gradient-panel: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(8, 13, 28, 0.86));
+  --gradient-hologram: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.42) 44%, rgba(255,255,255,0) 64%);
 
   /* Semantic */
   --success: #34d399;
@@ -26,10 +35,13 @@
 
   /* Glass system */
   --glass-bg: rgba(10, 16, 30, 0.75);
-  --glass-border: rgba(56, 189, 248, 0.22);
-  --glass-blur: 16px;
-  --glass-border-subtle: rgba(56, 189, 248, 0.1);
-  --glass-border-medium: rgba(56, 189, 248, 0.14);
+  --glass-border: rgba(0, 212, 255, 0.24);
+  --glass-blur: 18px;
+  --glass-border-subtle: rgba(0, 212, 255, 0.1);
+  --glass-border-medium: rgba(0, 212, 255, 0.16);
+  --shadow-orbit: 0 24px 80px rgba(0, 0, 0, 0.48), 0 0 36px rgba(0, 212, 255, 0.12);
+  --shadow-orbit-hover: 0 30px 96px rgba(0, 0, 0, 0.55), 0 0 48px rgba(0, 212, 255, 0.22);
+  --shadow-violet: 0 0 36px rgba(124, 58, 237, 0.26);
 
   /* Border radius */
   --radius-sm: 8px;
@@ -44,8 +56,16 @@
   --qa: #f59e0b;
   --ops: #8b5cf6;
 
-  /* Transitions */
-  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Motion */
+  --ease-orbit: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: var(--ease-orbit);
   --transition-fast: 0.16s;
   --transition-med: 0.28s;
+  --transition-slow: 0.6s;
+  --stagger-step: 0.08s;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', Inter, system-ui, sans-serif;
+  --font-body: Inter, 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }

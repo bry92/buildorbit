@@ -10,7 +10,7 @@ const CONFIG_DIR = join(homedir(), '.buildorbit');
 const CONFIG_FILE = join(CONFIG_DIR, 'config.json');
 const HISTORY_FILE = join(CONFIG_DIR, 'history.json');
 
-export const BASE_URL = 'https://buildorbit.polsia.app';
+export const BASE_URL = process.env.BUILDORBIT_URL || 'http://localhost:3000';
 
 function ensureDir() {
   if (!existsSync(CONFIG_DIR)) {

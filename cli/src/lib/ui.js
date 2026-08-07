@@ -160,5 +160,5 @@ export function printInfo(msg) {
 
 export function printHeader() {
   console.log(chalk.bold.cyan('\nBuildOrbit') + chalk.dim(' — deterministic 6-phase builder'));
-  console.log(chalk.dim('  buildorbit.polsia.app') + '\n');
+  console.log(chalk.dim('  buildorbit.com') + '\n');
 }

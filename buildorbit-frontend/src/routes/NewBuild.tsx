@@ -11,6 +11,7 @@ import {
   fetchGithubRepos,
   fetchBillingStatus,
 } from '../lib/api';
+import OrbitLoader from '../components/ui/OrbitLoader';
 import './NewBuild.css';
 
 interface GithubRepo {
@@ -190,7 +191,7 @@ export default function NewBuild() {
             disabled={!prompt.trim() || isSubmitting}
           >
             {isSubmitting ? (
-              <><span className="nb-spinner" /> Launching pipeline…</>
+              <OrbitLoader size="sm" label="Launching pipeline" />
             ) : (
               '⊕ Start Build'
             )}

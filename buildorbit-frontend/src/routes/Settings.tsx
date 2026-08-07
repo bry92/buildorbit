@@ -84,7 +84,7 @@ export default function Settings() {
           <div className="code-steps">
             <div className="code-step">
               <div className="step-num">1</div>
-              <code className="code-line">curl -sL https://buildorbit.polsia.app/cli/install.sh | sh</code>
+              <code className="code-line">curl -sL /cli/install.sh | sh</code>
             </div>
             <div className="code-step">
               <div className="step-num">2</div>

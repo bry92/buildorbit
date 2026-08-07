@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * BuildOrbit CLI — npm-publishable developer tool
- * Wraps the BuildOrbit A2A endpoint at buildorbit.polsia.app/a2a/execute
+ * Wraps the BuildOrbit A2A endpoint at buildorbit.com/a2a/execute
  *
  * Usage:
  *   buildorbit run "Build a SaaS landing page"
@@ -99,7 +99,7 @@ program
 
 // ── default help ───────────────────────────────────────────────────────────
 
-program.addHelpText('beforeAll', chalk.bold.cyan('\nBuildOrbit') + chalk.dim(' — buildorbit.polsia.app\n'));
+program.addHelpText('beforeAll', chalk.bold.cyan('\nBuildOrbit') + chalk.dim(' — buildorbit.com\n'));
 program.addHelpText('afterAll', `
 ${chalk.bold('Examples:')}
   ${chalk.cyan('buildorbit login')}

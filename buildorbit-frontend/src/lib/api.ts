@@ -143,7 +143,7 @@ export interface PipelineRun {
   current_phase: string | null;
   phases: Record<string, PhaseState>;
   github_pr_url?: string;
-  polsia_app_url?: string;
+  deploy_url?: string;
   created_at: string;
   cost?: number;
 }

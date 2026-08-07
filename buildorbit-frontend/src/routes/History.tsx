@@ -7,6 +7,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchHistory, type HistoryRun } from '../lib/api';
 import { fmtDuration, fmtTime } from '../lib/utils';
+import OrbitLoader from '../components/ui/OrbitLoader';
 import './History.css';
 
 const STATUS_FILTERS = ['all', 'completed', 'partial_success', 'failed', 'running', 'pending'] as const;
@@ -105,7 +106,7 @@ export default function History() {
         <div className="hy-list">
           {loading && runs.length === 0 ? (
             <div className="hy-loading">
-              <span className="spinner" /> Loading…
+              <OrbitLoader label="Loading history" />
             </div>
           ) : runs.length === 0 ? (
             <div className="hy-empty">

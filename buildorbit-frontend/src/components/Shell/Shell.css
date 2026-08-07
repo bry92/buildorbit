@@ -2,12 +2,9 @@
 .bo-shell {
   position: relative;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.16), transparent 16%),
-    radial-gradient(circle at 90% 22%, rgba(167, 139, 250, 0.08), transparent 18%),
-    linear-gradient(180deg, #060a14 0%, #04070d 100%);
+  background: var(--bg);
   color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   overflow: hidden;
 }
 
@@ -35,9 +32,11 @@
 
 /* Main content area — shifts right for sidebar */
 .bo-main {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   margin-left: var(--sb-w);
-  transition: margin-left 0.2s ease-out;
+  transition: margin-left 0.2s var(--ease-orbit);
 }
 
 /* Collapsed sidebar — reduce margin */

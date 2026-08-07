@@ -22,6 +22,8 @@ const https = require('https');
 
 // Layer 5: External Effect Verifier — email boundary health events
 const { emitProviderEvent, PROVIDER_EVENT_TYPES } = require('../../backend/src/email/provider-events');
+const { sendEmail } = require('../../backend/src/email/send');
+const { getAppUrl } = require('./app-url');
 
 // SECURITY: JWT_SECRET must be explicitly set — no fallbacks, no derivation.
 // Fail-fast at module load so the server never boots with a weak/missing secret.
@@ -467,62 +469,15 @@ function requireApiAuth(req, res, next) {
   next();
 }
 
-// ── Polsia email proxy helper ─────────────────────────────────────────────────
-
-/**
- * Send email via Polsia email proxy.
- * Canonical endpoint: https://polsia.com/api/proxy/email/send
- * Auth: Bearer ${POLSIA_API_KEY}
- * Never throws — returns { sent, reason }.
- */
-async function sendViaPolsiaProxy(to, subject, html, apiKey) {
-  // Plain-text fallback (strip tags)
-  const plainText = html.replace(/<[^>]+>/g, ' ').replace(/\s{2,}/g, ' ').trim();
-
-  try {
-    const response = await fetch('https://polsia.com/api/proxy/email/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type':  'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        to,
-        subject,
-        body: plainText,
-        html,
-      }),
-    });
-
-    let parsed = {};
-    try { parsed = await response.json(); } catch (_) { parsed = {}; }
-
-    if (response.ok) {
-      const msgId = parsed.messageId || parsed.id || 'proxy-ok';
-      console.log(`[Email Proxy SUCCESS] to=${to} subject="${subject}" msgId=${msgId}`);
-      return { sent: true, messageId: msgId };
-    } else {
-      console.error(`[Email Proxy REJECTED] to=${to} subject="${subject}" status=${response.status}`, parsed);
-      return { sent: false, reason: 'proxy_error', statusCode: response.status, response: parsed };
-    }
-  } catch (err) {
-    console.error(`[Email Proxy UNAVAILABLE] to=${to}:`, err.message);
-    return { sent: false, reason: 'proxy_network_error', error: err.message };
-  }
-}
-
 // ── Email delivery ─────────────────────────────────────────────────────────────
 
 /**
- * Send magic link email via the Polsia email proxy.
- *
- * Endpoint: https://polsia.com/api/proxy/email/send
- * Auth:     Bearer ${process.env.POLSIA_API_KEY}
+ * Send magic link email via Postmark.
  *
  * @returns {Promise<{sent: boolean, messageId?: string, reason?: string}>}
  */
 async function sendMagicLinkEmail(email, token, deviceContext = {}, pool = null, runId = null) {
-  const appUrl = 'https://buildorbit.polsia.app';
+  const appUrl = getAppUrl();
   const verifyUrl = `${appUrl}/auth/verify?token=${token}`;
 
   console.log('[Auth] Attempting magic link send to:', email);
@@ -560,13 +515,7 @@ async function sendMagicLinkEmail(email, token, deviceContext = {}, pool = null,
 </body>
 </html>`;
 
-  const apiKey = process.env.POLSIA_API_KEY;
-  if (!apiKey) {
-    console.error('[Auth] EMAIL_SEND_FAILED — POLSIA_API_KEY not set. Magic link:', verifyUrl);
-    return { sent: false, reason: 'no_api_key' };
-  }
-
-  const result = await sendViaPolsiaProxy(email, 'Your BuildOrbit magic link', html, apiKey);
+  const result = await sendEmail(email, 'Your BuildOrbit magic link', html);
 
   // Emit provider event for observability
   if (pool) {
@@ -574,7 +523,7 @@ async function sendMagicLinkEmail(email, token, deviceContext = {}, pool = null,
       ? PROVIDER_EVENT_TYPES.EMAIL_PROVIDER_ACCEPTED
       : PROVIDER_EVENT_TYPES.EMAIL_PROVIDER_REJECTED;
     emitProviderEvent(pool, eventType, {
-      provider:      'polsia_proxy',
+      provider:      'postmark',
       operation:     'magic_link_send',
       status:        result.sent ? 'accepted' : 'rejected',
       message_id:    result.messageId || null,

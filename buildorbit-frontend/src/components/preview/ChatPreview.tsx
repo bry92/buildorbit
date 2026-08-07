@@ -45,7 +45,7 @@ export default function ChatPreview({ runId }: ChatPreviewProps) {
           phases={run.phases}
           intentClass={run.intent_class}
           compact
-          polsiaAppUrl={run.polsia_app_url}
+          deployUrl={run.deploy_url}
         />
       )}
     </div>

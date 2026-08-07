@@ -1,11 +1,29 @@
 .bo-card {
-  background: var(--glass-bg);
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  background: var(--gradient-panel);
   backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border-subtle);
   border-radius: var(--radius);
   padding: 16px;
   box-shadow:
-    0 0 24px var(--accent-soft),
-    0 8px 32px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s var(--transition);
+    var(--shadow-orbit),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition:
+    transform var(--transition-med) var(--ease-orbit),
+    border-color var(--transition-med) var(--ease-orbit),
+    box-shadow var(--transition-med) var(--ease-orbit);
+}
+
+.bo-card:hover {
+  border-color: var(--glass-border-medium);
+  box-shadow: var(--shadow-orbit-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bo-card {
+    transform: none !important;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
 }

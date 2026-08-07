@@ -21,11 +21,11 @@ interface PreviewPanelProps {
   intentClass: string | null | undefined;
   /** Compact mode for chat widget inline cards */
   compact?: boolean;
-  /** Polsia app URL if deployed */
-  polsiaAppUrl?: string;
+  /** Live deploy URL if available */
+  deployUrl?: string;
 }
 
-export default function PreviewPanel({ phases, intentClass, compact, polsiaAppUrl }: PreviewPanelProps) {
+export default function PreviewPanel({ phases, intentClass, compact, deployUrl }: PreviewPanelProps) {
   const [showConsole, setShowConsole] = useState(!compact);
 
   const codePhase = phases.code;
@@ -75,8 +75,8 @@ export default function PreviewPanel({ phases, intentClass, compact, polsiaAppUr
             </div>
           ))}
         </div>
-        {polsiaAppUrl && (
-          <a href={polsiaAppUrl} target="_blank" rel="noreferrer" className="bo-preview-live-link">
+        {deployUrl && (
+          <a href={deployUrl} target="_blank" rel="noreferrer" className="bo-preview-live-link">
             View Live App →
           </a>
         )}
@@ -107,8 +107,8 @@ export default function PreviewPanel({ phases, intentClass, compact, polsiaAppUr
         js={assets.js}
         className={compact ? 'bo-preview-iframe-compact' : ''}
       />
-      {polsiaAppUrl && (
-        <a href={polsiaAppUrl} target="_blank" rel="noreferrer" className="bo-preview-live-link">
+      {deployUrl && (
+        <a href={deployUrl} target="_blank" rel="noreferrer" className="bo-preview-live-link">
           View Live App →
         </a>
       )}

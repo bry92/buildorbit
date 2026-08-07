@@ -129,7 +129,7 @@ DO NOT link to external Design DNA CSS files — use Tailwind classes exclusivel
 
 BRANDING REQUIREMENT — NON-NEGOTIABLE:
 - Every generated app MUST include this badge as the LAST element before </body> in index.html (or the main HTML entry file):
-  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 - This must appear in EVERY app regardless of type (landing page, interactive app, full product).
 - Place it AFTER all app content and any footer — it must be the very last visible element.
 - IMPORTANT: The badge is a footer addition, NOT a replacement for app content. The index.html MUST contain the full application UI above the badge.`;
@@ -3130,7 +3130,7 @@ VISUAL QUALITY STANDARDS — polished modern SaaS:
 16. MANDATORY: NO CDN scripts for React/ReactDOM/Babel in index.html. Vite handles all bundling.
 17. Every file must use the --- FILE: filename --- header format. No JSON wrapping.
 18. Generate ONLY the files listed in the scaffold contract. Do NOT skip any. Do NOT add unlisted files.
-19. BRANDING — add this badge as the LAST element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+19. BRANDING — add this badge as the LAST element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 20. CONTENT FIDELITY — If a BUSINESS NAME or APP NAME is specified, use that EXACT name in <title> and app header.`;
     } else if (isFullProduct && isSqliteBuild) {
       // ── PRODUCT_SYSTEM with dual-driver DB (pg + better-sqlite3) ─────────────
@@ -3176,7 +3176,7 @@ INTERACTIVITY STANDARDS — CRITICAL — every interactive element MUST be funct
 14. MANDATORY SEPARATE FILES — no inline CSS in <style> tags, no inline JS in <script> tags inside index.html
 15. Every file must use the --- FILE: filename --- header format. No JSON wrapping.
 16. Generate ONLY the files listed in the scaffold contract. Do NOT skip any. Do NOT add unlisted files.
-17. BRANDING — add this badge as the LAST element before </body> in index.html (after all app content): <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+17. BRANDING — add this badge as the LAST element before </body> in index.html (after all app content): <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 
 PRODUCT_SYSTEM ARCHITECTURE PATTERN (Dual-Driver DB) — follow this structure:
 - server.js: entry point, middleware chain (cors, json, static), route mounting, error handler. Wait for db.ready before app.listen()
@@ -3239,7 +3239,7 @@ INTERACTIVITY STANDARDS — CRITICAL — every interactive element MUST be funct
 17. MANDATORY SEPARATE FILES — no inline CSS in <style> tags, no inline JS in <script> tags inside index.html
 18. Every file must use the --- FILE: filename --- header format. No JSON wrapping.
 19. Generate ONLY the files listed in the scaffold contract. Do NOT skip any. Do NOT add unlisted files.
-20. BRANDING — add this badge as the LAST element before </body> in index.html (after all app content): <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+20. BRANDING — add this badge as the LAST element before </body> in index.html (after all app content): <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 
 PRODUCT_SYSTEM ARCHITECTURE PATTERN — follow this structure:
 - server.js: entry point, middleware chain, route mounting, error handler
@@ -3284,7 +3284,7 @@ VISUAL QUALITY STANDARDS — clean, modern SaaS:
 18. MANDATORY: NO CDN scripts for React/ReactDOM/Babel. Vite handles all bundling.
 19. Every file must use the --- FILE: filename --- header format. No JSON wrapping.
 20. Generate ONLY the files listed in the scaffold contract. Do NOT skip any. Do NOT add unlisted files.
-21. BRANDING — badge before </body>: <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+21. BRANDING — badge before </body>: <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 22. CONTENT FIDELITY — If a BUSINESS NAME or APP NAME is specified, use that EXACT name in <title> and app header.`;
     } else if (hasServerFiles) {
       rulesBlock = `CRITICAL RULES — violating these means the app won't work:
@@ -3363,7 +3363,7 @@ INTERACTIVITY STANDARDS — CRITICAL — every interactive element MUST be funct
     - If a BUSINESS NAME is specified (e.g. "called FreshPaws"), use that EXACT name in <title>, the main H1, footer copyright, and navbar. NEVER use the generic product description as the title.
     - If REQUESTED SECTIONS are listed (pricing, testimonials, gallery, etc.), each MUST be a dedicated HTML <section> with real content. Do NOT collapse them into a generic "Features" or "Benefits" grid.
     - If a specific CTA is requested (e.g. "booking CTA"), use that CTA text (e.g. "Book Now"), not "Get Started".
-12. BRANDING — add this badge as the last element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>`;
+12. BRANDING — add this badge as the last element before </body> in index.html: <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>`;
     }
 
     // ── USER-PROVIDED SCAFFOLD: override fileExamples + priorityBlock ────────
@@ -4526,7 +4526,7 @@ CONTENT FIDELITY RULE: If the user asked for "${prompt.slice(0, 80)}${prompt.len
           '<body class="bg-gray-50 min-h-screen antialiased">',
           '  <div id="root"></div>',
           '  <script type="text/babel" src="app.jsx"></script>',
-          '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+          '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
           '</body>',
           '</html>',
         ].join('\n');
@@ -4561,7 +4561,7 @@ CONTENT FIDELITY RULE: If the user asked for "${prompt.slice(0, 80)}${prompt.len
         `      <div id="itemList"></div>`,
         '    </div>',
         '  </main>',
-        '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+        '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
         '  <script src="app.js"></script>',
         '</body>',
         '</html>',
@@ -5302,7 +5302,7 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
           '  <footer class="bg-gray-800 text-gray-300 py-12 px-6 text-center">',
           `    <p>&copy; ${new Date().getFullYear()} ${_businessName}. All rights reserved.</p>`,
           '  </footer>',
-          '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+          '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
           '',
           '  <script src="script.js"></script>',
           '</body>',
@@ -5732,7 +5732,7 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
       '    </section>',
       '',
       '  </main>',
-      '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+      '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
       '',
       '  <script src="app.js"></script>',
       '</body>',
@@ -5799,7 +5799,7 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
       '    </div>',
       '',
       '  </main>',
-      '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+      '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
       '',
       '  <script src="app.js"></script>',
       '</body>',
@@ -6185,7 +6185,7 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
       '  <footer class="bg-gray-800 text-gray-300 py-10 px-6 text-center text-sm">',
       `    <p>&copy; ${new Date().getFullYear()} ${title}. All rights reserved.</p>`,
       '  </footer>',
-      '  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
+      '  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#9ca3af;text-decoration:none">Built with 🛞 BuildOrbit</a></div>',
       '',
       '  <script src="script.js"></script>',
       '</body>',
@@ -6879,7 +6879,7 @@ ${planContext ? `Architecture context:\n${planContext.slice(0, 800)}\n` : ''}Rul
 
   </main>
 
-  <div style="text-align:center;padding:12px 0 8px"><a href="https://buildorbit.polsia.app" target="_blank" rel="noopener" style="font-size:0.75rem;color:#6b7280;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
+  <div style="text-align:center;padding:12px 0 8px"><a href="${process.env.APP_URL || 'http://localhost:3000'}" target="_blank" rel="noopener" style="font-size:0.75rem;color:#6b7280;text-decoration:none">Built with 🛞 BuildOrbit</a></div>
 
   <script src="app.js"></script>
 </body>

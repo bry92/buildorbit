@@ -1,8 +1,7 @@
 /**
  * backend/src/email/transactional.js
  *
- * Transactional email service for BuildOrbit.
- * All sends go through the Polsia email proxy (https://polsia.com/api/proxy/email/send).
+ * Transactional email service for BuildOrbit (Postmark).
  *
  * Templates:
  *   Welcome               — on account creation
@@ -10,16 +9,14 @@
  *   Credit Warning        — when task_credits drops to ≤ 2
  *   Subscription Confirm  — after Stripe checkout.session.completed
  *   Pipeline Complete     — after a pipeline run finishes verify stage
- *
- * Design rules:
- *   - Never throws. All failures are logged and swallowed.
- *   - Fire-and-forget safe: callers don't need to await unless they want the result.
- *   - HTML matches BuildOrbit dark theme (#0a0a0f bg, #00e5a0 teal, zinc text).
  */
 
 'use strict';
 
-const APP_URL = process.env.APP_URL || 'https://buildorbit.polsia.app';
+const { sendEmail } = require('./send');
+const { getAppUrl } = require('../../../src/lib/app-url');
+
+const APP_URL = getAppUrl();
 
 // ── HTML helpers ──────────────────────────────────────────────────────────────
 
@@ -31,10 +28,6 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-/**
- * Wraps inner content in the shared BuildOrbit email shell.
- * Dark background, teal brand header, clean sans-serif.
- */
 function emailShell(innerHtml) {
   return `<!DOCTYPE html>
 <html>
@@ -46,7 +39,7 @@ function emailShell(innerHtml) {
       ${innerHtml}
       <hr style="margin:28px 0;border:none;border-top:1px solid #2a2a3a;">
       <p style="margin:0;font-size:0.75rem;color:#555570;">
-        <a href="${APP_URL}" style="color:#00e5a0;text-decoration:none;">buildorbit.polsia.app</a> · Transactional message — no unsubscribe needed.
+        <a href="${APP_URL}" style="color:#00e5a0;text-decoration:none;">${escapeHtml(APP_URL)}</a> · Transactional message — no unsubscribe needed.
       </p>
     </td></tr>
   </table>
@@ -129,7 +122,6 @@ function pipelineCompleteHtml(prompt, runId, liveUrl = null) {
     ? escapeHtml(prompt.slice(0, 117)) + '…'
     : escapeHtml(prompt || 'Your build');
 
-  // Build the full live URL (absolute) if a relative path is provided
   const fullLiveUrl = liveUrl
     ? (liveUrl.startsWith('http') ? liveUrl : `${APP_URL}${liveUrl}`)
     : null;
@@ -166,133 +158,32 @@ function pipelineCompleteHtml(prompt, runId, liveUrl = null) {
   `);
 }
 
-// ── Core send ─────────────────────────────────────────────────────────────────
-
-/**
- * Send a transactional email via the Polsia email proxy.
- *
- * Endpoint: https://polsia.com/api/proxy/email/send
- * Auth:     Bearer ${process.env.POLSIA_API_KEY}
- *
- * Graceful failure: never throws. Returns { sent: boolean, reason? }.
- *
- * @param {string} to      - Recipient email address
- * @param {string} subject - Email subject line
- * @param {string} html    - Full HTML body
- * @returns {Promise<{ sent: boolean, messageId?: string, reason?: string }>}
- */
-async function sendTransactionalEmail(to, subject, html) {
-  const apiKey = process.env.POLSIA_API_KEY;
-  if (!apiKey) {
-    console.warn(`[Transactional] POLSIA_API_KEY not set — skipping email to ${to} ("${subject}")`);
-    return { sent: false, reason: 'no_api_key' };
-  }
-
-  // Plain-text fallback (strip tags)
-  const plainText = html.replace(/<[^>]+>/g, ' ').replace(/\s{2,}/g, ' ').trim();
-
-  try {
-    const response = await fetch('https://polsia.com/api/proxy/email/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        to,
-        subject,
-        body: plainText,
-        html,
-      }),
-    });
-
-    let parsed = {};
-    try { parsed = await response.json(); } catch (_) { parsed = {}; }
-
-    if (response.ok) {
-      const msgId = parsed.messageId || parsed.id || 'proxy-ok';
-      console.log(`[Email Proxy SUCCESS] to=${to} subject="${subject}" msgId=${msgId}`);
-      return { sent: true, messageId: msgId };
-    } else {
-      console.error(`[Email Proxy REJECTED] to=${to} subject="${subject}" status=${response.status}`, parsed);
-      return { sent: false, reason: 'proxy_error', statusCode: response.status, response: parsed };
-    }
-  } catch (err) {
-    console.error(`[Email Proxy UNAVAILABLE] to=${to}:`, err.message);
-    return { sent: false, reason: 'network_error', error: err.message };
-  }
-}
-
 // ── Named senders (public API) ────────────────────────────────────────────────
 
-/**
- * Welcome email — fire after account creation.
- * @param {string} email
- */
+async function sendTransactionalEmail(to, subject, html) {
+  return sendEmail(to, subject, html);
+}
+
 async function sendWelcomeEmail(email) {
-  return sendTransactionalEmail(
-    email,
-    'Welcome to BuildOrbit',
-    welcomeHtml(email)
-  );
+  return sendTransactionalEmail(email, 'Welcome to BuildOrbit', welcomeHtml(email));
 }
 
-/**
- * Password reset email — fire when user requests a reset.
- * @param {string} email
- * @param {string} resetUrl - Full URL with token (expires 30 min)
- */
 async function sendPasswordResetEmail(email, resetUrl) {
-  return sendTransactionalEmail(
-    email,
-    'Reset your BuildOrbit password',
-    passwordResetHtml(resetUrl)
-  );
+  return sendTransactionalEmail(email, 'Reset your BuildOrbit password', passwordResetHtml(resetUrl));
 }
 
-/**
- * Credit warning email — fire when user's task_credits drops to ≤ 2.
- * @param {string} email
- * @param {number} creditsRemaining
- */
 async function sendCreditWarningEmail(email, creditsRemaining) {
-  return sendTransactionalEmail(
-    email,
-    "You're almost out of credits",
-    creditWarningHtml(creditsRemaining)
-  );
+  return sendTransactionalEmail(email, "You're almost out of credits", creditWarningHtml(creditsRemaining));
 }
 
-/**
- * Subscription confirmation email — fire after Stripe checkout success.
- * @param {string} email
- */
 async function sendSubscriptionConfirmationEmail(email) {
-  return sendTransactionalEmail(
-    email,
-    "You're on the $49/month plan",
-    subscriptionConfirmationHtml()
-  );
+  return sendTransactionalEmail(email, "You're on the $49/month plan", subscriptionConfirmationHtml());
 }
 
-/**
- * Pipeline complete notification — fire when all stages complete.
- * @param {string} email
- * @param {object} opts
- * @param {string} opts.prompt   - Original build prompt
- * @param {string} opts.runId    - Pipeline run ID
- * @param {string} [opts.liveUrl] - Live URL (relative path, e.g. /live/{runId}/) if deployed
- */
 async function sendPipelineCompleteEmail(email, { prompt, runId, liveUrl = null }) {
   const subject = liveUrl ? 'Your site is live 🎉' : 'Your build is ready';
-  return sendTransactionalEmail(
-    email,
-    subject,
-    pipelineCompleteHtml(prompt, runId, liveUrl)
-  );
+  return sendTransactionalEmail(email, subject, pipelineCompleteHtml(prompt, runId, liveUrl));
 }
-
-// ── Exports ───────────────────────────────────────────────────────────────────
 
 module.exports = {
   sendTransactionalEmail,

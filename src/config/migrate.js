@@ -61,7 +61,7 @@ async function migrate() {
  */
 async function runCoreMigrations(client) {
   // Users table with subscription support
-  // Used by Polsia for syncing end-user subscription status
+  // Subscription status synced from Stripe webhooks
   await client.query(`
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
@@ -70,7 +70,7 @@ async function runCoreMigrations(client) {
       password_hash VARCHAR(255),
       created_at TIMESTAMPTZ DEFAULT NOW(),
       updated_at TIMESTAMPTZ DEFAULT NOW(),
-      -- Subscription fields (synced by Polsia when customer subscribes)
+      -- Subscription fields (synced from Stripe)
       stripe_subscription_id VARCHAR(255),
       subscription_status VARCHAR(50) DEFAULT 'trial',
       subscription_plan VARCHAR(255),

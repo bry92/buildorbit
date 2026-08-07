@@ -11,6 +11,7 @@ import ReasoningCard from '../components/pipeline/ReasoningCard';
 import { type PhaseStatus } from '../components/pipeline/StatusBadge';
 import PreviewPanel from '../components/preview/PreviewPanel';
 import ScaffoldPreviewPanel from '../components/preview/ScaffoldPreviewPanel';
+import OrbitLoader from '../components/ui/OrbitLoader';
 import { isServerProject, extractPreviewAssets, extractPreviewFromCodeString } from '../lib/previewAssets';
 import { useRun } from '../state/runContext';
 import { useUIState } from '../state/uiState';
@@ -25,6 +26,21 @@ const PHASE_META = [
   { key: 'save',        label: 'Save',        icon: '💾', desc: 'Commit & deploy to GitHub' },
   { key: 'verify',      label: 'Verify',      icon: '✅', desc: 'Test, screenshot & validate' },
 ];
+
+const RUN_INTENT_LABELS: Record<string, string> = {
+  static_surface: 'Static Surface',
+  light_app: 'Interactive App',
+  interactive_light_app: 'Interactive App',
+  soft_expansion: 'Adaptive Build',
+  full_product: 'Product System',
+  product_system: 'Product System',
+};
+
+function formatRunIntent(value: string) {
+  const normalized = value.toLowerCase();
+  return RUN_INTENT_LABELS[normalized] ??
+    value.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
 
 /** Map a PhaseState from the API onto a PipelinePhase shape for PipelineView. */
 function buildPhases(phases: Record<string, PhaseState>, activePhase: string | null): PipelinePhase[] {
@@ -323,8 +339,7 @@ export default function Run() {
       <main className="run-main">
         {loading ? (
           <div className="run-loading">
-            <div className="spinner" />
-            <span>Loading run…</span>
+            <OrbitLoader label="Loading run" />
           </div>
         ) : error ? (
           <div className="run-error-box">
@@ -341,7 +356,7 @@ export default function Run() {
                 <div className="run-meta">
                   <span className="run-id">#{runId?.slice(0, 8)}</span>
                   {run.intent_class && (
-                    <span className="run-intent">{run.intent_class}</span>
+                    <span className="run-intent">{formatRunIntent(run.intent_class)}</span>
                   )}
                   <span className={`run-status run-status--${run.status}`}>
                     {run.status}
@@ -350,8 +365,7 @@ export default function Run() {
               </div>
               {isRunning && wsState === 'reconnecting' ? (
                 <div className="run-reconnect-indicator">
-                  <div className="run-reconnect-spinner" />
-                  Reconnecting…
+                  <OrbitLoader size="sm" label="Reconnecting" />
                 </div>
               ) : isRunning ? (
                 <div className="run-live-indicator">
@@ -375,7 +389,7 @@ export default function Run() {
                   <PreviewPanel
                     phases={phases}
                     intentClass={run.intent_class}
-                    polsiaAppUrl={run.polsia_app_url}
+                    deployUrl={run.deploy_url}
                   />
                 </div>
               </div>
@@ -434,9 +448,9 @@ export default function Run() {
                     View PR →
                   </a>
                 )}
-                {run.polsia_app_url && (
+                {run.deploy_url && (
                   <a
-                    href={run.polsia_app_url}
+                    href={run.deploy_url}
                     target="_blank"
                     rel="noreferrer"
                     className="run-action-btn"

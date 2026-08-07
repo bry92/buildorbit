@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import OrbitLoader from '../ui/OrbitLoader';
 
 interface LivePreviewProps {
   html: string;
@@ -200,7 +201,7 @@ export function BuildOrbitPreview({
       >
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center text-cyan-300/60 text-sm">
-            Rendering BuildOrbit preview…
+            <OrbitLoader label="Rendering BuildOrbit preview" />
           </div>
         )}
 

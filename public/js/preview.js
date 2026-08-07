@@ -78,7 +78,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://buildorbit.polsia.app/css/design-dna.css">
+  <link rel="stylesheet" href="/css/design-dna.css">
   ${cssContent}
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>

@@ -8,7 +8,7 @@ buildorbit run "Build a SaaS waitlist page with email capture"
 
 ```
 BuildOrbit — deterministic 6-phase builder
-  buildorbit.polsia.app
+  buildorbit.com
 
 🔍 [1/6] INTENT_GATE ━━━━━━━━━━────────────── generating...
 🔍 [1/6] INTENT_GATE ━━━━━━━━━━────────────── done
@@ -41,7 +41,7 @@ BuildOrbit — deterministic 6-phase builder
     Verify: 3/3 checks passed
 
     Live:      https://...
-    Artifacts: https://buildorbit.polsia.app/a2a/artifacts/...
+    Artifacts: /a2a/artifacts/...
     Run ID:    abc12345-...
 ────────────────────────────────────────────────────────────
 
@@ -56,7 +56,7 @@ npm install -g buildorbit
 
 ## Authentication
 
-Get your API key at **https://buildorbit.polsia.app/settings/api-keys**, then:
+Get your API key at **/settings/api-keys**, then:
 
 ```bash
 buildorbit login

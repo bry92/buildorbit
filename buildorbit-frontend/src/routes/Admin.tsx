@@ -5,6 +5,7 @@
  */
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { api } from '../lib/api';
+import OrbitLoader from '../components/ui/OrbitLoader';
 import './Admin.css';
 
 interface AdminUser {
@@ -125,7 +126,7 @@ export default function Admin() {
   if (isAdmin === null) {
     return (
       <div className="admin-page">
-        <div className="admin-loading"><div className="admin-spinner" /><span>Checking access…</span></div>
+        <div className="admin-loading"><OrbitLoader label="Checking access" /></div>
       </div>
     );
   }
@@ -211,7 +212,7 @@ export default function Admin() {
           <tbody>
             {loading ? (
               <tr><td colSpan={8} className="td-empty">
-                <div className="admin-spinner-row"><div className="admin-spinner" /> Loading users…</div>
+                <div className="admin-spinner-row"><OrbitLoader label="Loading users" /></div>
               </td></tr>
             ) : filteredUsers.length === 0 ? (
               <tr><td colSpan={8} className="td-empty">

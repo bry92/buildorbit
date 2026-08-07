@@ -435,10 +435,10 @@
     btn.style.display = 'inline-flex';
   }
 
-  // ── Polsia live app button ─────────────────────────────
-  function showPolsiaLiveButton(liveUrl) {
+  // ── Live deploy button ─────────────────────────────────
+  function showLiveDeployButton(liveUrl) {
     if (!liveUrl) return;
-    const btn = $('btn-polsia-live');
+    const btn = $('btn-live-deploy');
     if (!btn) return;
     btn.href = liveUrl;
     btn.style.display = 'inline-flex';
@@ -828,7 +828,7 @@
           try {
             const p = typeof payload === 'string' ? JSON.parse(payload) : payload;
             if (p && p.githubPrUrl) showGitHubPrButton(p.githubPrUrl);
-            if (p && p.polsiaAppUrl) showPolsiaLiveButton(p.polsiaAppUrl);
+            if (p && p.deployUrl) showLiveDeployButton(p.deployUrl);
           } catch(_) {}
         }
       } else if (status === 'failed') {
@@ -1039,9 +1039,9 @@
         showGitHubPrButton(run.github_pr_url);
       }
 
-      // Show "View Live App" button if this run has a Polsia CDN URL
-      if (run.polsia_app_url) {
-        showPolsiaLiveButton(run.polsia_app_url);
+      // Show "View Live App" button if this run has a deploy URL
+      if (run.deploy_url) {
+        showLiveDeployButton(run.deploy_url);
       }
 
       // Show catastrophic block banner if a block was persisted on this run

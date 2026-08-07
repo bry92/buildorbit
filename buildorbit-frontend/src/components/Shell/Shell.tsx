@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import './Shell.css';
 import Sidebar, { useSidebarCollapse } from './Sidebar';
 import ChatWidget from '../ChatWidget/ChatWidget';
+import OrbitalBackground from '../fx/OrbitalBackground';
 import { RunProvider } from '../../state/runContext';
 import { UIProvider, useUIState } from '../../state/uiState';
 
@@ -29,6 +30,7 @@ function ShellContent() {
 
   return (
     <div className={`bo-shell${collapsed ? ' bo-shell--sb-collapsed' : ''}`}>
+      <OrbitalBackground />
       <Sidebar collapsed={collapsed} onToggle={toggle} />
       <main className="bo-main">
         <Outlet />

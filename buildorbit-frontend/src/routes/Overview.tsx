@@ -108,7 +108,7 @@ export default function Overview() {
             <div className="ov-hero-orbit orbit-large" />
             <div className="ov-hero-core" />
           </div>
-          <a href="https://buildorbit.polsia.app" className="ov-cta-btn">
+          <a href="/new" className="ov-cta-btn">
             Try BuildOrbit
           </a>
         </section>
@@ -205,7 +205,7 @@ export default function Overview() {
           <div className="ov-section-label">Current Status</div>
           <h2 className="ov-section-heading">Live and running.</h2>
           <p className="ov-section-body">
-            Available at buildorbit.polsia.app with GitHub OAuth connected, persistent agent
+            Available at buildorbit.com with GitHub OAuth connected, persistent agent
             sidebar, repo aware execution, multi language support, and inline copilot execution.
           </p>
           <div className="ov-status-pills">
@@ -227,7 +227,7 @@ export default function Overview() {
         {/* ── CTA ── */}
         <section className="ov-cta-section">
           <h2 className="ov-cta-heading">Ready to own your agent output?</h2>
-          <a href="https://buildorbit.polsia.app" className="ov-cta-btn ov-cta-btn-lg">
+          <a href="/new" className="ov-cta-btn ov-cta-btn-lg">
             Try BuildOrbit
           </a>
         </section>

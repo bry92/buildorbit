@@ -18,10 +18,13 @@
   width: var(--sb-w);
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, rgba(8, 12, 24, 0.96), rgba(10, 14, 28, 0.98));
+  background:
+    linear-gradient(180deg, rgba(8, 12, 24, 0.96), rgba(10, 14, 28, 0.98)),
+    radial-gradient(circle at 20% 0%, rgba(0, 212, 255, 0.12), transparent 34%);
   backdrop-filter: blur(18px);
-  border-right: 1px solid rgba(56, 189, 248, 0.08);
-  transition: width 0.2s ease-out, background 0.2s;
+  border-right: 1px solid rgba(0, 212, 255, 0.12);
+  box-shadow: 12px 0 44px rgba(0, 0, 0, 0.26);
+  transition: width 0.2s var(--ease-orbit), background 0.2s var(--ease-orbit);
   overflow: hidden;
 }
 
@@ -65,7 +68,7 @@
   background: var(--accent);
   box-shadow: 0 0 10px var(--accent-glow);
   flex-shrink: 0;
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: pulse-glow 3s ease-in-out infinite, bo-orbital-drift 20s linear infinite;
 }
 
 .sb-logo-text {
@@ -97,7 +100,7 @@
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
-  transition: color 0.15s, background 0.15s;
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
   position: relative;
 }
@@ -110,11 +113,12 @@
 .sb-link:hover {
   color: var(--text);
   background: rgba(56, 189, 248, 0.06);
+  transform: translateX(2px);
 }
 
 .sb-link--active {
   color: var(--accent);
-  background: rgba(56, 189, 248, 0.08);
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.14), rgba(124, 58, 237, 0.08));
 }
 
 .sb-link--active::before {
@@ -156,7 +160,9 @@
   margin: 0 8px 8px;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.06) 100%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.16) 0%, rgba(124, 58, 237, 0.13) 100%);
   border: 1px solid rgba(56, 189, 248, 0.25);
   color: var(--accent);
   text-decoration: none;
@@ -168,6 +174,19 @@
   transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.08);
   flex-shrink: 0;
+}
+
+.sb-upgrade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hologram);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease-orbit);
+}
+
+.sb-upgrade:hover::after {
+  transform: translateX(120%);
 }
 
 .sb-upgrade:hover {

@@ -12,7 +12,7 @@ const express = require('express');
 const crypto  = require('crypto');
 const { sendSubscriptionConfirmationEmail } = require('../../backend/src/email/transactional');
 
-// Stripe subscription link ($29/month, created 2026-05-13 via Polsia Stripe MCP)
+// Stripe payment link ($29/month subscription)
 const STRIPE_SUBSCRIPTION_LINK = 'https://buy.stripe.com/3cIdRb8ec1uD2Bz0f05sA02';
 const APP_URL = process.env.APP_URL || 'http://localhost:3000';
 

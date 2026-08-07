@@ -1,9 +1,9 @@
 # BuildOrbit Subagent Descriptor
 # Machine-readable descriptor for A2A (Agent-to-Agent) protocol integration.
-# Also available at: https://buildorbit.polsia.app/a2a/descriptor (JSON)
+# Also available at: /a2a/descriptor (JSON)
 #
 # Usage from Gemini CLI or any A2A client:
-#   curl -X POST https://buildorbit.polsia.app/a2a/execute \
+#   curl -X POST /a2a/execute \
 #     -H "Authorization: Bearer <api_key>" \
 #     -H "Content-Type: application/json" \
 #     -H "Accept: text/event-stream" \
@@ -16,13 +16,13 @@ description: >
   request through a typed, gated pipeline with immutable constraints, binding manifests,
   and mandatory verification. You see every phase as it executes.
 version: "1.0.0"
-endpoint: https://buildorbit.polsia.app/a2a/execute
-descriptor_url: https://buildorbit.polsia.app/a2a/descriptor
+endpoint: /a2a/execute
+descriptor_url: /a2a/descriptor
 
 auth:
   type: bearer
   header: "Authorization: Bearer <api_key>"
-  obtain_key: "POST https://buildorbit.polsia.app/a2a/keys (requires session auth)"
+  obtain_key: "POST /a2a/keys (requires session auth)"
   key_format: "bk_<48-hex-chars>"
 
 rate_limits:
@@ -229,13 +229,13 @@ differentiators:
 
 example_curl: |
   # Create an API key (one time, via web auth):
-  curl -X POST https://buildorbit.polsia.app/a2a/keys \
+  curl -X POST /a2a/keys \
     -H "Cookie: bo_session=<your_session>" \
     -H "Content-Type: application/json" \
     -d '{"name": "gemini-cli"}'
 
   # Execute a build and stream phases:
-  curl -X POST https://buildorbit.polsia.app/a2a/execute \
+  curl -X POST /a2a/execute \
     -H "Authorization: Bearer bk_your_key_here" \
     -H "Content-Type: application/json" \
     -H "Accept: text/event-stream" \
@@ -246,5 +246,5 @@ example_curl: |
     }'
 
   # Check status of a run:
-  curl https://buildorbit.polsia.app/a2a/status/<run_id> \
+  curl /a2a/status/<run_id> \
     -H "Authorization: Bearer bk_your_key_here"

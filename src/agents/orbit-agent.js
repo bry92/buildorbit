@@ -72,7 +72,7 @@ class Orbit {
         this._openai = false; // sentinel: tried, unavailable
         return null;
       }
-      // Use Polsia's OpenAI proxy if OPENAI_BASE_URL is set (preferred in production)
+      // Optional custom OpenAI-compatible base URL (OPENAI_BASE_URL)
       this._openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
         ...(process.env.OPENAI_BASE_URL ? { baseURL: process.env.OPENAI_BASE_URL } : {}),
